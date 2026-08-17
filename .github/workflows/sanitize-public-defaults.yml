@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - .github/workflows/sanitize-public-defaults.yml
+      - .github/sanitize-trigger
 
 permissions:
   contents: write
