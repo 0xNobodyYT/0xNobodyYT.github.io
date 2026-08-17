@@ -66,15 +66,6 @@ jobs:
           }'''
           rep(old_units, new_units)
 
-          marker = '''  <div class="sep"></div>
-          <div class="grid4">
-           <div class="field"><label>Current character level</label>'''
-          privacy = '''  <div class="sep"></div>
-          <div class="notice" style="margin-bottom:10px"><b>Your account values stay on your device.</b> Personal fields start blank and are only stored in this browser when you save/use the planner.</div>
-          <div class="grid4">
-           <div class="field"><label>Current character level</label>'''
-          rep(marker, privacy)
-
           rep('return {v:23,values:v,core:JSON.parse(JSON.stringify(core))}', 'return {v:24,values:v,core:JSON.parse(JSON.stringify(core))}')
           rep('localStorage.setItem("sxsPlannerV23"', 'localStorage.setItem("sxsPlannerV24"')
           rep('a.download="sword-x-staff-plan-v23.json"', 'a.download="sword-x-staff-plan-v24.json"')
