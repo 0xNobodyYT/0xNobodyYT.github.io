@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="0xNobody">
 <meta name="color-scheme" content="dark">
-<title>Sword x Staff — Season & Realm Planner v23</title>
+<title>Sword x Staff — Season & Realm Planner v24</title>
 <style>
 :root{
  --bg:#090c12;--panel:#121822;--panel2:#171f2b;--ink:#f4f7fb;--muted:#9babbe;
@@ -187,10 +187,10 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <div class="notice warn" id="saveXpAdvice" style="margin-top:10px;display:none">At the save time, stop claiming natural Bed EXP and turn off Quick Claim so the reserve is not collected before the season changes. You can still use boost hours.</div>
   <div class="sep"></div>
   <div class="grid4">
-   <div class="field"><label>Current character level</label><input id="charLevel" type="number" step="1" value="113"></div>
-   <div class="field"><label>Current EXP into level</label><input id="charXp" type="number" step="any" value="336000"></div>
-   <div class="field"><label>EXP required this level</label><input id="charNeed" type="number" step="any" value="1390000"></div>
-   <div class="field"><label>EXP / hour</label><input id="xpHr" type="number" step="any" value="71461"></div>
+   <div class="field"><label>Current character level</label><input id="charLevel" type="number" step="1" value="" placeholder="Enter level"></div>
+   <div class="field"><label>Current EXP into level</label><input id="charXp" type="number" step="any" value="" placeholder="EXP into level"></div>
+   <div class="field"><label>EXP required this level</label><input id="charNeed" type="number" step="any" value="" placeholder="Optional if formula is on"></div>
+   <div class="field"><label>EXP / hour</label><input id="xpHr" type="number" step="any" value="" placeholder="EXP per hour"></div>
   </div>
   <details>
    <summary>Advanced EXP settings</summary>
@@ -218,7 +218,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <div class="grid2">
    <div class="field">
     <label>Target final season Primostars</label>
-    <input id="goalAwarded" type="number" step="1" min="10" value="152">
+    <input id="goalAwarded" type="number" step="1" min="10" value="" placeholder="Target Primostars">
    </div>
    <div class="field">
     <label>Required progression score</label>
@@ -250,8 +250,8 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  <div class="cardbody">
   <div class="notice">Gear score uses the <b>total seasonal levels across all five slots</b>. Example: 147 total seasonal gear levels × 38 = 5,586 score. A balanced 147-level target from a 100 floor is <b>130 / 130 / 129 / 129 / 129</b>.</div>
   <div class="batch">
-   <div class="field"><label>Set all current gear</label><input id="gearAllCur" type="number" value="100"></div><button class="btn" id="gearApplyCur">Apply current</button>
-   <div class="field"><label>Set all planned gear</label><input id="gearAllTar" type="number" value="130"></div><button class="btn" id="gearApplyTar">Apply planned</button>
+   <div class="field"><label>Set all current gear</label><input id="gearAllCur" type="number" value="" placeholder="Current"></div><button class="btn" id="gearApplyCur">Apply current</button>
+   <div class="field"><label>Set all planned gear</label><input id="gearAllTar" type="number" value="" placeholder="Planned"></div><button class="btn" id="gearApplyTar">Apply planned</button>
   </div>
   <div class="unitgrid" id="gearGrid">
    <div class="hd">Slot</div><div class="hd">Current</div><div></div><div class="hd">Planned</div>
@@ -265,8 +265,8 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  <div class="cardhead"><h2>4. Skills · 8 slots · Essence</h2><span class="chip">+13 score / seasonal level</span></div>
  <div class="cardbody">
   <div class="batch">
-   <div class="field"><label>Set all current skills</label><input id="skillAllCur" type="number" value="100"></div><button class="btn" id="skillApplyCur">Apply current</button>
-   <div class="field"><label>Set all planned skills</label><input id="skillAllTar" type="number" value="115"></div><button class="btn" id="skillApplyTar">Apply planned</button>
+   <div class="field"><label>Set all current skills</label><input id="skillAllCur" type="number" value="" placeholder="Current"></div><button class="btn" id="skillApplyCur">Apply current</button>
+   <div class="field"><label>Set all planned skills</label><input id="skillAllTar" type="number" value="" placeholder="Planned"></div><button class="btn" id="skillApplyTar">Apply planned</button>
   </div>
   <div class="unitgrid" id="skillGrid">
    <div class="hd">Skill</div><div class="hd">Current</div><div></div><div class="hd">Planned</div>
@@ -279,8 +279,8 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  <div class="cardhead"><h2>5. Fantomons · 4 deployed</h2><span class="chip">+14 score / seasonal level</span></div>
  <div class="cardbody">
   <div class="batch">
-   <div class="field"><label>Set all current Fantomons</label><input id="fantAllCur" type="number" value="100"></div><button class="btn" id="fantApplyCur">Apply current</button>
-   <div class="field"><label>Set all planned Fantomons</label><input id="fantAllTar" type="number" value="115"></div><button class="btn" id="fantApplyTar">Apply planned</button>
+   <div class="field"><label>Set all current Fantomons</label><input id="fantAllCur" type="number" value="" placeholder="Current"></div><button class="btn" id="fantApplyCur">Apply current</button>
+   <div class="field"><label>Set all planned Fantomons</label><input id="fantAllTar" type="number" value="" placeholder="Planned"></div><button class="btn" id="fantApplyTar">Apply planned</button>
   </div>
   <div class="unitgrid" id="fantGrid">
    <div class="hd">Fantomon</div><div class="hd">Current</div><div></div><div class="hd">Planned</div>
@@ -294,8 +294,8 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  <div class="cardbody">
   <div class="notice" id="relicCapNote">Relic cap will be calculated from your projected character level.</div>
   <div class="batch">
-   <div class="field"><label>Set all current relics</label><input id="relicAllCur" type="number" value="10"></div><button class="btn" id="relicApplyCur">Apply current</button>
-   <div class="field"><label>Set all planned relics</label><input id="relicAllTar" type="number" value="13"></div><button class="btn" id="relicApplyTar">Apply planned</button>
+   <div class="field"><label>Set all current relics</label><input id="relicAllCur" type="number" value="" placeholder="Current"></div><button class="btn" id="relicApplyCur">Apply current</button>
+   <div class="field"><label>Set all planned relics</label><input id="relicAllTar" type="number" value="" placeholder="Planned"></div><button class="btn" id="relicApplyTar">Apply planned</button>
   </div>
   <div class="unitgrid" id="relicGrid">
    <div class="hd">Relic</div><div class="hd">Current +</div><div></div><div class="hd">Planned +</div>
@@ -310,7 +310,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <div class="grid2">
    <div class="field">
     <label>Daily Realm refresh system</label>
-    <input id="refreshSystem" type="text" value="2-2-2-2" placeholder="Ore-Gold-Essence-Sand, e.g. 8-4-6-4">
+    <input id="refreshSystem" type="text" value="0-0-0-0" placeholder="e.g. 2-2-2-2" placeholder="Ore-Gold-Essence-Sand, e.g. 8-4-6-4">
    </div>
    <div class="field"><label>Refresh order</label><input value="Ore → Gold → Essence → Sand" readonly></div>
   </div>
@@ -532,10 +532,10 @@ function renderRatings(){
  $("ratingGrid").innerHTML=ratings.map(r=>`<div class="rpill" data-r="${r.name}"><b>${r.name}</b><br>${fmt(r.min)}${isFinite(r.max)?"–"+fmt(r.max):"+"}</div>`).join("")
 }
 function renderUnits(){
- for(let i=0;i<5;i++)$("gearGrid").insertAdjacentHTML("beforeend",`<div>${gearNames[i]}</div><div><input id="gearCur${i}" type="number" step="1" value="100"></div><div>→</div><div><input id="gearTar${i}" type="number" step="1" value="100"></div>`);
- for(let i=0;i<8;i++)$("skillGrid").insertAdjacentHTML("beforeend",`<div>Skill ${i+1}</div><div><input id="skillCur${i}" type="number" step="1" value="100"></div><div>→</div><div><input id="skillTar${i}" type="number" step="1" value="100"></div>`);
- for(let i=0;i<4;i++)$("fantGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="fantCur${i}" type="number" step="1" value="100"></div><div>→</div><div><input id="fantTar${i}" type="number" step="1" value="100"></div>`);
- for(let i=0;i<20;i++)$("relicGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="relicCur${i}" type="number" step="1" value="10"></div><div>→</div><div><input id="relicTar${i}" type="number" step="1" value="10"></div>`);
+ for(let i=0;i<5;i++)$("gearGrid").insertAdjacentHTML("beforeend",`<div>${gearNames[i]}</div><div><input id="gearCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="gearTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
+ for(let i=0;i<8;i++)$("skillGrid").insertAdjacentHTML("beforeend",`<div>Skill ${i+1}</div><div><input id="skillCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="skillTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
+ for(let i=0;i<4;i++)$("fantGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="fantCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="fantTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
+ for(let i=0;i<20;i++)$("relicGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="relicCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="relicTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
 }
 function renderCore(){
  const coreIcons={
@@ -1007,7 +1007,7 @@ function state(){
  for(let i=0;i<8;i++)v.skills.push([$(`skillCur${i}`).value,$(`skillTar${i}`).value]);
  for(let i=0;i<4;i++)v.fants.push([$(`fantCur${i}`).value,$(`fantTar${i}`).value]);
  for(let i=0;i<20;i++)v.relics.push([$(`relicCur${i}`).value,$(`relicTar${i}`).value]);
- return {v:23,values:v,core:JSON.parse(JSON.stringify(core))}
+ return {v:24,values:v,core:JSON.parse(JSON.stringify(core))}
 }
 function applyState(s){
  if(!s||!s.values)return;const v=s.values;
@@ -1020,10 +1020,10 @@ function applyState(s){
  if(s.core)for(const k of Object.keys(core))if(s.core[k])Object.assign(core[k],s.core[k]);
  renderCore();calculate()
 }
-function save(silent=false){localStorage.setItem("sxsPlannerV23",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
+function save(silent=false){localStorage.setItem("sxsPlannerV24",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
 async function copyBuild(){const code=btoa(unescape(encodeURIComponent(JSON.stringify(state()))));try{await navigator.clipboard.writeText(code);toast("Build code copied")}catch{prompt("Copy build code:",code)}}
 function importBuild(){const c=prompt("Paste build code:");if(!c)return;try{applyState(JSON.parse(decodeURIComponent(escape(atob(c.trim())))));save(true);toast("Imported")}catch{alert("Could not read that build code.")}}
-function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v23.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v24.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function bind(){
  document.addEventListener("input",e=>{if(e.target.matches("input,select,textarea")&&!e.target.classList.contains("coreinput"))calculate()});
  $("fillGearBtn").onclick=fillGear;
@@ -1039,15 +1039,13 @@ function bind(){
   if(wanted>cap)toast(`Relics capped at +${cap} for projected Lv.${XP.ok?XP.level:Math.floor(num("charLevel"))}`);
  };
  $("saveBtn").onclick=()=>save(false);$("copyBtn").onclick=copyBuild;$("importBtn").onclick=importBuild;$("jsonBtn").onclick=exportJson;
- $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV23");location.reload()}}
+ $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV24");location.reload()}}
 }
 renderUnits();renderRatings();renderCore();setTimes();bind();
-const saved=localStorage.getItem("sxsPlannerV23")||localStorage.getItem("sxsPlannerV22")||localStorage.getItem("sxsPlannerV21")||localStorage.getItem("sxsPlannerV20")||localStorage.getItem("sxsPlannerV19")||localStorage.getItem("sxsPlannerV18")||localStorage.getItem("sxsPlannerV17")||localStorage.getItem("sxsPlannerV16")||localStorage.getItem("sxsPlannerV15")||localStorage.getItem("sxsPlannerV14")||localStorage.getItem("sxsPlannerV13")||localStorage.getItem("sxsPlannerV12")||localStorage.getItem("sxsPlannerV11");
+const saved=localStorage.getItem("sxsPlannerV24");
 if(saved){
- try{
-  applyState(JSON.parse(saved));
-  if(!localStorage.getItem("sxsPlannerV23"))save(true);
- }catch(e){console.error(e);calculate()}
+ try{applyState(JSON.parse(saved));}
+ catch(e){console.error(e);calculate()}
 }else calculate();
 })();
 </script>
