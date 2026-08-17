@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="0xNobody">
+<meta name="description" content="Tools and calculators made by 0xNobody.">
+<title>0xNobody Tools</title>
+<style>
+:root{
+ --bg:#090c12;--panel:#121822;--panel2:#171f2b;--ink:#f4f7fb;--muted:#9babbe;
+ --line:#2a3647;--accent:#d9e052;--cyan:#71d8e9;--shadow:0 18px 48px rgba(0,0,0,.28)
+}
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;color:var(--ink);
+ font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ background:
+  radial-gradient(900px 520px at 95% -10%,rgba(217,224,82,.11),transparent 60%),
+  radial-gradient(780px 500px at -10% 10%,rgba(113,216,233,.075),transparent 60%),
+  var(--bg);
+}
+a{color:inherit}
+.wrap{max-width:1120px;margin:auto;padding:34px 20px 28px}
+.hero{padding:34px 0 28px}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900;color:var(--accent)}
+h1{font-size:clamp(38px,7vw,68px);line-height:1;margin:8px 0 12px}
+.hero p{max-width:700px;color:var(--muted);font-size:17px;margin:0}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{
+ display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;
+ border:1px solid var(--line);border-radius:11px;text-decoration:none;font-weight:900;background:var(--panel);
+}
+.btn.primary{background:var(--accent);color:#090c12;border-color:var(--accent)}
+.btn:hover{transform:translateY(-1px)}
+.sectionTitle{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:900;margin:20px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.card{
+ border:1px solid var(--line);border-radius:17px;padding:23px;background:linear-gradient(180deg,var(--panel2),var(--panel));
+ box-shadow:var(--shadow);text-decoration:none;display:block;transition:.15s ease;
+}
+.card:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.tag{display:inline-flex;padding:6px 9px;border-radius:999px;border:1px solid var(--line);font-size:11px;font-weight:900;color:var(--cyan);margin-bottom:16px}
+.card h2{font-size:24px;line-height:1.15;margin:0 0 9px}
+.card p{margin:0;color:var(--muted)}
+.open{display:inline-block;margin-top:18px;font-weight:900;color:var(--accent)}
+.coming{opacity:.7}
+footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer a{color:#e4eb71}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.wrap{padding-top:20px}.hero{padding-top:22px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+ <section class="hero">
+  <div class="eyebrow">0xNobody · Tools & Calculators</div>
+  <h1>0xNobody Tools</h1>
+  <p>Useful calculators and community tools made by 0xNobody. Pick a tool below to get started.</p>
+  <div class="actions">
+   <a class="btn primary" href="sxs-primo-calculator/">Open Sword x Staff Calculator</a>
+   <a class="btn" href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">YouTube</a>
+  </div>
+ </section>
+
+ <div class="sectionTitle">Available tools</div>
+ <section class="grid">
+  <a class="card" href="sxs-primo-calculator/">
+   <span class="tag">Sword x Staff</span>
+   <h2>Season & Primostar Calculator</h2>
+   <p>Plan season score, EXP, Primostars, upgrade materials, Material Realms and end-of-season preparation.</p>
+   <span class="open">Open calculator →</span>
+  </a>
+
+  <div class="card coming">
+   <span class="tag">Coming later</span>
+   <h2>More tools</h2>
+   <p>This homepage is ready for additional calculators, guides, or other sections whenever you want to add them.</p>
+  </div>
+ </section>
+
+ <footer>
+  © 2026 0xNobody · Made by <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">0xNobody</a>.
+  Unofficial fan-made tools. Game names and related assets belong to their respective owners.
+ </footer>
+</main>
+</body>
+</html>
