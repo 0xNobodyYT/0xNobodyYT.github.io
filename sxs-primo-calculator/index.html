@@ -21,6 +21,10 @@ body{margin:0;background:
 button,input,select,textarea{font:inherit}button{cursor:pointer}
 a{color:#e4eb71}
 .wrap{max-width:1540px;margin:auto;padding:20px}
+.siteNav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}
+.siteNav a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:#cbd5df;font-weight:850;font-size:13px;padding:8px 11px;border:1px solid var(--line);border-radius:10px;background:rgba(18,24,34,.82)}
+.siteNav a:hover{border-color:var(--cyan);color:#fff}
+.siteNav .siteBrand{color:var(--muted);font-size:12px;font-weight:800}
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:30px;margin:8px 0 18px}
 .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:950;color:var(--accent)}
 h1{font-size:clamp(29px,4vw,48px);line-height:1.03;margin:5px 0 8px}
@@ -126,6 +130,10 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 </head>
 <body>
 <div class="wrap">
+<div class="siteNav">
+ <a href="../" aria-label="Back to 0xNobody Tools">← 0xNobody Tools</a>
+ <span class="siteBrand">Sword x Staff Calculator</span>
+</div>
 <header class="hero">
  <div>
   <div class="eyebrow">Sword x Staff · season optimizer</div>
