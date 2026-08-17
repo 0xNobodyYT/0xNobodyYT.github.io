@@ -1,0 +1,111 @@
+name: Sanitize public calculator defaults
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/sanitize-public-defaults.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sanitize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove personal defaults and start clean v24 storage
+        shell: python
+        run: |
+          from pathlib import Path
+
+          p = Path("sxs-primo-calculator/index.html")
+          h = p.read_text(encoding="utf-8")
+
+          def rep(old, new, count=1):
+              global h
+              if old not in h:
+                  raise SystemExit(f"Expected text not found: {old[:100]}")
+              h = h.replace(old, new, count)
+
+          rep("Season & Realm Planner v23", "Season & Realm Planner v24")
+
+          replacements = {
+              'id="charLevel" type="number" step="1" value="113"': 'id="charLevel" type="number" step="1" value="" placeholder="Enter level"',
+              'id="charXp" type="number" step="any" value="336000"': 'id="charXp" type="number" step="any" value="" placeholder="EXP into level"',
+              'id="charNeed" type="number" step="any" value="1390000"': 'id="charNeed" type="number" step="any" value="" placeholder="Optional if formula is on"',
+              'id="xpHr" type="number" step="any" value="71461"': 'id="xpHr" type="number" step="any" value="" placeholder="EXP per hour"',
+              'id="goalAwarded" type="number" step="1" min="10" value="152"': 'id="goalAwarded" type="number" step="1" min="10" value="" placeholder="Target Primostars"',
+              'id="gearAllCur" type="number" value="100"': 'id="gearAllCur" type="number" value="" placeholder="Current"',
+              'id="gearAllTar" type="number" value="130"': 'id="gearAllTar" type="number" value="" placeholder="Planned"',
+              'id="skillAllCur" type="number" value="100"': 'id="skillAllCur" type="number" value="" placeholder="Current"',
+              'id="skillAllTar" type="number" value="115"': 'id="skillAllTar" type="number" value="" placeholder="Planned"',
+              'id="fantAllCur" type="number" value="100"': 'id="fantAllCur" type="number" value="" placeholder="Current"',
+              'id="fantAllTar" type="number" value="115"': 'id="fantAllTar" type="number" value="" placeholder="Planned"',
+              'id="relicAllCur" type="number" value="10"': 'id="relicAllCur" type="number" value="" placeholder="Current"',
+              'id="relicAllTar" type="number" value="13"': 'id="relicAllTar" type="number" value="" placeholder="Planned"',
+              'id="refreshSystem" type="text" value="2-2-2-2"': 'id="refreshSystem" type="text" value="0-0-0-0" placeholder="e.g. 2-2-2-2"',
+          }
+          for old, new in replacements.items():
+              rep(old, new)
+
+          old_units = '''function renderUnits(){
+           for(let i=0;i<5;i++)$("gearGrid").insertAdjacentHTML("beforeend",`<div>${gearNames[i]}</div><div><input id="gearCur${i}" type="number" step="1" value="100"></div><div>→</div><div><input id="gearTar${i}" type="number" step="1" value="100"></div>`);
+           for(let i=0;i<8;i++)$("skillGrid").insertAdjacentHTML("beforeend",`<div>Skill ${i+1}</div><div><input id="skillCur${i}" type="number" step="1" value="100"></div><div>→</div><div><input id="skillTar${i}" type="number" step="1" value="100"></div>`);
+           for(let i=0;i<4;i++)$("fantGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="fantCur${i}" type="number" step="1" value="100"></div><div>→</div><div><input id="fantTar${i}" type="number" step="1" value="100"></div>`);
+           for(let i=0;i<20;i++)$("relicGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="relicCur${i}" type="number" step="1" value="10"></div><div>→</div><div><input id="relicTar${i}" type="number" step="1" value="10"></div>`);
+          }'''
+          new_units = '''function renderUnits(){
+           for(let i=0;i<5;i++)$("gearGrid").insertAdjacentHTML("beforeend",`<div>${gearNames[i]}</div><div><input id="gearCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="gearTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
+           for(let i=0;i<8;i++)$("skillGrid").insertAdjacentHTML("beforeend",`<div>Skill ${i+1}</div><div><input id="skillCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="skillTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
+           for(let i=0;i<4;i++)$("fantGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="fantCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="fantTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
+           for(let i=0;i<20;i++)$("relicGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="relicCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="relicTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
+          }'''
+          rep(old_units, new_units)
+
+          marker = '''  <div class="sep"></div>
+          <div class="grid4">
+           <div class="field"><label>Current character level</label>'''
+          privacy = '''  <div class="sep"></div>
+          <div class="notice" style="margin-bottom:10px"><b>Your account values stay on your device.</b> Personal fields start blank and are only stored in this browser when you save/use the planner.</div>
+          <div class="grid4">
+           <div class="field"><label>Current character level</label>'''
+          rep(marker, privacy)
+
+          rep('return {v:23,values:v,core:JSON.parse(JSON.stringify(core))}', 'return {v:24,values:v,core:JSON.parse(JSON.stringify(core))}')
+          rep('localStorage.setItem("sxsPlannerV23"', 'localStorage.setItem("sxsPlannerV24"')
+          rep('a.download="sword-x-staff-plan-v23.json"', 'a.download="sword-x-staff-plan-v24.json"')
+          rep('localStorage.removeItem("sxsPlannerV23")', 'localStorage.removeItem("sxsPlannerV24")')
+
+          old_load = '''const saved=localStorage.getItem("sxsPlannerV23")||localStorage.getItem("sxsPlannerV22")||localStorage.getItem("sxsPlannerV21")||localStorage.getItem("sxsPlannerV20")||localStorage.getItem("sxsPlannerV19")||localStorage.getItem("sxsPlannerV18")||localStorage.getItem("sxsPlannerV17")||localStorage.getItem("sxsPlannerV16")||localStorage.getItem("sxsPlannerV15")||localStorage.getItem("sxsPlannerV14")||localStorage.getItem("sxsPlannerV13")||localStorage.getItem("sxsPlannerV12")||localStorage.getItem("sxsPlannerV11");
+          if(saved){
+           try{
+            applyState(JSON.parse(saved));
+            if(!localStorage.getItem("sxsPlannerV23"))save(true);
+           }catch(e){console.error(e);calculate()}
+          }else calculate();'''
+          new_load = '''const saved=localStorage.getItem("sxsPlannerV24");
+          if(saved){
+           try{applyState(JSON.parse(saved));}
+           catch(e){console.error(e);calculate()}
+          }else calculate();'''
+          rep(old_load, new_load)
+
+          forbidden = ['value="113"','value="336000"','value="1390000"','value="71461"','value="130"','value="115"']
+          found = [x for x in forbidden if x in h]
+          if found:
+              raise SystemExit(f"Personal defaults still present: {found}")
+
+          p.write_text(h, encoding="utf-8")
+
+      - name: Commit sanitized calculator
+        run: |
+          git config user.name "0xNobodyYT-site-bot"
+          git config user.email "0xNobodyYT-site-bot@users.noreply.github.com"
+          git add sxs-primo-calculator/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Sanitize public calculator defaults"
+          git push
