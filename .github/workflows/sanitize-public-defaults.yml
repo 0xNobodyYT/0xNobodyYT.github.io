@@ -1,103 +1,260 @@
-name: Sanitize public calculator defaults
+name: Apply multi-season Primostar v25
 
 on:
   push:
     branches: [main]
     paths:
       - .github/workflows/sanitize-public-defaults.yml
-      - .github/sanitize-trigger
 
 permissions:
   contents: write
 
 jobs:
-  sanitize:
+  update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Remove personal defaults and start clean v24 storage
+      - name: Upgrade calculator to v25
         shell: python
         run: |
           from pathlib import Path
+          import re
 
-          p = Path("sxs-primo-calculator/index.html")
-          h = p.read_text(encoding="utf-8")
+          p = Path('sxs-primo-calculator/index.html')
+          h = p.read_text(encoding='utf-8')
 
-          def rep(old, new, count=1):
-              global h
-              if old not in h:
-                  raise SystemExit(f"Expected text not found: {old[:100]}")
-              h = h.replace(old, new, count)
+          if 'Multi-Season Primostar & Realm Planner v25' in h:
+              print('Already v25')
+              raise SystemExit(0)
+          if 'Season & Realm Planner v24' not in h:
+              raise SystemExit('Expected v24 calculator not found')
 
-          rep("Season & Realm Planner v23", "Season & Realm Planner v24")
+          h = h.replace('<title>Sword x Staff — Season & Realm Planner v24</title>', '<title>Sword x Staff — Multi-Season Primostar & Realm Planner v25</title>', 1)
+          h = h.replace('<div class="eyebrow">Sword x Staff · season optimizer</div>', '<div class="eyebrow">Sword x Staff · multi-season optimizer</div>', 1)
+          h = h.replace('<h1>Season Score, EXP & Material Realm Planner</h1>', '<h1>Primostar, EXP & Material Realm Planner</h1>', 1)
+          h = h.replace('<p>Enter your account values, choose your season-end time and target, and the planner handles score, EXP, materials and Realm safety automatically.</p>', '<p>Plan Season 2 and beyond with cumulative Primostars, automatic seasonal floors, EXP, materials and Realm safety.</p>', 1)
 
-          replacements = {
-              'id="charLevel" type="number" step="1" value="113"': 'id="charLevel" type="number" step="1" value="" placeholder="Enter level"',
-              'id="charXp" type="number" step="any" value="336000"': 'id="charXp" type="number" step="any" value="" placeholder="EXP into level"',
-              'id="charNeed" type="number" step="any" value="1390000"': 'id="charNeed" type="number" step="any" value="" placeholder="Optional if formula is on"',
-              'id="xpHr" type="number" step="any" value="71461"': 'id="xpHr" type="number" step="any" value="" placeholder="EXP per hour"',
-              'id="goalAwarded" type="number" step="1" min="10" value="152"': 'id="goalAwarded" type="number" step="1" min="10" value="" placeholder="Target Primostars"',
-              'id="gearAllCur" type="number" value="100"': 'id="gearAllCur" type="number" value="" placeholder="Current"',
-              'id="gearAllTar" type="number" value="130"': 'id="gearAllTar" type="number" value="" placeholder="Planned"',
-              'id="skillAllCur" type="number" value="100"': 'id="skillAllCur" type="number" value="" placeholder="Current"',
-              'id="skillAllTar" type="number" value="115"': 'id="skillAllTar" type="number" value="" placeholder="Planned"',
-              'id="fantAllCur" type="number" value="100"': 'id="fantAllCur" type="number" value="" placeholder="Current"',
-              'id="fantAllTar" type="number" value="115"': 'id="fantAllTar" type="number" value="" placeholder="Planned"',
-              'id="relicAllCur" type="number" value="10"': 'id="relicAllCur" type="number" value="" placeholder="Current"',
-              'id="relicAllTar" type="number" value="13"': 'id="relicAllTar" type="number" value="" placeholder="Planned"',
-              'id="refreshSystem" type="text" value="2-2-2-2"': 'id="refreshSystem" type="text" value="0-0-0-0" placeholder="e.g. 2-2-2-2"',
+          goal_card = '''<section class="card">
+           <div class="cardhead"><h2>2. Season & Primostar target</h2><span class="chip" id="goalChip">Season 2 · enter target</span></div>
+           <div class="cardbody">
+            <div class="grid4">
+             <div class="field"><label>Season number</label><input id="seasonNumber" type="number" step="1" min="1" value="2"></div>
+             <div class="field"><label>Current / old Primostars</label><input id="oldPrimostars" type="number" step="1" min="0" value="" placeholder="e.g. 150"></div>
+             <div class="field"><label>Target total Primostars</label><input id="goalAwarded" type="number" step="1" min="0" value="" placeholder="e.g. 800"></div>
+             <div class="field"><label>Primostars needed this season</label><input id="primostarsNeeded" readonly></div>
+            </div>
+            <div class="grid2" style="margin-top:10px">
+             <div class="field"><label>Required progression score this season</label><input id="requiredScore" readonly></div>
+             <div class="field"><label>Seasonal scoring floor</label><input id="seasonFloorSummary" readonly></div>
+            </div>
+            <p class="simple-note" id="seasonRuleNote">Primostars carry forward between seasons. The planner subtracts your current total from your target, then calculates only what you need to earn this season.</p>
+            <details>
+             <summary>Advanced scoring constants</summary>
+             <div class="grid4" style="margin-top:9px">
+              <div class="field"><label>Normal seasonal floor</label><input id="floor" type="number" value="130" readonly></div>
+              <div class="field"><label>Relic seasonal floor</label><input id="relicFloor" type="number" value="13" readonly></div>
+              <div class="field"><label>Score / Primostar</label><input id="scorePerStar" type="number" value="100"></div>
+              <div class="field"><label>Fixed season Primostars</label><input id="fixedStars" type="number" value="10"></div>
+              <div class="field"><label>Character weight</label><input id="charW" type="number" value="100"></div>
+              <div class="field"><label>Gear weight</label><input id="gearW" type="number" value="38"></div>
+              <div class="field"><label>Skill weight</label><input id="skillW" type="number" value="13"></div>
+              <div class="field"><label>Fantomon weight</label><input id="fantW" type="number" value="14"></div>
+              <div class="field"><label>Relic weight</label><input id="relicW" type="number" value="57"></div>
+             </div>
+             <p class="subtle" style="margin-top:9px">Season floor is automatic: S1 = Lv100 / relic +10, S2 = Lv130 / +13, S3 = Lv160 / +16, then +30 normal levels and +3 relic levels each season.</p>
+            </details>
+           </div>
+          </section>'''
+          pat = re.compile(r'<section class="card">\s*<div class="cardhead"><h2>2\. Primostar target</h2>.*?</section>', re.S)
+          h, n = pat.subn(goal_card, h, count=1)
+          if n != 1: raise SystemExit('Goal card replacement failed')
+
+          old_summary = '''  <div class="metrics">
+           <div class="metric major"><div class="k">Progression score</div><div class="v" id="projectedScore">0</div><div class="s"><span class="rating" id="projectedRating">D</span></div></div>
+           <div class="metric"><div class="k">Primostars from score</div><div class="v" id="scoreStars">0</div><div class="s" id="scoreStarsRaw">0.00 before round-down</div></div>
+           <div class="metric"><div class="k">Fixed season Primostars</div><div class="v" id="fixedStarsDisplay">+10</div><div class="s">Added after score conversion</div></div>
+           <div class="metric major"><div class="k">Final season Primostars</div><div class="v" id="seasonStars">10</div><div class="s" id="seasonStarsFormula">0 from score + 10 fixed</div></div>
+           <div class="metric"><div class="k">Decimal planning total</div><div class="v" id="rawStarEquivalent">10.00</div><div class="s">score ÷ 100 + fixed bonus</div></div>
+           <div class="metric"><div class="k">Target difference</div><div class="v" id="cumulativeStars">0</div><div class="s">Projected final − target</div></div>
+          </div>
+          <div class="notice" style="margin-top:10px"><b>Season 1 reward formula:</b> floor(Progression Score ÷ 100) <b>+ 10 fixed Primostars</b>. Example: 15,200 score = 152 from score + 10 fixed = <b>162 total</b>.</div>'''
+          new_summary = '''  <div class="metrics">
+           <div class="metric major"><div class="k">Progression score this season</div><div class="v" id="projectedScore">0</div><div class="s">Only progression above this season's floor counts</div></div>
+           <div class="metric"><div class="k">Primostars from score</div><div class="v" id="scoreStars">0</div><div class="s" id="scoreStarsRaw">0.00 before round-down</div></div>
+           <div class="metric"><div class="k">Fixed season Primostars</div><div class="v" id="fixedStarsDisplay">+10</div><div class="s">Added after score conversion</div></div>
+           <div class="metric major"><div class="k">Primostars earned this season</div><div class="v" id="seasonStars">10</div><div class="s" id="seasonStarsFormula">0 from score + 10 fixed</div></div>
+           <div class="metric major"><div class="k">Projected total Primostars</div><div class="v" id="rawStarEquivalent">10</div><div class="s">Current / old + this season</div></div>
+           <div class="metric"><div class="k">Target difference</div><div class="v" id="cumulativeStars">0</div><div class="s">Projected total − target total</div></div>
+          </div>
+          <div class="notice" style="margin-top:10px"><b>Cumulative Primostars:</b> your previous-season total carries forward. This season adds <b>floor(Progression Score ÷ 100) + 10 fixed</b> to that existing total.</div>'''
+          if old_summary not in h: raise SystemExit('Summary block not found')
+          h = h.replace(old_summary, new_summary, 1)
+
+          old_ref = '''  <div class="notice">Season 1 scoring used here: Character 100, Gear 38, Skill 13, Fantomon 14, Relic 57 per seasonal level; level floor 100 and relic floor +10. Character EXP progress is fractional: Lv.128.5 counts as 28.5 seasonal character levels = 2,850 character points. Primostar reward = floor(score ÷ 100) + 10 fixed.</div>
+          <div class="notice warn" style="margin-top:8px">The target-time character score includes proportional EXP within the current level. With Save 36h EXP enabled, the last 36 natural Bed hours are reserved, but boost hours during that window still count toward the current season. Use Manual character seasonal levels if you want to reproduce a whole-level spreadsheet assumption such as exactly 28.</div>
+          <p class="subtle">Public cross-check: <a href="https://eog.gg/games/sword-x-staff/tools/star-calculator/" target="_blank" rel="noopener noreferrer">Eden of Gaming Primordial Star Calculator</a>. Their <a href="https://eog.gg/games/sword-x-staff/guides/season-2-prep/" target="_blank" rel="noopener noreferrer">season preparation guide</a> specifically recommends stopping Bed EXP claims 36 hours before launch and disabling Quick Claim.</p>'''
+          new_ref = '''  <div class="notice">Multi-season scoring uses the same category weights: Character 100, Gear 38, Skill 13, Fantomon 14 and Relic 57 per seasonal level. The seasonal floor advances automatically: S1 Lv100 / relic +10, S2 Lv130 / +13, S3 Lv160 / +16, then +30 / +3 each season.</div>
+          <div class="notice warn" style="margin-top:8px">Character EXP progress is fractional for score. Example: in Season 2, projected Lv158.5 is 28.5 seasonal character levels above the Lv130 floor, worth 2,850 character points. Relic cap unlocks still require completed whole character levels.</div>
+          <p class="subtle">Season-floor reference: <a href="https://www.prydwen.gg/sword-x-staff/guides/beginner-guide" target="_blank" rel="noopener noreferrer">Prydwen seasonal guide</a>. EXP-save cross-check: <a href="https://eog.gg/games/sword-x-staff/guides/season-2-prep/" target="_blank" rel="noopener noreferrer">Eden of Gaming season preparation guide</a>.</p>'''
+          if old_ref not in h: raise SystemExit('Reference notes block not found')
+          h = h.replace(old_ref, new_ref, 1)
+
+          old = 'function seasonLevels(level,floor){return Math.max(0,Number(level||0)-Number(floor||0))}'
+          new = '''function seasonLevels(level,floor){return Math.max(0,Number(level||0)-Number(floor||0))}
+          function currentSeasonNumber(){return Math.max(1,Math.floor(num("seasonNumber")||1))}
+          function syncSeasonRules(){
+           const season=currentSeasonNumber();
+           const floor=100+(season-1)*30;
+           const relicFloor=floor/10;
+           $("seasonNumber").value=season;
+           $("floor").value=floor;
+           $("relicFloor").value=relicFloor;
+           $("seasonFloorSummary").value=`Season ${season}: Lv${floor} · Relic +${relicFloor}`;
+           $("seasonRuleNote").innerHTML=`Primostars carry forward between seasons. Season ${season} scores only progress above <b>Lv${floor}</b> (relics above <b>+${relicFloor}</b>). Target total − current total = what you need to earn this season.`;
+           const normalIds=["gearAllCur","gearAllTar","skillAllCur","skillAllTar","fantAllCur","fantAllTar"];
+           normalIds.forEach(id=>{if($(id))$(id).placeholder=`Season floor ${floor}`});
+           ["relicAllCur","relicAllTar"].forEach(id=>{if($(id))$(id).placeholder=`Season floor +${relicFloor}`});
+           for(let i=0;i<5;i++){if($(`gearCur${i}`))$(`gearCur${i}`).placeholder=`${floor}`;if($(`gearTar${i}`))$(`gearTar${i}`).placeholder=`${floor}`;}
+           for(let i=0;i<8;i++){if($(`skillCur${i}`))$(`skillCur${i}`).placeholder=`${floor}`;if($(`skillTar${i}`))$(`skillTar${i}`).placeholder=`${floor}`;}
+           for(let i=0;i<4;i++){if($(`fantCur${i}`))$(`fantCur${i}`).placeholder=`${floor}`;if($(`fantTar${i}`))$(`fantTar${i}`).placeholder=`${floor}`;}
+           for(let i=0;i<20;i++){if($(`relicCur${i}`))$(`relicCur${i}`).placeholder=`+${relicFloor}`;if($(`relicTar${i}`))$(`relicTar${i}`).placeholder=`+${relicFloor}`;}
+           return {season,floor,relicFloor}
+          }'''
+          if old not in h: raise SystemExit('seasonLevels helper not found')
+          h = h.replace(old, new, 1)
+
+          old_goal = '''function goalScore(){
+           const sp=Math.max(.000001,num("scorePerStar"));
+           const fixed=Math.floor(num("fixedStars"));
+           const target=Math.max(fixed,Math.ceil(num("goalAwarded")));
+           return Math.max(0,(target-fixed)*sp);
           }
-          for old, new in replacements.items():
-              rep(old, new)
+          function updateGoalUI(){}'''
+          new_goal = '''function primostarGoalInfo(){
+           const sp=Math.max(.000001,num("scorePerStar"));
+           const fixed=Math.max(0,Math.floor(num("fixedStars")));
+           const old=Math.max(0,Math.floor(num("oldPrimostars")));
+           const target=Math.max(0,Math.ceil(num("goalAwarded")));
+           const needed=Math.max(0,target-old);
+           const scoreNeeded=needed<=fixed?0:(needed-fixed)*sp;
+           return {sp,fixed,old,target,needed,scoreNeeded};
+          }
+          function goalScore(){return primostarGoalInfo().scoreNeeded}
+          function updateGoalUI(){}'''
+          if old_goal not in h: raise SystemExit('goalScore block not found')
+          h = h.replace(old_goal, new_goal, 1)
 
-          old_units = '''function renderUnits(){
-           for(let i=0;i<5;i++)$("gearGrid").insertAdjacentHTML("beforeend",`<div>${gearNames[i]}</div><div><input id="gearCur${i}" type="number" step="1" value="100"></div><div>→</div><div><input id="gearTar${i}" type="number" step="1" value="100"></div>`);
-           for(let i=0;i<8;i++)$("skillGrid").insertAdjacentHTML("beforeend",`<div>Skill ${i+1}</div><div><input id="skillCur${i}" type="number" step="1" value="100"></div><div>→</div><div><input id="skillTar${i}" type="number" step="1" value="100"></div>`);
-           for(let i=0;i<4;i++)$("fantGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="fantCur${i}" type="number" step="1" value="100"></div><div>→</div><div><input id="fantTar${i}" type="number" step="1" value="100"></div>`);
-           for(let i=0;i<20;i++)$("relicGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="relicCur${i}" type="number" step="1" value="10"></div><div>→</div><div><input id="relicTar${i}" type="number" step="1" value="10"></div>`);
+          old_calc_start = '''function calculate(){
+           updateGoalUI();
+           const T=timeCalc(),XP=xpCalc(T.xpHoursApplied);'''
+          new_calc_start = '''function calculate(){
+           updateGoalUI();
+           const seasonInfo=syncSeasonRules();
+           const T=timeCalc(),XP=xpCalc(T.xpHoursApplied);'''
+          if old_calc_start not in h: raise SystemExit('calculate start not found')
+          h = h.replace(old_calc_start, new_calc_start, 1)
+
+          calc_pat = re.compile(r' const C=costs\(\),req=computeGearRequirement\(XP\),S=req\.sums;.*? \$\("goalChip"\)\.textContent=`\$\{fmt\(num\("goalAwarded"\)\)\} ★ target`;', re.S)
+          calc_new = ''' const C=costs(),req=computeGearRequirement(XP),S=req.sums;
+           $("quickCharacterScore").textContent=`${fmt(S.charSL,2)} seasonal character levels × ${fmt(num("charW"),2)} = ${fmt(S.charPts,2)} character points`;
+           const projected=S.charPts+S.gearPts+S.skillPts+S.fantPts+S.relicPts;
+           const goal=req.goal,gap=goal-projected,sp=Math.max(.000001,num("scorePerStar")),fixed=num("fixedStars");
+           const goalInfo=primostarGoalInfo();
+           const scoreStarsRaw=projected/sp;
+           const scoreStarsAwarded=Math.floor(scoreStarsRaw+1e-9);
+           const fixedAwarded=Math.floor(fixed);
+           const awarded=scoreStarsAwarded+fixedAwarded;
+           const projectedTotal=goalInfo.old+awarded;
+           const totalDifference=projectedTotal-goalInfo.target;
+           const targetShortfall=Math.max(0,goalInfo.target-projectedTotal);
+           $("projectedScore").textContent=fmt(projected,2);
+           $("scoreStars").textContent=fmt(scoreStarsAwarded);
+           $("scoreStarsRaw").textContent=`${fmt(scoreStarsRaw,2)} before round-down`;
+           $("fixedStarsDisplay").textContent=`+${fmt(fixedAwarded)}`;
+           $("seasonStars").textContent=fmt(awarded);
+           $("seasonStarsFormula").textContent=`${fmt(scoreStarsAwarded)} from score + ${fmt(fixedAwarded)} fixed`;
+           $("rawStarEquivalent").textContent=fmt(projectedTotal);
+           $("cumulativeStars").textContent=(totalDifference>=0?"+":"")+fmt(totalDifference);
+           $("primostarsNeeded").value=fmt(goalInfo.needed);
+           $("requiredScore").value=fmt(Math.ceil(goal*100)/100,2);
+           $("ratingChip").textContent=`Season ${seasonInfo.season} · floor ${seasonInfo.floor}`;
+           if(goalInfo.target<=goalInfo.old){
+            $("goalStatus").className="notice";
+            $("goalStatus").innerHTML=`<b>Target already reached.</b> You currently have ${fmt(goalInfo.old)} Primostars, which is already at or above the ${fmt(goalInfo.target)} target.`;
+           }else if(targetShortfall<=0){
+            $("goalStatus").className="notice";
+            $("goalStatus").innerHTML=`<b>Target reached in projection.</b> ${fmt(goalInfo.old)} current + ${fmt(awarded)} earned this season = <b>${fmt(projectedTotal)} total Primostars</b>.`;
+           }else{
+            $("goalStatus").className="notice warn";
+            $("goalStatus").innerHTML=`<b>${fmt(targetShortfall)} Primostars still short.</b> Projection: ${fmt(goalInfo.old)} current + ${fmt(awarded)} this season = ${fmt(projectedTotal)} / ${fmt(goalInfo.target)}. You still need ${fmt(Math.max(0,gap),2)} progression score toward this season's target.`;
+           }
+           $("goalChip").textContent=goalInfo.target?`Season ${seasonInfo.season} · ${fmt(goalInfo.needed)} ★ needed`:`Season ${seasonInfo.season} · enter target`;'''
+          h, n = calc_pat.subn(calc_new, h, count=1)
+          if n != 1: raise SystemExit('Main calculation block replacement failed')
+
+          old_ids = 'const ids=["startTime","targetTime","resetTime","boostHoursPerReset","charLevel","charXp","charNeed","xpHr","xpBase100","xpIncrease","xpCurve","goalAwarded","floor","relicFloor","scorePerStar","fixedStars","charW","gearW","skillW","fantW","relicW","refreshSystem","hammerNow","goldNow","gloveNow","shovelNow","gearAllCur","gearAllTar","skillAllCur","skillAllTar","fantAllCur","fantAllTar","relicAllCur","relicAllTar"];'
+          new_ids = 'const ids=["startTime","targetTime","resetTime","boostHoursPerReset","charLevel","charXp","charNeed","xpHr","xpBase100","xpIncrease","xpCurve","seasonNumber","oldPrimostars","goalAwarded","floor","relicFloor","scorePerStar","fixedStars","charW","gearW","skillW","fantW","relicW","refreshSystem","hammerNow","goldNow","gloveNow","shovelNow","gearAllCur","gearAllTar","skillAllCur","skillAllTar","fantAllCur","fantAllTar","relicAllCur","relicAllTar"];'
+          if old_ids not in h: raise SystemExit('state ids not found')
+          h = h.replace(old_ids, new_ids, 1)
+          h = h.replace('return {v:24,values:v,core:JSON.parse(JSON.stringify(core))}', 'return {v:25,values:v,core:JSON.parse(JSON.stringify(core))}', 1)
+          h = h.replace('localStorage.setItem("sxsPlannerV24"', 'localStorage.setItem("sxsPlannerV25"', 1)
+          h = h.replace('a.download="sword-x-staff-plan-v24.json"', 'a.download="sword-x-staff-plan-v25.json"', 1)
+          h = h.replace('localStorage.removeItem("sxsPlannerV24")', 'localStorage.removeItem("sxsPlannerV25")', 1)
+
+          old_tail = ''' if(s.core)for(const k of Object.keys(core))if(s.core[k])Object.assign(core[k],s.core[k]);
+           renderCore();calculate()
           }'''
-          new_units = '''function renderUnits(){
-           for(let i=0;i<5;i++)$("gearGrid").insertAdjacentHTML("beforeend",`<div>${gearNames[i]}</div><div><input id="gearCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="gearTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
-           for(let i=0;i<8;i++)$("skillGrid").insertAdjacentHTML("beforeend",`<div>Skill ${i+1}</div><div><input id="skillCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="skillTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
-           for(let i=0;i<4;i++)$("fantGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="fantCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="fantTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
-           for(let i=0;i<20;i++)$("relicGrid").insertAdjacentHTML("beforeend",`<div>#${i+1}</div><div><input id="relicCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="relicTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
+          new_tail = ''' if(s.core)for(const k of Object.keys(core))if(s.core[k])Object.assign(core[k],s.core[k]);
+           if((Number(s.v)||0)<25){
+            $("goalAwarded").value="";
+            $("oldPrimostars").value="";
+           }
+           renderCore();calculate()
           }'''
-          rep(old_units, new_units)
+          if old_tail not in h: raise SystemExit('applyState tail not found')
+          h = h.replace(old_tail, new_tail, 1)
 
-          rep('return {v:23,values:v,core:JSON.parse(JSON.stringify(core))}', 'return {v:24,values:v,core:JSON.parse(JSON.stringify(core))}')
-          rep('localStorage.setItem("sxsPlannerV23"', 'localStorage.setItem("sxsPlannerV24"')
-          rep('a.download="sword-x-staff-plan-v23.json"', 'a.download="sword-x-staff-plan-v24.json"')
-          rep('localStorage.removeItem("sxsPlannerV23")', 'localStorage.removeItem("sxsPlannerV24")')
-
-          old_load = '''const saved=localStorage.getItem("sxsPlannerV23")||localStorage.getItem("sxsPlannerV22")||localStorage.getItem("sxsPlannerV21")||localStorage.getItem("sxsPlannerV20")||localStorage.getItem("sxsPlannerV19")||localStorage.getItem("sxsPlannerV18")||localStorage.getItem("sxsPlannerV17")||localStorage.getItem("sxsPlannerV16")||localStorage.getItem("sxsPlannerV15")||localStorage.getItem("sxsPlannerV14")||localStorage.getItem("sxsPlannerV13")||localStorage.getItem("sxsPlannerV12")||localStorage.getItem("sxsPlannerV11");
-          if(saved){
-           try{
-            applyState(JSON.parse(saved));
-            if(!localStorage.getItem("sxsPlannerV23"))save(true);
-           }catch(e){console.error(e);calculate()}
-          }else calculate();'''
-          new_load = '''const saved=localStorage.getItem("sxsPlannerV24");
+          old_loader = '''const saved=localStorage.getItem("sxsPlannerV24");
           if(saved){
            try{applyState(JSON.parse(saved));}
            catch(e){console.error(e);calculate()}
           }else calculate();'''
-          rep(old_load, new_load)
+          new_loader = '''const saved=localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");
+          if(saved){
+           try{
+            const parsed=JSON.parse(saved);
+            applyState(parsed);
+            if(!localStorage.getItem("sxsPlannerV25"))save(true);
+           }catch(e){console.error(e);calculate()}
+          }else calculate();'''
+          if old_loader not in h: raise SystemExit('loader not found')
+          h = h.replace(old_loader, new_loader, 1)
 
-          forbidden = ['value="113"','value="336000"','value="1390000"','value="71461"','value="130"','value="115"']
-          found = [x for x in forbidden if x in h]
-          if found:
-              raise SystemExit(f"Personal defaults still present: {found}")
+          h = h.replace('Fan-made planner. Cyan fields are yours to edit; gray fields are calculated. Relic planned levels are automatically limited by projected character level.', 'Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons, and seasonal floors advance automatically. Relic planned levels are automatically limited by projected character level.', 1)
 
-          p.write_text(h, encoding="utf-8")
+          old_rr = '''function renderRatings(){
+           $("ratingGrid").innerHTML=ratings.map(r=>`<div class="rpill" data-r="${r.name}"><b>${r.name}</b><br>${fmt(r.min)}${isFinite(r.max)?"–"+fmt(r.max):"+"}</div>`).join("")
+          }'''
+          new_rr = '''function renderRatings(){
+           const el=$("ratingGrid");
+           if(el)el.innerHTML=ratings.map(r=>`<div class="rpill" data-r="${r.name}"><b>${r.name}</b><br>${fmt(r.min)}${isFinite(r.max)?"–"+fmt(r.max):"+"}</div>`).join("")
+          }'''
+          if old_rr in h: h = h.replace(old_rr, new_rr, 1)
 
-      - name: Commit sanitized calculator
+          checks = ['Multi-Season Primostar & Realm Planner v25','id="oldPrimostars"','id="primostarsNeeded"','id="seasonNumber"','localStorage.setItem("sxsPlannerV25"','function primostarGoalInfo()','function syncSeasonRules()']
+          missing = [x for x in checks if x not in h]
+          if missing: raise SystemExit(f'Validation failed: {missing}')
+          p.write_text(h, encoding='utf-8')
+          print('Updated to v25')
+
+      - name: Commit v25
         run: |
           git config user.name "0xNobodyYT-site-bot"
           git config user.email "0xNobodyYT-site-bot@users.noreply.github.com"
           git add sxs-primo-calculator/index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Sanitize public calculator defaults"
+          git commit -m "Add cumulative multi-season Primostar planning"
           git push
