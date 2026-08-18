@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="0xNobody">
 <meta name="color-scheme" content="dark">
-<title>Sword x Staff — Multi-Season Primostar & Realm Planner v28</title>
+<title>Sword x Staff — Multi-Season Primostar & Realm Planner v29</title>
 <style>
 :root{
  --bg:#090c12;--panel:#121822;--panel2:#171f2b;--ink:#f4f7fb;--muted:#9babbe;
@@ -312,7 +312,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <div class="grid2">
    <div class="field">
     <label>Daily Realm refresh system</label>
-    <input id="refreshSystem" type="text" value="0-0-0-0" placeholder="e.g. 2-2-2-2" placeholder="Ore-Gold-Essence-Sand, e.g. 8-4-6-4">
+    <input id="refreshSystem" type="text" value="0-0-0-0" placeholder="Ore-Rola-Essence-Sand, e.g. 8-4-6-4">
    </div>
    <div class="field"><label>Refresh order</label><input value="Ore → Rola → Essence → Sand" readonly></div>
   </div>
@@ -1056,7 +1056,7 @@ function state(){
  for(let i=0;i<8;i++)v.skills.push([$(`skillCur${i}`).value,$(`skillTar${i}`).value]);
  for(let i=0;i<4;i++)v.fants.push([$(`fantCur${i}`).value,$(`fantTar${i}`).value]);
  for(let i=0;i<20;i++)v.relics.push([$(`relicCur${i}`).value,$(`relicTar${i}`).value]);
- return {v:28,values:v,core:JSON.parse(JSON.stringify(core))}
+ return {v:29,values:v,core:JSON.parse(JSON.stringify(core))}
 }
 function applyState(s){
  if(!s||!s.values)return;const v=s.values;
@@ -1073,10 +1073,10 @@ function applyState(s){
  }
  renderCore();calculate()
 }
-function save(silent=false){localStorage.setItem("sxsPlannerV28",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
+function save(silent=false){localStorage.setItem("sxsPlannerV29",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
 async function copyBuild(){const code=btoa(unescape(encodeURIComponent(JSON.stringify(state()))));try{await navigator.clipboard.writeText(code);toast("Build code copied")}catch{prompt("Copy build code:",code)}}
 function importBuild(){const c=prompt("Paste build code:");if(!c)return;try{applyState(JSON.parse(decodeURIComponent(escape(atob(c.trim())))));save(true);toast("Imported")}catch{alert("Could not read that build code.")}}
-function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v28.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v29.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function bind(){
  document.addEventListener("input",e=>{if(e.target.matches("input,select,textarea")&&!e.target.classList.contains("coreinput"))calculate()});
  $("fillGearBtn").onclick=fillGear;
@@ -1092,7 +1092,7 @@ function bind(){
   if(wanted>cap)toast(`Relics capped at +${cap} for projected Lv.${XP.ok?XP.level:Math.floor(num("charLevel"))}`);
  };
  $("saveBtn").onclick=()=>save(false);$("copyBtn").onclick=copyBuild;$("importBtn").onclick=importBuild;$("jsonBtn").onclick=exportJson;
- $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV28");location.reload()}}
+ $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV29");location.reload()}}
 }
 renderUnits();renderRatings();renderCore();setTimes();bind();
 const saved=localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV24");
@@ -1100,7 +1100,7 @@ if(saved){
  try{
   const parsed=JSON.parse(saved);
   applyState(parsed);
-  if(!localStorage.getItem("sxsPlannerV28"))save(true);
+  if(!localStorage.getItem("sxsPlannerV29"))save(true);
  }catch(e){console.error(e);calculate()}
 }else calculate();
 })();
