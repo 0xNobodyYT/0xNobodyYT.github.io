@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="0xNobody">
 <meta name="color-scheme" content="dark">
-<title>Sword x Staff — Season & Realm Planner v24</title>
+<title>Sword x Staff — Multi-Season Primostar & Realm Planner v27</title>
 <style>
 :root{
  --bg:#090c12;--panel:#121822;--panel2:#171f2b;--ink:#f4f7fb;--muted:#9babbe;
@@ -136,9 +136,9 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 </div>
 <header class="hero">
  <div>
-  <div class="eyebrow">Sword x Staff · season optimizer</div>
-  <h1>Season Score, EXP & Material Realm Planner</h1>
-  <p>Enter your account values, choose your season-end time and target, and the planner handles score, EXP, materials and Realm safety automatically.</p>
+  <div class="eyebrow">Sword x Staff · multi-season optimizer</div>
+  <h1>Primostar, EXP & Material Realm Planner</h1>
+  <p>Plan Season 2 and beyond with cumulative Primostars, EXP, materials and Realm safety. Each season restarts progression scoring from the same Lv100 / relic +10 baseline.</p>
  </div>
  <div class="heroControls">
   <div class="legendStack" aria-label="Field color guide">
@@ -213,34 +213,36 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 </section>
 
 <section class="card">
- <div class="cardhead"><h2>2. Primostar target</h2><span class="chip" id="goalChip">152 ★ target</span></div>
+ <div class="cardhead"><h2>2. Season progression</h2><span class="chip" id="goalChip">Season 2 · set a goal</span></div>
  <div class="cardbody">
-  <div class="grid2">
-   <div class="field">
-    <label>Target final season Primostars</label>
-    <input id="goalAwarded" type="number" step="1" min="10" value="" placeholder="Target Primostars">
-   </div>
-   <div class="field">
-    <label>Required progression score</label>
-    <input id="requiredScore" readonly>
-   </div>
+  <div class="notice" style="margin-bottom:12px">
+   <b>Primostars carry between seasons.</b> Enter what you already own and the total you want to reach. The planner works out only what this season needs to contribute.
   </div>
-  <p class="simple-note">Season 1 formula: <b>floor(score ÷ 100) + 10 fixed Primostars</b>. Your character score always uses the projected level at the selected season-end time.</p>
-
+  <div class="grid2">
+   <div class="field"><label>Season</label><input id="seasonNumber" type="number" step="1" min="1" value="2"></div>
+   <div class="field"><label>Season progression baseline</label><input id="seasonFloorSummary" readonly></div>
+  </div>
+  <div class="grid3" style="margin-top:10px">
+   <div class="field"><label>Primostars you have now</label><input id="oldPrimostars" type="number" step="1" min="0" value="" placeholder="Current total"></div>
+   <div class="field"><label>Total Primostar goal</label><input id="goalAwarded" type="number" step="1" min="0" value="" placeholder="Goal total"></div>
+   <div class="field"><label>Still needed this season</label><input id="primostarsNeeded" readonly></div>
+  </div>
+  <div class="field" style="margin-top:10px"><label>Progression score required this season</label><input id="requiredScore" readonly></div>
+  <p class="simple-note" id="seasonRuleNote">Only progress above the fixed seasonal baseline contributes to this season's score.</p>
   <details>
    <summary>Advanced scoring constants</summary>
    <div class="grid4" style="margin-top:9px">
-    <div class="field"><label>Normal level floor</label><input id="floor" type="number" value="100"></div>
-    <div class="field"><label>Relic floor</label><input id="relicFloor" type="number" value="10"></div>
-    <div class="field"><label>Score / star</label><input id="scorePerStar" type="number" value="100"></div>
-    <div class="field"><label>Fixed season stars</label><input id="fixedStars" type="number" value="10"></div>
+    <div class="field"><label>Character / Gear / Skill / Fantomon baseline</label><input id="floor" type="number" value="100" readonly></div>
+    <div class="field"><label>Relic baseline</label><input id="relicFloor" type="number" value="10" readonly></div>
+    <div class="field"><label>Score / Primostar</label><input id="scorePerStar" type="number" value="100"></div>
+    <div class="field"><label>Fixed season Primostars</label><input id="fixedStars" type="number" value="10"></div>
     <div class="field"><label>Character weight</label><input id="charW" type="number" value="100"></div>
     <div class="field"><label>Gear weight</label><input id="gearW" type="number" value="38"></div>
     <div class="field"><label>Skill weight</label><input id="skillW" type="number" value="13"></div>
     <div class="field"><label>Fantomon weight</label><input id="fantW" type="number" value="14"></div>
     <div class="field"><label>Relic weight</label><input id="relicW" type="number" value="57"></div>
    </div>
-   <div class="ratinggrid" id="ratingGrid"></div>
+   <p class="subtle" style="margin-top:9px">At the start of every season, progression scoring resets to the same baseline: Character Lv100, all 5 Gear pieces Lv100, all Skills Lv100, Fantomons Lv100, and Relics +10. Your Primostar total carries forward.</p>
   </details>
  </div>
 </section>
@@ -411,14 +413,14 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  <div class="cardhead"><h2>Plan summary</h2><span class="chip" id="ratingChip">—</span></div>
  <div class="cardbody">
   <div class="metrics">
-   <div class="metric major"><div class="k">Progression score</div><div class="v" id="projectedScore">0</div><div class="s"><span class="rating" id="projectedRating">D</span></div></div>
+   <div class="metric major"><div class="k">Progression score this season</div><div class="v" id="projectedScore">0</div><div class="s">Progress above the Lv100 / relic +10 baseline</div></div>
    <div class="metric"><div class="k">Primostars from score</div><div class="v" id="scoreStars">0</div><div class="s" id="scoreStarsRaw">0.00 before round-down</div></div>
    <div class="metric"><div class="k">Fixed season Primostars</div><div class="v" id="fixedStarsDisplay">+10</div><div class="s">Added after score conversion</div></div>
-   <div class="metric major"><div class="k">Final season Primostars</div><div class="v" id="seasonStars">10</div><div class="s" id="seasonStarsFormula">0 from score + 10 fixed</div></div>
-   <div class="metric"><div class="k">Decimal planning total</div><div class="v" id="rawStarEquivalent">10.00</div><div class="s">score ÷ 100 + fixed bonus</div></div>
-   <div class="metric"><div class="k">Target difference</div><div class="v" id="cumulativeStars">0</div><div class="s">Projected final − target</div></div>
+   <div class="metric major"><div class="k">Primostars earned this season</div><div class="v" id="seasonStars">10</div><div class="s" id="seasonStarsFormula">0 from score + 10 fixed</div></div>
+   <div class="metric major"><div class="k">Projected total Primostars</div><div class="v" id="rawStarEquivalent">10</div><div class="s">Current total + this season</div></div>
+   <div class="metric"><div class="k">Target difference</div><div class="v" id="cumulativeStars">0</div><div class="s">Projected total − target total</div></div>
   </div>
-  <div class="notice" style="margin-top:10px"><b>Season 1 reward formula:</b> floor(Progression Score ÷ 100) <b>+ 10 fixed Primostars</b>. Example: 15,200 score = 152 from score + 10 fixed = <b>162 total</b>.</div>
+  <div class="notice" style="margin-top:10px"><b>Cumulative Primostars:</b> your previous-season total carries forward. Each new season adds <b>floor(Progression Score ÷ 100) + 10 fixed</b> to that existing total.</div>
   <div class="notice" id="goalStatus" style="margin-top:8px">—</div>
 
   <div class="sep"></div>
@@ -482,16 +484,16 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 <section class="card">
  <div class="cardhead"><h2>Reference notes</h2></div>
  <div class="cardbody">
-  <div class="notice">Season 1 scoring used here: Character 100, Gear 38, Skill 13, Fantomon 14, Relic 57 per seasonal level; level floor 100 and relic floor +10. Character EXP progress is fractional: Lv.128.5 counts as 28.5 seasonal character levels = 2,850 character points. Primostar reward = floor(score ÷ 100) + 10 fixed.</div>
-  <div class="notice warn" style="margin-top:8px">The target-time character score includes proportional EXP within the current level. With Save 36h EXP enabled, the last 36 natural Bed hours are reserved, but boost hours during that window still count toward the current season. Use Manual character seasonal levels if you want to reproduce a whole-level spreadsheet assumption such as exactly 28.</div>
-  <p class="subtle">Public cross-check: <a href="https://eog.gg/games/sword-x-staff/tools/star-calculator/" target="_blank" rel="noopener noreferrer">Eden of Gaming Primordial Star Calculator</a>. Their <a href="https://eog.gg/games/sword-x-staff/guides/season-2-prep/" target="_blank" rel="noopener noreferrer">season preparation guide</a> specifically recommends stopping Bed EXP claims 36 hours before launch and disabling Quick Claim.</p>
+  <div class="notice">Multi-season scoring uses the same category weights: Character 100, Gear 38, Skill 13, Fantomon 14 and Relic 57 per seasonal level. Each new season resets progression scoring to Character/Gear/Skills/Fantomons Lv100 and Relics +10, while your accumulated Primostars carry forward.</div>
+  <div class="notice warn" style="margin-top:8px">Character EXP progress is fractional for score. Example: projected Lv128.5 is 28.5 seasonal character levels above the Lv100 baseline, worth 2,850 character points. Relic cap unlocks still require completed whole character levels.</div>
+  <p class="subtle">EXP-save cross-check: <a href="https://eog.gg/games/sword-x-staff/guides/season-2-prep/" target="_blank" rel="noopener noreferrer">Eden of Gaming season preparation guide</a>.</p>
  </div>
 </section>
 
 </div>
 </main>
 <div class="footer">
- <div>Fan-made planner. Cyan fields are yours to edit; gray fields are calculated. Relic planned levels are automatically limited by projected character level. Realm yields remain approximate defaults: Ore ≈800, Essence ≈1,290, White Sand ≈607 per run. Daily refresh systems are counted only at actual reset events, with 5 Realm entries per refresh.</div>
+ <div>Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons, while Character, Gear, Skills and Fantomons reset to the Lv100 scoring baseline and Relics reset to +10 each season. Relic planned levels are automatically limited by projected character level. Realm yields remain approximate defaults: Ore ≈800, Essence ≈1,290, White Sand ≈607 per run. Daily refresh systems are counted only at actual reset events, with 5 Realm entries per refresh.</div>
  <div style="margin-top:8px;font-weight:800;color:#cbd5df">© 2026 <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">0xNobody</a> · Made by 0xNobody · <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">YouTube</a></div>
 </div>
 </div>
@@ -524,12 +526,32 @@ function dateFmt(d){if(!(d instanceof Date)||!Number.isFinite(d.getTime()))retur
 function setTimes(){const now=new Date();$("startTime").value=localDT(now);$("targetTime").value=localDT(new Date(now.getTime()+14*86400000))}
 function ratingFor(s){return ratings.find(r=>s>=r.min&&s<=r.max)?.name||"SSS"}
 function seasonLevels(level,floor){return Math.max(0,Number(level||0)-Number(floor||0))}
+function currentSeasonNumber(){return Math.max(1,Math.floor(num("seasonNumber")||1))}
+function syncSeasonRules(){
+ const season=currentSeasonNumber();
+ const floor=100;
+ const relicFloor=10;
+ $("seasonNumber").value=season;
+ $("floor").value=floor;
+ $("relicFloor").value=relicFloor;
+ $("seasonFloorSummary").value="Every season: Lv100 · Relics +10";
+ $("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total, but progression scoring starts again from <b>Lv100</b> for Character, Gear, Skills and Fantomons, and <b>+10</b> for Relics.`;
+ const normalIds=["gearAllCur","gearAllTar","skillAllCur","skillAllTar","fantAllCur","fantAllTar"];
+ normalIds.forEach(id=>{if($(id))$(id).placeholder="Baseline 100"});
+ ["relicAllCur","relicAllTar"].forEach(id=>{if($(id))$(id).placeholder="Baseline +10"});
+ for(let i=0;i<5;i++){if($(`gearCur${i}`))$(`gearCur${i}`).placeholder="100";if($(`gearTar${i}`))$(`gearTar${i}`).placeholder="100";}
+ for(let i=0;i<8;i++){if($(`skillCur${i}`))$(`skillCur${i}`).placeholder="100";if($(`skillTar${i}`))$(`skillTar${i}`).placeholder="100";}
+ for(let i=0;i<4;i++){if($(`fantCur${i}`))$(`fantCur${i}`).placeholder="100";if($(`fantTar${i}`))$(`fantTar${i}`).placeholder="100";}
+ for(let i=0;i<20;i++){if($(`relicCur${i}`))$(`relicCur${i}`).placeholder="+10";if($(`relicTar${i}`))$(`relicTar${i}`).placeholder="+10";}
+ return {season,floor,relicFloor}
+}
 function gearStepCost(L){return Math.max(0,100*(L-10))}
 function skillStepCost(L){return Math.max(0,60*L-40)}
 function relicBlueStepCost(L){return Math.max(0,320*(L-1))}
 function rangeCost(cur,tar,fn){cur=Math.floor(cur);tar=Math.floor(tar);let s=0;if(tar<=cur)return 0;for(let L=cur+1;L<=tar;L++)s+=fn(L);return s}
 function renderRatings(){
- $("ratingGrid").innerHTML=ratings.map(r=>`<div class="rpill" data-r="${r.name}"><b>${r.name}</b><br>${fmt(r.min)}${isFinite(r.max)?"–"+fmt(r.max):"+"}</div>`).join("")
+ const el=$("ratingGrid");
+ if(el)el.innerHTML=ratings.map(r=>`<div class="rpill" data-r="${r.name}"><b>${r.name}</b><br>${fmt(r.min)}${isFinite(r.max)?"–"+fmt(r.max):"+"}</div>`).join("")
 }
 function renderUnits(){
  for(let i=0;i<5;i++)$("gearGrid").insertAdjacentHTML("beforeend",`<div>${gearNames[i]}</div><div><input id="gearCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="gearTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
@@ -691,12 +713,16 @@ function plannedSums(XP){
   gearPts:gearSL*num("gearW"),skillPts:skillSL*num("skillW"),fantPts:fantSL*num("fantW"),relicPts:relicSL*num("relicW"),charPts:charSL*num("charW")
  }
 }
-function goalScore(){
+function primostarGoalInfo(){
  const sp=Math.max(.000001,num("scorePerStar"));
- const fixed=Math.floor(num("fixedStars"));
- const target=Math.max(fixed,Math.ceil(num("goalAwarded")));
- return Math.max(0,(target-fixed)*sp);
+ const fixed=Math.max(0,Math.floor(num("fixedStars")));
+ const old=Math.max(0,Math.floor(num("oldPrimostars")));
+ const target=Math.max(0,Math.ceil(num("goalAwarded")));
+ const needed=Math.max(0,target-old);
+ const scoreNeeded=needed<=fixed?0:(needed-fixed)*sp;
+ return {sp,fixed,old,target,needed,scoreNeeded};
 }
+function goalScore(){return primostarGoalInfo().scoreNeeded}
 function updateGoalUI(){}
 function costs(){
  let ore=0,ess=0,blue=0;
@@ -918,6 +944,7 @@ function calcMaterialEconomy(T,C){
 }
 function calculate(){
  updateGoalUI();
+ const seasonInfo=syncSeasonRules();
  const T=timeCalc(),XP=xpCalc(T.xpHoursApplied);
  $("realDays").value=`${Math.floor(T.realHours/24)}d ${fmt(T.realHours%24,1)}h`;
  $("boostResetCount").value=`${T.totalResetCount} reset${T.totalResetCount===1?"":"s"} × ${fmt(num("boostHoursPerReset"),2)}h = ${fmt(T.totalBoostHours,2)}h`;
@@ -961,28 +988,37 @@ function calculate(){
  const C=costs(),req=computeGearRequirement(XP),S=req.sums;
  $("quickCharacterScore").textContent=`${fmt(S.charSL,2)} seasonal character levels × ${fmt(num("charW"),2)} = ${fmt(S.charPts,2)} character points`;
  const projected=S.charPts+S.gearPts+S.skillPts+S.fantPts+S.relicPts;
- const goal=req.goal,gap=goal-projected,rating=ratingFor(projected),sp=Math.max(.000001,num("scorePerStar")),fixed=num("fixedStars");
+ const goal=req.goal,gap=goal-projected,sp=Math.max(.000001,num("scorePerStar")),fixed=num("fixedStars");
+ const goalInfo=primostarGoalInfo();
  const scoreStarsRaw=projected/sp;
  const scoreStarsAwarded=Math.floor(scoreStarsRaw+1e-9);
  const fixedAwarded=Math.floor(fixed);
- const raw=scoreStarsRaw+fixed;
  const awarded=scoreStarsAwarded+fixedAwarded;
- const cumulative=awarded;
-
+ const projectedTotal=goalInfo.old+awarded;
+ const totalDifference=projectedTotal-goalInfo.target;
+ const targetShortfall=Math.max(0,goalInfo.target-projectedTotal);
  $("projectedScore").textContent=fmt(projected,2);
  $("scoreStars").textContent=fmt(scoreStarsAwarded);
  $("scoreStarsRaw").textContent=`${fmt(scoreStarsRaw,2)} before round-down`;
  $("fixedStarsDisplay").textContent=`+${fmt(fixedAwarded)}`;
  $("seasonStars").textContent=fmt(awarded);
  $("seasonStarsFormula").textContent=`${fmt(scoreStarsAwarded)} from score + ${fmt(fixedAwarded)} fixed`;
- $("rawStarEquivalent").textContent=fmt(raw,2);
- $("cumulativeStars").textContent=(awarded-num("goalAwarded")>=0?"+":"")+fmt(awarded-num("goalAwarded"));
- $("projectedRating").textContent=rating;$("ratingChip").textContent=`Projected ${rating}`;
- qsa(".rpill").forEach(x=>x.classList.toggle("active",x.dataset.r===rating));
- $("requiredScore").value=Math.ceil(goal*100)/100;
- $("goalStatus").className=gap<=0?"notice":"notice warn";
- $("goalStatus").innerHTML=gap<=0?`<b>Goal reached.</b> Projected score is ${fmt(Math.abs(gap),2)} above the requirement.`:`<b>${fmt(gap,2)} score still missing.</b> Use “Fill minimum gear for goal” or raise another planned category.`;
- $("goalChip").textContent=`${fmt(num("goalAwarded"))} ★ target`;
+ $("rawStarEquivalent").textContent=fmt(projectedTotal);
+ $("cumulativeStars").textContent=(totalDifference>=0?"+":"")+fmt(totalDifference);
+ $("primostarsNeeded").value=fmt(goalInfo.needed);
+ $("requiredScore").value=fmt(Math.ceil(goal*100)/100,2);
+ $("ratingChip").textContent=`Season ${seasonInfo.season} · baseline Lv100`;
+ if(goalInfo.target<=goalInfo.old){
+  $("goalStatus").className="notice";
+  $("goalStatus").innerHTML=`<b>Target already reached.</b> You currently have ${fmt(goalInfo.old)} Primostars, which is already at or above the ${fmt(goalInfo.target)} target.`;
+ }else if(targetShortfall<=0){
+  $("goalStatus").className="notice";
+  $("goalStatus").innerHTML=`<b>Target reached in projection.</b> ${fmt(goalInfo.old)} current + ${fmt(awarded)} earned this season = <b>${fmt(projectedTotal)} total Primostars</b>.`;
+ }else{
+  $("goalStatus").className="notice warn";
+  $("goalStatus").innerHTML=`<b>${fmt(targetShortfall)} Primostars still short.</b> Projection: ${fmt(goalInfo.old)} current + ${fmt(awarded)} this season = ${fmt(projectedTotal)} / ${fmt(goalInfo.target)}. You still need ${fmt(Math.max(0,gap),2)} progression score toward this season's target.`;
+ }
+ $("goalChip").textContent=goalInfo.target?`S${seasonInfo.season} · ${fmt(goalInfo.needed)} remaining`:`Season ${seasonInfo.season} · set a goal`;
 
  const rows=[
   ["Fant",S.fantSL,num("fantW"),S.fantPts],["Relic",S.relicSL,num("relicW"),S.relicPts],["Skill",S.skillSL,num("skillW"),S.skillPts],
@@ -1001,13 +1037,13 @@ function calculate(){
  clearTimeout(autosave);autosave=setTimeout(()=>save(true),300)
 }
 function state(){
- const ids=["startTime","targetTime","resetTime","boostHoursPerReset","charLevel","charXp","charNeed","xpHr","xpBase100","xpIncrease","xpCurve","goalAwarded","floor","relicFloor","scorePerStar","fixedStars","charW","gearW","skillW","fantW","relicW","refreshSystem","hammerNow","goldNow","gloveNow","shovelNow","gearAllCur","gearAllTar","skillAllCur","skillAllTar","fantAllCur","fantAllTar","relicAllCur","relicAllTar"];
+ const ids=["startTime","targetTime","resetTime","boostHoursPerReset","charLevel","charXp","charNeed","xpHr","xpBase100","xpIncrease","xpCurve","seasonNumber","oldPrimostars","goalAwarded","floor","relicFloor","scorePerStar","fixedStars","charW","gearW","skillW","fantW","relicW","refreshSystem","hammerNow","goldNow","gloveNow","shovelNow","gearAllCur","gearAllTar","skillAllCur","skillAllTar","fantAllCur","fantAllTar","relicAllCur","relicAllTar"];
  const v={};ids.forEach(id=>v[id]=$(id).value);v.useXpFormula=$("useXpFormula").checked;v.save36Xp=$("save36Xp").checked;v.gear=[];v.skills=[];v.fants=[];v.relics=[];
  for(let i=0;i<5;i++)v.gear.push([$(`gearCur${i}`).value,$(`gearTar${i}`).value]);
  for(let i=0;i<8;i++)v.skills.push([$(`skillCur${i}`).value,$(`skillTar${i}`).value]);
  for(let i=0;i<4;i++)v.fants.push([$(`fantCur${i}`).value,$(`fantTar${i}`).value]);
  for(let i=0;i<20;i++)v.relics.push([$(`relicCur${i}`).value,$(`relicTar${i}`).value]);
- return {v:24,values:v,core:JSON.parse(JSON.stringify(core))}
+ return {v:27,values:v,core:JSON.parse(JSON.stringify(core))}
 }
 function applyState(s){
  if(!s||!s.values)return;const v=s.values;
@@ -1018,12 +1054,16 @@ function applyState(s){
  (v.fants||[]).forEach((x,i)=>{if($(`fantCur${i}`))$(`fantCur${i}`).value=x[0];if($(`fantTar${i}`))$(`fantTar${i}`).value=x[1]});
  (v.relics||[]).forEach((x,i)=>{if($(`relicCur${i}`))$(`relicCur${i}`).value=x[0];if($(`relicTar${i}`))$(`relicTar${i}`).value=x[1]});
  if(s.core)for(const k of Object.keys(core))if(s.core[k])Object.assign(core[k],s.core[k]);
+ if((Number(s.v)||0)<25){
+  $("goalAwarded").value="";
+  $("oldPrimostars").value="";
+ }
  renderCore();calculate()
 }
-function save(silent=false){localStorage.setItem("sxsPlannerV24",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
+function save(silent=false){localStorage.setItem("sxsPlannerV27",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
 async function copyBuild(){const code=btoa(unescape(encodeURIComponent(JSON.stringify(state()))));try{await navigator.clipboard.writeText(code);toast("Build code copied")}catch{prompt("Copy build code:",code)}}
 function importBuild(){const c=prompt("Paste build code:");if(!c)return;try{applyState(JSON.parse(decodeURIComponent(escape(atob(c.trim())))));save(true);toast("Imported")}catch{alert("Could not read that build code.")}}
-function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v24.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v27.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function bind(){
  document.addEventListener("input",e=>{if(e.target.matches("input,select,textarea")&&!e.target.classList.contains("coreinput"))calculate()});
  $("fillGearBtn").onclick=fillGear;
@@ -1039,13 +1079,16 @@ function bind(){
   if(wanted>cap)toast(`Relics capped at +${cap} for projected Lv.${XP.ok?XP.level:Math.floor(num("charLevel"))}`);
  };
  $("saveBtn").onclick=()=>save(false);$("copyBtn").onclick=copyBuild;$("importBtn").onclick=importBuild;$("jsonBtn").onclick=exportJson;
- $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV24");location.reload()}}
+ $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV27");location.reload()}}
 }
 renderUnits();renderRatings();renderCore();setTimes();bind();
-const saved=localStorage.getItem("sxsPlannerV24");
+const saved=localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV24");
 if(saved){
- try{applyState(JSON.parse(saved));}
- catch(e){console.error(e);calculate()}
+ try{
+  const parsed=JSON.parse(saved);
+  applyState(parsed);
+  if(!localStorage.getItem("sxsPlannerV27"))save(true);
+ }catch(e){console.error(e);calculate()}
 }else calculate();
 })();
 </script>
