@@ -1,0 +1,145 @@
+name: Apply v28 Rola economy update
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/apply-v28-rola.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch calculator to v28
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          p=Path('sxs-primo-calculator/index.html')
+          h=p.read_text(encoding='utf-8')
+          if 'Planner v28' in h:
+              print('Already v28')
+              raise SystemExit(0)
+          if 'Planner v27' not in h:
+              raise SystemExit('Expected live v27 calculator')
+
+          m=re.search(r'<div class="realmBalance">\s*<img class="rbIcon" src="([^"]+)" alt="Gold">.*?<div class="rbName">Gold</div>.*?id="leftGold"',h,re.S)
+          if not m: raise SystemExit('Rola icon source not found')
+          rola_icon=m.group(1)
+
+          h=h.replace('Sword x Staff — Multi-Season Primostar & Realm Planner v27','Sword x Staff — Multi-Season Primostar & Realm Planner v28',1)
+          for a,b in {
+            'value="Ore → Gold → Essence → Sand"':'value="Ore → Rola → Essence → Sand"',
+            '10 Hammers, 10 Gold entries, 10 Gloves and 10 Shovels':'10 Hammers, 10 Rola entries, 10 Gloves and 10 Shovels',
+            'Saved Gold entries now':'Saved Rola entries now',
+            '<div class="rbName">Gold</div>':'<div class="rbName">Rola</div>',
+            'alt="Gold"':'alt="Rola"',
+            '<b>Ore-Gold-Essence-Sand</b>':'<b>Ore-Rola-Essence-Sand</b>',
+            ' Gold entries · ':' Rola entries · ',
+          }.items(): h=h.replace(a,b)
+
+          old='''<section class="card">
+           <div class="cardhead"><h2>Automatic upgrade costs</h2></div>
+           <div class="cardbody">
+            <div class="metrics">
+             <div class="metric major"><div class="k">Ore required</div><div class="v" id="oreRequired">0</div><div class="s">5 gear slots</div></div>
+             <div class="metric major"><div class="k">Essence required</div><div class="v" id="essenceRequired">0</div><div class="s">8 skills</div></div>
+             <div class="metric"><div class="k">Blue Sand required</div><div class="v" id="blueSandRequired">0</div><div class="s">20 relics</div></div>
+             <div class="metric"><div class="k">White Sand equivalent</div><div class="v" id="whiteSandRequired">0</div><div class="s">Blue × 5</div></div>
+            </div>
+            <details>'''
+          new='''<section class="card">
+           <div class="cardhead"><h2>Automatic upgrade costs</h2></div>
+           <div class="cardbody">
+            <div class="metrics">
+             <div class="metric major"><div class="k">Ore required</div><div class="v" id="oreRequired">0</div><div class="s">5 gear slots</div></div>
+             <div class="metric major"><div class="k">Essence required</div><div class="v" id="essenceRequired">0</div><div class="s">8 skills</div></div>
+             <div class="metric"><div class="k">Blue Sand required</div><div class="v" id="blueSandRequired">0</div><div class="s">20 relics</div></div>
+             <div class="metric"><div class="k">White Sand equivalent</div><div class="v" id="whiteSandRequired">0</div><div class="s">Blue × 5</div></div>
+            </div>
+            <div class="field" style="margin-top:10px">
+             <label>Rola required for planned upgrades</label>
+             <input id="rolaUpgradeSpend" type="number" min="0" step="any" value="" placeholder="Enter total Rola upgrade cost">
+            </div>
+            <p class="simple-note">Rola is included in the economy and Quick Answer. Enter the total Rola your planned upgrades will consume; the exact per-level Rola formula is not hard-coded until it is confirmed.</p>
+            <details>'''
+          if old not in h: raise SystemExit('Automatic costs block not found')
+          h=h.replace(old,new,1)
+
+          qm=re.search(r'(<div class="quickLine">\s*<div class="quickIcon"><img src="[^"]+" alt="Ore"></div>\s*<div class="quickText"><b>Ore</b>.*?id="quickOreText".*?</div>\s*<div class="quickCount" id="quickOreCount">—</div>\s*</div>)',h,re.S)
+          if not qm: raise SystemExit('Ore quick row not found')
+          rq=f'''\n           <div class="quickLine">\n            <div class="quickIcon"><img src="{rola_icon}" alt="Rola"></div>\n            <div class="quickText"><b>Rola</b><span id="quickRolaText">Calculating…</span></div>\n            <div class="quickCount" id="quickRolaCount">—</div>\n           </div>'''
+          h=h[:qm.end()]+rq+h[qm.end():]
+
+          old_core='''const core={
+           ore:{label:"Ore",stock:0,cart:0,shop:0,other:0,realm:800,manual:0},
+           essence:{label:"Essence",stock:0,cart:0,shop:0,other:0,realm:1290,manual:0},
+           sand:{label:"White Sand",stock:0,cart:0,shop:0,other:0,realm:607,manual:0}
+          };'''
+          new_core='''const core={
+           ore:{label:"Ore",stock:0,cart:0,shop:0,other:0,realm:800,manual:0},
+           rola:{label:"Rola",stock:0,cart:0,shop:0,other:0,realm:0,manual:0},
+           essence:{label:"Essence",stock:0,cart:0,shop:0,other:0,realm:1290,manual:0},
+           sand:{label:"White Sand",stock:0,cart:0,shop:0,other:0,realm:607,manual:0}
+          };'''
+          if old_core not in h: raise SystemExit('Core object not found')
+          h=h.replace(old_core,new_core,1)
+
+          cm=re.search(r'const coreIcons=\{\s*ore:"([^"]+)",\s*essence:"([^"]+)",\s*sand:"([^"]+)"\s*\};',h,re.S)
+          if not cm: raise SystemExit('coreIcons not found')
+          icons=f'''const coreIcons={{\n  ore:"{cm.group(1)}",\n  rola:"{rola_icon}",\n  essence:"{cm.group(2)}",\n  sand:"{cm.group(3)}"\n }};'''
+          h=h[:cm.start()]+icons+h[cm.end():]
+
+          h=h.replace('const spend={ore:C.ore,essence:C.ess,sand:C.sand};','const spend={ore:C.ore,rola:Math.max(0,num("rolaUpgradeSpend")),essence:C.ess,sand:C.sand};',1)
+          h=h.replace('''const requiredRuns={
+           ore:info.ore&&Number.isFinite(info.ore.realms)?info.ore.realms:Infinity,
+           essence:info.essence&&Number.isFinite(info.essence.realms)?info.essence.realms:Infinity,
+           sand:info.sand&&Number.isFinite(info.sand.realms)?info.sand.realms:Infinity
+          };''','''const requiredRuns={
+           ore:info.ore&&Number.isFinite(info.ore.realms)?info.ore.realms:Infinity,
+           rola:info.rola&&Number.isFinite(info.rola.realms)?info.rola.realms:Infinity,
+           essence:info.essence&&Number.isFinite(info.essence.realms)?info.essence.realms:Infinity,
+           sand:info.sand&&Number.isFinite(info.sand.realms)?info.sand.realms:Infinity
+          };''',1)
+          h=h.replace('gold:0,\n  glove:Number.isFinite(requiredRuns.essence)?requiredRuns.essence:Infinity,','gold:Number.isFinite(requiredRuns.rola)?requiredRuns.rola:Infinity,\n  glove:Number.isFinite(requiredRuns.essence)?requiredRuns.essence:Infinity,',1)
+          h=h.replace('const totalLeftKnown=[entryProj.left.hammer,entryProj.left.glove,entryProj.left.shovel].every(x=>x!==null);','const totalLeftKnown=[entryProj.left.hammer,entryProj.left.gold,entryProj.left.glove,entryProj.left.shovel].every(x=>x!==null);',1)
+          h=h.replace('const totalUsableLeft=totalLeftKnown?entryProj.left.hammer+entryProj.left.glove+entryProj.left.shovel:0;','const totalUsableLeft=totalLeftKnown?entryProj.left.hammer+entryProj.left.gold+entryProj.left.glove+entryProj.left.shovel:0;',1)
+          h=h.replace('Your generated Hammers, Gloves and Shovels can all remain unused.','Your generated Hammers, Rola entries, Gloves and Shovels can all remain unused.',1)
+          h=h.replace('setQuickMaterial("ore","quickOreCount","quickOreText","hammer","hammers");\n setQuickMaterial("essence"','setQuickMaterial("ore","quickOreCount","quickOreText","hammer","hammers");\n setQuickMaterial("rola","quickRolaCount","quickRolaText","Rola Realm entry","Rola Realm entries");\n setQuickMaterial("essence"',1)
+          h=h.replace('Gold entries','Rola entries').replace('Gold entry','Rola entry')
+
+          ids=re.search(r'const ids=\[(.*?)\];',h,re.S)
+          if not ids: raise SystemExit('State ids missing')
+          t=ids.group(1)
+          if '"rolaUpgradeSpend"' not in t:
+              t=t.replace('"shovelNow",','"shovelNow","rolaUpgradeSpend",',1)
+              h=h[:ids.start(1)]+t+h[ids.end(1):]
+
+          h=h.replace('return {v:27,values:v,core:JSON.parse(JSON.stringify(core))}','return {v:28,values:v,core:JSON.parse(JSON.stringify(core))}',1)
+          h=h.replace('localStorage.setItem("sxsPlannerV27"','localStorage.setItem("sxsPlannerV28"',1)
+          h=h.replace('localStorage.removeItem("sxsPlannerV27")','localStorage.removeItem("sxsPlannerV28")',1)
+          h=h.replace('a.download="sword-x-staff-plan-v27.json"','a.download="sword-x-staff-plan-v28.json"',1)
+          h=h.replace('const saved=localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");','const saved=localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");',1)
+          h=h.replace('if(!localStorage.getItem("sxsPlannerV27"))save(true);','if(!localStorage.getItem("sxsPlannerV28"))save(true);',1)
+          h=h.replace('Realm yields remain approximate defaults: Ore ≈800, Essence ≈1,290, White Sand ≈607 per run.','Realm yields remain approximate defaults: Ore ≈800, Essence ≈1,290, White Sand ≈607 per run; enter your current Rola Realm yield.',1)
+
+          checks=['Planner v28','rola:{label:"Rola"','id="quickRolaCount"','id="rolaUpgradeSpend"','requiredRuns.rola','Ore → Rola → Essence → Sand']
+          missing=[x for x in checks if x not in h]
+          if missing: raise SystemExit(f'v28 validation failed: {missing}')
+          p.write_text(h,encoding='utf-8')
+
+      - name: Commit live v28
+        run: |
+          git config user.name "0xNobodyYT-site-bot"
+          git config user.email "0xNobodyYT-site-bot@users.noreply.github.com"
+          git add sxs-primo-calculator/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Add Rola to economy and quick answer"
+          git push
