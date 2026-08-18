@@ -124,3 +124,5 @@ function syncCoreFromInputs(){
           git diff --cached --quiet && exit 0
           git commit -m "Fix Rola Realm yield and balance updates"
           git push
+
+# trigger existing workflow
