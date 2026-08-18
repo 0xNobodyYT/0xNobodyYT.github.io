@@ -1,0 +1,126 @@
+name: Apply Rola yield v30 fix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/apply-v30-rola-fix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Patch calculator to v30
+        shell: python
+        run: |
+          from pathlib import Path
+
+          p=Path('sxs-primo-calculator/index.html')
+          h=p.read_text(encoding='utf-8')
+
+          def rep(old,new,count=1):
+              global h
+              if old not in h:
+                  raise SystemExit('Expected text not found: '+old[:100])
+              h=h.replace(old,new,count)
+
+          if 'Multi-Season Primostar & Realm Planner v30' in h:
+              print('Already v30')
+              raise SystemExit(0)
+
+          rep('Sword x Staff — Multi-Season Primostar & Realm Planner v29','Sword x Staff — Multi-Season Primostar & Realm Planner v30')
+          rep('rola:{label:"Rola",stock:0,cart:0,shop:0,other:0,realm:0,manual:0},','rola:{label:"Rola",stock:0,cart:0,shop:0,other:0,realm:9000,manual:0},')
+
+          rep(''' qsa(".coreinput").forEach(el=>el.addEventListener("input",e=>{
+  const m=e.target.dataset.m,k=e.target.dataset.k;core[m][k]=Number(e.target.value)||0;calculate()
+ }))
+}''',''' qsa(".coreinput").forEach(el=>el.addEventListener("input",e=>{
+  const m=e.target.dataset.m,k=e.target.dataset.k;
+  if(core[m])core[m][k]=Number(e.target.value)||0;
+  calculate()
+ }))
+}
+function syncCoreFromInputs(){
+ qsa(".coreinput").forEach(el=>{
+  const m=el.dataset.m,k=el.dataset.k;
+  if(core[m]&&k)core[m][k]=Number(el.value)||0;
+ });
+}''')
+
+          rep('''function calcMaterialEconomy(T,C){
+ const spend={ore:C.ore,rola:Math.max(0,num("rolaUpgradeSpend")),essence:C.ess,sand:C.sand};''','''function calcMaterialEconomy(T,C){
+ syncCoreFromInputs();
+ const spend={ore:C.ore,rola:Math.max(0,num("rolaUpgradeSpend")),essence:C.ess,sand:C.sand};''')
+
+          rep('''  if(left===null){
+   $(valueEl).textContent="?";$(valueEl).className="rbValue warn";$(subEl).textContent="missing Realm yield";return;
+  }''','''  if(left===null){
+   $(valueEl).textContent="?";
+   $(valueEl).className="rbValue warn";
+   $(subEl).textContent=valueEl==="leftGold"?"enter Rola yield / run":"missing Realm yield";
+   return;
+  }''')
+
+          h=h.replace('Realm yields remain approximate defaults: Ore ≈800, Essence ≈1,290, White Sand ≈607 per run; enter your current Rola Realm yield.','Realm yields remain approximate defaults: Ore ≈800, Rola ≈9,000, Essence ≈1,290, White Sand ≈607 per run.')
+
+          rep('return {v:29,values:v,core:JSON.parse(JSON.stringify(core))}','return {v:30,values:v,core:JSON.parse(JSON.stringify(core))}')
+          rep('localStorage.setItem("sxsPlannerV29"','localStorage.setItem("sxsPlannerV30"')
+          rep('localStorage.removeItem("sxsPlannerV29")','localStorage.removeItem("sxsPlannerV30")')
+          rep('a.download="sword-x-staff-plan-v29.json"','a.download="sword-x-staff-plan-v30.json"')
+          rep('const saved=localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");','const saved=localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");')
+          rep('if(!localStorage.getItem("sxsPlannerV29"))save(true);','if(!localStorage.getItem("sxsPlannerV30"))save(true);')
+
+          rep(''' if(s.core)for(const k of Object.keys(core))if(s.core[k])Object.assign(core[k],s.core[k]);
+ if((Number(s.v)||0)<25){
+  $("goalAwarded").value="";
+  $("oldPrimostars").value="";
+ }
+ renderCore();calculate()
+}''',''' if(s.core)for(const k of Object.keys(core))if(s.core[k])Object.assign(core[k],s.core[k]);
+ if((Number(s.v)||0)<25){
+  $("goalAwarded").value="";
+  $("oldPrimostars").value="";
+ }
+ // v30: Rola Realm yield is now confirmed/defaulted at 9,000.
+ // Only replace the old missing/zero value; preserve any positive custom yield.
+ if((Number(s.v)||0)<30 && (!core.rola || Number(core.rola.realm)<=0)){
+  if(!core.rola)core.rola={label:"Rola",stock:0,cart:0,shop:0,other:0,realm:9000,manual:0};
+  else core.rola.realm=9000;
+ }
+ renderCore();calculate()
+}''')
+
+          rep('<td><input class="coreinput" data-m="${k}" data-k="realm" type="number" step="any" value="${r.realm}"></td>','<td><input class="coreinput" data-m="${k}" data-k="realm" type="number" step="any" value="${r.realm}" ${k==="rola"?\'title="Default Rola Realm yield: 9,000 per run"\':""}></td>')
+
+          required=['Multi-Season Primostar & Realm Planner v30','realm:9000','function syncCoreFromInputs()','core.rola.realm=9000','sxsPlannerV30']
+          missing=[x for x in required if x not in h]
+          if missing:
+              raise SystemExit('Validation failed: '+repr(missing))
+
+          p.write_text(h,encoding='utf-8')
+
+      - name: Check JavaScript syntax
+        shell: python
+        run: |
+          from pathlib import Path
+          import re, subprocess
+          h=Path('sxs-primo-calculator/index.html').read_text(encoding='utf-8')
+          js=re.search(r'<script>(.*?)</script>',h,re.S).group(1)
+          Path('/tmp/calc.js').write_text(js,encoding='utf-8')
+          subprocess.run(['node','--check','/tmp/calc.js'],check=True)
+
+      - name: Commit v30
+        run: |
+          git config user.name "0xNobodyYT-site-bot"
+          git config user.email "0xNobodyYT-site-bot@users.noreply.github.com"
+          git add sxs-primo-calculator/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix Rola Realm yield and balance updates"
+          git push
