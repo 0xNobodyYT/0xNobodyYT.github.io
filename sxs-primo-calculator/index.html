@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="0xNobody">
 <meta name="color-scheme" content="dark">
-<title>Sword x Staff — Multi-Season Primostar & Realm Planner v36</title>
+<title>Sword x Staff — Multi-Season Primostar & Realm Planner v37</title>
 <style>
 :root{
  --bg:#090c12;--panel:#121822;--panel2:#171f2b;--ink:#f4f7fb;--muted:#9babbe;
@@ -201,7 +201,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
     <div class="field"><label>Planner requirement now</label><input id="formulaCurrentNeed" readonly></div>
    </div>
    <label class="smallcheck" style="margin-top:8px"><input id="useXpFormula" type="checkbox" checked> Use season-aware EXP estimates for levels without an exact value.</label>
-   <p class="subtle"><b>Season EXP only:</b> this planner only models the selected season's 30 scoring levels. S1 = Lv100→130, S2 = Lv130→160, S3 = Lv160→190, etc. Catch-up EXP below the season baseline is intentionally ignored. Priority inside the active range: manual curve override → exact “EXP required this level” → season-aware estimate.</p>
+   <p class="subtle"><b>Season EXP only:</b> this planner only models the selected season's 30 scoring levels. S1 = Lv100→130, S2 = Lv130→160, S3 = Lv160→190, etc. Catch-up EXP below the season baseline is intentionally ignored. S2 uses a piecewise estimate: about +550k/level in the early seasonal range, then about +50k/level from around Lv140 onward, with confirmed checkpoints overriding the estimate. Priority: manual curve override → exact “EXP required this level” → confirmed checkpoint → season-aware estimate.</p>
    <p class="subtle">Optional exact overrides, one per line: <b>level, EXP required</b>.</p>
    <div class="notice" style="margin-top:8px"><b>Season baseline:</b> pre-season/catch-up levels are outside this calculator's scope. In Season 2, for example, the EXP planner begins at Lv130→131 and does not use Lv128→129 or Lv129→130 at all.</div>
    
@@ -491,6 +491,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
     <div class="formula"><b>Gear Ore — Season 2</b><span>130→131 = 16,600; then repeating +100 / +200 / +200</span></div>
     <div class="formula"><b>Skill Essence — Season 1</b><span>60 × L − 40</span></div>
     <div class="formula"><b>Skill Essence — Season 2</b><span>Approx. +100/level; 140→141 = 13,200, 141→142 = 13,300</span></div>
+    <div class="formula"><b>Character EXP — Season 2</b><span>Piecewise estimate: ~+550k/level early S2, then ~+50k/level from around Lv140; confirmed checkpoints override</span></div>
     <div class="formula"><b>Relic +10 → +13</b><span>Blue Sand: +11 3,200 · +12 3,520 · +13 3,840</span></div>
     <div class="formula"><b>Relic +13 → +14</b><span>1,350 Purple Sand</span></div>
     <div class="formula"><b>Relic +14 → +15</b><span>1,480 Purple Sand</span></div>
@@ -750,19 +751,36 @@ function seasonXpEstimate(level){
  }
 
  if(season===2){
-  // Confirmed S2 seasonal scoring range starts at Lv130.
+  // Confirmed S2 seasonal checkpoints.
+  // Key = CURRENT level, value = EXP required for level → level+1.
   const exact={
    130:6340000,
    131:6790000,
    132:7340000,
    133:7890000,
-   134:8430000
+   134:8430000,
+   136:9530000,
+   141:11300000,
+   146:11500000,
+   149:11700000,
+   150:11700000,
+   154:11900000
   };
   if(exact[level])return {need:exact[level],quality:"confirmed"};
 
-  // Observed S2 seasonal sequence rises about 0.55m per level.
-  if(level>=135 && level<160){
+  // Phase 1: early S2 ramps by roughly +550k EXP per level.
+  // This reproduces the confirmed 136→137 = 9.53m checkpoint closely.
+  if(level>=135 && level<=139){
    const need=8430000+(level-134)*550000;
+   return {need,quality:"estimated"};
+  }
+
+  // Phase 2: around Lv140 the curve flattens sharply.
+  // Anchor 141→142 at 11.30m and use ~+50k/level.
+  // This matches observed 146→147≈11.5m, 149→150≈11.7m,
+  // 150→151≈11.7m and 154→155≈11.9m after in-game rounding.
+  if(level>=140 && level<160){
+   const need=11250000+(level-140)*50000;
    return {need,quality:"estimated"};
   }
   return {need:0,quality:"missing"};
@@ -1296,7 +1314,7 @@ function state(){
  for(let i=0;i<8;i++)v.skills.push([$(`skillCur${i}`).value,$(`skillTar${i}`).value]);
  for(let i=0;i<4;i++)v.fants.push([$(`fantCur${i}`).value,$(`fantTar${i}`).value]);
  for(let i=0;i<20;i++)v.relics.push([$(`relicCur${i}`).value,$(`relicTar${i}`).value]);
- return {v:36,values:v,core:JSON.parse(JSON.stringify(core))}
+ return {v:37,values:v,core:JSON.parse(JSON.stringify(core))}
 }
 function applyState(s){
  if(!s||!s.values)return;const v=s.values;
@@ -1319,10 +1337,10 @@ function applyState(s){
  }
  renderCore();calculate()
 }
-function save(silent=false){localStorage.setItem("sxsPlannerV36",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
+function save(silent=false){localStorage.setItem("sxsPlannerV37",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
 async function copyBuild(){const code=btoa(unescape(encodeURIComponent(JSON.stringify(state()))));try{await navigator.clipboard.writeText(code);toast("Build code copied")}catch{prompt("Copy build code:",code)}}
 function importBuild(){const c=prompt("Paste build code:");if(!c)return;try{applyState(JSON.parse(decodeURIComponent(escape(atob(c.trim())))));save(true);toast("Imported")}catch{alert("Could not read that build code.")}}
-function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v36.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v37.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function bind(){
  document.addEventListener("input",e=>{if(e.target.matches("input,select,textarea")&&!e.target.classList.contains("coreinput"))calculate()});
  $("fillGearBtn").onclick=fillGear;
@@ -1338,15 +1356,15 @@ function bind(){
   if(wanted>cap)toast(`Relics capped at +${cap} for projected Lv.${XP.ok?XP.level:Math.floor(num("charLevel"))}`);
  };
  $("saveBtn").onclick=()=>save(false);$("copyBtn").onclick=copyBuild;$("importBtn").onclick=importBuild;$("jsonBtn").onclick=exportJson;
- $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV36");location.reload()}}
+ $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV37");location.reload()}}
 }
 renderUnits();renderRatings();renderCore();setTimes();bind();
-const saved=localStorage.getItem("sxsPlannerV36")||localStorage.getItem("sxsPlannerV35")||localStorage.getItem("sxsPlannerV34")||localStorage.getItem("sxsPlannerV33")||localStorage.getItem("sxsPlannerV32")||localStorage.getItem("sxsPlannerV31")||localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");
+const saved=localStorage.getItem("sxsPlannerV37")||localStorage.getItem("sxsPlannerV36")||localStorage.getItem("sxsPlannerV35")||localStorage.getItem("sxsPlannerV34")||localStorage.getItem("sxsPlannerV33")||localStorage.getItem("sxsPlannerV32")||localStorage.getItem("sxsPlannerV31")||localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");
 if(saved){
  try{
   const parsed=JSON.parse(saved);
   applyState(parsed);
-  if(!localStorage.getItem("sxsPlannerV36"))save(true);
+  if(!localStorage.getItem("sxsPlannerV37"))save(true);
  }catch(e){console.error(e);calculate()}
 }else calculate();
 })();
