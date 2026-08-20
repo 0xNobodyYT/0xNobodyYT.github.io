@@ -1,0 +1,155 @@
+name: Apply relic sand tier fix v32
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/relic-v32-update.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Patch calculator to v32
+        shell: python
+        run: |
+          from pathlib import Path
+
+          p=Path('sxs-primo-calculator/index.html')
+          h=p.read_text(encoding='utf-8')
+          if 'Multi-Season Primostar & Realm Planner v32' in h:
+              print('Already v32')
+              raise SystemExit(0)
+          if 'Multi-Season Primostar & Realm Planner v31' not in h:
+              raise SystemExit('Expected v31 calculator not found')
+
+          def rep(old,new,count=1):
+              global h
+              if old not in h:
+                  raise SystemExit('Expected text not found: '+old[:120])
+              h=h.replace(old,new,count)
+
+          rep('Sword x Staff — Multi-Season Primostar & Realm Planner v31','Sword x Staff — Multi-Season Primostar & Realm Planner v32')
+
+          rep('function relicBlueStepCost(L){return Math.max(0,320*(L-1))}', '''function relicSandStepCost(L){
+           L=Math.floor(Number(L)||0);
+           if(L>=11&&L<=13){
+            const blue=320*(L-1);
+            return {blue,purple:0,white:blue*5,known:true};
+           }
+           if(L===14)return {blue:0,purple:1350,white:1350*25,known:true};
+           if(L===15)return {blue:0,purple:1480,white:1480*25,known:true};
+           return {blue:0,purple:0,white:0,known:L<=10};
+          }''')
+
+          rep('''function costs(){
+           let ore=0,ess=0,blue=0;
+           for(let i=0;i<5;i++)ore+=rangeCost(num(`gearCur${i}`),num(`gearTar${i}`),gearStepCost);
+           for(let i=0;i<8;i++)ess+=rangeCost(num(`skillCur${i}`),num(`skillTar${i}`),skillStepCost);
+           for(let i=0;i<20;i++)blue+=rangeCost(num(`relicCur${i}`),num(`relicTar${i}`),relicBlueStepCost);
+           return {ore,ess,blue,sand:blue*5}
+          }''','''function costs(){
+           let ore=0,ess=0,blue=0,purple=0,sand=0,unknownRelicCost=false,unknownRelicFrom=null;
+           for(let i=0;i<5;i++)ore+=rangeCost(num(`gearCur${i}`),num(`gearTar${i}`),gearStepCost);
+           for(let i=0;i<8;i++)ess+=rangeCost(num(`skillCur${i}`),num(`skillTar${i}`),skillStepCost);
+           for(let i=0;i<20;i++){
+            const cur=Math.floor(num(`relicCur${i}`)),tar=Math.floor(num(`relicTar${i}`));
+            if(tar<=cur)continue;
+            for(let L=cur+1;L<=tar;L++){
+             const c=relicSandStepCost(L);
+             if(!c.known){
+              unknownRelicCost=true;
+              if(unknownRelicFrom===null||L<unknownRelicFrom)unknownRelicFrom=L;
+              continue;
+             }
+             blue+=c.blue;purple+=c.purple;sand+=c.white;
+            }
+           }
+           return {ore,ess,blue,purple,sand,unknownRelicCost,unknownRelicFrom}
+          }''')
+
+          rep('''<div class="metrics">
+             <div class="metric major"><div class="k">Ore required</div><div class="v" id="oreRequired">0</div><div class="s">5 gear slots</div></div>
+             <div class="metric major"><div class="k">Essence required</div><div class="v" id="essenceRequired">0</div><div class="s">8 skills</div></div>
+             <div class="metric"><div class="k">Blue Sand required</div><div class="v" id="blueSandRequired">0</div><div class="s">20 relics</div></div>
+             <div class="metric"><div class="k">White Sand equivalent</div><div class="v" id="whiteSandRequired">0</div><div class="s">Blue × 5</div></div>
+            </div>''','''<div class="metrics">
+             <div class="metric major"><div class="k">Ore required</div><div class="v" id="oreRequired">0</div><div class="s">5 gear slots</div></div>
+             <div class="metric major"><div class="k">Essence required</div><div class="v" id="essenceRequired">0</div><div class="s">8 skills</div></div>
+             <div class="metric"><div class="k">Blue Sand required</div><div class="v" id="blueSandRequired">0</div><div class="s">Known Blue-tier relic steps</div></div>
+             <div class="metric"><div class="k">Purple Sand required</div><div class="v" id="purpleSandRequired">0</div><div class="s">Known Purple-tier relic steps</div></div>
+             <div class="metric major"><div class="k">White Sand equivalent</div><div class="v" id="whiteSandRequired">0</div><div class="s">Blue × 5 + Purple × 25</div></div>
+            </div>
+            <div class="notice warn" id="relicCostWarning" style="margin-top:10px;display:none"></div>''')
+
+          rep('''<div class="formula"><b>Relic cost to reach +L</b><span>320 × (L − 1) Blue Sand</span></div>
+              <div class="formula"><b>Sand conversion</b><span>1 Blue = 5 White</span></div>''','''<div class="formula"><b>Relic +10 → +13</b><span>Blue Sand: +11 3,200 · +12 3,520 · +13 3,840</span></div>
+              <div class="formula"><b>Relic +13 → +14</b><span>1,350 Purple Sand</span></div>
+              <div class="formula"><b>Relic +14 → +15</b><span>1,480 Purple Sand</span></div>
+              <div class="formula"><b>Sand conversion</b><span>1 Purple = 5 Blue = 25 White</span></div>
+              <div class="formula"><b>Higher relic levels</b><span>Not estimated until their costs are confirmed</span></div>''')
+
+          rep('const spend={ore:C.ore,rola:Math.max(0,num("rolaUpgradeSpend")),essence:C.ess,sand:C.sand};','const spend={ore:C.ore,rola:Math.max(0,num("rolaUpgradeSpend")),essence:C.ess,sand:C.unknownRelicCost?Infinity:C.sand};')
+
+          rep('''  info[k]={auto,totalSpend,projected,short,realms,ready,ratePerRealHour};
+            $(`auto_${k}`).textContent=fmt(auto);
+            $(`atTarget_${k}`).textContent=fmt(projected);
+            $(`short_${k}`).textContent=fmt(short);
+            $(`short_${k}`).className=short>0?"warn":"good";
+            $(`realm_${k}`).textContent=isFinite(realms)?fmt(realms):"yield?";
+            $(`realm_${k}`).className=realms>0?"warn":"good";''','''  info[k]={auto,totalSpend,projected,short,realms,ready,ratePerRealHour};
+            if(k==="sand"&&C.unknownRelicCost){
+             $(`auto_${k}`).textContent=`${fmt(C.sand)} known + ?`;
+             $(`short_${k}`).textContent="?";
+             $(`short_${k}`).className="warn";
+             $(`realm_${k}`).textContent="?";
+             $(`realm_${k}`).className="warn";
+            }else{
+             $(`auto_${k}`).textContent=fmt(auto);
+             $(`short_${k}`).textContent=fmt(short);
+             $(`short_${k}`).className=short>0?"warn":"good";
+             $(`realm_${k}`).textContent=isFinite(realms)?fmt(realms):"yield?";
+             $(`realm_${k}`).className=realms>0?"warn":"good";
+            }
+            $(`atTarget_${k}`).textContent=fmt(projected);''')
+
+          rep('''$("oreRequired").textContent=fmt(C.ore);$("essenceRequired").textContent=fmt(C.ess);$("blueSandRequired").textContent=fmt(C.blue);$("whiteSandRequired").textContent=fmt(C.sand);
+           calcMaterialEconomy(T,C);''','''$("oreRequired").textContent=fmt(C.ore);
+           $("essenceRequired").textContent=fmt(C.ess);
+           $("blueSandRequired").textContent=fmt(C.blue);
+           $("purpleSandRequired").textContent=fmt(C.purple);
+           $("whiteSandRequired").textContent=C.unknownRelicCost?`${fmt(C.sand)} known + ?`:fmt(C.sand);
+           $("relicCostWarning").style.display=C.unknownRelicCost?"block":"none";
+           $("relicCostWarning").innerHTML=C.unknownRelicCost
+            ? `<b>Relic material cost incomplete.</b> A planned relic upgrade reaches +${C.unknownRelicFrom} or higher, but costs above +15 have not been confirmed yet. Known Sand is shown, but Realm/shovel requirements are intentionally left unknown so the planner does not underestimate your materials.`
+            : "";
+           calcMaterialEconomy(T,C);''')
+
+          rep('return {v:31,values:v,core:JSON.parse(JSON.stringify(core))}','return {v:32,values:v,core:JSON.parse(JSON.stringify(core))}')
+          rep('localStorage.setItem("sxsPlannerV31"','localStorage.setItem("sxsPlannerV32"')
+          rep('localStorage.removeItem("sxsPlannerV31")','localStorage.removeItem("sxsPlannerV32")')
+          rep('a.download="sword-x-staff-plan-v31.json"','a.download="sword-x-staff-plan-v32.json"')
+          rep('const saved=localStorage.getItem("sxsPlannerV31")||','const saved=localStorage.getItem("sxsPlannerV32")||localStorage.getItem("sxsPlannerV31")||')
+          rep('if(!localStorage.getItem("sxsPlannerV31"))save(true);','if(!localStorage.getItem("sxsPlannerV32"))save(true);')
+
+          checks=['Multi-Season Primostar & Realm Planner v32','id="purpleSandRequired"','1350*25','1480*25','1 Purple = 5 Blue = 25 White','C.unknownRelicCost?Infinity:C.sand','sxsPlannerV32']
+          missing=[x for x in checks if x not in h]
+          if missing: raise SystemExit('Validation failed: '+str(missing))
+          p.write_text(h,encoding='utf-8')
+          print('Patched calculator to v32')
+
+      - name: Commit v32
+        run: |
+          git config user.name "0xNobodyYT-site-bot"
+          git config user.email "0xNobodyYT-site-bot@users.noreply.github.com"
+          git add sxs-primo-calculator/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix relic Blue and Purple Sand costs"
+          git push
