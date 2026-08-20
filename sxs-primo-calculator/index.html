@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="0xNobody">
 <meta name="color-scheme" content="dark">
-<title>Sword x Staff — Multi-Season Primostar & Realm Planner v30</title>
+<title>Sword x Staff — Multi-Season Primostar & Realm Planner v31</title>
 <style>
 :root{
  --bg:#090c12;--panel:#121822;--panel2:#171f2b;--ink:#f4f7fb;--muted:#9babbe;
@@ -226,7 +226,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
     <input id="seasonNumber" type="number" step="1" min="1" value="2">
    </div>
    <div class="field">
-    <label>Season progression baseline</label>
+    <label>Season scoring baseline</label>
     <input id="seasonFloorSummary" readonly>
    </div>
   </div>
@@ -256,8 +256,8 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <details>
    <summary>Advanced scoring constants</summary>
    <div class="grid4" style="margin-top:9px">
-    <div class="field"><label>Character / Gear / Skill / Fantomon baseline</label><input id="floor" type="number" value="100" readonly></div>
-    <div class="field"><label>Relic baseline</label><input id="relicFloor" type="number" value="10" readonly></div>
+    <div class="field"><label>Character / Gear / Skill / Fantomon baseline</label><input id="floor" type="number" value="130" readonly></div>
+    <div class="field"><label>Relic baseline</label><input id="relicFloor" type="number" value="14" readonly></div>
     <div class="field"><label>Score / Primostar</label><input id="scorePerStar" type="number" value="100"></div>
     <div class="field"><label>Fixed season Primostars</label><input id="fixedStars" type="number" value="10"></div>
     <div class="field"><label>Character weight</label><input id="charW" type="number" value="100"></div>
@@ -266,7 +266,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
     <div class="field"><label>Fantomon weight</label><input id="fantW" type="number" value="14"></div>
     <div class="field"><label>Relic weight</label><input id="relicW" type="number" value="57"></div>
    </div>
-   <p class="subtle" style="margin-top:9px">At the start of every season, progression scoring resets to the same baseline: Character Lv100, all 5 Gear pieces Lv100, all Skills Lv100, Fantomons Lv100, and Relics +10. Your Primostar total carries forward.</p>
+   <p class="subtle" style="margin-top:9px">Season baselines advance with progression: S1 = Lv100 / relic +10, S2 = Lv130 / +14, S3 = Lv160 / +17, then +30 normal levels and +3 relic levels each later season.</p>
   </details>
  </div>
 </section>
@@ -518,8 +518,8 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 <section class="card">
  <div class="cardhead"><h2>Reference notes</h2></div>
  <div class="cardbody">
-  <div class="notice">Multi-season scoring uses the same category weights: Character 100, Gear 38, Skill 13, Fantomon 14 and Relic 57 per seasonal level. Each new season resets progression scoring to Character/Gear/Skills/Fantomons Lv100 and Relics +10, while your accumulated Primostars carry forward.</div>
-  <div class="notice warn" style="margin-top:8px">Character EXP progress is fractional for score. Example: projected Lv128.5 is 28.5 seasonal character levels above the Lv100 baseline, worth 2,850 character points. Relic cap unlocks still require completed whole character levels.</div>
+  <div class="notice">Multi-season scoring keeps the same category weights: Character 100, Gear 38, Skill 13, Fantomon 14 and Relic 57 per seasonal level. Primostars carry forward, while the scoring baseline advances by season: S1 Lv100/+10, S2 Lv130/+14, S3 Lv160/+17, then +30/+3 thereafter.</div>
+  <div class="notice warn" style="margin-top:8px">Character EXP progress is fractional for score. Example: in Season 2, projected Lv158.5 is 28.5 seasonal character levels above the Lv130 baseline, worth 2,850 character points. Relic cap unlocks still require completed whole character levels.</div>
   <p class="subtle">Season-floor reference: <a href="https://www.prydwen.gg/sword-x-staff/guides/beginner-guide" target="_blank" rel="noopener noreferrer">Prydwen seasonal guide</a>. EXP-save cross-check: <a href="https://eog.gg/games/sword-x-staff/guides/season-2-prep/" target="_blank" rel="noopener noreferrer">Eden of Gaming season preparation guide</a>.</p>
  </div>
 </section>
@@ -527,7 +527,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 </div>
 </main>
 <div class="footer">
- <div>Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons, while Character, Gear, Skills and Fantomons reset to the Lv100 scoring baseline and Relics reset to +10 each season. Relic planned levels are automatically limited by projected character level. Realm yields remain approximate defaults: Ore ≈800, Rola ≈9,000, Essence ≈1,290, White Sand ≈607 per run. Daily refresh systems are counted only at actual reset events, with 5 Realm entries per refresh.</div>
+ <div>Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons, while the seasonal scoring baseline advances with the selected season (S1 Lv100/+10, S2 Lv130/+14, S3 Lv160/+17, then +30/+3). Relic planned levels are automatically limited by projected character level. Realm yields remain approximate defaults: Ore ≈800, Rola ≈9,000, Essence ≈1,290, White Sand ≈607 per run. Daily refresh systems are counted only at actual reset events, with 5 Realm entries per refresh.</div>
  <div style="margin-top:8px;font-weight:800;color:#cbd5df">© 2026 <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">0xNobody</a> · Made by 0xNobody · <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">YouTube</a></div>
 </div>
 </div>
@@ -563,23 +563,38 @@ function ratingFor(s){return ratings.find(r=>s>=r.min&&s<=r.max)?.name||"SSS"}
 function seasonLevels(level,floor){return Math.max(0,Number(level||0)-Number(floor||0))}
 function currentSeasonNumber(){return Math.max(1,Math.floor(num("seasonNumber")||1))}
 function syncSeasonRules(){
- const season=currentSeasonNumber();
- const floor=100;
- const relicFloor=10;
- $("seasonNumber").value=season;
- $("floor").value=floor;
- $("relicFloor").value=relicFloor;
- $("seasonFloorSummary").value=`Every season: Lv100 · Relics +10`;
- $("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total, but progression scoring starts again from <b>Lv100</b> for Character, Gear, Skills and Fantomons, and <b>+10</b> for Relics.`;
- const normalIds=["gearAllCur","gearAllTar","skillAllCur","skillAllTar","fantAllCur","fantAllTar"];
- normalIds.forEach(id=>{if($(id))$(id).placeholder="Baseline 100"});
- ["relicAllCur","relicAllTar"].forEach(id=>{if($(id))$(id).placeholder="Baseline +10"});
- for(let i=0;i<5;i++){if($(`gearCur${i}`))$(`gearCur${i}`).placeholder="100";if($(`gearTar${i}`))$(`gearTar${i}`).placeholder="100";}
- for(let i=0;i<8;i++){if($(`skillCur${i}`))$(`skillCur${i}`).placeholder="100";if($(`skillTar${i}`))$(`skillTar${i}`).placeholder="100";}
- for(let i=0;i<4;i++){if($(`fantCur${i}`))$(`fantCur${i}`).placeholder="100";if($(`fantTar${i}`))$(`fantTar${i}`).placeholder="100";}
- for(let i=0;i<20;i++){if($(`relicCur${i}`))$(`relicCur${i}`).placeholder="+10";if($(`relicTar${i}`))$(`relicTar${i}`).placeholder="+10";}
- return {season,floor,relicFloor}
-}
+     const season=currentSeasonNumber();
+     const floor=100+(season-1)*30;
+     const relicFloor=season===1?10:14+(season-2)*3;
+
+     $("seasonNumber").value=season;
+     $("floor").value=floor;
+     $("relicFloor").value=relicFloor;
+     $("seasonFloorSummary").value=`Season ${season}: Lv${floor} · Relics +${relicFloor}`;
+     $("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total, while seasonal progression starts from <b>Lv${floor}</b> for Character, Gear, Skills and Fantomons, and <b>+${relicFloor}</b> for Relics. Only progress above those baselines scores this season.`;
+
+     const normalIds=["gearAllCur","gearAllTar","skillAllCur","skillAllTar","fantAllCur","fantAllTar"];
+     normalIds.forEach(id=>{if($(id))$(id).placeholder=`Baseline ${floor}`});
+     ["relicAllCur","relicAllTar"].forEach(id=>{if($(id))$(id).placeholder=`Baseline +${relicFloor}`});
+
+     for(let i=0;i<5;i++){
+      if($(`gearCur${i}`))$(`gearCur${i}`).placeholder=`${floor}`;
+      if($(`gearTar${i}`))$(`gearTar${i}`).placeholder=`${floor}`;
+     }
+     for(let i=0;i<8;i++){
+      if($(`skillCur${i}`))$(`skillCur${i}`).placeholder=`${floor}`;
+      if($(`skillTar${i}`))$(`skillTar${i}`).placeholder=`${floor}`;
+     }
+     for(let i=0;i<4;i++){
+      if($(`fantCur${i}`))$(`fantCur${i}`).placeholder=`${floor}`;
+      if($(`fantTar${i}`))$(`fantTar${i}`).placeholder=`${floor}`;
+     }
+     for(let i=0;i<20;i++){
+      if($(`relicCur${i}`))$(`relicCur${i}`).placeholder=`+${relicFloor}`;
+      if($(`relicTar${i}`))$(`relicTar${i}`).placeholder=`+${relicFloor}`;
+     }
+     return {season,floor,relicFloor}
+    }
 function gearStepCost(L){return Math.max(0,100*(L-10))}
 function skillStepCost(L){return Math.max(0,60*L-40)}
 function relicBlueStepCost(L){return Math.max(0,320*(L-1))}
@@ -1059,7 +1074,7 @@ function calculate(){
  $("cumulativeStars").textContent=(totalDifference>=0?"+":"")+fmt(totalDifference);
  $("primostarsNeeded").value=fmt(goalInfo.needed);
  $("requiredScore").value=fmt(Math.ceil(goal*100)/100,2);
- $("ratingChip").textContent=`Season ${seasonInfo.season} · baseline Lv100`;
+ $("ratingChip").textContent=`Season ${seasonInfo.season} · baseline Lv${seasonInfo.floor}`;
  if(goalInfo.target<=goalInfo.old){
   $("goalStatus").className="notice";
   $("goalStatus").innerHTML=`<b>Target already reached.</b> You currently have ${fmt(goalInfo.old)} Primostars, which is already at or above the ${fmt(goalInfo.target)} target.`;
@@ -1095,7 +1110,7 @@ function state(){
  for(let i=0;i<8;i++)v.skills.push([$(`skillCur${i}`).value,$(`skillTar${i}`).value]);
  for(let i=0;i<4;i++)v.fants.push([$(`fantCur${i}`).value,$(`fantTar${i}`).value]);
  for(let i=0;i<20;i++)v.relics.push([$(`relicCur${i}`).value,$(`relicTar${i}`).value]);
- return {v:30,values:v,core:JSON.parse(JSON.stringify(core))}
+ return {v:31,values:v,core:JSON.parse(JSON.stringify(core))}
 }
 function applyState(s){
  if(!s||!s.values)return;const v=s.values;
@@ -1118,10 +1133,10 @@ function applyState(s){
  }
  renderCore();calculate()
 }
-function save(silent=false){localStorage.setItem("sxsPlannerV30",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
+function save(silent=false){localStorage.setItem("sxsPlannerV31",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
 async function copyBuild(){const code=btoa(unescape(encodeURIComponent(JSON.stringify(state()))));try{await navigator.clipboard.writeText(code);toast("Build code copied")}catch{prompt("Copy build code:",code)}}
 function importBuild(){const c=prompt("Paste build code:");if(!c)return;try{applyState(JSON.parse(decodeURIComponent(escape(atob(c.trim())))));save(true);toast("Imported")}catch{alert("Could not read that build code.")}}
-function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v30.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v31.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function bind(){
  document.addEventListener("input",e=>{if(e.target.matches("input,select,textarea")&&!e.target.classList.contains("coreinput"))calculate()});
  $("fillGearBtn").onclick=fillGear;
@@ -1137,15 +1152,15 @@ function bind(){
   if(wanted>cap)toast(`Relics capped at +${cap} for projected Lv.${XP.ok?XP.level:Math.floor(num("charLevel"))}`);
  };
  $("saveBtn").onclick=()=>save(false);$("copyBtn").onclick=copyBuild;$("importBtn").onclick=importBuild;$("jsonBtn").onclick=exportJson;
- $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV30");location.reload()}}
+ $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV31");location.reload()}}
 }
 renderUnits();renderRatings();renderCore();setTimes();bind();
-const saved=localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");
+const saved=localStorage.getItem("sxsPlannerV31")||localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");
 if(saved){
  try{
   const parsed=JSON.parse(saved);
   applyState(parsed);
-  if(!localStorage.getItem("sxsPlannerV30"))save(true);
+  if(!localStorage.getItem("sxsPlannerV31"))save(true);
  }catch(e){console.error(e);calculate()}
 }else calculate();
 })();
