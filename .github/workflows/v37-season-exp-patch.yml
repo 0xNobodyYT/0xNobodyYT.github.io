@@ -1,0 +1,146 @@
+name: Apply v37 season EXP patch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v37-season-exp-patch.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Patch calculator to v37
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('sxs-primo-calculator/index.html')
+          html = p.read_text(encoding='utf-8')
+
+          html = html.replace(
+              'Sword x Staff — Multi-Season Primostar & Realm Planner v36',
+              'Sword x Staff — Multi-Season Primostar & Realm Planner v37'
+          )
+
+          old = ''' if(season===2){
+            // Confirmed S2 seasonal scoring range starts at Lv130.
+            const exact={
+             130:6340000,
+             131:6790000,
+             132:7340000,
+             133:7890000,
+             134:8430000
+            };
+            if(exact[level])return {need:exact[level],quality:"confirmed"};
+
+            // Observed S2 seasonal sequence rises about 0.55m per level.
+            if(level>=135 && level<160){
+             const need=8430000+(level-134)*550000;
+             return {need,quality:"estimated"};
+            }
+            return {need:0,quality:"missing"};
+           }'''
+
+          new = ''' if(season===2){
+            // Confirmed S2 seasonal checkpoints.
+            // Key = CURRENT level, value = EXP required for level → level+1.
+            const exact={
+             130:6340000,
+             131:6790000,
+             132:7340000,
+             133:7890000,
+             134:8430000,
+             136:9530000,
+             141:11300000,
+             146:11500000,
+             149:11700000,
+             150:11700000,
+             154:11900000
+            };
+            if(exact[level])return {need:exact[level],quality:"confirmed"};
+
+            // Phase 1: early S2 ramps by roughly +550k EXP per level.
+            // This reproduces the confirmed 136→137 = 9.53m checkpoint closely.
+            if(level>=135 && level<=139){
+             const need=8430000+(level-134)*550000;
+             return {need,quality:"estimated"};
+            }
+
+            // Phase 2: around Lv140 the curve flattens sharply.
+            // Anchor 141→142 at 11.30m and use ~+50k/level.
+            // This matches observed 146→147≈11.5m, 149→150≈11.7m,
+            // 150→151≈11.7m and 154→155≈11.9m after in-game rounding.
+            if(level>=140 && level<160){
+             const need=11250000+(level-140)*50000;
+             return {need,quality:"estimated"};
+            }
+            return {need:0,quality:"missing"};
+           }'''
+
+          if old not in html:
+              raise SystemExit('Expected v36 S2 EXP block not found')
+          html = html.replace(old, new, 1)
+
+          old_note = '''<p class="subtle"><b>Season EXP only:</b> this planner only models the selected season's 30 scoring levels. S1 = Lv100→130, S2 = Lv130→160, S3 = Lv160→190, etc. Catch-up EXP below the season baseline is intentionally ignored. Priority inside the active range: manual curve override → exact “EXP required this level” → season-aware estimate.</p>'''
+          new_note = '''<p class="subtle"><b>Season EXP only:</b> this planner only models the selected season's 30 scoring levels. S1 = Lv100→130, S2 = Lv130→160, S3 = Lv160→190, etc. Catch-up EXP below the season baseline is intentionally ignored. S2 uses a piecewise estimate: about +550k/level in the early seasonal range, then about +50k/level from around Lv140 onward, with confirmed checkpoints overriding the estimate. Priority: manual curve override → exact “EXP required this level” → confirmed checkpoint → season-aware estimate.</p>'''
+          if old_note not in html:
+              raise SystemExit('Expected v36 EXP note not found')
+          html = html.replace(old_note, new_note, 1)
+
+          needle = '<div class="formula"><b>Skill Essence — Season 2</b><span>Approx. +100/level; 140→141 = 13,200, 141→142 = 13,300</span></div>'
+          if 'Character EXP — Season 2' not in html:
+              if needle not in html:
+                  raise SystemExit('Advanced formula insertion point not found')
+              html = html.replace(needle, needle + '\n    <div class="formula"><b>Character EXP — Season 2</b><span>Piecewise estimate: ~+550k/level early S2, then ~+50k/level from around Lv140; confirmed checkpoints override</span></div>', 1)
+
+          html = html.replace(
+              'return {v:36,values:v,core:JSON.parse(JSON.stringify(core))}',
+              'return {v:37,values:v,core:JSON.parse(JSON.stringify(core))}'
+          )
+          html = html.replace('localStorage.setItem("sxsPlannerV36"', 'localStorage.setItem("sxsPlannerV37"')
+          html = html.replace('localStorage.removeItem("sxsPlannerV36")', 'localStorage.removeItem("sxsPlannerV37")')
+          html = html.replace('a.download="sword-x-staff-plan-v36.json"', 'a.download="sword-x-staff-plan-v37.json"')
+
+          old_loader = 'const saved=localStorage.getItem("sxsPlannerV36")||localStorage.getItem("sxsPlannerV35")||localStorage.getItem("sxsPlannerV34")||localStorage.getItem("sxsPlannerV33")||localStorage.getItem("sxsPlannerV32")||localStorage.getItem("sxsPlannerV31")||localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");'
+          new_loader = 'const saved=localStorage.getItem("sxsPlannerV37")||localStorage.getItem("sxsPlannerV36")||localStorage.getItem("sxsPlannerV35")||localStorage.getItem("sxsPlannerV34")||localStorage.getItem("sxsPlannerV33")||localStorage.getItem("sxsPlannerV32")||localStorage.getItem("sxsPlannerV31")||localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");'
+          if old_loader not in html:
+              raise SystemExit('Expected v36 storage loader not found')
+          html = html.replace(old_loader, new_loader, 1)
+          html = html.replace('if(!localStorage.getItem("sxsPlannerV36"))save(true);', 'if(!localStorage.getItem("sxsPlannerV37"))save(true);', 1)
+
+          if 'v37' not in html or '136:9530000' not in html or '154:11900000' not in html:
+              raise SystemExit('v37 validation markers missing')
+
+          p.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Validate JavaScript
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html = Path('sxs-primo-calculator/index.html').read_text(encoding='utf-8')
+          scripts = re.findall(r'<script>(.*?)</script>', html, re.S)
+          Path('/tmp/calculator.js').write_text('\n'.join(scripts), encoding='utf-8')
+          PY
+          node --check /tmp/calculator.js
+
+      - name: Commit v37
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sxs-primo-calculator/index.html
+          git commit -m "Update calculator to v37 S2 EXP curve"
+          git push origin HEAD:main
