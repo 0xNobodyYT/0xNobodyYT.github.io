@@ -1,0 +1,226 @@
+name: Apply v38 season baseline patch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v38-season-baseline-patch.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Patch calculator to v38
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('sxs-primo-calculator/index.html')
+          html = p.read_text(encoding='utf-8')
+
+          html = html.replace(
+              'Sword x Staff — Multi-Season Primostar & Realm Planner v37',
+              'Sword x Staff — Multi-Season Primostar & Realm Planner v38'
+          )
+
+          html = html.replace(
+              '''<p class="subtle"><b>Season EXP only:</b> this planner only models the selected season's 30 scoring levels. S1 = Lv100→130, S2 = Lv130→160, S3 = Lv160→190, etc. Catch-up EXP below the season baseline is intentionally ignored. S2 uses a piecewise estimate: about +550k/level in the early seasonal range, then about +50k/level from around Lv140 onward, with confirmed checkpoints overriding the estimate. Priority: manual curve override → exact “EXP required this level” → confirmed checkpoint → season-aware estimate.</p>''',
+              '''<p class="subtle"><b>Season EXP only:</b> the selected season defines the scoring <b>baseline</b>, not a level ceiling. S1 starts at Lv100, S2 at Lv130, S3 at Lv160, etc. Catch-up EXP below that baseline is intentionally ignored, while progress above it keeps counting for Primostars. S2 uses a piecewise estimate: about +550k/level in the early seasonal range, then about +50k/level from around Lv140 onward. Priority: manual curve override → exact “EXP required this level” → confirmed checkpoint → season-aware estimate.</p>''',
+              1
+          )
+          html = html.replace(
+              '''<div class="notice" style="margin-top:8px"><b>Season baseline:</b> pre-season/catch-up levels are outside this calculator's scope. In Season 2, for example, the EXP planner begins at Lv130→131 and does not use Lv128→129 or Lv129→130 at all.</div>''',
+              '''<div class="notice" style="margin-top:8px"><b>Season baseline:</b> pre-season/catch-up levels are outside this calculator's scope. In Season 2 the EXP planner starts at Lv130→131, but it can continue past Lv160, Lv170 and beyond; all progress above Lv130 remains seasonal progress.</div>''',
+              1
+          )
+          html = html.replace(
+              'S2 Gear uses the confirmed 130→141 pattern.',
+              'S2 Gear uses the confirmed repeating pattern validated through 170→171.',
+              1
+          )
+          html = html.replace(
+              '<div class="formula"><b>Gear Ore — Season 2</b><span>130→131 = 16,600; then repeating +100 / +200 / +200</span></div>',
+              '<div class="formula"><b>Gear Ore — Season 2</b><span>Confirmed past Lv170: 130→131 = 16,600; repeating +100 / +200 / +200</span></div>',
+              1
+          )
+          html = html.replace(
+              '<div class="formula"><b>Character EXP — Season 2</b><span>Piecewise estimate: ~+550k/level early S2, then ~+50k/level from around Lv140; confirmed checkpoints override</span></div>',
+              '<div class="formula"><b>Character EXP — Season 2</b><span>No level ceiling: ~+550k/level early S2, then ~+50k/level from around Lv140 and beyond Lv170</span></div>',
+              1
+          )
+          html = html.replace(
+              'Primostars are cumulative across seasons, while the selected season defines the only progression range this planner models (S1 Lv100→130/+10, S2 Lv130→160/+14, S3 Lv160→190/+17, then +30/+3).',
+              'Primostars are cumulative across seasons. The selected season defines a scoring baseline, not a ceiling (S1 Lv100/+10, S2 Lv130/+14, S3 Lv160/+17, then +30/+3); progress above that baseline continues to score.',
+              1
+          )
+          html = html.replace(
+              '''$("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total, while seasonal progression starts from <b>Lv${floor}</b> for Character, Gear, Skills and Fantomons, and <b>+${relicFloor}</b> for Relics. The planner ignores character EXP below Lv${floor}; only this season's scoring range matters.`;''',
+              '''$("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total. Seasonal scoring starts from <b>Lv${floor}</b> for Character, Gear, Skills and Fantomons, and <b>+${relicFloor}</b> for Relics. These are baselines, not caps: progress above them keeps earning the same Primostar points.`;''',
+              1
+          )
+          html = html.replace(
+              '// S2 confirmed from 130→141:',
+              '// S2 pattern confirmed from 130→141 and again through 170→171:',
+              1
+          )
+
+          exp_re = re.compile(r'function seasonXpEstimate\(level\)\{.*?\n\}', re.S)
+          new_exp = '''function seasonXpEstimate(level){
+           level=Math.floor(Number(level)||0);
+           const season=currentSeasonNumber();
+           const floor=100+(season-1)*30;
+
+           // The season defines a BASELINE only. Levels below it are irrelevant to
+           // this season calculator; levels above it can continue indefinitely.
+           if(level<floor)return {need:0,quality:"outside-season"};
+
+           if(season===1){
+            const exact={113:1390000,114:1440000,117:1580000};
+            if(exact[level])return {need:exact[level],quality:"confirmed"};
+            const need=Math.max(0,num("xpBase100")+(level-100)*num("xpIncrease"));
+            return {need,quality:"estimated"};
+           }
+
+           if(season===2){
+            const exact={
+             130:6340000,131:6790000,132:7340000,133:7890000,134:8430000,
+             136:9530000,141:11300000,146:11500000,149:11700000,
+             150:11700000,154:11900000
+            };
+            if(exact[level])return {need:exact[level],quality:"confirmed"};
+            if(level>=135&&level<=139){
+             const need=8430000+(level-134)*550000;
+             return {need,quality:"estimated"};
+            }
+            if(level>=140){
+             const need=11250000+(level-140)*50000;
+             return {need,quality:"estimated"};
+            }
+            return {need:0,quality:"missing"};
+           }
+
+           return {need:0,quality:"missing"};
+          }'''
+          html, n = exp_re.subn(new_exp, html, count=1)
+          if n != 1:
+              raise SystemExit('seasonXpEstimate replacement failed')
+
+          xp_re = re.compile(r'function xpCalc\(hours\)\{.*?\n\}', re.S)
+          new_xp = '''function xpCalc(hours){
+           const curve=parseCurve();
+           const floor=num("floor");
+           const rawLevel=Math.floor(num("charLevel"));
+           let level=Math.max(floor,rawLevel);
+           let xp=rawLevel<floor?0:Math.max(0,num("charXp"));
+           let remaining=Math.max(0,num("xpHr"))*hours;
+           const startLevel=level,gain=remaining;
+           let usedEstimate=false,usedConfirmed=false,usedManual=false,missing=false,steps=0;
+
+           function need(l){
+            const manualCurve=curve.get(l);
+            if(manualCurve>0){usedManual=true;return manualCurve}
+            if(l===startLevel&&num("charNeed")>0){usedManual=true;return num("charNeed")}
+            if($("useXpFormula").checked){
+             const e=seasonXpEstimate(l);
+             if(e.need>0){
+              if(e.quality==="confirmed")usedConfirmed=true;
+              else usedEstimate=true;
+              return e.need;
+             }
+            }
+            missing=true;
+            return 0
+           }
+
+           if(!need(level))return {ok:false,level,xp,gain,need:0,quality:"Need seasonal EXP data"};
+           while(remaining>0&&steps<10000){
+            const req=need(level);
+            if(!req)break;
+            const left=Math.max(0,req-xp);
+            if(remaining<left){xp+=remaining;remaining=0;break}
+            remaining-=left;level++;xp=0;steps++;
+           }
+           const req=need(level);
+           let quality="Exact seasonal EXP data";
+           if(missing)quality="Stopped at missing seasonal EXP";
+           else if(usedEstimate&&usedManual)quality="Exact current + seasonal estimates";
+           else if(usedEstimate)quality="Season-aware estimate";
+           else if(usedConfirmed&&usedManual)quality="Exact + confirmed seasonal curve";
+           else if(usedConfirmed)quality="Confirmed seasonal EXP checkpoints";
+           return {ok:true,level,xp,gain,need:req,quality}
+          }'''
+          html, n = xp_re.subn(new_xp, html, count=1)
+          if n != 1:
+              raise SystemExit('xpCalc replacement failed')
+
+          old_current = '''function currentCharSeasonLevels(){
+           const floor=num("floor"),rawLv=Math.floor(num("charLevel")),lv=Math.max(floor,rawLv),curve=parseCurve();
+           const estimate=$("useXpFormula").checked?seasonXpEstimate(lv):{need:0};
+           const need=curve.get(lv)||num("charNeed")||estimate.need||0;
+           const xp=rawLv<floor?0:num("charXp");
+           const frac=(lv>=floor&&lv<floor+30&&need>0)?clamp(xp/need,0,1):0;
+           const decimalLevel=Math.min(floor+30,lv+frac);
+           return Math.max(0,decimalLevel-floor);
+          }'''
+          new_current = '''function currentCharSeasonLevels(){
+           const floor=num("floor"),rawLv=Math.floor(num("charLevel")),lv=Math.max(floor,rawLv),curve=parseCurve();
+           const estimate=$("useXpFormula").checked?seasonXpEstimate(lv):{need:0};
+           const need=curve.get(lv)||num("charNeed")||estimate.need||0;
+           const xp=rawLv<floor?0:num("charXp");
+           const frac=(lv>=floor&&need>0)?clamp(xp/need,0,1):0;
+           const decimalLevel=lv+frac;
+           return Math.max(0,decimalLevel-floor);
+          }'''
+          if old_current not in html:
+              raise SystemExit('currentCharSeasonLevels block not found')
+          html = html.replace(old_current, new_current, 1)
+
+          html = html.replace('return {v:37,values:v,core:JSON.parse(JSON.stringify(core))}', 'return {v:38,values:v,core:JSON.parse(JSON.stringify(core))}', 1)
+          html = html.replace('localStorage.setItem("sxsPlannerV37"', 'localStorage.setItem("sxsPlannerV38"', 1)
+          html = html.replace('localStorage.removeItem("sxsPlannerV37")', 'localStorage.removeItem("sxsPlannerV38")', 1)
+          html = html.replace('a.download="sword-x-staff-plan-v37.json"', 'a.download="sword-x-staff-plan-v38.json"', 1)
+
+          old_loader = 'const saved=localStorage.getItem("sxsPlannerV37")||localStorage.getItem("sxsPlannerV36")||localStorage.getItem("sxsPlannerV35")||localStorage.getItem("sxsPlannerV34")||localStorage.getItem("sxsPlannerV33")||localStorage.getItem("sxsPlannerV32")||localStorage.getItem("sxsPlannerV31")||localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");'
+          new_loader = 'const saved=localStorage.getItem("sxsPlannerV38")||localStorage.getItem("sxsPlannerV37")||localStorage.getItem("sxsPlannerV36")||localStorage.getItem("sxsPlannerV35")||localStorage.getItem("sxsPlannerV34")||localStorage.getItem("sxsPlannerV33")||localStorage.getItem("sxsPlannerV32")||localStorage.getItem("sxsPlannerV31")||localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");'
+          if old_loader not in html:
+              raise SystemExit('v37 loader not found')
+          html = html.replace(old_loader, new_loader, 1)
+          html = html.replace('if(!localStorage.getItem("sxsPlannerV37"))save(true);', 'if(!localStorage.getItem("sxsPlannerV38"))save(true);', 1)
+
+          if 'floor+30' in html or 'Math.min(floor+30' in html:
+              raise SystemExit('old 30-level ceiling still present')
+          if 'v38' not in html or 'if(level>=140)' not in html:
+              raise SystemExit('v38 validation markers missing')
+
+          p.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Validate JavaScript
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html = Path('sxs-primo-calculator/index.html').read_text(encoding='utf-8')
+          scripts = re.findall(r'<script>(.*?)</script>', html, re.S)
+          Path('/tmp/calculator.js').write_text('\n'.join(scripts), encoding='utf-8')
+          PY
+          node --check /tmp/calculator.js
+
+      - name: Commit v38
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sxs-primo-calculator/index.html
+          git commit -m "Update calculator to v38 baseline-only season scoring"
+          git push origin HEAD:main
