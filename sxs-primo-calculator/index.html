@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="0xNobody">
 <meta name="color-scheme" content="dark">
-<title>Sword x Staff — Multi-Season Primostar & Realm Planner v37</title>
+<title>Sword x Staff — Multi-Season Primostar & Realm Planner v38</title>
 <style>
 :root{
  --bg:#090c12;--panel:#121822;--panel2:#171f2b;--ink:#f4f7fb;--muted:#9babbe;
@@ -201,9 +201,9 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
     <div class="field"><label>Planner requirement now</label><input id="formulaCurrentNeed" readonly></div>
    </div>
    <label class="smallcheck" style="margin-top:8px"><input id="useXpFormula" type="checkbox" checked> Use season-aware EXP estimates for levels without an exact value.</label>
-   <p class="subtle"><b>Season EXP only:</b> this planner only models the selected season's 30 scoring levels. S1 = Lv100→130, S2 = Lv130→160, S3 = Lv160→190, etc. Catch-up EXP below the season baseline is intentionally ignored. S2 uses a piecewise estimate: about +550k/level in the early seasonal range, then about +50k/level from around Lv140 onward, with confirmed checkpoints overriding the estimate. Priority: manual curve override → exact “EXP required this level” → confirmed checkpoint → season-aware estimate.</p>
+   <p class="subtle"><b>Season EXP only:</b> the selected season defines the scoring <b>baseline</b>, not a level ceiling. S1 starts at Lv100, S2 at Lv130, S3 at Lv160, etc. Catch-up EXP below that baseline is intentionally ignored, while progress above it keeps counting for Primostars. S2 uses a piecewise estimate: about +550k/level in the early seasonal range, then about +50k/level from around Lv140 onward. Priority: manual curve override → exact “EXP required this level” → confirmed checkpoint → season-aware estimate.</p>
    <p class="subtle">Optional exact overrides, one per line: <b>level, EXP required</b>.</p>
-   <div class="notice" style="margin-top:8px"><b>Season baseline:</b> pre-season/catch-up levels are outside this calculator's scope. In Season 2, for example, the EXP planner begins at Lv130→131 and does not use Lv128→129 or Lv129→130 at all.</div>
+   <div class="notice" style="margin-top:8px"><b>Season baseline:</b> pre-season/catch-up levels are outside this calculator's scope. In Season 2 the EXP planner starts at Lv130→131, but it can continue past Lv160, Lv170 and beyond; all progress above Lv130 remains seasonal progress.</div>
    
    <textarea id="xpCurve" placeholder="113, 1390000&#10;114, 1440000"></textarea>
   </details>
@@ -482,16 +482,16 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
    <label>Rola required for planned upgrades</label>
    <input id="rolaUpgradeSpend" type="number" min="0" step="any" value="" placeholder="Enter total Rola upgrade cost">
   </div>
-  <p class="simple-note"><b>Cost accuracy:</b> S1 Gear uses an approximation anchored to confirmed late-S1 Ore costs. S2 Gear uses the confirmed 130→141 pattern. S2 Skill Essence is extrapolated from the confirmed 140→142 +100/level progression.</p>
+  <p class="simple-note"><b>Cost accuracy:</b> S1 Gear uses an approximation anchored to confirmed late-S1 Ore costs. S2 Gear uses the confirmed repeating pattern validated through 170→171. S2 Skill Essence is extrapolated from the confirmed 140→142 +100/level progression.</p>
   <p class="simple-note">Rola is included in the economy and Quick Answer. Enter the total Rola your planned upgrades will consume; the exact per-level Rola formula is not hard-coded until it is confirmed.</p>
   <details>
    <summary>Advanced cost formulas</summary>
    <div class="formulas" style="margin-top:9px">
     <div class="formula"><b>Gear Ore — Season 1</b><span>Approx.: +100/level, with confirmed 126→127 plateau at 11,600</span></div>
-    <div class="formula"><b>Gear Ore — Season 2</b><span>130→131 = 16,600; then repeating +100 / +200 / +200</span></div>
+    <div class="formula"><b>Gear Ore — Season 2</b><span>Confirmed past Lv170: 130→131 = 16,600; repeating +100 / +200 / +200</span></div>
     <div class="formula"><b>Skill Essence — Season 1</b><span>60 × L − 40</span></div>
     <div class="formula"><b>Skill Essence — Season 2</b><span>Approx. +100/level; 140→141 = 13,200, 141→142 = 13,300</span></div>
-    <div class="formula"><b>Character EXP — Season 2</b><span>Piecewise estimate: ~+550k/level early S2, then ~+50k/level from around Lv140; confirmed checkpoints override</span></div>
+    <div class="formula"><b>Character EXP — Season 2</b><span>No level ceiling: ~+550k/level early S2, then ~+50k/level from around Lv140 and beyond Lv170</span></div>
     <div class="formula"><b>Relic +10 → +13</b><span>Blue Sand: +11 3,200 · +12 3,520 · +13 3,840</span></div>
     <div class="formula"><b>Relic +13 → +14</b><span>1,350 Purple Sand</span></div>
     <div class="formula"><b>Relic +14 → +15</b><span>1,480 Purple Sand</span></div>
@@ -541,7 +541,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 </div>
 </main>
 <div class="footer">
- <div>Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons, while the selected season defines the only progression range this planner models (S1 Lv100→130/+10, S2 Lv130→160/+14, S3 Lv160→190/+17, then +30/+3). Relic planned levels are automatically limited by projected character level. Realm yields remain approximate defaults: Ore ≈800, Rola ≈9,000, Essence ≈1,290, White Sand ≈607 per run. Daily refresh systems are counted only at actual reset events, with 5 Realm entries per refresh.</div>
+ <div>Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons. The selected season defines a scoring baseline, not a ceiling (S1 Lv100/+10, S2 Lv130/+14, S3 Lv160/+17, then +30/+3); progress above that baseline continues to score. Relic planned levels are automatically limited by projected character level. Realm yields remain approximate defaults: Ore ≈800, Rola ≈9,000, Essence ≈1,290, White Sand ≈607 per run. Daily refresh systems are counted only at actual reset events, with 5 Realm entries per refresh.</div>
  <div style="margin-top:8px;font-weight:800;color:#cbd5df">© 2026 <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">0xNobody</a> · Made by 0xNobody · <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">YouTube</a></div>
 </div>
 </div>
@@ -585,7 +585,7 @@ function syncSeasonRules(){
  $("floor").value=floor;
  $("relicFloor").value=relicFloor;
  $("seasonFloorSummary").value=`Season ${season}: Lv${floor} · Relics +${relicFloor}`;
- $("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total, while seasonal progression starts from <b>Lv${floor}</b> for Character, Gear, Skills and Fantomons, and <b>+${relicFloor}</b> for Relics. The planner ignores character EXP below Lv${floor}; only this season's scoring range matters.`;
+ $("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total. Seasonal scoring starts from <b>Lv${floor}</b> for Character, Gear, Skills and Fantomons, and <b>+${relicFloor}</b> for Relics. These are baselines, not caps: progress above them keeps earning the same Primostar points.`;
 
  if($("charLevel")){
   $("charLevel").min=floor;
@@ -632,7 +632,7 @@ function gearStepCost(L){
   return Math.max(0,100*(L-11));
  }
 
- // S2 confirmed from 130→141:
+ // S2 pattern confirmed from 130→141 and again through 170→171:
  // 16,600 at 130→131, then repeating increases +100, +200, +200.
  if(season===2 && L>=131){
   const n=L-131;
@@ -729,65 +729,36 @@ function seasonXpEstimate(level){
  level=Math.floor(Number(level)||0);
  const season=currentSeasonNumber();
  const floor=100+(season-1)*30;
- const ceiling=floor+30;
 
- // This is a SEASON planner. EXP below the selected season's scoring
- // baseline is intentionally ignored.
- if(level<floor || level>=ceiling)return {need:0,quality:"outside-season"};
+ // The season defines a BASELINE only. Levels below it are irrelevant to
+ // this season calculator; levels above it can continue indefinitely.
+ if(level<floor)return {need:0,quality:"outside-season"};
 
  if(season===1){
-  // Confirmed S1 checkpoints.
-  const exact={
-   113:1390000,
-   114:1440000,
-   117:1580000
-  };
+  const exact={113:1390000,114:1440000,117:1580000};
   if(exact[level])return {need:exact[level],quality:"confirmed"};
-
-  // S1 seasonal scoring range: Lv100→130.
-  // Approximate with the original ~+50k/level curve.
   const need=Math.max(0,num("xpBase100")+(level-100)*num("xpIncrease"));
   return {need,quality:"estimated"};
  }
 
  if(season===2){
-  // Confirmed S2 seasonal checkpoints.
-  // Key = CURRENT level, value = EXP required for level → level+1.
   const exact={
-   130:6340000,
-   131:6790000,
-   132:7340000,
-   133:7890000,
-   134:8430000,
-   136:9530000,
-   141:11300000,
-   146:11500000,
-   149:11700000,
-   150:11700000,
-   154:11900000
+   130:6340000,131:6790000,132:7340000,133:7890000,134:8430000,
+   136:9530000,141:11300000,146:11500000,149:11700000,
+   150:11700000,154:11900000
   };
   if(exact[level])return {need:exact[level],quality:"confirmed"};
-
-  // Phase 1: early S2 ramps by roughly +550k EXP per level.
-  // This reproduces the confirmed 136→137 = 9.53m checkpoint closely.
-  if(level>=135 && level<=139){
+  if(level>=135&&level<=139){
    const need=8430000+(level-134)*550000;
    return {need,quality:"estimated"};
   }
-
-  // Phase 2: around Lv140 the curve flattens sharply.
-  // Anchor 141→142 at 11.30m and use ~+50k/level.
-  // This matches observed 146→147≈11.5m, 149→150≈11.7m,
-  // 150→151≈11.7m and 154→155≈11.9m after in-game rounding.
-  if(level>=140 && level<160){
+  if(level>=140){
    const need=11250000+(level-140)*50000;
    return {need,quality:"estimated"};
   }
   return {need:0,quality:"missing"};
  }
 
- // S3+ starts at Lv160 / Lv190 / ... respectively, but the EXP curves
- // are not confirmed yet. Use exact current-level data or manual overrides.
  return {need:0,quality:"missing"};
 }
 function timeCalc(){
@@ -856,10 +827,7 @@ function xpCalc(hours){
  function need(l){
   const manualCurve=curve.get(l);
   if(manualCurve>0){usedManual=true;return manualCurve}
-
-  // Exact current-level requirement overrides automatic estimates.
   if(l===startLevel&&num("charNeed")>0){usedManual=true;return num("charNeed")}
-
   if($("useXpFormula").checked){
    const e=seasonXpEstimate(l);
    if(e.need>0){
@@ -868,31 +836,25 @@ function xpCalc(hours){
     return e.need;
    }
   }
-
   missing=true;
   return 0
  }
 
  if(!need(level))return {ok:false,level,xp,gain,need:0,quality:"Need seasonal EXP data"};
-
  while(remaining>0&&steps<10000){
-  // Stop at the end of this season's 30-level scoring range.
-  if(level>=floor+30)break;
   const req=need(level);
   if(!req)break;
   const left=Math.max(0,req-xp);
   if(remaining<left){xp+=remaining;remaining=0;break}
   remaining-=left;level++;xp=0;steps++;
  }
-
- const req=level<floor+30?need(level):0;
+ const req=need(level);
  let quality="Exact seasonal EXP data";
- if(missing&&level<floor+30)quality="Stopped at missing seasonal EXP";
+ if(missing)quality="Stopped at missing seasonal EXP";
  else if(usedEstimate&&usedManual)quality="Exact current + seasonal estimates";
  else if(usedEstimate)quality="Season-aware estimate";
  else if(usedConfirmed&&usedManual)quality="Exact + confirmed seasonal curve";
  else if(usedConfirmed)quality="Confirmed seasonal EXP checkpoints";
-
  return {ok:true,level,xp,gain,need:req,quality}
 }
 function projectedCharacterLevelDecimal(XP){
@@ -910,8 +872,8 @@ function currentCharSeasonLevels(){
  const estimate=$("useXpFormula").checked?seasonXpEstimate(lv):{need:0};
  const need=curve.get(lv)||num("charNeed")||estimate.need||0;
  const xp=rawLv<floor?0:num("charXp");
- const frac=(lv>=floor&&lv<floor+30&&need>0)?clamp(xp/need,0,1):0;
- const decimalLevel=Math.min(floor+30,lv+frac);
+ const frac=(lv>=floor&&need>0)?clamp(xp/need,0,1):0;
+ const decimalLevel=lv+frac;
  return Math.max(0,decimalLevel-floor);
 }
 function relicCapForCharacterLevel(level){
@@ -1314,7 +1276,7 @@ function state(){
  for(let i=0;i<8;i++)v.skills.push([$(`skillCur${i}`).value,$(`skillTar${i}`).value]);
  for(let i=0;i<4;i++)v.fants.push([$(`fantCur${i}`).value,$(`fantTar${i}`).value]);
  for(let i=0;i<20;i++)v.relics.push([$(`relicCur${i}`).value,$(`relicTar${i}`).value]);
- return {v:37,values:v,core:JSON.parse(JSON.stringify(core))}
+ return {v:38,values:v,core:JSON.parse(JSON.stringify(core))}
 }
 function applyState(s){
  if(!s||!s.values)return;const v=s.values;
@@ -1337,10 +1299,10 @@ function applyState(s){
  }
  renderCore();calculate()
 }
-function save(silent=false){localStorage.setItem("sxsPlannerV37",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
+function save(silent=false){localStorage.setItem("sxsPlannerV38",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
 async function copyBuild(){const code=btoa(unescape(encodeURIComponent(JSON.stringify(state()))));try{await navigator.clipboard.writeText(code);toast("Build code copied")}catch{prompt("Copy build code:",code)}}
 function importBuild(){const c=prompt("Paste build code:");if(!c)return;try{applyState(JSON.parse(decodeURIComponent(escape(atob(c.trim())))));save(true);toast("Imported")}catch{alert("Could not read that build code.")}}
-function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v37.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v38.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function bind(){
  document.addEventListener("input",e=>{if(e.target.matches("input,select,textarea")&&!e.target.classList.contains("coreinput"))calculate()});
  $("fillGearBtn").onclick=fillGear;
@@ -1356,15 +1318,15 @@ function bind(){
   if(wanted>cap)toast(`Relics capped at +${cap} for projected Lv.${XP.ok?XP.level:Math.floor(num("charLevel"))}`);
  };
  $("saveBtn").onclick=()=>save(false);$("copyBtn").onclick=copyBuild;$("importBtn").onclick=importBuild;$("jsonBtn").onclick=exportJson;
- $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV37");location.reload()}}
+ $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV38");location.reload()}}
 }
 renderUnits();renderRatings();renderCore();setTimes();bind();
-const saved=localStorage.getItem("sxsPlannerV37")||localStorage.getItem("sxsPlannerV36")||localStorage.getItem("sxsPlannerV35")||localStorage.getItem("sxsPlannerV34")||localStorage.getItem("sxsPlannerV33")||localStorage.getItem("sxsPlannerV32")||localStorage.getItem("sxsPlannerV31")||localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");
+const saved=localStorage.getItem("sxsPlannerV38")||localStorage.getItem("sxsPlannerV37")||localStorage.getItem("sxsPlannerV36")||localStorage.getItem("sxsPlannerV35")||localStorage.getItem("sxsPlannerV34")||localStorage.getItem("sxsPlannerV33")||localStorage.getItem("sxsPlannerV32")||localStorage.getItem("sxsPlannerV31")||localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");
 if(saved){
  try{
   const parsed=JSON.parse(saved);
   applyState(parsed);
-  if(!localStorage.getItem("sxsPlannerV37"))save(true);
+  if(!localStorage.getItem("sxsPlannerV38"))save(true);
  }catch(e){console.error(e);calculate()}
 }else calculate();
 })();
