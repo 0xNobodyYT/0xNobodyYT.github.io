@@ -1,0 +1,76 @@
+name: Patch calculator v40
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/patch-v40.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch calculator
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path("sxs-primo-calculator/index.html")
+          s = p.read_text(encoding="utf-8")
+          s = s.replace("Sword x Staff — Multi-Season Primostar & Realm Planner v39", "Sword x Staff — Multi-Season Primostar & Realm Planner v40")
+          old = ''' if($("charLevel")){
+            $("charLevel").min=floor;
+            $("charLevel").placeholder=`Season baseline ${floor}`;
+            if($("charLevel").value!=="" && Number($("charLevel").value)<floor){
+             $("charLevel").value=floor;
+             if($("charXp"))$("charXp").value="";
+             if($("charNeed"))$("charNeed").value="";
+            }
+           }'''
+          new = ''' if($("charLevel")){
+            $("charLevel").min=floor;
+            $("charLevel").placeholder=`Season baseline ${floor}`;
+           }'''
+          if old not in s:
+              raise SystemExit("live clamp block not found")
+          s = s.replace(old, new, 1)
+          old_bind = '''function bind(){
+           document.addEventListener("input",e=>{if(e.target.matches("input,select,textarea")&&!e.target.classList.contains("coreinput"))calculate()});'''
+          new_bind = '''function bind(){
+           document.addEventListener("input",e=>{if(e.target.matches("input,select,textarea")&&!e.target.classList.contains("coreinput"))calculate()});
+           $("charLevel").addEventListener("blur",()=>{
+            const raw=$("charLevel").value;
+            if(raw==="")return;
+            const floor=num("floor");
+            if(Number(raw)<floor){
+             $("charLevel").value=floor;
+             $("charXp").value="";
+             $("charNeed").value="";
+             calculate();
+             toast(`Season baseline is Lv.${floor}`);
+            }
+           });'''
+          if old_bind not in s:
+              raise SystemExit("bind block not found")
+          s = s.replace(old_bind, new_bind, 1)
+          s = s.replace('return {v:39,values:v,core:JSON.parse(JSON.stringify(core))}', 'return {v:40,values:v,core:JSON.parse(JSON.stringify(core))}', 1)
+          s = s.replace('localStorage.setItem("sxsPlannerV39"', 'localStorage.setItem("sxsPlannerV40"', 1)
+          s = s.replace('localStorage.removeItem("sxsPlannerV39")', 'localStorage.removeItem("sxsPlannerV40")', 1)
+          s = s.replace('a.download="sword-x-staff-plan-v39.json"', 'a.download="sword-x-staff-plan-v40.json"', 1)
+          old_loader = 'const saved=localStorage.getItem("sxsPlannerV39")||localStorage.getItem("sxsPlannerV38")||'
+          new_loader = 'const saved=localStorage.getItem("sxsPlannerV40")||localStorage.getItem("sxsPlannerV39")||localStorage.getItem("sxsPlannerV38")||'
+          if old_loader not in s:
+              raise SystemExit("storage loader not found")
+          s = s.replace(old_loader, new_loader, 1)
+          s = s.replace('if(!localStorage.getItem("sxsPlannerV39"))save(true);', 'if(!localStorage.getItem("sxsPlannerV40"))save(true);', 1)
+          p.write_text(s, encoding="utf-8")
+      - name: Commit v40
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sxs-primo-calculator/index.html
+          git commit -m "Fix character level input typing"
+          git push
