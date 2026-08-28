@@ -1,0 +1,68 @@
+name: Patch calculator v41
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/patch-v41.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Remove LootBar promo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('sxs-primo-calculator/index.html')
+          text = path.read_text(encoding='utf-8')
+
+          # Remove the LootBar button and its embedded logo entirely.
+          text, n = re.subn(
+              r'\s*<a class="btn p2w promoBtn" href="https://www\.lootbar\.com/a/pcmw3X".*?</a>',
+              '', text, count=1, flags=re.S
+          )
+          if n != 1:
+              raise SystemExit('LootBar button not found exactly once')
+
+          # Remove CSS that is now unused and make the mobile promo row single-column.
+          text = re.sub(r'\n\.promoLogo\{[^\n]*\}', '', text, count=1)
+          text = re.sub(r'\n\.btn\.p2w\{[^\n]*\}\n\.btn\.p2w:hover\{[^\n]*\}', '', text, count=1)
+          text = text.replace('.promoRow{width:100%;display:grid;grid-template-columns:1fr 1fr}', '.promoRow{width:100%;display:grid;grid-template-columns:1fr}')
+
+          # Version + storage migration.
+          text = text.replace('Sword x Staff — Multi-Season Primostar & Realm Planner v40', 'Sword x Staff — Multi-Season Primostar & Realm Planner v41', 1)
+          text = text.replace('return {v:40,values:v,core:JSON.parse(JSON.stringify(core))}', 'return {v:41,values:v,core:JSON.parse(JSON.stringify(core))}', 1)
+          text = text.replace('localStorage.setItem("sxsPlannerV40"', 'localStorage.setItem("sxsPlannerV41"')
+          text = text.replace('localStorage.removeItem("sxsPlannerV40")', 'localStorage.removeItem("sxsPlannerV41")')
+          text = text.replace('a.download="sword-x-staff-plan-v40.json"', 'a.download="sword-x-staff-plan-v41.json"')
+          old_loader = 'const saved=localStorage.getItem("sxsPlannerV40")||localStorage.getItem("sxsPlannerV39")||'
+          new_loader = 'const saved=localStorage.getItem("sxsPlannerV41")||localStorage.getItem("sxsPlannerV40")||localStorage.getItem("sxsPlannerV39")||'
+          if old_loader not in text:
+              raise SystemExit('v40 storage loader not found')
+          text = text.replace(old_loader, new_loader, 1)
+          text = text.replace('if(!localStorage.getItem("sxsPlannerV40"))save(true);', 'if(!localStorage.getItem("sxsPlannerV41"))save(true);', 1)
+
+          if 'lootbar.com' in text or '38% Cheaper P2W' in text:
+              raise SystemExit('LootBar content still present')
+          if 'buymeacoffee.com/0xnobody' not in text:
+              raise SystemExit('Coffee button missing')
+
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit calculator update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sxs-primo-calculator/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Remove LootBar promo from calculator"
+          git push origin main
