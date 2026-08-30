@@ -20,36 +20,23 @@ jobs:
           from pathlib import Path
           p = Path('sxs-primo-calculator/index.html')
           s = p.read_text(encoding='utf-8')
-
           s = s.replace('Sword x Staff — Multi-Season Primostar & Realm Planner v41', 'Sword x Staff — Multi-Season Primostar & Realm Planner v42', 1)
-
           old = '<div class="field"><label>Score / Primostar</label><input id="scorePerStar" type="number" value="100"></div>'
           new = '<div class="field"><label>Score / Primostar</label><input id="scorePerStar" type="number" value="27"></div>'
           assert old in s
           s = s.replace(old, new, 1)
-
           old = ' $("relicFloor").value=relicFloor;\n $("seasonFloorSummary").value=`Season ${season}: Lv${floor} · Relics +${relicFloor}`;'
-          new = ''' $("relicFloor").value=relicFloor;
- const scorePerStarField=$("scorePerStar");
- if(scorePerStarField){
-  if(season===1){scorePerStarField.value=100;scorePerStarField.readOnly=true;scorePerStarField.title="Season 1: 100 progression points = 1 Primostar";}
-  else if(season===2){scorePerStarField.value=27;scorePerStarField.readOnly=true;scorePerStarField.title="Season 2: 27 progression points = 1 Primostar";}
-  else {scorePerStarField.readOnly=false;scorePerStarField.title="Season 3+ Primostar conversion is not confirmed yet; enter the confirmed value manually.";}
- }
- $("seasonFloorSummary").value=`Season ${season}: Lv${floor} · Relics +${relicFloor}`;'''
+          new = ' $("relicFloor").value=relicFloor;\n const scorePerStarField=$("scorePerStar");\n if(scorePerStarField){\n  if(season===1){scorePerStarField.value=100;scorePerStarField.readOnly=true;scorePerStarField.title="Season 1: 100 progression points = 1 Primostar";}\n  else if(season===2){scorePerStarField.value=27;scorePerStarField.readOnly=true;scorePerStarField.title="Season 2: 27 progression points = 1 Primostar";}\n  else {scorePerStarField.readOnly=false;scorePerStarField.title="Season 3+ Primostar conversion is not confirmed yet; enter the confirmed value manually.";}\n }\n $("seasonFloorSummary").value=`Season ${season}: Lv${floor} · Relics +${relicFloor}`;'
           assert old in s
           s = s.replace(old, new, 1)
-
           old = ' $("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total. Seasonal scoring starts from <b>Lv${floor}</b> for Character, Gear, Skills and Fantomons, and <b>+${relicFloor}</b> for Relics. These are baselines, not caps: progress above them keeps earning the same Primostar points.`;'
           new = ' $("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total. Seasonal scoring starts from <b>Lv${floor}</b> for Character, Gear, Skills and Fantomons, and <b>+${relicFloor}</b> for Relics. These are baselines, not caps. Primostar conversion: <b>${season===1?"100":season===2?"27":"manual/unconfirmed"} progression points per Primostar</b>. Category point weights stay unchanged.`;'
           assert old in s
           s = s.replace(old, new, 1)
-
           old = '<p class="subtle" style="margin-top:9px">Season baselines advance with progression: S1 = Lv100 / relic +10, S2 = Lv130 / +14, S3 = Lv160 / +17, then +30 normal levels and +3 relic levels each later season.</p>'
           new = '<p class="subtle" style="margin-top:9px">Season baselines advance with progression: S1 = Lv100 / relic +10, S2 = Lv130 / +14, S3 = Lv160 / +17, then +30 normal levels and +3 relic levels each later season. Primostar conversion is season-specific: <b>S1 = 100 points/star</b>, <b>S2 = 27 points/star</b>. S3+ is not confirmed yet.</p>'
           assert old in s
           s = s.replace(old, new, 1)
-
           s = s.replace('return {v:41,values:v,core:JSON.parse(JSON.stringify(core))}', 'return {v:42,values:v,core:JSON.parse(JSON.stringify(core))}', 1)
           s = s.replace('localStorage.setItem("sxsPlannerV41"', 'localStorage.setItem("sxsPlannerV42"')
           s = s.replace('localStorage.removeItem("sxsPlannerV41")', 'localStorage.removeItem("sxsPlannerV42")')
@@ -59,8 +46,6 @@ jobs:
           assert old in s
           s = s.replace(old, new, 1)
           s = s.replace('if(!localStorage.getItem("sxsPlannerV41"))save(true);', 'if(!localStorage.getItem("sxsPlannerV42"))save(true);', 1)
-
-          assert 'value="27"></div>' in s
           assert 'season===2){scorePerStarField.value=27' in s
           assert 'S2 = 27 points/star' in s
           p.write_text(s, encoding='utf-8')
