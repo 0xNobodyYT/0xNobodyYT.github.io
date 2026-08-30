@@ -183,6 +183,11 @@ for row in rows("gem.csv"):
     gems.setdefault(gem_type, {"positions": ast.literal_eval(row["InlayEquipPos"]), "tiers": {}})["tiers"][str(base)] = parsed
 
 entity_props = {row["EntityId"]: row for row in rows("entity_prop_skill.csv")}
+skill_source_rows = rows("skill.csv")
+passive_source_rows = [row for row in skill_source_rows if loose_dict(row.get("PassivePropFactors", ""))]
+used_passive_rank_ids = {row.get("PassiveRankPropId") for row in passive_source_rows}
+used_passive_scale_ids = {row.get("PassiveRankFactorId") for row in passive_source_rows}
+used_passive_group_ids = {row.get("PassiveGroupLevelPropId") for row in passive_source_rows}
 rank_props = {}
 for row in rows("level_prop_skill.csv"):
     rank_props.setdefault(row["class_id"], {})[row["level"]] = row
@@ -190,6 +195,26 @@ status_props = {row["EntityId"]: row for row in rows("entity_prop_status.csv")}
 status_rank_props = {}
 for row in rows("level_prop_status.csv"):
     status_rank_props.setdefault(row["class_id"], {})[row["level"]] = row
+
+# Passive skills use three rank tables (percentage, main, and secondary
+# properties), a rank multiplier, and a level/combat-rank fixed curve.  Keep
+# the pieces separate in the browser payload so comparisons can be evaluated
+# for the level and combat rank selected by the user.
+passive_rank_props = {}
+for filename in ("level_prop_skill_passive.csv", "level_prop_skill_passive_main.csv", "level_prop_skill_passive_other.csv"):
+    for row in rows(filename):
+        if row.get("class_id") not in used_passive_rank_ids or not row.get("level", "").isdigit():
+            continue
+        target = passive_rank_props.setdefault(row["class_id"], {}).setdefault(row["level"], {})
+        target.update({key: number(value) for key, value in row.items() if key not in ("class_id", "level") and number(value)})
+
+passive_rank_scales = {}
+for row in rows("level_prop_skill_scale.csv"):
+    if row.get("class_id") in used_passive_scale_ids and row.get("level", "").isdigit():
+        passive_rank_scales.setdefault(row["class_id"], {})[row["level"]] = {
+            key: number(value) for key, value in row.items()
+            if key not in ("class_id", "level") and number(value)
+        }
 
 skill_groups = {}
 used_fixed_curve_ids = set()
@@ -213,8 +238,28 @@ for row in rows("level_prop_skill_fixed_prop.csv"):
             if number(row.get(key))
         }
 
+passive_fields_by_group = {}
+for source in passive_source_rows:
+    passive_fields_by_group.setdefault(source.get("PassiveGroupLevelPropId"), set()).update(
+        loose_dict(source.get("PassivePropFactors", ""))
+    )
+used_passive_curve_ids = {
+    curve_id for group_id in used_passive_group_ids
+    for curve_id in skill_groups.get(group_id, {}).values()
+}
+passive_fields_by_curve = {}
+for group_id, fields in passive_fields_by_group.items():
+    for curve_id in skill_groups.get(group_id, {}).values():
+        passive_fields_by_curve.setdefault(curve_id, set()).update(fields)
+skill_passive_curves = {}
+for row in rows("level_prop_skill_all_fixed_prop.csv"):
+    if row.get("class_id") in used_passive_curve_ids and row.get("level", "").isdigit():
+        skill_passive_curves.setdefault(row["class_id"], {})[row["level"]] = {
+            key: number(row.get(key)) for key in passive_fields_by_curve[row["class_id"]] if number(row.get(key))
+        }
+
 skills = {}
-for row in rows("skill.csv"):
+for row in skill_source_rows:
     if not row.get("ClassId", "").isdigit():
         continue
     try:
@@ -223,10 +268,11 @@ for row in rows("skill.csv"):
         entities = []
     view_entities = [entity_props[str(eid)] for eid in entities if str(eid) in entity_props]
     primary_entity = entity_props.get(row.get("EcEntityId")) or (view_entities[0] if view_entities else None)
-    if not primary_entity:
+    passive_factors = {key: number(value) for key, value in loose_dict(row.get("PassivePropFactors", "")).items() if number(value)}
+    if not primary_entity and not passive_factors:
         continue
     effect_fields = ("SkillAttack1", "SkillAttack2", "SkillAttack3", "SkillAttack4", "SkillCureByHp", "SkillCureByAttack", "SkillCureByTargetHp", "SkillFixedShield", "SkillFixedCure")
-    entity = next((candidate for candidate in view_entities if any(number(candidate.get(key)) for key in effect_fields)), primary_entity)
+    entity = next((candidate for candidate in view_entities if any(number(candidate.get(key)) for key in effect_fields)), primary_entity) or {}
     rank_id = entity.get("RankPropId")
     ranks = rank_props.get(rank_id, {})
     effects = {}
@@ -242,7 +288,7 @@ for row in rows("skill.csv"):
                 item[prop] = round(rank_value * factor / 10000)
         if item:
             effects[str(rank)] = item
-    cd_entity = next((candidate for candidate in [primary_entity, *view_entities] if number(candidate.get("CD"))), None)
+    cd_entity = next((candidate for candidate in [primary_entity, *view_entities] if candidate and number(candidate.get("CD"))), None)
     status_effects = []
     status_fields = ("ShieldByTargetHp", "ShieldByDefence", "ShieldByConvertedCurHp", "SkillFixedShield")
     for status in (status_props[str(eid)] for eid in entities if str(eid) in status_props):
@@ -267,9 +313,15 @@ for row in rows("skill.csv"):
             })
     skills[row["ClassId"]] = {
         "effects": effects,
-        "cd": number(cd_entity.get("CD")) / 10000 if cd_entity else 0,
+        "cd": number(cd_entity.get("CD")) / 10000 if cd_entity else None,
         "groupId": entity.get("GroupLevelPropId") or "",
         "statusEffects": status_effects,
+        "passive": {
+            "rankPropId": row.get("PassiveRankPropId") or "",
+            "groupId": row.get("PassiveGroupLevelPropId") or "",
+            "rankFactorId": row.get("PassiveRankFactorId") or "",
+            "factors": passive_factors,
+        } if passive_factors else None,
     }
 
 # Fantomon level curves and Baby/Adult attack skill sets. Evolution rows expose
@@ -338,6 +390,9 @@ payload = {
     "combatRanks": combat_ranks,
     "skillGroups": skill_groups,
     "skillFixedCurves": skill_fixed_curves,
+    "skillPassiveCurves": skill_passive_curves,
+    "skillPassiveRankProps": passive_rank_props,
+    "skillPassiveRankScales": passive_rank_scales,
 }
 OUT.write_text("window.SXS_COMBAT_DATA=" + json.dumps(payload, separators=(",", ":")) + ";\n", encoding="utf-8")
 print(f"wrote {OUT} ({OUT.stat().st_size:,} bytes)")
