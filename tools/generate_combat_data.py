@@ -11,7 +11,7 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(r"C:\tmp\sxs-config-155937")
+ROOT = Path(r"C:\tmp\sxs-live-config-85")
 LANG = Path(r"C:\tmp\sxs-loadout-extract\en_us\Language\en_US\text.g.csv")
 OUT = Path(__file__).resolve().parents[1] / "sxs-loadout-builder" / "combat-data.js"
 
@@ -59,6 +59,17 @@ base_stats = {}
 for row in rows("level_prop_battle.csv"):
     if row.get("class_id") == "1":
         base_stats[row["level"]] = {key: number(row[key]) for key in ("BaseMaxHp", "BaseAttack", "BaseDefence", "BaseSpeed")}
+
+# The player entity's always-on advanced combat defaults live in a separate
+# class from the per-level main-stat curve.
+base_innate = {}
+for row in rows("level_prop_battle.csv"):
+    if row.get("class_id") == "50" and row.get("level") == "1":
+        base_innate = {
+            key: number(row.get(key))
+            for key in ("CritPowerPercent", "BlockValuePercent")
+            if number(row.get(key))
+        }
 
 professions = {}
 for row in rows("profession_base.csv"):
@@ -131,7 +142,30 @@ for level, cfg in templates.items():
                 result[kind][bless_level] = {key: number(row.get(key)) for key in stat_keys if number(row.get(key))}
     gear["bless"][str(level)] = result
 
+with LANG.open(encoding="utf-8-sig", newline="") as handle:
+    language = {row[0]: row[1] for row in csv.reader(handle) if len(row) >= 2}
+
 props_by_id = {row["Id"]: row.get("Props", "") for row in rows("equip_attributes_props.csv")}
+equipment_sets = []
+for row in rows("equip_suit.csv"):
+    if not row.get("SuitId", "").isdigit():
+        continue
+    try:
+        attrs = ast.literal_eval((row.get("SuitAttributes") or "{}").strip())
+    except Exception:
+        attrs = {}
+    bonuses = {}
+    for pieces, attr_id in attrs.items():
+        parsed = {}
+        for key, value in re.findall(r"([A-Za-z][A-Za-z0-9_]*)\s*:\s*(-?\d+)", props_by_id.get(str(attr_id), "")):
+            parsed[key] = int(value)
+        if parsed:
+            bonuses[str(pieces)] = parsed
+    equipment_sets.append({
+        "id": int(row["SuitId"]),
+        "name": language.get(f"equip_suit_{row['SuitId']}", row.get("SuitName") or f"Set {row['SuitId']}"),
+        "bonuses": bonuses,
+    })
 gems = {}
 for row in rows("gem.csv"):
     if not row.get("ClassId", "").isdigit():
@@ -165,8 +199,6 @@ for row in rows("entity_prop_group_level.csv"):
         skill_groups.setdefault(group_id, {})[sub_rank] = curve_id
         used_fixed_curve_ids.add(curve_id)
 
-with LANG.open(encoding="utf-8-sig", newline="") as handle:
-    language = {row[0]: row[1] for row in csv.reader(handle) if len(row) >= 2}
 combat_ranks = [
     {"raw": sub_rank, "name": language.get(f"SubRank.{sub_rank}", sub_rank)}
     for sub_rank in skill_groups.get("1", {})
@@ -244,10 +276,12 @@ payload = {
     "version": 1,
     "qualities": qualities,
     "baseStats": base_stats,
+    "baseInnate": base_innate,
     "professions": professions,
     "professionLevels": profession_levels,
     "gear": gear,
     "gems": gems,
+    "equipmentSets": equipment_sets,
     "skills": skills,
     "combatRanks": combat_ranks,
     "skillGroups": skill_groups,
