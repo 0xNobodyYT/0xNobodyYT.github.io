@@ -12,6 +12,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(r"C:\tmp\sxs-config-155937")
+LANG = Path(r"C:\tmp\sxs-loadout-extract\en_us\Language\en_US\text.g.csv")
 OUT = Path(__file__).resolve().parents[1] / "sxs-loadout-builder" / "combat-data.js"
 
 
@@ -50,8 +51,8 @@ qualities = [
     {"raw": "Purple", "name": "Epic", "rankId": 1212, "affixes": 3, "roll": [80, 100]},
     {"raw": "Orange", "name": "Legendary", "rankId": 1213, "affixes": 4, "roll": [80, 115]},
     {"raw": "Gold", "name": "Mythic", "rankId": 1214, "affixes": 4, "roll": [80, 125]},
-    {"raw": "Red", "name": "Divine", "rankId": 1215, "affixes": 4, "roll": [80, 125]},
-    {"raw": "Rainbow", "name": "Immortal", "rankId": 1216, "affixes": 4, "roll": [80, 125]},
+    {"raw": "Red", "name": "Immortal", "rankId": 1215, "affixes": 4, "roll": [80, 125]},
+    {"raw": "Rainbow", "name": "Divine", "rankId": 1216, "affixes": 4, "roll": [80, 125]},
 ]
 
 base_stats = {}
@@ -151,6 +152,31 @@ entity_props = {row["EntityId"]: row for row in rows("entity_prop_skill.csv")}
 rank_props = {}
 for row in rows("level_prop_skill.csv"):
     rank_props.setdefault(row["class_id"], {})[row["level"]] = row
+
+skill_groups = {}
+used_fixed_curve_ids = set()
+for row in rows("entity_prop_group_level.csv"):
+    group_id, sub_rank, curve_id = row.get("GroupId"), row.get("SubRank"), row.get("LevelPropId")
+    if group_id and sub_rank and curve_id:
+        skill_groups.setdefault(group_id, {})[sub_rank] = curve_id
+        used_fixed_curve_ids.add(curve_id)
+
+with LANG.open(encoding="utf-8-sig", newline="") as handle:
+    language = {row[0]: row[1] for row in csv.reader(handle) if len(row) >= 2}
+combat_ranks = [
+    {"raw": sub_rank, "name": language.get(f"SubRank.{sub_rank}", sub_rank)}
+    for sub_rank in skill_groups.get("1", {})
+]
+
+skill_fixed_curves = {}
+for row in rows("level_prop_skill_fixed_prop.csv"):
+    if row.get("class_id") in used_fixed_curve_ids and row.get("level", "").isdigit():
+        skill_fixed_curves.setdefault(row["class_id"], {})[row["level"]] = {
+            key: number(row.get(key))
+            for key in ("SkillFixedAttack1", "SkillFixedAttack2", "SkillFixedAttack3", "SkillFixedAttack4", "SkillFixedCure", "SkillFixedShield")
+            if number(row.get(key))
+        }
+
 skills = {}
 for row in rows("skill.csv"):
     if not row.get("ClassId", "").isdigit():
@@ -159,9 +185,12 @@ for row in rows("skill.csv"):
         entities = ast.literal_eval(row.get("ViewPropEntities") or "[]")
     except Exception:
         entities = []
-    entity = next((entity_props.get(str(eid)) for eid in entities if entity_props.get(str(eid))), None)
-    if not entity:
+    view_entities = [entity_props[str(eid)] for eid in entities if str(eid) in entity_props]
+    primary_entity = entity_props.get(row.get("EcEntityId")) or (view_entities[0] if view_entities else None)
+    if not primary_entity:
         continue
+    effect_fields = ("SkillAttack1", "SkillAttack2", "SkillAttack3", "SkillAttack4", "SkillCureByHp", "SkillCureByAttack", "SkillCureByTargetHp", "SkillFixedShield", "SkillFixedCure")
+    entity = next((candidate for candidate in view_entities if any(number(candidate.get(key)) for key in effect_fields)), primary_entity)
     rank_id = entity.get("RankPropId")
     ranks = rank_props.get(rank_id, {})
     effects = {}
@@ -170,15 +199,19 @@ for row in rows("skill.csv"):
         if not rr:
             continue
         item = {}
-        for prop in ("SkillAttack1", "SkillAttack2", "SkillAttack3", "SkillAttack4", "SkillCureByHp", "SkillCureByAttack", "SkillCureByTargetHp", "SkillFixedShield", "SkillFixedCure", "BreakResilience", "SkillDmgAddPerByTargetHp", "SkillDmgAddPerByLargeTarget", "OnceHitHemophagiaPer", "DistanceAddDmgPercent"):
+        for prop in ("SkillAttack1", "SkillAttack2", "SkillAttack3", "SkillAttack4", "SkillFixedAttack1", "SkillFixedAttack2", "SkillFixedAttack3", "SkillFixedAttack4", "SkillCureByHp", "SkillCureByAttack", "SkillCureByTargetHp", "SkillFixedShield", "SkillFixedCure", "BreakResilience", "SkillDmgAddPerByTargetHp", "SkillDmgAddPerByLargeTarget", "OnceHitHemophagiaPer", "DistanceAddDmgPercent"):
             rank_value = number(rr.get(prop)) or 10000
             factor = number(entity.get(prop))
             if factor:
                 item[prop] = round(rank_value * factor / 10000)
         if item:
             effects[str(rank)] = item
-    if effects:
-        skills[row["ClassId"]] = {"effects": effects}
+    cd_entity = next((candidate for candidate in [primary_entity, *view_entities] if number(candidate.get("CD"))), None)
+    skills[row["ClassId"]] = {
+        "effects": effects,
+        "cd": number(cd_entity.get("CD")) / 10000 if cd_entity else 0,
+        "groupId": entity.get("GroupLevelPropId") or "",
+    }
 
 payload = {
     "version": 1,
@@ -189,6 +222,9 @@ payload = {
     "gear": gear,
     "gems": gems,
     "skills": skills,
+    "combatRanks": combat_ranks,
+    "skillGroups": skill_groups,
+    "skillFixedCurves": skill_fixed_curves,
 }
 OUT.write_text("window.SXS_COMBAT_DATA=" + json.dumps(payload, separators=(",", ":")) + ";\n", encoding="utf-8")
 print(f"wrote {OUT} ({OUT.stat().st_size:,} bytes)")
