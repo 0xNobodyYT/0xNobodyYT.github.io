@@ -152,6 +152,10 @@ entity_props = {row["EntityId"]: row for row in rows("entity_prop_skill.csv")}
 rank_props = {}
 for row in rows("level_prop_skill.csv"):
     rank_props.setdefault(row["class_id"], {})[row["level"]] = row
+status_props = {row["EntityId"]: row for row in rows("entity_prop_status.csv")}
+status_rank_props = {}
+for row in rows("level_prop_status.csv"):
+    status_rank_props.setdefault(row["class_id"], {})[row["level"]] = row
 
 skill_groups = {}
 used_fixed_curve_ids = set()
@@ -207,10 +211,33 @@ for row in rows("skill.csv"):
         if item:
             effects[str(rank)] = item
     cd_entity = next((candidate for candidate in [primary_entity, *view_entities] if number(candidate.get("CD"))), None)
+    status_effects = []
+    status_fields = ("ShieldByTargetHp", "ShieldByDefence", "ShieldByConvertedCurHp", "SkillFixedShield")
+    for status in (status_props[str(eid)] for eid in entities if str(eid) in status_props):
+        if not any(number(status.get(key)) for key in status_fields):
+            continue
+        status_ranks = status_rank_props.get(status.get("RankPropId"), {})
+        ranked_effects = {}
+        for rank in range(1, 35):
+            rr = status_ranks.get(str(rank), {})
+            item = {}
+            for prop in status_fields:
+                factor = number(status.get(prop))
+                if factor:
+                    rank_value = number(rr.get(prop)) or 10000
+                    item[prop] = round(rank_value * factor / 10000)
+            if item:
+                ranked_effects[str(rank)] = item
+        if ranked_effects:
+            status_effects.append({
+                "effects": ranked_effects,
+                "groupId": status.get("GroupLevelPropId") or entity.get("GroupLevelPropId") or "",
+            })
     skills[row["ClassId"]] = {
         "effects": effects,
         "cd": number(cd_entity.get("CD")) / 10000 if cd_entity else 0,
         "groupId": entity.get("GroupLevelPropId") or "",
+        "statusEffects": status_effects,
     }
 
 payload = {
