@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Build and save Sword x Staff class skill and charm loadouts with inherited skills.">
+<meta name="author" content="0xNobody">
+<title>Sword x Staff Loadout Builder | 0xNobody</title>
+<style>
+:root{--bg:#080d14;--panel:#111a26;--panel2:#162230;--ink:#f7fbff;--muted:#a9bed2;--line:#294052;--cyan:#66dcf2;--gold:#ffd153;--violet:#aa8cff;--danger:#ff7282}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(900px 520px at 50% -15%,#17374a 0,transparent 65%),var(--bg)}
+button,select,input{font:inherit}button,select{color:var(--ink)}a{color:inherit}.wrap{max-width:1500px;margin:auto;padding:20px}.top{display:flex;align-items:center;gap:16px;justify-content:space-between;margin-bottom:18px}.brand{text-decoration:none;font-weight:1000;letter-spacing:.02em}.coffee,.smallBtn{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#121d29;text-decoration:none;font-weight:900;cursor:pointer}.coffee{background:linear-gradient(135deg,#ffe381,#efb542);border-color:#ffd153;color:#281900}
+.hero{text-align:center;padding:18px 0 12px}.eyebrow{color:var(--gold);font-weight:1000;letter-spacing:.13em;text-transform:uppercase;font-size:12px}.hero h1{font-size:clamp(34px,5vw,64px);line-height:1;margin:8px 0}.hero p{margin:0 auto;max-width:760px;color:var(--muted);font-size:17px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:16px 0 22px}.tab{text-align:center;padding:14px 8px;text-decoration:none;color:var(--muted);font-weight:900}.tab small{display:block;font-size:11px}.tab.active{color:#fff;background:#18303a;box-shadow:inset 0 -3px var(--cyan)}
+.toolbar,.panel{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:18px}.toolbar{padding:14px;display:grid;grid-template-columns:minmax(170px,1fr) minmax(220px,1.3fr) auto;gap:12px;align-items:end;margin-bottom:16px}.field label,.sectionLabel{display:block;color:var(--muted);font-size:11px;font-weight:1000;letter-spacing:.09em;text-transform:uppercase;margin:0 0 6px}.field input,.field select{width:100%;height:44px;border:1px solid #367184;border-radius:10px;background:#0b1721;padding:0 12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.smallBtn{padding:10px 12px}.smallBtn:hover,.classCard:hover,.skillCard:hover{border-color:var(--cyan);transform:translateY(-1px)}.smallBtn.danger{color:#ffb2bb}.saveState{color:#7fe7b1;font-size:12px;font-weight:900;min-height:18px;margin-top:4px}
+.builder{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(360px,.85fr);gap:16px}.stagePanel{padding:17px}.stageHead{display:flex;gap:14px;align-items:center;justify-content:space-between;margin-bottom:10px}.professionTitle{display:flex;gap:11px;align-items:center}.professionTitle img{width:58px;height:58px;object-fit:contain}.professionTitle h2{margin:0;font-size:26px}.professionTitle p{margin:2px 0 0;color:var(--muted)}
+.chain{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 16px}.chain span{border:1px solid var(--line);background:#0c1520;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:900}.chain span:last-child{border-color:var(--gold);color:var(--gold)}
+.stage{position:relative;min-height:620px;display:grid;grid-template-columns:minmax(170px,1fr) minmax(260px,1.4fr) minmax(170px,1fr);align-items:center;gap:10px;overflow:hidden;border:1px solid #294658;border-radius:18px;background:linear-gradient(180deg,rgba(85,184,218,.19),rgba(142,199,153,.11)),radial-gradient(circle at 50% 75%,rgba(255,241,180,.28),transparent 35%),#0b1620}.stage:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 25%,rgba(255,255,255,.12),transparent 38%);pointer-events:none}.slotColumn{position:relative;z-index:2;display:grid;gap:13px;padding:18px}.slot{width:100%;min-height:102px;border:1px solid #395268;border-radius:15px;background:rgba(7,14,22,.84);display:flex;gap:11px;align-items:center;padding:9px;text-align:left;cursor:pointer}.rightSlots .slot{flex-direction:row-reverse;text-align:right}.slot.selected{border-color:var(--gold);box-shadow:0 0 0 2px rgba(255,209,83,.2),0 0 24px rgba(255,209,83,.15)}.slot img{width:76px;height:76px;border-radius:50%;object-fit:cover;background:#152230;border:3px solid #bd9138;flex:none}.slot.charm img{border-color:#d46c36}.slot strong{display:block;font-size:14px;line-height:1.2}.slot small{color:var(--muted);font-size:10px}.slot .empty{color:#7890a5}
+.character{height:590px;position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center}.characterArt{max-height:565px;max-width:100%;object-fit:contain;filter:drop-shadow(0 18px 14px rgba(0,0,0,.45))}.fantomon{position:absolute;right:-8px;bottom:30px;width:126px;text-align:center;padding:8px 8px 5px;border:1px solid #4d6171;border-radius:16px;background:rgba(8,14,22,.84);box-shadow:0 8px 24px #0008}.fantomon img{width:100px;height:100px;object-fit:contain}.fantomon strong{display:block;font-size:12px}.fantomon em{font-style:normal;color:var(--gold);font-size:10px}.classBadge{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:75px;height:75px;object-fit:contain;filter:drop-shadow(0 5px 8px #0008)}
+.library{padding:16px;min-height:720px}.library h2{font-size:22px;margin:0}.libraryIntro{color:var(--muted);font-size:13px;margin:4px 0 12px}.libraryControls{display:grid;grid-template-columns:1fr auto;gap:8px;margin-bottom:12px}.libraryControls input{height:42px;border:1px solid #367184;border-radius:10px;background:#0b1721;color:#fff;padding:0 11px}.typePill{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:#0b1520;padding:0 11px;font-size:12px;font-weight:900;color:var(--gold)}.skillList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:625px;overflow:auto;padding-right:4px}.skillCard{border:1px solid #2a4152;border-radius:12px;background:#0b141e;padding:8px;display:flex;gap:8px;align-items:center;text-align:left;cursor:pointer}.skillCard.equipped{border-color:#78cf9d;background:#10241c}.skillCard img{width:48px;height:48px;border-radius:9px;object-fit:cover}.skillCard strong{font-size:12px;line-height:1.15;display:block}.skillCard small{font-size:9px;color:var(--muted)}
+.classPanel{margin-top:16px;padding:16px}.classGrid{display:grid;grid-template-columns:repeat(13,minmax(72px,1fr));gap:8px}.classCard{border:1px solid var(--line);border-radius:12px;background:#0b141e;padding:8px 4px;color:#fff;cursor:pointer;text-align:center}.classCard.active{border-color:var(--gold);background:#282313}.classCard img{display:block;margin:auto;width:52px;height:52px;object-fit:contain}.classCard strong{display:block;font-size:10px;line-height:1.15}.classCard small{color:var(--muted);font-size:9px}.classDesc{color:var(--muted);margin:12px 0 0}.tip{position:fixed;z-index:20;max-width:360px;pointer-events:none;padding:10px 12px;border:1px solid var(--cyan);border-radius:10px;background:#07101a;color:#dbefff;box-shadow:0 12px 32px #000c;font-size:12px;display:none}footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}footer a{color:var(--gold)}
+@media(max-width:1150px){.builder{grid-template-columns:1fr}.library{min-height:0}.skillList{max-height:460px}.classGrid{grid-template-columns:repeat(7,1fr)}}
+@media(max-width:760px){.wrap{padding:10px}.top{align-items:flex-start}.tabs{font-size:12px}.toolbar{grid-template-columns:1fr}.stage{grid-template-columns:1fr 1fr;min-height:0}.character{grid-column:1/-1;grid-row:1;height:420px}.slotColumn{padding:9px;gap:7px;grid-row:2}.slot{display:block;text-align:center!important;min-height:116px}.rightSlots .slot{display:block}.slot img{width:62px;height:62px}.classBadge{width:58px;height:58px}.fantomon{right:10px;width:96px}.fantomon img{width:70px;height:70px}.classGrid{grid-template-columns:repeat(4,1fr)}.skillList{grid-template-columns:1fr}.stageHead{align-items:flex-start}}
+</style>
+</head>
+<body>
+<main class="wrap">
+ <header class="top"><a class="brand" href="../">0xNobody Tools</a><a class="coffee" href="https://buymeacoffee.com/0xnobody" target="_blank" rel="noopener">☕ Buy me a coffee</a></header>
+ <section class="hero"><div class="eyebrow">Sword x Staff · Build Lab</div><h1>Class Loadout Builder</h1><p>Combine every active skill and charm unlocked by your class lineage, then save multiple builds locally on this device.</p></section>
+ <nav class="tabs" aria-label="Sword x Staff tools">
+  <a class="tab" href="../sxs-primo-calculator/">Season Planner<small>Primostars, EXP & materials</small></a>
+  <a class="tab" href="../sxs-server-calendar/">Server Calendar<small>Server days & events</small></a>
+  <a class="tab active" href="./" aria-current="page">Loadout Builder<small>Skills, charms & classes</small></a>
+ </nav>
+
+ <section class="toolbar">
+  <div class="field"><label for="loadoutSelect">Saved loadout</label><select id="loadoutSelect"></select><div class="saveState" id="saveState"></div></div>
+  <div class="field"><label for="loadoutName">Loadout name</label><input id="loadoutName" maxlength="50" autocomplete="off"></div>
+  <div class="actions"><button class="smallBtn" id="newBtn">New</button><button class="smallBtn" id="copyBtn">Duplicate</button><button class="smallBtn danger" id="deleteBtn">Delete</button></div>
+ </section>
+
+ <section class="builder">
+  <article class="panel stagePanel">
+   <div class="stageHead"><div class="professionTitle"><img id="professionBadge" alt=""><div><h2 id="professionName"></h2><p id="professionMeta"></p></div></div><div class="field"><label for="fantomonSelect">Fantomon</label><select id="fantomonSelect"><option value="auto">Auto for class</option><option value="nyx">Nyx · Nyxarchon</option><option value="aegis">Aegis · Aegiswing</option></select></div></div>
+   <div class="chain" id="classChain"></div>
+   <div class="stage">
+    <img class="classBadge" id="stageBadge" alt="Selected class badge">
+    <div class="slotColumn" id="activeSlots"></div>
+    <div class="character"><img class="characterArt" id="characterArt" alt="Player character"><div class="fantomon"><img id="fantomonArt" alt=""><strong id="fantomonName"></strong><em>Official Fantomon</em></div></div>
+    <div class="slotColumn rightSlots" id="charmSlots"></div>
+   </div>
+  </article>
+
+  <aside class="panel library">
+   <span class="sectionLabel">Available from class lineage</span><h2 id="libraryTitle">Choose an active skill</h2><p class="libraryIntro">Select a loadout slot, then choose an unlocked skill below.</p>
+   <div class="libraryControls"><input id="skillSearch" type="search" placeholder="Search skills…"><div class="typePill" id="typePill">ACTIVE</div></div>
+   <div class="skillList" id="skillList"></div>
+  </aside>
+ </section>
+
+ <section class="panel classPanel"><span class="sectionLabel">All 26 classes · Rank 1–7</span><div class="classGrid" id="classGrid"></div><p class="classDesc" id="classDesc"></p></section>
+ <footer>Game data and artwork extracted from the unencrypted game resources. Datamining direction credited to <a href="https://github.com/Mystonats" target="_blank" rel="noopener">Mystonats</a>. © 2026 0xNobody.</footer>
+</main>
+<div class="tip" id="tip"></div>
+<script src="data.js"></script>
+<script>
+(()=>{
+ const D=window.LOADOUT_DATA, STORE='sxs-loadout-builder-v1';
+ const $=id=>document.getElementById(id), classes=new Map(D.professions.map(p=>[p.code,p]));
+ const state={loadouts:[],current:null,slot:{type:'active',index:0}};
+ const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+ const profName=code=>classes.get(code)?.name||code;
+ function defaultPet(code){return D.tankClasses.includes(code)?'aegis':'nyx'}
+ function recommended(code){const p=classes.get(code),r=p.recommended||{};return {active:(r.active||[]).slice(0,4),charms:(r.charms||[]).slice(0,4)}}
+ function fresh(code='Fashi',name='Mage starter'){const r=recommended(code);return{id:uid(),name,profession:code,active:r.active,charms:r.charms,fantomon:'auto'}}
+ function normalize(l){l.active=(l.active||[]).slice(0,4);l.charms=(l.charms||[]).slice(0,4);while(l.active.length<4)l.active.push(null);while(l.charms.length<4)l.charms.push(null);return l}
+ function load(){try{state.loadouts=JSON.parse(localStorage.getItem(STORE)||'[]').map(normalize)}catch(e){}if(!state.loadouts.length)state.loadouts=[normalize(fresh())];state.current=state.loadouts[0].id}
+ function current(){return state.loadouts.find(x=>x.id===state.current)||state.loadouts[0]}
+ function save(message='Saved locally'){localStorage.setItem(STORE,JSON.stringify(state.loadouts));$('saveState').textContent=message;clearTimeout(save.t);save.t=setTimeout(()=>$('saveState').textContent='',1500)}
+ function imgSkill(id){return `assets/skills/skill_${id}.webp`} function imgClass(id){return `assets/classes/${id}.webp`}
+ function renderSelect(){const c=current();$('loadoutSelect').innerHTML=state.loadouts.map(x=>`<option value="${x.id}" ${x.id===c.id?'selected':''}>${escapeHtml(x.name)}</option>`).join('');$('loadoutName').value=c.name}
+ function escapeHtml(s){const d=document.createElement('div');d.textContent=s??'';return d.innerHTML}
+ function setClass(code){const c=current(),r=recommended(code);c.profession=code;c.active=r.active;c.charms=r.charms;c.fantomon='auto';normalize(c);state.slot={type:'active',index:0};save(`${profName(code)} defaults loaded`);render()}
+ function render(){const c=current(),p=classes.get(c.profession)||D.professions[1];renderSelect();$('professionBadge').src=$('stageBadge').src=imgClass(p.badge);$('professionName').textContent=p.name;$('professionMeta').textContent=`Rank ${p.rank} · ${p.skills.length} inherited skills & charms`;$('classDesc').textContent=p.description||`${p.name} inherits every skill from ${p.chain.map(profName).join(' → ')}.`;$('classChain').innerHTML=p.chain.map(x=>`<span>${escapeHtml(profName(x))}</span>`).join('');$('characterArt').src=p.chain[0]==='Fashi'?'assets/characters/mage.webp':'assets/characters/melee.webp';renderPet(c,p);renderSlots(c,p);renderLibrary(c,p);renderClasses(c)}
+ function renderPet(c,p){const choice=c.fantomon==='auto'?defaultPet(p.code):c.fantomon,f=D.fantomons[choice];$('fantomonSelect').value=c.fantomon||'auto';$('fantomonArt').src=`assets/fantomons/pet_${f.id}.webp`;$('fantomonArt').alt=f.name;$('fantomonName').textContent=`${f.short} · ${f.name}`}
+ function slotMarkup(type,index,id){const s=id&&D.skills[id],selected=state.slot.type===type&&state.slot.index===index;return `<button class="slot ${type==='charm'?'charm':''} ${selected?'selected':''}" data-slot="${type}" data-index="${index}" ${s?`data-tip="${escapeHtml(s.description)}"`:''}>${s?`<img src="${imgSkill(id)}" alt=""><span><strong>${escapeHtml(s.name)}</strong><small>${type==='active'?'Active skill':'Charm'} · click to replace</small></span>`:`<span class="empty"><strong>Empty ${type==='active'?'skill':'charm'} slot</strong><small>Click to choose</small></span>`}</button>`}
+ function renderSlots(c){$('activeSlots').innerHTML=c.active.map((x,i)=>slotMarkup('active',i,x)).join('');$('charmSlots').innerHTML=c.charms.map((x,i)=>slotMarkup('charm',i,x)).join('');document.querySelectorAll('[data-slot]').forEach(el=>el.onclick=()=>{state.slot={type:el.dataset.slot,index:+el.dataset.index};renderSlots(current());renderLibrary(current(),classes.get(current().profession))});bindTips()}
+ function renderLibrary(c,p){const type=state.slot.type,q=$('skillSearch').value.trim().toLowerCase(),pool=p.skills.map(id=>D.skills[id]).filter(s=>s&&s.type===type&&(!q||s.name.toLowerCase().includes(q)||s.description.toLowerCase().includes(q)));$('libraryTitle').textContent=`Choose ${type==='active'?'an active skill':'a charm'}`;$('typePill').textContent=type==='active'?'ACTIVE':'CHARM';const equipped=new Set(type==='active'?c.active:c.charms);$('skillList').innerHTML=pool.map(s=>`<button class="skillCard ${equipped.has(s.id)?'equipped':''}" data-skill="${s.id}" data-tip="${escapeHtml(s.description)}"><img src="${imgSkill(s.id)}" alt=""><span><strong>${escapeHtml(s.name)}</strong><small>${escapeHtml(profName(p.source[s.id]))}${equipped.has(s.id)?' · EQUIPPED':''}</small></span></button>`).join('')||'<p class="libraryIntro">No matching skills.</p>';document.querySelectorAll('[data-skill]').forEach(el=>el.onclick=()=>equip(+el.dataset.skill));bindTips()}
+ function equip(id){const c=current(),key=state.slot.type==='active'?'active':'charms',arr=c[key],old=arr.indexOf(id);if(old>=0&&old!==state.slot.index)arr[old]=null;arr[state.slot.index]=id;save();renderSlots(c);renderLibrary(c,classes.get(c.profession))}
+ function renderClasses(c){$('classGrid').innerHTML=D.professions.map(p=>`<button class="classCard ${p.code===c.profession?'active':''}" data-class="${p.code}"><img src="${imgClass(p.badge)}" alt=""><strong>${escapeHtml(p.name)}</strong><small>Rank ${p.rank}</small></button>`).join('');document.querySelectorAll('[data-class]').forEach(el=>el.onclick=()=>setClass(el.dataset.class))}
+ function bindTips(){const tip=$('tip');document.querySelectorAll('[data-tip]').forEach(el=>{el.onmouseenter=e=>{const t=el.dataset.tip;if(!t)return;tip.textContent=t;tip.style.display='block';moveTip(e)};el.onmousemove=moveTip;el.onmouseleave=()=>tip.style.display='none'});function moveTip(e){tip.style.left=Math.min(innerWidth-380,e.clientX+14)+'px';tip.style.top=Math.min(innerHeight-tip.offsetHeight-12,e.clientY+14)+'px'}}
+ $('loadoutSelect').onchange=e=>{state.current=e.target.value;state.slot={type:'active',index:0};render()};$('loadoutName').oninput=e=>{current().name=e.target.value||'Untitled loadout';save();renderSelect()};$('fantomonSelect').onchange=e=>{current().fantomon=e.target.value;save();renderPet(current(),classes.get(current().profession))};$('skillSearch').oninput=()=>renderLibrary(current(),classes.get(current().profession));
+ $('newBtn').onclick=()=>{const n=normalize(fresh('Fashi',`Loadout ${state.loadouts.length+1}`));state.loadouts.push(n);state.current=n.id;save('New loadout created');render()};$('copyBtn').onclick=()=>{const src=current(),n=normalize({...JSON.parse(JSON.stringify(src)),id:uid(),name:src.name+' copy'});state.loadouts.push(n);state.current=n.id;save('Loadout duplicated');render()};$('deleteBtn').onclick=()=>{if(state.loadouts.length===1){state.loadouts=[normalize(fresh())]}else state.loadouts=state.loadouts.filter(x=>x.id!==state.current);state.current=state.loadouts[0].id;save('Loadout deleted');render()};
+ load();render();
+})();
+</script>
+</body>
+</html>
