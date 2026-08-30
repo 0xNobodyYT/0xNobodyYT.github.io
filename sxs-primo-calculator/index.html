@@ -119,7 +119,8 @@ tr:last-child td{border-bottom:0}table input{padding:7px;min-width:77px;backgrou
 .ratinggrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:9px}.rpill{border:1px solid var(--line);border-radius:8px;padding:7px 4px;text-align:center;font-size:10px;color:var(--muted)}.rpill.active{border-color:rgba(217,224,82,.48);background:rgba(217,224,82,.07);color:#edf27d;font-weight:900}
 details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summary{cursor:pointer;font-weight:850}
 .smallcheck{display:flex;gap:7px;align-items:center;font-size:11px;color:var(--muted)}.smallcheck input[type="checkbox"]{width:16px;height:16px;min-height:0;padding:0;flex:0 0 16px;border-radius:4px;accent-color:var(--cyan);box-shadow:none}.smallcheck input[type="checkbox"]:focus{box-shadow:none}.smallcheck input[type="checkbox"]:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
-.calendarShell{display:grid;gap:15px}.calendarShell[hidden],.layout[hidden]{display:none!important}.calendarSetup{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:15px}.calendarMetrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.calendarToolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.calendarFilters{display:flex;gap:6px;flex-wrap:wrap}.calendarFilter{border:1px solid var(--line);background:#0d131c;color:var(--muted);border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900}.calendarFilter.active{border-color:rgba(113,216,233,.52);background:rgba(113,216,233,.1);color:#dffbff}.calendarTimeline{position:relative;display:grid;gap:9px;padding-left:28px}.calendarTimeline:before{content:"";position:absolute;left:9px;top:5px;bottom:5px;width:2px;background:linear-gradient(180deg,transparent,var(--line) 18px,var(--line) calc(100% - 18px),transparent)}.calendarDay{position:relative;border:1px solid var(--line);border-radius:12px;background:#0d131c;padding:12px 14px}.calendarDay:before{content:"";position:absolute;left:-24px;top:17px;width:10px;height:10px;border-radius:999px;border:2px solid var(--cyan);background:var(--bg);box-shadow:0 0 0 4px var(--bg)}.calendarDay.today{border-color:rgba(217,224,82,.6);background:linear-gradient(135deg,rgba(217,224,82,.08),#0d131c)}.calendarDay.today:before{border-color:var(--accent);background:var(--accent)}.calendarDay.past{opacity:.58}.calendarDate{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:8px}.calendarDate strong{font-size:14px}.calendarDate span{font-size:10px;color:var(--muted);font-weight:850;text-transform:uppercase;letter-spacing:.06em}.calendarEvent{display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;padding:8px 0;border-top:1px solid rgba(42,54,71,.75)}.calendarEvent:first-of-type{border-top:0}.eventTag{align-self:start;border:1px solid currentColor;border-radius:999px;padding:3px 7px;font-size:8px;font-weight:950;text-transform:uppercase;letter-spacing:.06em}.eventTitle{font-weight:900}.eventMeta{font-size:10px;color:var(--muted);margin-top:2px}.event-season{color:var(--accent)}.event-dungeon{color:#79bdf0}.event-weekly{color:#f1ca53}.event-feature{color:#a993ff}.event-global{color:#ff8eb8}.calendarEmpty{text-align:center;color:var(--muted);padding:35px 12px}.calendarSource{font-size:10px;color:var(--muted)}
+.calendarShell{display:grid;gap:15px}.calendarShell[hidden],.layout[hidden]{display:none!important}.calendarSetup{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:15px}.calendarMetrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.calendarToolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.calendarFilters{display:flex;gap:6px;flex-wrap:wrap}.calendarFilter{border:1px solid var(--line);background:#0d131c;color:var(--muted);border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900}.calendarFilter.active{border-color:rgba(113,216,233,.52);background:rgba(113,216,233,.1);color:#dffbff}.calendarTimeline{position:relative;display:grid;gap:11px;padding-left:28px}.calendarTimeline:before{content:"";position:absolute;left:9px;top:5px;bottom:5px;width:2px;background:linear-gradient(180deg,transparent,var(--line) 18px,var(--line) calc(100% - 18px),transparent)}.calendarDay{position:relative;border:1px solid var(--line);border-radius:14px;background:#0d131c;padding:12px 14px;overflow:hidden}.calendarDay:before{content:"";position:absolute;left:-24px;top:17px;width:10px;height:10px;border-radius:999px;border:2px solid var(--cyan);background:var(--bg);box-shadow:0 0 0 4px var(--bg)}.calendarDay.today{border-color:rgba(217,224,82,.6);background:linear-gradient(135deg,rgba(217,224,82,.08),#0d131c)}.calendarDay.today:before{border-color:var(--accent);background:var(--accent)}.calendarDay.past{opacity:.58}.calendarDay.past:hover{opacity:.9}.calendarDate{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:9px}.calendarDate strong{font-size:14px}.calendarDate span{font-size:10px;color:var(--muted);font-weight:850;text-transform:uppercase;letter-spacing:.06em}.calendarEvent{--event-color:var(--cyan);position:relative;margin-top:8px;border:1px solid rgba(113,216,233,.18);border-radius:12px;background:linear-gradient(135deg,color-mix(in srgb,var(--event-color) 10%,#111824),#0d131c 64%);overflow:hidden}.calendarEvent:first-of-type{margin-top:0}.calendarEvent:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--event-color)}.eventHeader{display:flex;gap:10px;align-items:flex-start;padding:11px 12px 9px}.eventMark{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border:1px solid color-mix(in srgb,var(--event-color) 48%,transparent);border-radius:10px;background:color-mix(in srgb,var(--event-color) 12%,#111824);font-size:17px}.eventHeadText{min-width:0;flex:1}.eventTopline{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.eventTag{border:1px solid currentColor;border-radius:999px;padding:3px 7px;font-size:8px;font-weight:950;text-transform:uppercase;letter-spacing:.06em;color:var(--event-color)}.eventTitle{font-size:13px;font-weight:950;color:#f4f8fb}.eventMeta{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.45}.eventBody{border-top:1px solid rgba(255,255,255,.055);padding:9px 12px 11px}.rewardLabel{font-size:8px;color:var(--event-color);font-weight:950;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}.rewardStrip{display:flex;gap:6px;flex-wrap:wrap}.rewardChip{display:inline-flex;align-items:center;gap:4px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(5,9,15,.55);padding:5px 8px;color:#d8e0e9;font-size:9px;font-weight:800}.rewardChip b{color:#fff}.difficultyGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.difficultyRow{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid rgba(255,255,255,.08);border-radius:8px;background:rgba(5,9,15,.48);padding:7px 8px}.difficultyName{font-size:9px;font-weight:950;text-transform:uppercase;letter-spacing:.04em;color:#cbd6e2}.difficultyPower{font-size:9px;color:#8fdcf0;font-weight:850;text-align:right}.event-season{--event-color:var(--accent)}.event-dungeon{--event-color:#79bdf0}.event-weekly{--event-color:#f1ca53}.event-feature{--event-color:#a993ff}.event-global{--event-color:#ff8eb8}.calendarEmpty{text-align:center;color:var(--muted);padding:35px 12px}.calendarSource{font-size:10px;color:var(--muted)}
+.taskStrip{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.taskChip{border:1px dashed rgba(255,255,255,.13);border-radius:7px;padding:4px 6px;color:#9eabb9;font-size:8px;font-weight:750;background:rgba(5,9,15,.28)}
 .footer{font-size:11px;color:var(--muted);padding:17px 2px 4px}.toast{position:fixed;right:17px;bottom:17px;background:#17202c;border:1px solid var(--line);border-radius:10px;padding:9px 12px;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);pointer-events:none;transition:.18s}.toast.show{opacity:1;transform:none}
 @media(max-width:1100px){
  .layout{grid-template-columns:1fr}
@@ -134,7 +135,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  .promoRow{width:100%;display:grid;grid-template-columns:1fr}
  .promoBtn{width:100%;min-width:0}
 }
-@media(max-width:700px){.wrap{padding:11px}.field label{height:auto;min-height:0;margin-top:3px}.grid2,.grid3,.grid4,.metrics,.realmhero,.calendarMetrics{grid-template-columns:1fr}.batch{grid-template-columns:minmax(0,1fr) 112px}.batch .btn{width:112px}.unitgrid{grid-template-columns:64px 1fr 20px 1fr}.ratinggrid{grid-template-columns:repeat(4,1fr)}.viewTabs{position:sticky;top:5px;z-index:20;background:rgba(9,12,18,.96)}.calendarEvent{grid-template-columns:1fr}.eventTag{justify-self:start}}
+@media(max-width:700px){.wrap{padding:11px}.field label{height:auto;min-height:0;margin-top:3px}.grid2,.grid3,.grid4,.metrics,.realmhero,.calendarMetrics{grid-template-columns:1fr}.batch{grid-template-columns:minmax(0,1fr) 112px}.batch .btn{width:112px}.unitgrid{grid-template-columns:64px 1fr 20px 1fr}.ratinggrid{grid-template-columns:repeat(4,1fr)}.viewTabs{position:sticky;top:5px;z-index:20;background:rgba(9,12,18,.96)}.difficultyGrid{grid-template-columns:1fr}.eventHeader{padding-left:10px}.eventMark{flex-basis:31px;width:31px;height:31px}.eventTag{justify-self:start}}
 </style>
 </head>
 <body>
@@ -1587,9 +1588,9 @@ const milestones=[
  {day:417,type:"season",title:"Season 6",meta:"Lv250 Primostar baseline · later activity milestones are not yet confirmed"}
 ];
 const globalEvents=[
- {date:"2026-08-18",end:"2026-08-31",type:"global",title:"Oceanic Festival",meta:"Fixed global event · Summer Getaway, Summer Chill and Ocean Chase"},
- {date:"2026-09-01",end:"2026-09-14",type:"global",title:"Starlit Soiree",meta:"Fixed global outfit pack · Darkling Rose weapon in the set"},
- {date:"2026-09-07",end:"2026-09-23",type:"global",title:"Spicy Chicken",meta:"Fixed global outfit pack"}
+ {date:"2026-08-18",end:"2026-08-31",type:"global",title:"Oceanic Festival",meta:"Fixed global event",rewardLabel:"Featured sets",rewards:["Summer Getaway","Summer Chill","Ocean Chase"]},
+ {date:"2026-09-01",end:"2026-09-14",type:"global",title:"Starlit Soiree",meta:"Fixed global outfit pack · Debut in the Night",rewardLabel:"Also in the set",rewards:["Darkling Rose weapon"]},
+ {date:"2026-09-07",end:"2026-09-23",type:"global",title:"Spicy Chicken",meta:"Fixed global outfit pack · Cabbage Dog Series II",rewardLabel:"Featured",rewards:["Spicy Chicken outfit"]}
 ];
 function esc(v){return String(v??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]))}
 function parseDate(value,hour=RESET_UTC_HOUR){if(!/^\d{4}-\d{2}-\d{2}$/.test(value||""))return null;const [y,m,d]=value.split("-").map(Number),date=new Date(Date.UTC(y,m-1,d,hour));return date.getUTCFullYear()===y&&date.getUTCMonth()===m-1&&date.getUTCDate()===d?date:null}
@@ -1601,13 +1602,24 @@ function relativeLabel(days){return days===0?"Today":days===1?"Tomorrow":days>1?
 function profiles(){try{const v=JSON.parse(localStorage.getItem(PROFILE_KEY)||"[]");return Array.isArray(v)?v:[]}catch{return[]}}
 function setProfiles(v){localStorage.setItem(PROFILE_KEY,JSON.stringify(v))}
 function currentSeason(day){let found=seasons[0];for(const season of seasons)if(day>=season.start)found=season;return found}
+const FENNEC_REWARDS=["Star Pact ×6","Destiny Fruit ×18","Dawnium ×600","Fresh Essential Oil ×30","Magic Wool ×30","Farm Egg ×30"];
+const SCRATCH_REWARDS=["Destiny Fruit ≈47","Dawnium ≈2.82K","Commission Scroll ≈15","Legendary Goddess Card ≈17","Bond Rope ≈5"];
+function bingoRewards(number){
+ const tier=number===1?[1660,1200,670]:number===2?[1930,1390,770]:number<=11?[2950,2120,1180]:number<=17?[11250,8100,4500]:[20000,14400,8000];
+ return [`Destiny Fruit ×3`,`Star Pact ×1`,`Dawnium ×100`,`Bond Rope ×5`,`Legendary Goddess Card ×2`,`Essence ×${shortNumber(tier[0])}`,`Rare Sand ×${shortNumber(tier[1])}`,`Wood ×${shortNumber(tier[2])}`]
+}
+function shortNumber(value){return value>=1000?`${Number((value/1000).toFixed(value%1000?2:0))}K`:String(value)}
 function weeklyEvents(maxDay=520){
  const out=[],special1=["Lucky Idol","Lucky Idol / Golden Divine Tree","Lucky Idol / Golden Divine Tree / Endless Hourglass"],special2=["Primal Gem","Primal Gem / Philosopher's Stone","Primal Gem / Philosopher's Stone / Treasure Detector"],tiers=[0,0,1,2,2],seconds=["Bingo Draw","Lucky Scratch","Fennec's Riddle"];
  for(let r=0,day=8;day<=maxDay;r++,day+=7){
   const region=day>=316?4:day>=215?3:day>=114?2:day>=47?1:0,tier=tiers[region],phase=r%4;
   const reward=phase===0?"Choice: Miracle Relic Box":phase===1?`Relic: ${special1[tier]}`:phase===2?`Choice: ${region+3}${["rd","th","th","th","th"][region]} Job Skill Fragment`:`Relic: ${special2[tier]}`;
-  out.push({day,type:"weekly",title:`Grand Treasure Hunt #${r+1}`,meta:`Weekly · ${reward}`,durationHours:167});
-  if(r>=1){const index=(r-1)%3,count=Math.floor((r-1)/3)+1;out.push({day,type:"weekly",title:`${seconds[index]} #${count}`,meta:"Weekly rotation",durationHours:167})}
+  out.push({day,type:"weekly",title:`Grand Treasure Hunt #${r+1}`,meta:"Weekly featured reward",rewardLabel:"Featured reward",rewards:[reward.replace(/^(Choice|Relic): /,"")],durationHours:167});
+  if(r>=1){const index=(r-1)%3,count=Math.floor((r-1)/3)+1,confirmed=count<=23,rewards=confirmed?(index===0?bingoRewards(count):index===1?SCRATCH_REWARDS:FENNEC_REWARDS):["Later occurrence rewards not confirmed"];
+   const rewardLabel=confirmed?(index===0?"Two-board total":index===1?"Expected from free task cards":"18-stage total"):"Reward data pending";
+   const note=!confirmed?"The extracted client currently contains reward tables through occurrence #23.":index===1?"Randomized rewards; expected values use the configured card pools and prize weights.":index===0?"Totals assume both boards and all grid/line rewards are completed.":"Guaranteed totals from all 18 puzzle stages.";
+   const tasks=!confirmed?null:index===0?["Spend 60 stamina daily","3 Arena daily","1 Fantomon bond daily","20 Destiny explores ×30"]:index===1?["Spend 60 stamina daily","3 Arena daily","2 gacha daily","5 daily dungeons","40 Realm explores ×10"]:null;
+   out.push({day,type:"weekly",title:`${seconds[index]} #${count}`,meta:"Weekly rotation",rewardLabel,rewards,note,tasks,durationHours:167})}
  }
  return out
 }
@@ -1651,6 +1663,26 @@ function renderCalendar(){
  const next=entries.find(e=>e.date.getTime()>=now.getTime()-3600000);if(next){const days=Math.ceil((next.date-now)/DAY);$c("calendarNextIn").textContent=relativeLabel(Math.max(0,days));$c("calendarNextName").textContent=`Day ${next.serverDay} · ${next.title}`}
  renderTimeline(entries,start,todayDay,now)
 }
+const EVENT_ICONS={season:"🏁",dungeon:"⚔️",weekly:"🎁",feature:"✦",global:"✨"};
+function dungeonDetails(meta=""){
+ return meta.split("·").map(part=>part.trim()).map(part=>{const match=part.match(/^(Normal|Hard|Nightmare|Purgatory|Abyss)\s*(.*)$/i);if(!match)return null;
+  let requirement=match[2].replace(/^\(|\)$/g,"").trim();if(!requirement)requirement="Opens on this day";
+  const compact=requirement.match(/^([\d.]+[KMB])(?:\s*\+\s*Lv\s*(\d+))?$/i);if(compact)requirement=`${compact[1]} Power${compact[2]?` · Lv${compact[2]}`:""}`;
+  return {name:match[1],requirement}
+ }).filter(Boolean)
+}
+function rewardChipHtml(reward){
+ const match=String(reward).match(/^(.*?)(\s(?:×|≈).*)$/);return match?`<span class="rewardChip">${esc(match[1])} <b>${esc(match[2].trim())}</b></span>`:`<span class="rewardChip"><b>${esc(reward)}</b></span>`
+}
+function eventCardHtml(e){
+ const end=e.displayEnd||(e.durationHours?new Date(e.date.getTime()+e.durationHours*3600000):null),difficulties=e.type==="dungeon"?dungeonDetails(e.meta):[];
+ const meta=e.type==="dungeon"?`Dungeon release · ${difficulties.length} difficult${difficulties.length===1?"y":"ies"}`:(e.meta||"");
+ const duration=end?` · through ${dateLabel(end)}`:"";
+ let body="";
+ if(difficulties.length)body=`<div class="eventBody"><div class="rewardLabel">Difficulty requirements</div><div class="difficultyGrid">${difficulties.map(d=>`<div class="difficultyRow"><span class="difficultyName">${esc(d.name)}</span><span class="difficultyPower">${esc(d.requirement)}</span></div>`).join("")}</div></div>`;
+ else if(e.rewards?.length)body=`<div class="eventBody"><div class="rewardLabel">${esc(e.rewardLabel||"Rewards")}</div><div class="rewardStrip">${e.rewards.map(rewardChipHtml).join("")}</div>${e.tasks?.length?`<div class="taskStrip">${e.tasks.map(task=>`<span class="taskChip">${esc(task)}</span>`).join("")}</div>`:""}${e.note?`<div class="eventMeta" style="margin-top:7px">${esc(e.note)}</div>`:""}</div>`;
+ return `<div class="calendarEvent event-${e.type}"><div class="eventHeader"><span class="eventMark" aria-hidden="true">${EVENT_ICONS[e.type]||"•"}</span><div class="eventHeadText"><div class="eventTopline"><span class="eventTag">${esc(e.type)}</span><span class="eventTitle">${esc(e.title)}</span></div><div class="eventMeta">${esc(meta)}${esc(duration)}</div></div></div>${body}</div>`
+}
 function renderTimeline(entries,start,todayDay,now){
  let filtered=entries.filter(e=>activeFilter==="all"||e.type===activeFilter);
  if(!showFull)filtered=filtered.filter(e=>e.serverDay>=todayDay-7&&e.serverDay<=todayDay+100);
@@ -1661,7 +1693,7 @@ function renderTimeline(entries,start,todayDay,now){
  if(!list.length){$c("calendarTimeline").innerHTML='<div class="calendarEmpty">No events match this filter and range.</div>';return}
  $c("calendarTimeline").innerHTML=list.map(group=>{
   const isToday=isoDate(group.date)===todayKey,past=group.date<todayDate&&!isToday;
-  const eventHtml=group.events.length?group.events.map(e=>{const end=e.displayEnd||(e.durationHours?new Date(e.date.getTime()+e.durationHours*3600000):null);return `<div class="calendarEvent"><span class="eventTag event-${e.type}">${esc(e.type)}</span><div><div class="eventTitle">${esc(e.title)}</div><div class="eventMeta">${esc(e.meta||"")}${end?` · through ${esc(dateLabel(end))}`:""}</div></div></div>`}).join(""):'<div class="eventMeta">Your server is here today.</div>';
+  const eventHtml=group.events.length?group.events.map(eventCardHtml).join(""):'<div class="eventMeta">Your server is here today.</div>';
   return `<article class="calendarDay${isToday?" today":""}${past?" past":""}" id="calendar-day-${group.day}"><div class="calendarDate"><strong>${esc(dateLabel(group.date))}</strong><span>Day ${group.day}${isToday?" · Today":""}</span></div>${eventHtml}</article>`
  }).join("")
 }
