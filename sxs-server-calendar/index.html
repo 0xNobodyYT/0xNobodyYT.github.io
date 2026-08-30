@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Sword x Staff server calendar with season dates, dungeon releases, weekly events and rewards.">
+<title>Sword x Staff Server Calendar | 0xNobody</title>
+<style>
+html,body{margin:0;min-height:100%;background:#090c12;color:#f4f7fb;font:16px/1.5 system-ui,sans-serif}.loading{min-height:100vh;display:grid;place-items:center;text-align:center;padding:24px}.loading b{color:#d9e052}
+</style>
+</head>
+<body>
+<div class="loading"><p><b>Loading Sword x Staff Server Calendar…</b><br>If it does not open, <a href="../sxs-primo-calculator/?view=calendar" style="color:#71d8e9">use the calendar fallback</a>.</p></div>
+<script>
+fetch("../sxs-primo-calculator/index.html").then(response=>{if(!response.ok)throw new Error("Calendar source unavailable");return response.text()}).then(html=>{document.open();document.write(html);document.close()}).catch(()=>document.querySelector(".loading b").textContent="The calendar could not be loaded.");
+</script>
+</body>
+</html>

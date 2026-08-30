@@ -35,7 +35,7 @@ h1{font-size:clamp(29px,4vw,48px);line-height:1.03;margin:5px 0 8px}
 .promoRow{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
 .promoBtn{width:178px;height:44px;min-width:178px;padding:0 14px;white-space:nowrap}
 .viewTabs{display:flex;justify-content:center;gap:7px;margin:-4px 0 16px;padding:5px;border:1px solid var(--line);border-radius:13px;background:rgba(13,19,28,.86)}
-.viewTab{flex:0 1 230px;border:1px solid transparent;background:transparent;color:var(--muted);border-radius:9px;padding:10px 14px;font-weight:950}
+.viewTab{display:block;flex:0 1 230px;border:1px solid transparent;background:transparent;color:var(--muted);border-radius:9px;padding:10px 14px;font-weight:950;text-align:center;text-decoration:none}
 .viewTab.active{border-color:rgba(113,216,233,.5);background:linear-gradient(135deg,rgba(113,216,233,.17),rgba(217,224,82,.08));color:#f2fdff;box-shadow:0 5px 16px rgba(0,0,0,.2)}
 .viewTab small{display:block;font-size:9px;font-weight:750;letter-spacing:.04em;margin-top:1px;color:inherit;opacity:.8}
 
@@ -165,8 +165,8 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 </header>
 
 <nav class="viewTabs" aria-label="Calculator views">
- <button class="viewTab active" id="plannerTab" type="button" aria-selected="true">Season Planner<small>Primostars, EXP & materials</small></button>
- <button class="viewTab" id="calendarTab" type="button" aria-selected="false">Server Calendar<small>Your server day & upcoming events</small></button>
+ <a class="viewTab active" id="plannerTab" href="../sxs-primo-calculator/" aria-current="page">Season Planner<small>Primostars, EXP & materials</small></a>
+ <a class="viewTab" id="calendarTab" href="../sxs-server-calendar/">Server Calendar<small>Your server day & upcoming events</small></a>
 </nav>
 
 <main class="layout" id="plannerView">
@@ -1642,7 +1642,8 @@ function populateProfiles(selected=""){
 function setView(view){
  const calendar=view==="calendar";$c("plannerView").hidden=calendar;$c("calendarView").hidden=!calendar;
  $c("plannerTab").classList.toggle("active",!calendar);$c("calendarTab").classList.toggle("active",calendar);
- $c("plannerTab").setAttribute("aria-selected",String(!calendar));$c("calendarTab").setAttribute("aria-selected",String(calendar));localStorage.setItem(VIEW_KEY,view);
+ if(calendar){$c("plannerTab").removeAttribute("aria-current");$c("calendarTab").setAttribute("aria-current","page")}else{$c("calendarTab").removeAttribute("aria-current");$c("plannerTab").setAttribute("aria-current","page")}localStorage.setItem(VIEW_KEY,view);
+ if(calendar){document.title="Sword x Staff Server Calendar | 0xNobody";document.querySelector(".siteBrand").textContent="Sword x Staff Server Calendar";document.querySelector(".eyebrow").textContent="Sword x Staff · server schedule";document.querySelector(".hero h1").textContent="Sword x Staff Server Calendar";document.querySelector(".hero p").textContent="Track your server day, season changes, dungeon releases, weekly events and their rewards."}
  if(calendar)renderCalendar()
 }
 function loadFromQuery(){const q=new URLSearchParams(location.search),start=q.get("start"),name=q.get("server");if(parseDate(start)){ $c("calendarStartDate").value=start;$c("calendarServerName").value=name||"Shared server";return true }return false}
@@ -1711,16 +1712,17 @@ function renderTimeline(entries,start,todayDay,now){
   return `<article class="calendarDay${isToday?" today":""}${past?" past":""}" id="calendar-day-${group.day}"><div class="calendarDate"><strong>${esc(dateLabel(group.date))}</strong><span>Day ${group.day}${isToday?" · Today":""}</span></div>${eventHtml}</article>`
  }).join("")
 }
-$c("plannerTab").onclick=()=>setView("planner");$c("calendarTab").onclick=()=>setView("calendar");
 $c("calendarProfile").onchange=e=>{const p=profiles().find(x=>x.id===e.target.value);if(p){$c("calendarServerName").value=p.name;$c("calendarStartDate").value=p.start;localStorage.setItem(SELECTED_KEY,p.id)}else localStorage.removeItem(SELECTED_KEY);renderCalendar()};
 $c("calendarServerName").addEventListener("input",renderCalendar);$c("calendarStartDate").addEventListener("change",renderCalendar);
 $c("calendarSaveProfile").onclick=saveProfile;$c("calendarDeleteProfile").onclick=deleteProfile;
 $c("calendarCalibrate").onclick=()=>{const day=Math.floor(Number($c("calendarKnownDay").value)),known=parseDate($c("calendarKnownDate").value);if(day<1||!known){toastCalendar("Enter a valid server day and date");return}const start=new Date(known.getTime()-(day-1)*DAY);$c("calendarStartDate").value=isoDate(start);renderCalendar();toastCalendar(`Day 1 calculated: ${isoDate(start)}`)};
-$c("calendarShare").onclick=async()=>{const start=$c("calendarStartDate").value,name=$c("calendarServerName").value.trim();if(!parseDate(start)){toastCalendar("Set a valid Day 1 date first");return}const u=new URL(location.href);u.search="";u.searchParams.set("view","calendar");u.searchParams.set("server",name||"Shared server");u.searchParams.set("start",start);try{await navigator.clipboard.writeText(u.toString());toastCalendar("Calendar link copied")}catch{prompt("Copy this calendar link",u.toString())}};
+$c("calendarShare").onclick=async()=>{const start=$c("calendarStartDate").value,name=$c("calendarServerName").value.trim();if(!parseDate(start)){toastCalendar("Set a valid Day 1 date first");return}const u=new URL("../sxs-server-calendar/",location.href);u.searchParams.set("server",name||"Shared server");u.searchParams.set("start",start);try{await navigator.clipboard.writeText(u.toString());toastCalendar("Calendar link copied")}catch{prompt("Copy this calendar link",u.toString())}};
 $c("calendarFilters").onclick=e=>{const b=e.target.closest("[data-filter]");if(!b)return;activeFilter=b.dataset.filter;document.querySelectorAll(".calendarFilter").forEach(x=>x.classList.toggle("active",x===b));renderCalendar()};
 $c("calendarShowPast").onclick=()=>{showFull=!showFull;$c("calendarShowPast").textContent=showFull?"Show upcoming only":"Show full timeline";renderCalendar()};
 $c("calendarJumpToday").onclick=()=>{renderCalendar();requestAnimationFrame(()=>document.querySelector(".calendarDay.today")?.scrollIntoView({behavior:"smooth",block:"center"}))};
-const queryView=new URLSearchParams(location.search).get("view");const shared=loadFromQuery();if(!shared)loadSelected();else populateProfiles();setView(queryView==="calendar"||shared?"calendar":localStorage.getItem(VIEW_KEY)==="calendar"?"calendar":"planner");
+const queryView=new URLSearchParams(location.search).get("view"),calendarPath=location.pathname.includes("/sxs-server-calendar/");
+if(!calendarPath&&queryView==="calendar"){const canonical=new URL("../sxs-server-calendar/",location.href),params=new URLSearchParams(location.search);params.delete("view");canonical.search=params;location.replace(canonical);return}
+const shared=loadFromQuery();if(!shared)loadSelected();else populateProfiles();setView(calendarPath?"calendar":"planner");
 })();
 </script>
 </body>
