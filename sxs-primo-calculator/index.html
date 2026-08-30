@@ -365,12 +365,12 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
    <div class="field"><label>Refresh order</label><input value="Ore → Rola → Essence → Sand" readonly></div>
    <div class="field"><label>Realm rank used</label><select id="realmRankMode"><option value="auto">Auto from projected level</option><option value="1">Season rank I</option><option value="2">Season rank II</option><option value="3">Season rank III</option></select></div>
   </div>
-  <p class="simple-note">Each refresh gives <b>5 entries</b> for that Realm. Example: <b>2-2-2-2</b> means 10 Hammers, 10 Rola entries, 10 Gloves and 10 Shovels at each daily reset. Maximum 10 refreshes per Realm.</p>
+  <p class="simple-note"><b>Enter only your normal Realm refresh rotation; do not add +1 for daily quests.</b> Each refresh gives <b>5 entries</b> for that Realm. The planner separately adds the guaranteed daily-quest reward of <b>5 Hammers, 5 Rola entries, 5 Gloves and 5 Shovels</b> at every remaining daily reset. Example: if your actual system is <b>8-4-6-4</b>, enter exactly <b>8-4-6-4</b>, not 9-5-7-5. Maximum 10 refreshes per Realm.</p>
   <div class="notice" id="realmYieldSummary" style="margin-top:10px">—</div>
 
   <div class="notice" style="margin-top:10px">
    <b>Current saved Material Realm entries</b>
-   <div class="subtle" style="margin-top:3px">Enter what you already have banked right now. These are added to all future reset refreshes before the planner subtracts what you need to spend.</div>
+   <div class="subtle" style="margin-top:3px">Enter what you already have banked right now. These are added to future Realm refreshes and separately calculated daily-quest entries before the planner subtracts what you need to spend.</div>
   </div>
 
   <div class="grid4" style="margin-top:10px">
@@ -624,8 +624,8 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  </section>
 </section>
 <div class="footer">
- <div>Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons. The selected season defines a scoring baseline, not a ceiling (S1 Lv100/+10, S2 Lv130/+14, S3 Lv160/+17, then +30/+3); progress above that baseline continues to score. Relic planned levels are automatically limited by projected character level. Realm yields are calculated from the extracted client rules for the selected season rank, including object weights, damage, crits and break rewards. Daily refresh systems are counted only at actual reset events, with 5 Realm entries per refresh.</div>
- <div style="margin-top:8px">Data-access direction credit: <a href="https://github.com/Mystonats" target="_blank" rel="noopener noreferrer">Mystonats</a> pointed out that the game's YooAsset cache was accessible and not encrypted. All extraction, table linking, calculations and development were completed independently.</div>
+ <div>Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons. The selected season defines a scoring baseline, not a ceiling (S1 Lv100/+10, S2 Lv130/+14, S3 Lv160/+17, then +30/+3); progress above that baseline continues to score. Relic planned levels are automatically limited by projected character level. Realm yields are calculated from the extracted client rules for the selected season rank, including object weights, damage, crits and break rewards. Realm refreshes are counted only at actual reset events, with 5 entries per refresh; the guaranteed 5 daily-quest entries of every type are calculated separately.</div>
+ <div style="margin-top:8px">Datamining direction credited to <a href="https://github.com/Mystonats" target="_blank" rel="noopener noreferrer">Mystonats</a>.</div>
  <div style="margin-top:8px;font-weight:800;color:#cbd5df">© 2026 <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">0xNobody</a> · Made by 0xNobody · <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">YouTube</a></div>
 </div>
 </div>
@@ -1130,13 +1130,24 @@ function parseRefreshSystem(){
 function realmEntryProjection(T,requiredRuns){
  const sys=parseRefreshSystem();
  const entriesPerRefresh=5;
+ const dailyQuestEntriesPerType=5;
  const resets=T.totalResetCount||0;
- const created={
+ const refreshCreated={
   hammer:sys.ore*entriesPerRefresh*resets,
   gold:sys.gold*entriesPerRefresh*resets,
   glove:sys.essence*entriesPerRefresh*resets,
   shovel:sys.sand*entriesPerRefresh*resets
  };
+ const dailyQuestCreated={
+  hammer:dailyQuestEntriesPerType*resets,
+  gold:dailyQuestEntriesPerType*resets,
+  glove:dailyQuestEntriesPerType*resets,
+  shovel:dailyQuestEntriesPerType*resets
+ };
+ const created={};
+ for(const k of ["hammer","gold","glove","shovel"]){
+  created[k]=refreshCreated[k]+dailyQuestCreated[k];
+ }
  const available={
   hammer:Math.max(0,num("hammerNow"))+created.hammer,
   gold:Math.max(0,num("goldNow"))+created.gold,
@@ -1159,7 +1170,7 @@ function realmEntryProjection(T,requiredRuns){
    shortage[k]=Math.max(0,needed[k]-available[k]);
   }
  }
- return {sys,entriesPerRefresh,resets,created,available,needed,left,shortage};
+ return {sys,entriesPerRefresh,dailyQuestEntriesPerType,resets,refreshCreated,dailyQuestCreated,created,available,needed,left,shortage};
 }
 function calcMaterialEconomy(T,C,XP){
  applyAutomaticRealmYields(XP);
@@ -1267,9 +1278,10 @@ function calcMaterialEconomy(T,C,XP){
   $("refreshSummary").innerHTML=`Refresh system must contain exactly four whole numbers from 0–10, in order <b>Ore-Rola-Essence-Sand</b>. Example: 8-4-6-4.`;
  }else{
   $("refreshSummary").className="notice";
-  $("refreshSummary").innerHTML=`<b>${entryProj.sys.raw}</b> across ${fmt(entryProj.resets)} remaining reset${entryProj.resets===1?"":"s"} creates: `+
-   `${fmt(entryProj.created.hammer)} Hammers · ${fmt(entryProj.created.gold)} Rola entries · ${fmt(entryProj.created.glove)} Gloves · ${fmt(entryProj.created.shovel)} Shovels. `+
-   `These are added to your currently saved entries before target spending is subtracted.`;
+  $("refreshSummary").innerHTML=`Your <b>${entryProj.sys.raw}</b> Realm rotation across ${fmt(entryProj.resets)} remaining reset${entryProj.resets===1?"":"s"} creates: `+
+   `${fmt(entryProj.refreshCreated.hammer)} Hammers · ${fmt(entryProj.refreshCreated.gold)} Rola entries · ${fmt(entryProj.refreshCreated.glove)} Gloves · ${fmt(entryProj.refreshCreated.shovel)} Shovels.<br>`+
+   `Daily quests are calculated separately and add <b>${fmt(entryProj.dailyQuestCreated.hammer)} of each entry type</b> (${fmt(entryProj.dailyQuestEntriesPerType)} each × ${fmt(entryProj.resets)} resets). `+
+   `Combined future entries: <b>${fmt(entryProj.created.hammer)} Hammers · ${fmt(entryProj.created.gold)} Rola entries · ${fmt(entryProj.created.glove)} Gloves · ${fmt(entryProj.created.shovel)} Shovels</b>. These are added to your currently saved entries before target spending is subtracted.`;
  }
  // Simple right-side action summary.
  const setQuickMaterial=(key,countId,textId,singular,plural)=>{
