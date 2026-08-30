@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="0xNobody">
 <meta name="color-scheme" content="dark">
-<title>Sword x Staff — Multi-Season Primostar & Realm Planner v42</title>
+<title>Sword x Staff — Multi-Season Primostar & Realm Planner v44</title>
 <style>
 :root{
  --bg:#090c12;--panel:#121822;--panel2:#171f2b;--ink:#f4f7fb;--muted:#9babbe;
@@ -50,6 +50,10 @@ input:focus,select:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 
 .field:has(input:not([readonly])) label,.field:has(select) label,.field:has(textarea) label{color:#80ddeb}
 input[readonly]{background:#0a0f16;color:#9facbb;border-color:#263241}
 .field:has(input[readonly]) label{color:#8290a1}
+.seasonChooser{position:relative;border:2px solid rgba(113,216,233,.58);border-radius:14px;padding:13px;background:radial-gradient(circle at top left,rgba(113,216,233,.13),transparent 58%),#0c151f;box-shadow:0 0 0 3px rgba(113,216,233,.045),0 10px 24px rgba(0,0,0,.22)}
+.seasonChooser .seasonTop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:7px}.seasonChooser .seasonTitle{font-size:14px;font-weight:950;color:#e7fbff}.seasonBadge{display:inline-flex;align-items:center;border-radius:999px;padding:3px 7px;background:var(--cyan);color:#071219;font-size:9px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+.seasonChooser select{min-height:48px;border-color:var(--cyan);background:linear-gradient(180deg,#123040,#0d202c);font-size:16px;font-weight:950;color:#f1fdff;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(255,255,255,.035)}
+.seasonChooser .seasonHelp{font-size:10px;line-height:1.35;color:#a9cbd1;margin-top:7px}
 textarea{min-height:95px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px}
 .btn{border:1px solid var(--line);background:#111925;color:var(--ink);padding:8px 10px;border-radius:9px;font-weight:850;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:5px}
 .btn.primary{border-color:transparent;background:linear-gradient(135deg,#d6df50,#a4b03a);color:#10140a}
@@ -84,6 +88,7 @@ textarea{min-height:95px;resize:vertical;font-family:ui-monospace,SFMono-Regular
 table{width:100%;border-collapse:collapse;min-width:1080px}th,td{padding:8px;border-bottom:1px solid var(--line);text-align:right;vertical-align:middle}
 th{position:sticky;top:0;z-index:1;background:#0d131c;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.05em}th:first-child,td:first-child{text-align:left}
 tr:last-child td{border-bottom:0}table input{padding:7px;min-width:77px;background:#0c1720;color:#e7fbff;border-color:rgba(113,216,233,.34)}
+.calcValue{min-width:77px;padding:7px;color:#9facbb;font-weight:850;text-align:right;white-space:nowrap}
 .materialname{font-weight:900}.formula{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);background:#0d131c;border-radius:9px;padding:8px 9px}.formula span{color:var(--muted);text-align:right}
 .formulas{display:grid;gap:7px}
 .quickAnswer{display:grid;gap:9px}
@@ -108,7 +113,7 @@ tr:last-child td{border-bottom:0}table input{padding:7px;min-width:77px;backgrou
 .realmhero{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:11px}.realmhero .metric .v{font-size:22px}
 .ratinggrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:9px}.rpill{border:1px solid var(--line);border-radius:8px;padding:7px 4px;text-align:center;font-size:10px;color:var(--muted)}.rpill.active{border-color:rgba(217,224,82,.48);background:rgba(217,224,82,.07);color:#edf27d;font-weight:900}
 details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summary{cursor:pointer;font-weight:850}
-.smallcheck{display:flex;gap:7px;align-items:center;font-size:11px;color:var(--muted)}.smallcheck input{width:auto}
+.smallcheck{display:flex;gap:7px;align-items:center;font-size:11px;color:var(--muted)}.smallcheck input[type="checkbox"]{width:16px;height:16px;min-height:0;padding:0;flex:0 0 16px;border-radius:4px;accent-color:var(--cyan);box-shadow:none}.smallcheck input[type="checkbox"]:focus{box-shadow:none}.smallcheck input[type="checkbox"]:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
 .footer{font-size:11px;color:var(--muted);padding:17px 2px 4px}.toast{position:fixed;right:17px;bottom:17px;background:#17202c;border:1px solid var(--line);border-radius:10px;padding:9px 12px;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);pointer-events:none;transition:.18s}.toast.show{opacity:1;transform:none}
 @media(max-width:1100px){
  .layout{grid-template-columns:1fr}
@@ -189,14 +194,14 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <details>
    <summary>Advanced EXP settings</summary>
    <div class="grid3" style="margin-top:9px">
-    <div class="field"><label>S1 early fallback: 100 → 101</label><input id="xpBase100" type="number" value="740000"></div>
-    <div class="field"><label>S1 early fallback increase</label><input id="xpIncrease" type="number" value="50000"></div>
+    <div class="field"><label>Legacy S1 fallback (unused with exact data)</label><input id="xpBase100" type="number" value="740000"></div>
+    <div class="field"><label>Legacy S1 increase (unused)</label><input id="xpIncrease" type="number" value="50000"></div>
     <div class="field"><label>Planner requirement now</label><input id="formulaCurrentNeed" readonly></div>
    </div>
-   <label class="smallcheck" style="margin-top:8px"><input id="useXpFormula" type="checkbox" checked> Use season-aware EXP estimates for levels without an exact value.</label>
-   <p class="subtle"><b>Season EXP only:</b> the selected season defines the scoring <b>baseline</b>, not a level ceiling. S1 starts at Lv100, S2 at Lv130, S3 at Lv160, etc. Catch-up EXP below that baseline is intentionally ignored, while progress above it keeps counting for Primostars. S2 uses a piecewise estimate: about +550k/level in the early seasonal range, then about +50k/level from around Lv140 onward. Priority: manual curve override → exact “EXP required this level” → confirmed checkpoint → season-aware estimate.</p>
+   <label class="smallcheck" style="margin-top:8px"><input id="useXpFormula" type="checkbox" checked> Use exact extracted season EXP data after any manual values.</label>
+   <p class="subtle"><b>Season EXP only:</b> the selected season defines the scoring <b>baseline</b>, not a level ceiling. Exact cumulative game tables are converted into per-level requirements for Seasons 1–5. Priority: manual curve override → exact “EXP required this level” → extracted season table. Season 6 has scoring data but no progression table in the current client.</p>
    <p class="subtle">Optional exact overrides, one per line: <b>level, EXP required</b>.</p>
-   <div class="notice" style="margin-top:8px"><b>Season baseline:</b> pre-season/catch-up levels are outside this calculator's scope. In Season 2 the EXP planner starts at Lv130→131, but it can continue past Lv160, Lv170 and beyond; all progress above Lv130 remains seasonal progress.</div>
+   <div class="notice" style="margin-top:8px"><b>Season baseline:</b> pre-season/catch-up levels are outside this calculator's scope. Progress can continue above the next season's baseline for as long as the selected season's extracted table contains levels.</div>
    
    <textarea id="xpCurve" placeholder="113, 1390000&#10;114, 1440000"></textarea>
   </details>
@@ -217,9 +222,17 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   </div>
 
   <div class="grid2">
-   <div class="field">
-    <label>Season</label>
-    <input id="seasonNumber" type="number" step="1" min="1" value="2">
+   <div class="seasonChooser">
+    <div class="seasonTop"><span class="seasonBadge">Important</span><span class="seasonTitle">Choose your current season</span></div>
+    <select id="seasonNumber" aria-label="Choose your current season">
+     <option value="1">Season 1 · Lv100 baseline</option>
+     <option value="2" selected>Season 2 · Lv130 baseline</option>
+     <option value="3">Season 3 · Lv160 baseline</option>
+     <option value="4">Season 4 · Lv190 baseline</option>
+     <option value="5">Season 5 · Lv220 baseline</option>
+     <option value="6">Season 6 · Lv250 baseline</option>
+    </select>
+    <div class="seasonHelp">This changes scoring, Primostar conversion, upgrade costs, EXP tables and Realm yields.</div>
    </div>
    <div class="field">
     <label>Season scoring baseline</label>
@@ -250,19 +263,19 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <p class="simple-note" id="seasonRuleNote">Only progress above the selected season's scoring floor contributes to this season's score.</p>
 
   <details>
-   <summary>Advanced scoring constants</summary>
+   <summary>Season scoring data</summary>
    <div class="grid4" style="margin-top:9px">
     <div class="field"><label>Character / Gear / Skill / Fantomon baseline</label><input id="floor" type="number" value="130" readonly></div>
     <div class="field"><label>Relic baseline</label><input id="relicFloor" type="number" value="14" readonly></div>
-    <div class="field"><label>Score / Primostar</label><input id="scorePerStar" type="number" value="27"></div>
-    <div class="field"><label>Fixed season Primostars</label><input id="fixedStars" type="number" value="10"></div>
-    <div class="field"><label>Character weight</label><input id="charW" type="number" value="100"></div>
-    <div class="field"><label>Gear weight</label><input id="gearW" type="number" value="38"></div>
-    <div class="field"><label>Skill weight</label><input id="skillW" type="number" value="13"></div>
-    <div class="field"><label>Fantomon weight</label><input id="fantW" type="number" value="14"></div>
-    <div class="field"><label>Relic weight</label><input id="relicW" type="number" value="57"></div>
+    <div class="field"><label>Score / Primostar</label><input id="scorePerStar" type="number" value="27" readonly></div>
+    <div class="field"><label>Fixed season Primostars</label><input id="fixedStars" type="number" value="45" readonly></div>
+    <div class="field"><label>Character weight</label><input id="charW" type="number" value="100" readonly></div>
+    <div class="field"><label>Gear weight</label><input id="gearW" type="number" value="18" readonly></div>
+    <div class="field"><label>Skill weight</label><input id="skillW" type="number" value="7" readonly></div>
+    <div class="field"><label>Fantomon weight</label><input id="fantW" type="number" value="8" readonly></div>
+    <div class="field"><label>Relic weight</label><input id="relicW" type="number" value="33" readonly></div>
    </div>
-   <p class="subtle" style="margin-top:9px">Season baselines advance with progression: S1 = Lv100 / relic +10, S2 = Lv130 / +14, S3 = Lv160 / +17, then +30 normal levels and +3 relic levels each later season. Primostar conversion is season-specific: <b>S1 = 100 points/star</b>, <b>S2 = 27 points/star</b>. S3+ is not confirmed yet.</p>
+   <p class="subtle" style="margin-top:9px">Live game data provides the baseline, fixed award, conversion and category weights for Seasons 1–6. Baselines are not caps: normal levels advance by 30 each season, while relic baselines are +10, +14, +17, +20, +23 and +26.</p>
   </details>
  </div>
 </section>
@@ -270,7 +283,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 <section class="card">
  <div class="cardhead"><h2>3. Gear · 5 slots · Ore</h2><button class="btn primary" id="fillGearBtn">Fill minimum gear for goal</button></div>
  <div class="cardbody">
-  <div class="notice">Gear score uses the <b>total seasonal levels across all five slots</b>. Example: 147 total seasonal gear levels × 38 = 5,586 score. A balanced 147-level target from a 100 floor is <b>130 / 130 / 129 / 129 / 129</b>.</div>
+  <div class="notice">Gear score uses the <b>total seasonal levels across all five slots</b>. The selected season's exact baseline and weight are applied automatically.</div>
   <div class="batch">
    <div class="field"><label>Set all current gear</label><input id="gearAllCur" type="number" value="" placeholder="Current"></div><button class="btn" id="gearApplyCur">Apply current</button>
    <div class="field"><label>Set all planned gear</label><input id="gearAllTar" type="number" value="" placeholder="Planned"></div><button class="btn" id="gearApplyTar">Apply planned</button>
@@ -284,7 +297,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 </section>
 
 <section class="card">
- <div class="cardhead"><h2>4. Skills · 8 slots · Essence</h2><span class="chip">+13 score / seasonal level</span></div>
+ <div class="cardhead"><h2>4. Skills · 8 slots · Essence</h2><span class="chip" id="skillWeightChip">—</span></div>
  <div class="cardbody">
   <div class="batch">
    <div class="field"><label>Set all current skills</label><input id="skillAllCur" type="number" value="" placeholder="Current"></div><button class="btn" id="skillApplyCur">Apply current</button>
@@ -298,7 +311,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 </section>
 
 <section class="card">
- <div class="cardhead"><h2>5. Fantomons · 4 deployed</h2><span class="chip">+14 score / seasonal level</span></div>
+ <div class="cardhead"><h2>5. Fantomons · 4 deployed</h2><span class="chip" id="fantWeightChip">—</span></div>
  <div class="cardbody">
   <div class="batch">
    <div class="field"><label>Set all current Fantomons</label><input id="fantAllCur" type="number" value="" placeholder="Current"></div><button class="btn" id="fantApplyCur">Apply current</button>
@@ -307,7 +320,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <div class="unitgrid" id="fantGrid">
    <div class="hd">Fantomon</div><div class="hd">Current</div><div></div><div class="hd">Planned</div>
   </div>
-  <p class="simple-note">Fantomon progression score is included automatically. Material/feed cost is not included yet.</p>
+  <p class="simple-note">Fantomon progression score and required feed EXP are calculated automatically. Individual feed-item inventory conversion is not included.</p>
  </div>
 </section>
 
@@ -329,14 +342,16 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 <section class="card">
  <div class="cardhead"><h2>7. Core material economy</h2><span class="chip">Put your actual account numbers here</span></div>
  <div class="cardbody">
-  <div class="grid2">
+  <div class="grid3">
    <div class="field">
     <label>Daily Realm refresh system</label>
     <input id="refreshSystem" type="text" value="0-0-0-0" placeholder="Ore-Rola-Essence-Sand, e.g. 8-4-6-4">
    </div>
    <div class="field"><label>Refresh order</label><input value="Ore → Rola → Essence → Sand" readonly></div>
+   <div class="field"><label>Realm rank used</label><select id="realmRankMode"><option value="auto">Auto from projected level</option><option value="1">Season rank I</option><option value="2">Season rank II</option><option value="3">Season rank III</option></select></div>
   </div>
   <p class="simple-note">Each refresh gives <b>5 entries</b> for that Realm. Example: <b>2-2-2-2</b> means 10 Hammers, 10 Rola entries, 10 Gloves and 10 Shovels at each daily reset. Maximum 10 refreshes per Realm.</p>
+  <div class="notice" id="realmYieldSummary" style="margin-top:10px">—</div>
 
   <div class="notice" style="margin-top:10px">
    <b>Current saved Material Realm entries</b>
@@ -355,7 +370,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <div class="tablewrap" style="margin-top:11px">
    <table id="coreTable">
     <thead><tr>
-     <th>Material</th><th>Have right now</th><th>Cart / h</th><th>Shop / real day</th><th>Other / real day</th><th>Realm yield / run</th><th>Extra manual spend</th><th>Auto upgrade spend</th><th>Projected at target</th><th>Shortfall</th><th>Realms needed</th><th>Passive-only ready</th>
+     <th>Material</th><th>Have right now</th><th>Cart / h</th><th>Shop / real day</th><th>Other / real day</th><th>Auto Realm yield / entry</th><th>Extra manual spend</th><th>Auto upgrade spend</th><th>Projected at target</th><th>Shortfall</th><th>Realms needed</th><th>Passive-only ready</th>
     </tr></thead>
     <tbody id="coreBody"></tbody>
    </table>
@@ -441,11 +456,11 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
    <div class="metric major"><div class="k">Progression score this season</div><div class="v" id="projectedScore">0</div><div class="s">Only progression above this season's floor counts</div></div>
    <div class="metric"><div class="k">Primostars from score</div><div class="v" id="scoreStars">0</div><div class="s" id="scoreStarsRaw">0.00 before round-down</div></div>
    <div class="metric"><div class="k">Fixed season Primostars</div><div class="v" id="fixedStarsDisplay">+10</div><div class="s">Added after score conversion</div></div>
-   <div class="metric major"><div class="k">Primostars earned this season</div><div class="v" id="seasonStars">10</div><div class="s" id="seasonStarsFormula">0 from score + 10 fixed</div></div>
+   <div class="metric major"><div class="k">Primostars earned this season</div><div class="v" id="seasonStars">0</div><div class="s" id="seasonStarsFormula">Selected season formula</div></div>
    <div class="metric major"><div class="k">Projected total Primostars</div><div class="v" id="rawStarEquivalent">10</div><div class="s">Current / old + this season</div></div>
    <div class="metric"><div class="k">Target difference</div><div class="v" id="cumulativeStars">0</div><div class="s">Projected total − target total</div></div>
   </div>
-  <div class="notice" style="margin-top:10px"><b>Cumulative Primostars:</b> your previous-season total carries forward. This season adds <b>floor(Progression Score ÷ 100) + 10 fixed</b> to that existing total.</div>
+  <div class="notice" id="primostarFormulaNote" style="margin-top:10px"><b>Cumulative Primostars:</b> your previous-season total carries forward. The selected season's exact conversion and fixed award are applied automatically.</div>
   <div class="notice" id="goalStatus" style="margin-top:8px">—</div>
 
   <div class="sep"></div>
@@ -465,33 +480,31 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  <div class="cardbody">
   <div class="metrics">
    <div class="metric major"><div class="k">Ore required</div><div class="v" id="oreRequired">0</div><div class="s">5 gear slots</div></div>
+   <div class="metric major"><div class="k">Gear Rola required</div><div class="v" id="rolaRequired">0</div><div class="s">Exact extracted gear costs</div></div>
+   <div class="metric"><div class="k">Gear forging stones</div><div class="v" id="forgeStoneRequired">0</div><div class="s">Item 41301 · every 5th Gear level</div></div>
    <div class="metric major"><div class="k">Essence required</div><div class="v" id="essenceRequired">0</div><div class="s">8 skills</div></div>
+   <div class="metric major"><div class="k">Fantomon feed EXP</div><div class="v" id="fantExpRequired">0</div><div class="s">4 deployed Fantomons</div></div>
    <div class="metric"><div class="k">Blue Sand required</div><div class="v" id="blueSandRequired">0</div><div class="s">Known Blue-tier relic steps</div></div>
    <div class="metric"><div class="k">Purple Sand required</div><div class="v" id="purpleSandRequired">0</div><div class="s">Known Purple-tier relic steps</div></div>
    <div class="metric major"><div class="k">White Sand equivalent</div><div class="v" id="whiteSandRequired">0</div><div class="s">Blue × 5 + Purple × 25</div></div>
   </div>
   <div class="notice warn" id="relicCostWarning" style="margin-top:10px;display:none"></div>
   <div class="field" style="margin-top:10px">
-   <label>Rola required for planned upgrades</label>
-   <input id="rolaUpgradeSpend" type="number" min="0" step="any" value="" placeholder="Enter total Rola upgrade cost">
+   <label>Additional/manual Rola spend</label>
+   <input id="rolaUpgradeSpend" type="number" min="0" step="any" value="" placeholder="Optional additional Rola spend">
   </div>
-  <p class="simple-note"><b>Cost accuracy:</b> S1 Gear uses an approximation anchored to confirmed late-S1 Ore costs. S2 Gear uses the confirmed repeating pattern validated through 170→171. S2 Skill Essence is extrapolated from the confirmed 140→142 +100/level progression.</p>
-  <p class="simple-note">Rola is included in the economy and Quick Answer. Enter the total Rola your planned upgrades will consume; the exact per-level Rola formula is not hard-coded until it is confirmed.</p>
+  <p class="simple-note"><b>Cost accuracy:</b> Gear Ore/Rola/forging stones, Skill Essence, Character EXP, Fantomon feed EXP and Relic Sand use exact extracted game tables for Seasons 1–5. Unknown steps are never treated as free.</p>
+  <p class="simple-note">Gear Rola is calculated automatically. The optional field adds other Rola spending that is outside the five planned gear slots.</p>
   <details>
    <summary>Advanced cost formulas</summary>
    <div class="formulas" style="margin-top:9px">
-    <div class="formula"><b>Gear Ore — Season 1</b><span>Approx.: +100/level, with confirmed 126→127 plateau at 11,600</span></div>
-    <div class="formula"><b>Gear Ore — Season 2</b><span>Confirmed past Lv170: 130→131 = 16,600; repeating +100 / +200 / +200</span></div>
-    <div class="formula"><b>Skill Essence — Season 1</b><span>60 × L − 40</span></div>
-    <div class="formula"><b>Skill Essence — Season 2</b><span>Approx. +100/level; 140→141 = 13,200, 141→142 = 13,300</span></div>
-    <div class="formula"><b>Character EXP — Season 2</b><span>No level ceiling: ~+550k/level early S2, then ~+50k/level from around Lv140 and beyond Lv170</span></div>
-    <div class="formula"><b>Relic +10 → +13</b><span>Blue Sand: +11 3,200 · +12 3,520 · +13 3,840</span></div>
-    <div class="formula"><b>Relic +13 → +14</b><span>1,350 Purple Sand</span></div>
-    <div class="formula"><b>Relic +14 → +15</b><span>1,480 Purple Sand</span></div>
-    <div class="formula"><b>Relic +15 → +16</b><span>1,620 Purple Sand</span></div>
-    <div class="formula"><b>Relic +16 → +17</b><span>1,750 Purple Sand</span></div>
+    <div class="formula"><b>Character EXP</b><span>Exact cumulative rank tables decoded into each level-up cost</span></div>
+    <div class="formula"><b>Gear materials</b><span>Exact extracted costs; Rola is 2 × Ore, with season-specific forging stones every 5th blessing level</span></div>
+    <div class="formula"><b>Skill Essence</b><span>Exact extracted cost for every populated blessing level</span></div>
+    <div class="formula"><b>Fantomon feed EXP</b><span>Exact cumulative upgrade EXP converted into each planned level-up cost</span></div>
+    <div class="formula"><b>Relic Sand</b><span>Exact extracted rank and blessing-level costs</span></div>
     <div class="formula"><b>Sand conversion</b><span>1 Purple = 5 Blue = 25 White</span></div>
-    <div class="formula"><b>Relic +18 and above</b><span>Not estimated until their costs are confirmed</span></div>
+    <div class="formula"><b>Season 6 materials</b><span>Not populated in the current client; intentionally shown as unknown</span></div>
    </div>
   </details>
  </div>
@@ -525,15 +538,15 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 <section class="card">
  <div class="cardhead"><h2>Reference notes</h2></div>
  <div class="cardbody">
-  <div class="notice">Multi-season scoring keeps the same category weights: Character 100, Gear 38, Skill 13, Fantomon 14 and Relic 57 per seasonal level. Primostars carry forward, while the scoring baseline advances by season: S1 Lv100/+10, S2 Lv130/+14, S3 Lv160/+17, then +30/+3 thereafter.</div>
-  <div class="notice warn" style="margin-top:8px">Character EXP progress is fractional for score. Example: in Season 2, projected Lv158.5 is 28.5 seasonal character levels above the Lv130 baseline, worth 2,850 character points. Relic cap unlocks still require completed whole character levels.</div>
+  <div class="notice">Season scoring data is read directly from the current game configuration. Primostars carry forward, while each season supplies its own fixed award, points-per-star conversion and category weights.</div>
+  <div class="notice warn" style="margin-top:8px">Character EXP progress scores proportionally, rounded down to a whole character-point contribution by the game. Relic cap unlocks still require completed whole character levels.</div>
  </div>
 </section>
 
 </div>
 </main>
 <div class="footer">
- <div>Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons. The selected season defines a scoring baseline, not a ceiling (S1 Lv100/+10, S2 Lv130/+14, S3 Lv160/+17, then +30/+3); progress above that baseline continues to score. Relic planned levels are automatically limited by projected character level. Realm yields remain approximate defaults: Ore ≈800, Rola ≈9,000, Essence ≈1,290, White Sand ≈607 per run. Daily refresh systems are counted only at actual reset events, with 5 Realm entries per refresh.</div>
+ <div>Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons. The selected season defines a scoring baseline, not a ceiling (S1 Lv100/+10, S2 Lv130/+14, S3 Lv160/+17, then +30/+3); progress above that baseline continues to score. Relic planned levels are automatically limited by projected character level. Realm yields are calculated from the extracted client rules for the selected season rank, including object weights, damage, crits and break rewards. Daily refresh systems are counted only at actual reset events, with 5 Realm entries per refresh.</div>
  <div style="margin-top:8px;font-weight:800;color:#cbd5df">© 2026 <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">0xNobody</a> · Made by 0xNobody · <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">YouTube</a></div>
 </div>
 </div>
@@ -547,17 +560,101 @@ const num=id=>Number($(id)?.value)||0;
 const fmt=(x,d=0)=>Number(x||0).toLocaleString(undefined,{maximumFractionDigits:d});
 const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
 const gearNames=["Helmet","Armor","Boots","Main Hand","Off Hand"];
-const ratings=[
- {name:"D",min:0,max:3899},{name:"C",min:3900,max:6199},{name:"B",min:6200,max:8499},
- {name:"A",min:8500,max:10799},{name:"S",min:10800,max:11899},{name:"SS",min:11900,max:13099},{name:"SSS",min:13100,max:Infinity}
-];
-const ratingMin=Object.fromEntries(ratings.map(r=>[r.name,r.min]));
-const core={
- ore:{label:"Ore",stock:0,cart:0,shop:0,other:0,realm:800,manual:0},
- rola:{label:"Rola",stock:0,cart:0,shop:0,other:0,realm:9000,manual:0},
- essence:{label:"Essence",stock:0,cart:0,shop:0,other:0,realm:1290,manual:0},
- sand:{label:"White Sand",stock:0,cart:0,shop:0,other:0,realm:607,manual:0}
+const RATING_THRESHOLDS={
+ 1:[0,3900,6200,8500,10800,11900,13100],
+ 2:[0,4800,7600,10400,13100,14500,15900],
+ 3:[0,9300,14700,20000,25400,28000,30700],
+ 4:[0,9500,14900,20300,25800,28500,31200],
+ 5:[0,10000,15700,21400,27100,30000,32800]
 };
+const RATING_NAMES=["D","C","B","A","S","SS","SSS"];
+let ratings=[];
+function ratingsForSeason(season){
+ const values=RATING_THRESHOLDS[season];
+ return values?values.map((min,i)=>({name:RATING_NAMES[i],min,max:i+1<values.length?values[i+1]-1:Infinity})):[];
+}
+const SEASON_RULES={
+ 1:{rank:"Silver",floor:100,relicFloor:10,relicBase:10,fixed:10,perStar:100,charW:100,gearW:38,relicW:57,skillW:13,fantW:14,gearBase:9280,gearRate:92.8,forgeStone:450,skillBase:6025,skillRate:60.25,relicBaseCost:3200,relicRate:320,relicTier:"blue"},
+ 2:{rank:"Gold",floor:130,relicFloor:14,relicBase:13,fixed:45,perStar:27,charW:100,gearW:18,relicW:33,skillW:7,fantW:8,gearBase:16630,gearRate:166.3,forgeStone:510,skillBase:12025,skillRate:120.25,relicBaseCost:1350,relicRate:135,relicTier:"purple"},
+ 3:{rank:"Saint",floor:160,relicFloor:17,relicBase:16,fixed:65,perStar:13,charW:100,gearW:14,relicW:26,skillW:5,fantW:6,gearBase:26000,gearRate:260,forgeStone:540,skillBase:19225,skillRate:192.25,relicBaseCost:2300,relicRate:230,relicTier:"purple"},
+ 4:{rank:"Legend",floor:190,relicFloor:20,relicBase:19,fixed:120,perStar:7,charW:100,gearW:17,relicW:28,skillW:5,fantW:11,gearBase:57000,gearRate:570,forgeStone:550,skillBase:38425,skillRate:384.25,relicBaseCost:4600,relicRate:460,relicTier:"purple"},
+ 5:{rank:"Angel",floor:220,relicFloor:23,relicBase:22,fixed:150,perStar:4,charW:100,gearW:18,relicW:30,skillW:6,fantW:12,gearBase:101000,gearRate:1010,forgeStone:580,skillBase:65425,skillRate:654.25,relicBaseCost:8000,relicRate:800,relicTier:"purple"},
+ 6:{rank:"Godtouched1",floor:250,relicFloor:26,relicBase:25,fixed:200,perStar:3,charW:100,gearW:13,relicW:18,skillW:4,fantW:5}
+};
+// Exact per-level Character EXP deltas decoded from the live client's
+// cumulative level_bless.csv tables. Compact base-36 keeps this single file small.
+const CHARACTER_XP_DATA=Object.fromEntries(Object.entries({"1":"izpi.j1lv.juw5.knw6.lozo.mlcv.ni35.oc9p.p6mt.q16g.qz39.rxx9.swke.tvkl.uuxw.vuob.wurs.xv8d.yw21.zx8s.112w1.1281s.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4.13ai4","2":"3ry55.41kpv.4dinh.4p95g.50pfl.5bspk.5oes9.5zok8.6b072.6o2zg.6psa6.6qxxm.6s2sw.6t7o6.6ucjg.6vheq.6wma0.6xr5a.6ybkx.6zgg7.70lbh.715wd.71qc1.72aro.73fmz.74kia.769t8.78jju.79of5.7atag.7by5r.7dnbz.7es7a.7fx2k.7fx2k.7ghi7.7hmdh.7ir8r.7jboe.7kgjo.7lley.7mq5h.7nv0q.7pkbm.7r9mj.7sehs.7tjd1.7uo8b.7v8ny.7wdj7.7xieh.7ymix.7z6yi.7zre3.80btn.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98.80w98","3":"qruyr.t15oe.vbhr4.xkrv0.zuuf8.123c1p.14hcwp.16tsty.199stt.1bqurg.1bzjue.1c8bfp.1ch0j4.1cmt9e.1cppmj.1cyepy.1d73tc.1dcwjm.1dlln1.1duaqg.1e03gq.1e8qaq.1eej0r.1ekbqr.1et0ts.1eytjs.1f4m9t.1fdbct.1fj42u.1fowsu.1frt5v.1fxsl9.1g3lc0.1gcag5.1pmxp8.1vy8n7.1w4qiz.1w7zgw.1wehcn.1wkz8g.1wo86d.1x0rbo.1x795p.1xgzwn.1xk8tn.1xx8hm.1y3qbl.1y6z8m.1ygpzk.1yn7tj.1yqgqk.1yx5u4.1z0erj.1za5jm.1zgned.1zjwbr.1zqe6h.1zww19.203dvz.1r1sb2.1ri0xx.1roptn.1rryrd.1rygmu.1s4yib.1shy98.1sl76z.1t1fvn.1t7xr3.1tb6ou.1thoka.1tnyuc.1tr7ro.1txpme.1u47h4.1uh76j.1ukg3w.1unp19.1uu6vz.1uxftb.1v3xo1.1vaeeu.1vgw9g.1vne42.1vqn1d.1vx4vz.1vx4vz.1w0dta.1w0dta.1w3mql.1w63m5.1w6vnw.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4.1w9ci4","4":"cbdb8b.datii5.eanvst.faqlfj.gb1nea.hbl1p3.id37x0.jewikz.kfeias.lgwnzr.ljgh92.lla40n.lm4py1.lntxst.lpj5nl.lr8did.lsxld4.lumt7w.lvhf5a.lx6n02.lyvuuu.m0mkda.m2bsc8.m410b5.m5q8a2.m7fg8z.m94o7w.matw6u.mcj45r.me8c4o.mfxk3l.mhlylv.mjb6ik.ml0ef9.mmpmby.mnk8ab.mp9g70.mqyo3o.msnw0d.mud3x2.mw2btr.mwvv73.myl30x.n0aaur.n14wro.n2u4lh.n4jcfb.n68k95.n7xs2y.n9mzws.nahltp.nc93ln.ndyblg.nfnjl9.nhcrl2.nj1zkv.nkr7kn.nlltkk.nnb1kd.np09k6.nqphjz.nrjsps.nt90ot.nuy8nu.nwngmv.nycolw.o01wkx.o1r4jy.o2lqjg.o4ayih.o606hi.o7lgep.o9ao3r.oazvss.ocp3hu.odjpcc.of8x1e.ogy4qf.oincfh.okck4i.om1rtj.onxocb.opmwhz.orc4nn.os6qqh.otvyw5.ovl71t.oxaf7g.oyznd4.ozu9fy.p1jhlm.p2s7do.p4hef0.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb.p66lgb","5":"2icv3bf.2pj6y9j.2wqtjjw.33zqv6g.3b2lxl6.3ihlfa5.3pyb83e.3xgrc0x.450xr2q.4cdblsf.4cnxx3a.4cxguy6.4cxguy6.4cxguy6.4d6zst2.4dzkmdr.4e4c3b7.4e4c3b7.4edv163.4edv163.4emycpe.4emycpe.4emycpe.4emycpe.4ewh9mh.4ewh9mh.4ewh9mh.4ewh9mh.4f18q30.4f18q30.4facibn.4gcg2df.4gh7idn.4glyydv.4glyydv.4gvhuea.4h09aei.4hejmf6.4hejmf6.4hejmf6.4hu1unw.4i8cakb.4i8cakb.4ihv95y.4iw5p2e.4jag4yt.4joqkv9.4khbgo4.4km2xyy.4kquf9r.4kue0f3.4kz5gg6.4l3wwh9.4l3wwh9.4l8ocic.4l8ocic.4l8ocic.4l8ocic.4l8ocic.4l8ocic.4l9exgt.4l9exgt.4l9exgt.4m1zq93.4m1zq93.4mbinui.4ml1lfx.4nidv0w.4nn5btm.4o1fq7r.4o699la.4o699la.4ob0qg3.4ofs7ax.4okjo5r.4ou2lve.4oyu2q8.4oyu2q8.4p3ljl2.4p3ljl2.4pcv0wo.4pmdy35.4q5fsg4.4q5fsg4.4q5fsg4.4q5fsg4.4q5fsg4.4q5fsg4.4q5fsg4.4qa791c.4qrn2p9.4r5xbly.4raoqkv.4tce3yd.4ve3hbu.4xfsupc.4zhi82t.51j7lgb.53kwytt.55mmc7a.57obpks.59q12y9.5brqgbr.5dtftp9.5fv572q.5hwukg8.5jyjxtp.5m09b77.5o1yoko.5q3o1y6.5s5dfbo.5u72sp5.5w8s62n.5yahjg4.60c6wtm.62dwa74.64flnkl.66hb0y3.68j0ebk.6akprp2.6cmf52k.6eo4ig1.6gptvtj.6irj970.6kt8mki.6muxzy0.6owndbh.6qycqoz.6t0242g.6v1rhfy.6x3gutg.6z5686x.716vlkf.738kyxw.75aacbe.77bzpov.79dp32d.7bfegfv.7dh3ttc.7fit76u.7hkikkb.7jm7xxt.7lnxbbb.7npmoos.7prc22a.7rt1ffr.7tuqst9.7vwg66r.7xy5jk8.7zzuwxq"}).map(([season,data])=>[
+ Number(season),data.split(".").map(value=>parseInt(value,36))
+]));
+const FANTOMON_XP_DATA=Object.fromEntries(Object.entries({"1":"k4g.kiw.kxc.lbs.lqi.m4y.mje.mxu.nca.nqq.o5g.ojw.oyc.pcs.pr8.q5o.qke.qyu.rda.rrq.s66.skm.szc.tds.ts8.u6o.ul4.uzk.ve0.vsq.w76.wlm.x02.xei.xsy.y7o.ym4.z0k.zf0.ztg.107w.10mm.1112.11fi.11ty.128e.12mu.131k.13g0.13ug.148w.14nc.151s.15g8.15uy.169e.16nu.172a.17gq.17v6.189w.18oc.192s.19h8.19vo.1aa4.1aou.1b3a.1bhq.1bw6.1cam.1cp2.1d3s.1di8.1dwo.1eb4.1epk.1f40.1fig.1fx6.1gbm.1gq2.1h4i.1hiy.1hxe.1ic4.1iqk.1j50.1jjg.1jxw.1kcc.1kr2.1l5i.1ljy.1lye.1mcu.1mra.1n60.1nkg.1nyw.1odc.1ors.1p68.1pko.1pze.1qdu.1qsa.1r6q.1rl6.1rzm.1sec.1sss.1t78.1tlo.1u04.1uek.1uta.1v7q.1vm6.1w0m.1wf2.1wti.1x88.1xmo.1y14.1yfk.1yu0.1z8g.1zmw.201m.20g2.20ui.218y.21ne.221u.22gk.22v0.239g.23nw.242c.24gs.24vi.259y.25oe.262u.26ha.26vq.27ag.27ow.283c","2":"189m.195k.1a18.1ax6.1bt4.1cp2.1dkq.1ego.1fcm.1g8k.1h48.1i06.1iw4.1js2.1knq.1ljo.1mfm.1nbk.1o78.1p36.1pz4.1qv2.1rqq.1smo.1tim.1uek.1va8.1w66.1x24.1xxs.1ytq.1zpo.20lm.21ha.22d8.2396.2454.250s.25wq.26so.27om.28ka.29g8.2ac6.2b84.2c3s.2czq.2dvo.2erm.2fna.2gj8.2hf6.2iau.2j6s.2k2q.2kyo.2luc.2mqa.2nm8.2oi6.2pdu.2q9s.2r5q.2s1o.2sxc.2tta.2up8.2vl6.2wgu.2xcs.2y8q.2z4o.300c.30wa.31s8.32o6.33ju.34fs.35bq.367e.373c.37za.38v8.39qw.3amu.3bis.3ceq.3dae.3e6c.3f2a.3fy8.3gtw.3hpu.3ils.3jhq.3kde.3l9c.3m5a.3n18.3nww.3osu.3pos.3qkg.3rge.3scc.3t8a.3u3y.3uzw.3vvu.3wrs.3xng.3yje.3zfc.40ba.416y.422w.42yu.43us.44qg.45me.46ic.47ea.489y.495w.4a1u.4axs.4btg.4cpe.4dlc.4eh0.4fcy.4g8w.4h4u.4i0i.4iwg.4jse.4koc.4lk0.4mfy.4nbw.4o7u.4p3i.4pzg.4qve.4rrc.4sn0.4tiy.4uew.4vau.4w6i","3":"3stk.3vk6.3yai.4114.43rq.46i2.498o.4bz0.4epm.4hg8.4k6k.4mx6.4pns.4se4.4v4q.4xvc.50lo.53ca.562w.58t8.5bju.5ea6.5h0s.5jre.5mhq.5p8c.5ryy.5upa.5xfw.606i.62wu.65ng.68ds.6b4e.6dv0.6glc.6jby.6m2k.6osw.6rji.6ua4.6x0g.6zr2.72ho.7580.77ym.7aoy.7dfk.7g66.7iwi.7ln4.7n0a.7odq.7pqw.7r42.7shi.7tuo.7v7u.7wla.7xyg.7zbm.80p2.8228.83fe.84sk.8660.87j6.88wc.8a9s.8bmy.8d04.8edk.8fqq.8h3w.8ihc.8jui.8l7o.8ml4.8nya.8pbg.8qow.8s22.8tf8.8uso.8w5u.8xj0.8ywg.909m.91ms.92zy.94de.95qk.973q.98h6.99uc.9b7i.9cky.9dy4.9fba.9goq.9i1w.9jf2.9ksi.9m5o.9niu.9owa.9q9g.9rmm.9t02.9ud8.9vqe.9x3u.9yh0.9zu6.a17c.a2ks.a3xy.a5b4.a6ok.a81q.a9ew.aasc.ac5i.adio.aew4.ag9a.ahmg.aizw.akd2.alq8.an3o.aogu.apu0.ar7g.askm.atxs.avb8.awoe.ay1k.azeq.b0s6.b25c.b3ii.b4vy.b694.b7ma.b8zq.bacw.bbq2.bd3i.bego.bftu.bh7a.bikg.bjxm.blb2.bmo8.bo1e.bpeu.bqs0.bs56.btim.buvs.bw8y.bxm4.byzk.c0cq.c1pw.c33c.c4gi.c5to.c774.c8ka.c9xg.cbaw.cco2.ce18.cfeo.cgru.ci50","4":"6oz0.6tsm.6yly.73fk.788w.7d2i.7hw4.7mpg.7rj2.7wce.8160.85zm.8asy.8fmk.8kfw.8p9i.8u34.8ywg.93q2.98je.9dd0.9i6m.9mzy.9rtk.9wmw.a1gi.a6a4.ab3g.afx2.akqe.apk0.audm.az6y.b40k.b8tw.bdni.bih4.bnag.bs42.bwxe.c1r0.c6km.cbdy.cg7k.cl0w.cpui.cuo4.czhg.d4b2.d94e.ddy0.dgco.dirm.dl6a.dnky.dpzw.dsek.dut8.dx7w.dzmu.e21i.e4g6.e6v4.e99s.ebog.ee3e.egi2.eiwq.elbe.enqc.eq50.esjo.euym.exda.ezry.f26w.f4lk.f708.f9ew.fbtu.fe8i.fgn6.fj24.flgs.fnvg.fqa4.fsp2.fv3q.fxie.fzxc.g2c0.g4qo.g75m.g9ka.gbyy.gedm.ggsk.gj78.gllw.go0u.gqfi.gsu6.gv94.gxns.h02g.h2h4.h4w2.h7aq.h9pe.hc4c.hej0.hgxo.hjcm.hlra.ho5y.hqkm.hszk.hve8.hxsw.i07u.i2mi.i516.i7g4.i9us.ic9g.ieo4.ih32.ijhq.ilwe.iobc.iqq0.it4o.ivjm.ixya.j0cy.j2rm.j56k.j7l8.j9zw.jceu.jeti.jh86.jjn4.jm1s.jogg.jqv4.jta2.jvoq.jy3e.k0ic.k7qi.kck0.khdi.km70.kr0i.kvu0.l0ni.l5h0.laai.lf40.ljxi.lor0.ltki.lye0.m37i.m810.mcui.mho0.mmhi.mrb0.mw4i.n0y0.n5ri.nal0.nfei.nk80.np1i.ntv0.nyoi.o3i0","5":"bego.bmo8.buvs.c33c.cbaw.cjig.crq0.czxa.d84u.dgce.dojy.dwri.e4z2.ed6m.ele6.etlq.f1ta.fa0u.fi8e.fqfo.fyn8.g6us.gf2c.gn9w.gvhg.h3p0.hbwk.hk44.hsbo.i0j8.i8qs.igyc.ip5m.ixd6.j5kq.jdsa.jlzu.ju7e.k2ey.kami.kiu2.kr1m.kz96.l7gq.lfo0.lnvk.lw34.m4ao.mci8.mkps.msxc.mx14.n14w.n58o.n9cg.ndg8.nhk0.nlns.nprk.ntvc.nxz4.o22w.o66o.oaa6.oedy.oihq.omli.oqpa.out2.oywu.p30m.p74e.pb86.pfby.pjfq.pnji.prna.pvr2.pzuu.q3ym.q82e.qc66.qg9y.qkdq.qohi.qsla.qwp2.r0su.r4wc.r904.rd3w.rh7o.rlbg.rpf8.rtj0.rxms.s1qk.s5uc.s9y4.se1w.si5o.sm9g.sqd8.suh0.syks.t2ok.t6sc.taw4.tezw.tj3o.tn7g.trb8.tvf0.tzii.u3ma.u7q2.ubtu.ufxm.uk1e.uo56.us8y.uwcq.v0gi.v4ka.v8o2.vcru.vgvm.vkze.vp36.vt6y.vxaq.w1ei.w5ia.w9m2.wdpu.whtm.wlxe.wq16.wu4o.wy8g.x2c8.x6g0.xajs.xenk.xirc.xmv4.xqyw.xv2o.xz6g.y3a8.y7e0.ybhs.yflk.yjpc.ynt4.yrww.yw0o.z04g.z488.z8c0.zcfs.zgjk.zknc.zoqu.zsum.zwye.10126.1055y.1099q.10ddi.10hha.10ll2.10pou.10tsm.10xwe.11206.1163y.11a7q.11ebi.11ifa"}).map(([season,data])=>[
+ Number(season),data.split(".").map(value=>parseInt(value,36))
+]));
+const core={
+ ore:{label:"Ore",stock:0,cart:0,shop:0,other:0,realm:0,manual:0},
+ rola:{label:"Rola",stock:0,cart:0,shop:0,other:0,realm:0,manual:0},
+ essence:{label:"Essence",stock:0,cart:0,shop:0,other:0,realm:0,manual:0},
+ sand:{label:"White Sand equivalent",stock:0,cart:0,shop:0,other:0,realm:0,manual:0}
+};
+// level_number.csv column 6 (the material Realm subrank multiplier), indexed
+// by the three subranks available during each season. S6 II/III are blank in
+// the current client and therefore remain intentionally unknown.
+const REALM_RANK_MULTIPLIERS={
+ 1:[7.7,10,10.8],2:[11.8,19,19.5],3:[20,40,42.5],
+ 4:[45,70,75],5:[80,130,140],6:[150,null,null]
+};
+const REALM_INTERNAL_RANKS={1:"Gold",2:"Saint",3:"Legend",4:"Angel",5:"Godtouched 1",6:"Godtouched 2"};
+const REALM_DISPLAY_RANKS={1:"Expert",2:"Champion",3:"Season 3 rank",4:"Season 4 rank",5:"Season 5 rank",6:"Season 6 rank"};
+const REALM_DAMAGE_PROBABILITIES=[[9,.2],[10,.4],[11,.2],[14,1/15],[15,1/15],[16,1/15]];
+const realmHitMemo=new Map();
+function expectedRealmHits(durability){
+ if(realmHitMemo.has(durability))return realmHitMemo.get(durability);
+ const e=Array(durability+1).fill(0);
+ for(let left=1;left<=durability;left++)e[left]=1+REALM_DAMAGE_PROBABILITIES.reduce((sum,[damage,p])=>sum+p*e[Math.max(0,left-damage)],0);
+ realmHitMemo.set(durability,e[durability]);
+ return e[durability]
+}
+function realmAverageYields(multiplier){
+ if(!Number.isFinite(multiplier))return null;
+ const scaled=base=>Math.trunc(base*multiplier+1e-9);
+ const h90=expectedRealmHits(90),h150=expectedRealmHits(150),h180=expectedRealmHits(180);
+ // One long-run cycle includes one paid object and the expected free boxes
+ // generated between paid objects. Blue Sand is converted to 5 White each.
+ const ore=((80/95)*(scaled(8)*90+scaled(120))+(15/95)*(scaled(8)*90)+(5/95)*scaled(320))/h90;
+ const rola=((90/95)*(scaled(80)*90+scaled(1200))+(5/95)*(scaled(80)*90)+(5/95)*scaled(3200))/h90;
+ const essenceReward=(800/970)*(scaled(10)*90+scaled(150))+(150/970)*(scaled(15)*180+scaled(225))+(20/970)*(scaled(10)*150)+(30/970)*scaled(400);
+ const essenceHits=(800/970)*h90+(150/970)*h180+(20/970)*h150;
+ const sand=((80/95)*(scaled(7)*90+scaled(105))+(15/95)*5*(scaled(2)*90+scaled(30))+(5/95)*scaled(280))/h90;
+ return {ore,rola,essence:essenceReward/essenceHits,sand}
+}
+function selectedRealmRank(XP){
+ const season=currentSeasonNumber(),floor=SEASON_RULES[season].floor;
+ const mode=$("realmRankMode")?.value||"auto";
+ const projected=XP&&XP.ok?XP.level:Math.floor(num("charLevel")||floor);
+ // The I/II/III climb happens before the season's scoring baseline. By the
+ // time a valid calculator level is reached (S1 Lv100, S2 Lv130, etc.), rank
+ // III has already been reached and remains capped there for the season.
+ const automatic=3;
+ const tier=mode==="auto"?automatic:clamp(Math.floor(Number(mode)||1),1,3);
+ const multiplier=REALM_RANK_MULTIPLIERS[season]?.[tier-1];
+ return {season,tier,multiplier,projected,floor,automatic,mode,internal:REALM_INTERNAL_RANKS[season],display:REALM_DISPLAY_RANKS[season]}
+}
+function applyAutomaticRealmYields(XP){
+ const rank=selectedRealmRank(XP),yields=realmAverageYields(rank.multiplier);
+ for(const k of Object.keys(core)){
+  core[k].realm=yields?yields[k]:0;
+  const el=$(`yield_${k}`);if(el)el.textContent=yields?fmt(yields[k],1):"?";
+ }
+ const roman=["","I","II","III"][rank.tier];
+ const source=rank.mode==="auto"?`Auto: this season's scoring starts at Lv.${rank.floor}, after rank III is reached`:"Manual rank override";
+ if(yields){
+  $("realmYieldSummary").className="notice";
+  $("realmYieldSummary").innerHTML=`<b>${rank.display} ${roman}</b> (client ${rank.internal}${rank.tier}; multiplier ${fmt(rank.multiplier,1)}). ${source}. Rank III remains capped as levels continue above the scoring baseline, including Lv.180 and later progression. Yields are long-run averages from the extracted object weights, durability, crit/damage rules, break rewards and free boxes. Sand is shown as White Sand equivalent.`;
+ }else{
+  $("realmYieldSummary").className="notice warn";
+  $("realmYieldSummary").innerHTML=`<b>${rank.display} ${roman} Realm yield is unknown.</b> The current client has no material multiplier for this S6 subrank, so the planner will not guess.`;
+ }
+ return rank
+}
 let autosave=null;
 
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
@@ -566,24 +663,35 @@ function localDT(d){return new Date(d.getTime()-d.getTimezoneOffset()*60000).toI
 function dateFmt(d){if(!(d instanceof Date)||!Number.isFinite(d.getTime()))return "—";return d.toLocaleString(undefined,{month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"})}
 function setTimes(){const now=new Date();$("startTime").value=localDT(now);$("targetTime").value=localDT(new Date(now.getTime()+14*86400000))}
 function ratingFor(s){return ratings.find(r=>s>=r.min&&s<=r.max)?.name||"SSS"}
-function seasonLevels(level,floor){return Math.max(0,Number(level||0)-Number(floor||0))}
-function currentSeasonNumber(){return Math.max(1,Math.floor(num("seasonNumber")||1))}
+function seasonLevels(level,floor){return Math.max(0,Math.floor(Number(level)||0)-Math.floor(Number(floor)||0))}
+function characterScorePoints(seasonLevel,weight){
+ const whole=Math.floor(Math.max(0,seasonLevel)),fraction=Math.max(0,seasonLevel-whole);
+ return whole*weight+Math.floor(fraction*weight+1e-9);
+}
+function currentSeasonNumber(){return clamp(Math.floor(num("seasonNumber")||1),1,6)}
 function syncSeasonRules(){
  const season=currentSeasonNumber();
- const floor=100+(season-1)*30;
- const relicFloor=season===1?10:14+(season-2)*3;
+ const rule=SEASON_RULES[season],floor=rule.floor,relicFloor=rule.relicFloor;
+ ratings=ratingsForSeason(season);
+ renderRatings();
 
  $("seasonNumber").value=season;
  $("floor").value=floor;
  $("relicFloor").value=relicFloor;
- const scorePerStarField=$("scorePerStar");
- if(scorePerStarField){
-  if(season===1){scorePerStarField.value=100;scorePerStarField.readOnly=true;scorePerStarField.title="Season 1: 100 progression points = 1 Primostar";}
-  else if(season===2){scorePerStarField.value=27;scorePerStarField.readOnly=true;scorePerStarField.title="Season 2: 27 progression points = 1 Primostar";}
-  else {scorePerStarField.readOnly=false;scorePerStarField.title="Season 3+ Primostar conversion is not confirmed yet; enter the confirmed value manually.";}
+ const fields={scorePerStar:rule.perStar,fixedStars:rule.fixed,charW:rule.charW,gearW:rule.gearW,skillW:rule.skillW,fantW:rule.fantW,relicW:rule.relicW};
+ Object.entries(fields).forEach(([id,value])=>{$(id).value=value;$(id).readOnly=true});
+ $("scorePerStar").title=`Season ${season}: ${rule.perStar} progression points = 1 Primostar`;
+ $("seasonFloorSummary").value=`Season ${season}: ${rule.rank} · Lv${floor} · Relics +${relicFloor}`;
+ $("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total. Seasonal scoring starts from <b>Lv${floor}</b> for Character, Gear, Skills and Fantomons, and <b>+${relicFloor}</b> for Relics. These are baselines, not caps. This season awards <b>${rule.fixed} fixed Primostars</b>, then <b>1 Primostar per ${rule.perStar} progression points</b>.`;
+ if(season===6)$("seasonRuleNote").innerHTML+=` <b>Season 6 scoring is exact, but its progression/material tables are not populated in the current client, so unknown costs are shown as ?.</b>`;
+ if($("skillWeightChip"))$("skillWeightChip").textContent=`+${rule.skillW} score / seasonal level`;
+ if($("fantWeightChip"))$("fantWeightChip").textContent=`+${rule.fantW} score / seasonal level`;
+ if($("realmRankMode")){
+  const chosen=$("realmRankMode").value||"auto";
+  $("realmRankMode").options[0].textContent="Auto from projected level";
+  for(let tier=1;tier<=3;tier++)$("realmRankMode").options[tier].textContent=`${REALM_DISPLAY_RANKS[season]} ${["","I","II","III"][tier]}`;
+  $("realmRankMode").value=chosen;
  }
- $("seasonFloorSummary").value=`Season ${season}: Lv${floor} · Relics +${relicFloor}`;
- $("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total. Seasonal scoring starts from <b>Lv${floor}</b> for Character, Gear, Skills and Fantomons, and <b>+${relicFloor}</b> for Relics. These are baselines, not caps. Primostar conversion: <b>${season===1?"100":season===2?"27":"manual/unconfirmed"} progression points per Primostar</b>. Category point weights stay unchanged.`;
 
  if($("charLevel")){
   $("charLevel").min=floor;
@@ -610,66 +718,42 @@ function syncSeasonRules(){
   if($(`relicCur${i}`))$(`relicCur${i}`).placeholder=`+${relicFloor}`;
   if($(`relicTar${i}`))$(`relicTar${i}`).placeholder=`+${relicFloor}`;
  }
- return {season,floor,relicFloor}
+ return {season,floor,relicFloor,rule}
 }
 function gearStepCost(L){
  L=Math.floor(Number(L)||0);
- const season=currentSeasonNumber();
-
- // S1 approximate late-season curve, anchored to confirmed in-game values:
- // 115→116 10,600; 116→117 10,700;
- // 125→126 11,600; 126→127 11,600; 127→128 11,700.
- // The confirmed plateau occurs at 126→127, then the +100 progression resumes.
- if(season===1){
-  if(L<=126)return Math.max(0,100*(L-10));
-  return Math.max(0,100*(L-11));
- }
-
- // S2 pattern confirmed from 130→141 and again through 170→171:
- // 16,600 at 130→131, then repeating increases +100, +200, +200.
- if(season===2 && L>=131){
-  const n=L-131;
-  const cycles=Math.floor(n/3);
-  const rem=n%3;
-  const extra=cycles*500+(rem===1?100:rem===2?300:0);
-  return 16600+extra;
- }
-
- // Future-season fallback: estimation only until exact tables are confirmed.
- return Math.max(0,100*(L-10));
+ const rule=SEASON_RULES[currentSeasonNumber()],blessLevel=L-rule.floor;
+ if(blessLevel<1||blessLevel>300||rule.gearBase===undefined)return null;
+ const scaledLevel=Math.min(blessLevel,150);
+ return Math.round((rule.gearBase+(scaledLevel-1)*rule.gearRate)/5)*5;
 }
 function skillStepCost(L){
  L=Math.floor(Number(L)||0);
- const season=currentSeasonNumber();
-
- // S2 observed: 140→141 = 13,200 and 141→142 = 13,300,
- // continuing +100 per level. Treat the S2 range as an estimate from this
- // confirmed progression until more low-S2 checkpoints are available.
- if(season===2 && L>=131)return Math.max(0,100*L-900);
-
- // S1 / future fallback retains the previously known curve.
- return Math.max(0,60*L-40);
+ const rule=SEASON_RULES[currentSeasonNumber()],blessLevel=L-rule.floor;
+ const limit=currentSeasonNumber()<=2?150:180;
+ if(blessLevel<1||blessLevel>limit||rule.skillBase===undefined)return null;
+ return Math.round((rule.skillBase+(blessLevel-1)*rule.skillRate)/5)*5;
 }
 function relicSandStepCost(L){
  L=Math.floor(Number(L)||0);
- // Cost to reach +L from +(L-1).
- // Confirmed Blue tier through +13.
- if(L>=11&&L<=13){
-  const blue=320*(L-1);
-  return {blue,purple:0,white:blue*5,known:true};
- }
- // Confirmed Purple tier.
- if(L===14)return {blue:0,purple:1350,white:1350*25,known:true};
- if(L===15)return {blue:0,purple:1480,white:1480*25,known:true};
- if(L===16)return {blue:0,purple:1620,white:1620*25,known:true};
- if(L===17)return {blue:0,purple:1750,white:1750*25,known:true};
- // Costs beyond +17 are not yet confirmed.
- return {blue:0,purple:0,white:0,known:L<=10};
+ const rule=SEASON_RULES[currentSeasonNumber()],blessLevel=L-rule.relicBase;
+ const limit=currentSeasonNumber()<=2?15:18;
+ if(blessLevel<1||blessLevel>limit||rule.relicBaseCost===undefined)return {blue:0,purple:0,white:0,known:false};
+ const amount=rule.relicBaseCost+(blessLevel-1)*rule.relicRate;
+ const blue=rule.relicTier==="blue"?amount:0,purple=rule.relicTier==="purple"?amount:0;
+ return {blue,purple,white:blue*5+purple*25,known:true};
 }
-function rangeCost(cur,tar,fn){cur=Math.floor(cur);tar=Math.floor(tar);let s=0;if(tar<=cur)return 0;for(let L=cur+1;L<=tar;L++)s+=fn(L);return s}
+function fantomonStepExp(L){
+ L=Math.floor(Number(L)||0);
+ const season=currentSeasonNumber(),rule=SEASON_RULES[season],blessLevel=L-rule.floor;
+ if(blessLevel<1)return null;
+ const exp=FANTOMON_XP_DATA[season]?.[blessLevel-1];
+ return exp>0?exp:null;
+}
+function rangeCost(cur,tar,fn){cur=Math.floor(cur);tar=Math.floor(tar);let s=0;if(tar<=cur)return 0;for(let L=cur+1;L<=tar;L++){const cost=fn(L);if(cost===null)return null;s+=cost}return s}
 function renderRatings(){
  const el=$("ratingGrid");
- if(el)el.innerHTML=ratings.map(r=>`<div class="rpill" data-r="${r.name}"><b>${r.name}</b><br>${fmt(r.min)}${isFinite(r.max)?"–"+fmt(r.max):"+"}</div>`).join("")
+ if(el)el.innerHTML=ratings.length?ratings.map(r=>`<div class="rpill" data-r="${r.name}"><b>${r.name}</b><br>${fmt(r.min)}${isFinite(r.max)?"–"+fmt(r.max):"+"}</div>`).join(""):`<div class="rpill"><b>Season 6</b><br>Rating thresholds not populated</div>`
 }
 function renderUnits(){
  for(let i=0;i<5;i++)$("gearGrid").insertAdjacentHTML("beforeend",`<div>${gearNames[i]}</div><div><input id="gearCur${i}" type="number" step="1" value="" placeholder="Current"></div><div>→</div><div><input id="gearTar${i}" type="number" step="1" value="" placeholder="Planned"></div>`);
@@ -690,7 +774,7 @@ function renderCore(){
   <td><input class="coreinput" data-m="${k}" data-k="cart" type="number" step="any" value="${r.cart}"></td>
   <td><input class="coreinput" data-m="${k}" data-k="shop" type="number" step="any" value="${r.shop}"></td>
   <td><input class="coreinput" data-m="${k}" data-k="other" type="number" step="any" value="${r.other}"></td>
-  <td><input class="coreinput" data-m="${k}" data-k="realm" type="number" step="any" value="${r.realm}" ${k==="rola"?'title="Default Rola Realm yield: 9,000 per run"':""}></td>
+  <td class="calcValue" id="yield_${k}">?</td>
   <td><input class="coreinput" data-m="${k}" data-k="manual" type="number" step="any" value="${r.manual}"></td>
   <td id="auto_${k}">0</td><td id="atTarget_${k}">0</td><td id="short_${k}">0</td><td id="realm_${k}">0</td><td id="ready_${k}">—</td>
  </tr>`).join("");
@@ -721,38 +805,10 @@ function parseCurve(){
 function seasonXpEstimate(level){
  level=Math.floor(Number(level)||0);
  const season=currentSeasonNumber();
- const floor=100+(season-1)*30;
-
- // The season defines a BASELINE only. Levels below it are irrelevant to
- // this season calculator; levels above it can continue indefinitely.
- if(level<floor)return {need:0,quality:"outside-season"};
-
- if(season===1){
-  const exact={113:1390000,114:1440000,117:1580000};
-  if(exact[level])return {need:exact[level],quality:"confirmed"};
-  const need=Math.max(0,num("xpBase100")+(level-100)*num("xpIncrease"));
-  return {need,quality:"estimated"};
- }
-
- if(season===2){
-  const exact={
-   130:6340000,131:6790000,132:7340000,133:7890000,134:8430000,
-   136:9530000,141:11300000,146:11500000,149:11700000,
-   150:11700000,154:11900000
-  };
-  if(exact[level])return {need:exact[level],quality:"confirmed"};
-  if(level>=135&&level<=139){
-   const need=8430000+(level-134)*550000;
-   return {need,quality:"estimated"};
-  }
-  if(level>=140){
-   const need=11250000+(level-140)*50000;
-   return {need,quality:"estimated"};
-  }
-  return {need:0,quality:"missing"};
- }
-
- return {need:0,quality:"missing"};
+ const rule=SEASON_RULES[season],index=level-rule.floor;
+ if(index<0)return {need:0,quality:"outside-season"};
+ const need=CHARACTER_XP_DATA[season]?.[index];
+ return need>0?{need,quality:"extracted"}:{need:0,quality:"missing"};
 }
 function timeCalc(){
  const a=new Date($("startTime").value),b=new Date($("targetTime").value);
@@ -815,7 +871,7 @@ function xpCalc(hours){
  let xp=rawLevel<floor?0:Math.max(0,num("charXp"));
  let remaining=Math.max(0,num("xpHr"))*hours;
  const startLevel=level,gain=remaining;
- let usedEstimate=false,usedConfirmed=false,usedManual=false,missing=false,steps=0;
+ let usedExtracted=false,usedManual=false,missing=false,steps=0;
 
  function need(l){
   const manualCurve=curve.get(l);
@@ -824,8 +880,7 @@ function xpCalc(hours){
   if($("useXpFormula").checked){
    const e=seasonXpEstimate(l);
    if(e.need>0){
-    if(e.quality==="confirmed")usedConfirmed=true;
-    else usedEstimate=true;
+    usedExtracted=true;
     return e.need;
    }
   }
@@ -842,12 +897,10 @@ function xpCalc(hours){
   remaining-=left;level++;xp=0;steps++;
  }
  const req=need(level);
- let quality="Exact seasonal EXP data";
+ let quality="Exact extracted seasonal EXP";
  if(missing)quality="Stopped at missing seasonal EXP";
- else if(usedEstimate&&usedManual)quality="Exact current + seasonal estimates";
- else if(usedEstimate)quality="Season-aware estimate";
- else if(usedConfirmed&&usedManual)quality="Exact + confirmed seasonal curve";
- else if(usedConfirmed)quality="Confirmed seasonal EXP checkpoints";
+ else if(usedExtracted&&usedManual)quality="Manual current + exact season table";
+ else if(usedManual)quality="Manual EXP curve";
  return {ok:true,level,xp,gain,need:req,quality}
 }
 function projectedCharacterLevelDecimal(XP){
@@ -899,7 +952,7 @@ function plannedSums(XP){
  const charSL=characterSeasonLevelsTarget(XP);
  return {
   gearSL,gearCurSL,skillSL,fantSL,relicSL,charSL,
-  gearPts:gearSL*num("gearW"),skillPts:skillSL*num("skillW"),fantPts:fantSL*num("fantW"),relicPts:relicSL*num("relicW"),charPts:charSL*num("charW")
+  gearPts:gearSL*num("gearW"),skillPts:skillSL*num("skillW"),fantPts:fantSL*num("fantW"),relicPts:relicSL*num("relicW"),charPts:characterScorePoints(charSL,num("charW"))
  }
 }
 function primostarGoalInfo(){
@@ -914,11 +967,37 @@ function primostarGoalInfo(){
 function goalScore(){return primostarGoalInfo().scoreNeeded}
 function updateGoalUI(){}
 function costs(){
- let ore=0,ess=0,blue=0,purple=0,sand=0,unknownRelicCost=false,unknownRelicFrom=null;
- for(let i=0;i<5;i++)ore+=rangeCost(num(`gearCur${i}`),num(`gearTar${i}`),gearStepCost);
- for(let i=0;i<8;i++)ess+=rangeCost(num(`skillCur${i}`),num(`skillTar${i}`),skillStepCost);
+ const rule=SEASON_RULES[currentSeasonNumber()];
+ let ore=0,rola=0,forgeStone=0,ess=0,fantExp=0,blue=0,purple=0,sand=0;
+ let unknownGearCost=false,unknownGearFrom=null,unknownSkillCost=false,unknownSkillFrom=null,unknownFantCost=false,unknownFantFrom=null,unknownRelicCost=false,unknownRelicFrom=null;
+ for(let i=0;i<5;i++){
+  const cur=Math.max(rule.floor,Math.floor(num(`gearCur${i}`))),tar=Math.floor(num(`gearTar${i}`));
+  for(let L=cur+1;L<=tar;L++){
+   const c=gearStepCost(L);
+   if(c===null){unknownGearCost=true;if(unknownGearFrom===null||L<unknownGearFrom)unknownGearFrom=L}
+   else{
+    ore+=c;rola+=c*2;
+    const blessLevel=L-rule.floor;
+    if(blessLevel%5===0)forgeStone+=rule.forgeStone||0;
+   }
+  }
+ }
+ for(let i=0;i<8;i++){
+  const cur=Math.max(rule.floor,Math.floor(num(`skillCur${i}`))),tar=Math.floor(num(`skillTar${i}`));
+  for(let L=cur+1;L<=tar;L++){
+   const c=skillStepCost(L);
+   if(c===null){unknownSkillCost=true;if(unknownSkillFrom===null||L<unknownSkillFrom)unknownSkillFrom=L}else ess+=c;
+  }
+ }
+ for(let i=0;i<4;i++){
+  const cur=Math.max(rule.floor,Math.floor(num(`fantCur${i}`))),tar=Math.floor(num(`fantTar${i}`));
+  for(let L=cur+1;L<=tar;L++){
+   const c=fantomonStepExp(L);
+   if(c===null){unknownFantCost=true;if(unknownFantFrom===null||L<unknownFantFrom)unknownFantFrom=L}else fantExp+=c;
+  }
+ }
  for(let i=0;i<20;i++){
-  const cur=Math.floor(num(`relicCur${i}`)),tar=Math.floor(num(`relicTar${i}`));
+  const cur=Math.max(rule.relicBase,Math.floor(num(`relicCur${i}`))),tar=Math.floor(num(`relicTar${i}`));
   if(tar<=cur)continue;
   for(let L=cur+1;L<=tar;L++){
    const c=relicSandStepCost(L);
@@ -930,7 +1009,7 @@ function costs(){
    blue+=c.blue;purple+=c.purple;sand+=c.white;
   }
  }
- return {ore,ess,blue,purple,sand,unknownRelicCost,unknownRelicFrom}
+ return {ore,rola,forgeStone,ess,fantExp,blue,purple,sand,unknownGearCost,unknownGearFrom,unknownSkillCost,unknownSkillFrom,unknownFantCost,unknownFantFrom,unknownRelicCost,unknownRelicFrom}
 }
 function computeGearRequirement(XP){
  const sums=plannedSums(XP),goal=goalScore();
@@ -1003,9 +1082,15 @@ function realmEntryProjection(T,requiredRuns){
  }
  return {sys,entriesPerRefresh,resets,created,available,needed,left,shortage};
 }
-function calcMaterialEconomy(T,C){
+function calcMaterialEconomy(T,C,XP){
+ applyAutomaticRealmYields(XP);
  syncCoreFromInputs();
- const spend={ore:C.ore,rola:Math.max(0,num("rolaUpgradeSpend")),essence:C.ess,sand:C.unknownRelicCost?Infinity:C.sand};
+ const spend={
+  ore:C.unknownGearCost?Infinity:C.ore,
+  rola:C.unknownGearCost?Infinity:C.rola+Math.max(0,num("rolaUpgradeSpend")),
+  essence:C.unknownSkillCost?Infinity:C.ess,
+  sand:C.unknownRelicCost?Infinity:C.sand
+ };
  let totalRealms=0,unknown=false;
  const info={};
  for(const [k,r] of Object.entries(core)){
@@ -1015,11 +1100,13 @@ function calcMaterialEconomy(T,C){
   const otherGain=Math.max(0,r.other)*T.realDays;
   const projected=Math.max(0,r.stock)+cartGain+shopGain+otherGain;
   const short=Math.max(0,totalSpend-projected);
-  let realms=0;if(short>0){if(r.realm>0){realms=Math.ceil(short/r.realm);totalRealms+=realms}else{realms=Infinity;unknown=true}}
+  let realms=0;
+  if(!Number.isFinite(totalSpend)){realms=Infinity;unknown=true}
+  else if(short>0){if(r.realm>0){realms=Math.ceil(short/r.realm);totalRealms+=realms}else{realms=Infinity;unknown=true}}
   const ratePerRealHour=Math.max(0,r.cart)+(Math.max(0,r.shop)+Math.max(0,r.other))/24;
   let ready=null;
   if(totalSpend<=Math.max(0,r.stock))ready=T.start;
-  else if(Number.isFinite(T.start.getTime())&&Number.isFinite(T.target.getTime())){
+  else if(Number.isFinite(totalSpend)&&Number.isFinite(T.start.getTime())&&Number.isFinite(T.target.getTime())){
    // Find the first time passive income reaches the spend, including discrete reset boosts.
    const resetValue=$("resetTime").value||"16:00";
    const [rh,rm]=resetValue.split(":").map(Number);
@@ -1041,8 +1128,10 @@ function calcMaterialEconomy(T,C){
    if(availableNow>=totalSpend)ready=cursor;
   }
   info[k]={auto,totalSpend,projected,short,realms,ready,ratePerRealHour};
-  if(k==="sand"&&C.unknownRelicCost){
-   $(`auto_${k}`).textContent=`${fmt(C.sand)} known + ?`;
+  const categoryUnknown=(k==="ore"||k==="rola")?C.unknownGearCost:k==="essence"?C.unknownSkillCost:C.unknownRelicCost;
+  if(categoryUnknown){
+   const known=k==="ore"?C.ore:k==="rola"?C.rola+(Math.max(0,num("rolaUpgradeSpend"))):k==="essence"?C.ess:C.sand;
+   $(`auto_${k}`).textContent=`${fmt(known)} known + ?`;
    $(`short_${k}`).textContent="?";
    $(`short_${k}`).className="warn";
    $(`realm_${k}`).textContent="?";
@@ -1074,11 +1163,11 @@ function calcMaterialEconomy(T,C){
 
  const requiredParts=Object.entries(info).filter(([,x])=>x.realms>0).map(([k,x])=>`${core[k].label}: ${isFinite(x.realms)?fmt(x.realms):"?"}`);
  if(unknown){
-  $("stopRealmHeadline").textContent="Enter missing Realm yield";
+  $("stopRealmHeadline").textContent="Realm yield unavailable";
   $("stopRealmHeadline").className="v warn";
-  $("stopRealmNote").textContent="At least one required material has no yield/run.";
+  $("stopRealmNote").textContent="The selected client rank has no material multiplier.";
   $("realmAdvice").className="notice warn";
-  $("realmAdvice").textContent="The planner cannot safely tell you how many Realm entries you need until every material shortfall has a Realm yield.";
+  $("realmAdvice").textContent="The planner cannot safely tell you how many Realm entries you need because this client does not define the selected rank's Realm multiplier.";
  }else if(totalRealms===0){
   $("stopRealmHeadline").textContent="Stop now";
   $("stopRealmHeadline").className="v good";
@@ -1110,7 +1199,7 @@ function calcMaterialEconomy(T,C){
   if(!x||!Number.isFinite(x.realms)){
    countEl.textContent="?";
    countEl.className="quickCount quickNeed";
-   textEl.textContent="Enter this Realm's yield/run to calculate.";
+   textEl.textContent="This client's selected rank has no Realm multiplier.";
    return;
   }
   countEl.textContent=fmt(x.realms);
@@ -1128,7 +1217,7 @@ function calcMaterialEconomy(T,C){
 
  if(unknown){
   $("quickRealmTotal").className="notice warn";
-  $("quickRealmTotal").innerHTML="<b>Total:</b> enter the missing Realm yield above to finish the calculation.";
+  $("quickRealmTotal").innerHTML="<b>Total:</b> the selected client rank has no Realm multiplier, so a safe total cannot be calculated.";
  }else if(totalRealms===0){
   $("quickRealmTotal").className="notice";
   $("quickRealmTotal").innerHTML="<b>Total entries to use: 0.</b> You can save all generated entries.";
@@ -1141,7 +1230,7 @@ function calcMaterialEconomy(T,C){
   if(left===null){
    $(valueEl).textContent="?";
    $(valueEl).className="rbValue warn";
-   $(subEl).textContent=valueEl==="leftGold"?"enter Rola yield / run":"missing Realm yield";
+   $(subEl).textContent="selected client rank has no Realm multiplier";
    return;
   }
   if(shortage>0){
@@ -1221,6 +1310,7 @@ function calculate(){
  $("fixedStarsDisplay").textContent=`+${fmt(fixedAwarded)}`;
  $("seasonStars").textContent=fmt(awarded);
  $("seasonStarsFormula").textContent=`${fmt(scoreStarsAwarded)} from score + ${fmt(fixedAwarded)} fixed`;
+ $("primostarFormulaNote").innerHTML=`<b>Cumulative Primostars:</b> your previous-season total carries forward. Season ${seasonInfo.season} adds <b>floor(Progression Score ÷ ${fmt(sp)}) + ${fmt(fixedAwarded)} fixed</b> to that existing total.`;
  $("rawStarEquivalent").textContent=fmt(projectedTotal);
  $("cumulativeStars").textContent=(totalDifference>=0?"+":"")+fmt(totalDifference);
  $("primostarsNeeded").value=fmt(goalInfo.needed);
@@ -1249,30 +1339,41 @@ function calculate(){
  const balanced=balancedGearTargets(req.requiredSL);
  $("gearFillExplanation").innerHTML=`Goal ${fmt(goal,2)} − non-gear ${fmt(req.nonGear,2)} = <b>${fmt(req.gearPtsNeeded,2)} gear points</b>. At ${fmt(num("gearW"))} points per total seasonal gear level, the minimum is <b>${fmt(req.requiredSL)} total seasonal gear levels</b>. Balanced minimum from your current gear: <b>${balanced.vals.join(" / ")}</b>.`;
 
- $("oreRequired").textContent=fmt(C.ore);
- $("essenceRequired").textContent=fmt(C.ess);
+ $("oreRequired").textContent=C.unknownGearCost?`${fmt(C.ore)} known + ?`:fmt(C.ore);
+ $("rolaRequired").textContent=C.unknownGearCost?`${fmt(C.rola)} known + ?`:fmt(C.rola);
+ $("forgeStoneRequired").textContent=C.unknownGearCost?`${fmt(C.forgeStone)} known + ?`:fmt(C.forgeStone);
+ $("essenceRequired").textContent=C.unknownSkillCost?`${fmt(C.ess)} known + ?`:fmt(C.ess);
+ $("fantExpRequired").textContent=C.unknownFantCost?`${fmt(C.fantExp)} known + ?`:fmt(C.fantExp);
  $("blueSandRequired").textContent=fmt(C.blue);
  $("purpleSandRequired").textContent=fmt(C.purple);
  $("whiteSandRequired").textContent=C.unknownRelicCost?`${fmt(C.sand)} known + ?`:fmt(C.sand);
- $("relicCostWarning").style.display=C.unknownRelicCost?"block":"none";
- $("relicCostWarning").innerHTML=C.unknownRelicCost
-  ? `<b>Relic material cost incomplete.</b> A planned relic upgrade reaches +${C.unknownRelicFrom} or higher, but costs above +17 have not been confirmed yet. Known Sand is shown, but Realm/shovel requirements are intentionally left unknown so the planner does not underestimate your materials.`
+ const unknownCosts=[];
+ if(C.unknownGearCost)unknownCosts.push(`Gear from Lv${C.unknownGearFrom}`);
+ if(C.unknownSkillCost)unknownCosts.push(`Skills from Lv${C.unknownSkillFrom}`);
+ if(C.unknownFantCost)unknownCosts.push(`Fantomons from Lv${C.unknownFantFrom}`);
+ if(C.unknownRelicCost)unknownCosts.push(`Relics from +${C.unknownRelicFrom}`);
+ $("relicCostWarning").style.display=unknownCosts.length?"block":"none";
+ $("relicCostWarning").innerHTML=unknownCosts.length
+  ? `<b>Material cost incomplete:</b> ${unknownCosts.join(", ")}. The selected client table has no cost for these steps. Known costs are shown, while affected Realm requirements are intentionally left unknown so the planner cannot underestimate them.`
   : "";
- calcMaterialEconomy(T,C);
+ calcMaterialEconomy(T,C,XP);
 
  clearTimeout(autosave);autosave=setTimeout(()=>save(true),300)
 }
 function state(){
- const ids=["startTime","targetTime","resetTime","boostHoursPerReset","charLevel","charXp","charNeed","xpHr","xpBase100","xpIncrease","xpCurve","seasonNumber","oldPrimostars","goalAwarded","floor","relicFloor","scorePerStar","fixedStars","charW","gearW","skillW","fantW","relicW","refreshSystem","hammerNow","goldNow","gloveNow","shovelNow","rolaUpgradeSpend","gearAllCur","gearAllTar","skillAllCur","skillAllTar","fantAllCur","fantAllTar","relicAllCur","relicAllTar"];
+ const ids=["startTime","targetTime","resetTime","boostHoursPerReset","charLevel","charXp","charNeed","xpHr","xpBase100","xpIncrease","xpCurve","seasonNumber","oldPrimostars","goalAwarded","floor","relicFloor","scorePerStar","fixedStars","charW","gearW","skillW","fantW","relicW","refreshSystem","realmRankMode","hammerNow","goldNow","gloveNow","shovelNow","rolaUpgradeSpend","gearAllCur","gearAllTar","skillAllCur","skillAllTar","fantAllCur","fantAllTar","relicAllCur","relicAllTar"];
  const v={};ids.forEach(id=>v[id]=$(id).value);v.useXpFormula=$("useXpFormula").checked;v.save36Xp=$("save36Xp").checked;v.gear=[];v.skills=[];v.fants=[];v.relics=[];
  for(let i=0;i<5;i++)v.gear.push([$(`gearCur${i}`).value,$(`gearTar${i}`).value]);
  for(let i=0;i<8;i++)v.skills.push([$(`skillCur${i}`).value,$(`skillTar${i}`).value]);
  for(let i=0;i<4;i++)v.fants.push([$(`fantCur${i}`).value,$(`fantTar${i}`).value]);
  for(let i=0;i<20;i++)v.relics.push([$(`relicCur${i}`).value,$(`relicTar${i}`).value]);
- return {v:42,values:v,core:JSON.parse(JSON.stringify(core))}
+ return {v:44,values:v,core:JSON.parse(JSON.stringify(core))}
 }
 function applyState(s){
  if(!s||!s.values)return;const v=s.values;
+ // v43 calculates Gear Rola automatically; older values represented the full
+ // gear cost and must not be added a second time as "additional" spending.
+ if((Number(s.v)||0)<43)v.rolaUpgradeSpend="";
  Object.entries(v).forEach(([id,x])=>{if(!["useXpFormula","save36Xp","gear","skills","fants","relics"].includes(id)&&$(id))$(id).value=x});
  $("useXpFormula").checked=v.useXpFormula!==false;$("save36Xp").checked=!!v.save36Xp;
  (v.gear||[]).forEach((x,i)=>{if($(`gearCur${i}`))$(`gearCur${i}`).value=x[0];if($(`gearTar${i}`))$(`gearTar${i}`).value=x[1]});
@@ -1292,10 +1393,10 @@ function applyState(s){
  }
  renderCore();calculate()
 }
-function save(silent=false){localStorage.setItem("sxsPlannerV42",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
+function save(silent=false){localStorage.setItem("sxsPlannerV44",JSON.stringify(state()));$("saveChip").textContent="Saved on this device";if(!silent)toast("Saved")}
 async function copyBuild(){const code=btoa(unescape(encodeURIComponent(JSON.stringify(state()))));try{await navigator.clipboard.writeText(code);toast("Build code copied")}catch{prompt("Copy build code:",code)}}
 function importBuild(){const c=prompt("Paste build code:");if(!c)return;try{applyState(JSON.parse(decodeURIComponent(escape(atob(c.trim())))));save(true);toast("Imported")}catch{alert("Could not read that build code.")}}
-function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v42.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function exportJson(){const b=new Blob([JSON.stringify(state(),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="sword-x-staff-plan-v44.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function bind(){
  document.addEventListener("input",e=>{if(e.target.matches("input,select,textarea")&&!e.target.classList.contains("coreinput"))calculate()});
  $("charLevel").addEventListener("blur",()=>{
@@ -1323,15 +1424,15 @@ function bind(){
   if(wanted>cap)toast(`Relics capped at +${cap} for projected Lv.${XP.ok?XP.level:Math.floor(num("charLevel"))}`);
  };
  $("saveBtn").onclick=()=>save(false);$("copyBtn").onclick=copyBuild;$("importBtn").onclick=importBuild;$("jsonBtn").onclick=exportJson;
- $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){localStorage.removeItem("sxsPlannerV42");location.reload()}}
+ $("resetBtn").onclick=()=>{if(confirm("Reset the planner?")){for(let v=24;v<=44;v++)localStorage.removeItem(`sxsPlannerV${v}`);location.reload()}}
 }
 renderUnits();renderRatings();renderCore();setTimes();bind();
-const saved=localStorage.getItem("sxsPlannerV42")||localStorage.getItem("sxsPlannerV41")||localStorage.getItem("sxsPlannerV40")||localStorage.getItem("sxsPlannerV39")||localStorage.getItem("sxsPlannerV38")||localStorage.getItem("sxsPlannerV37")||localStorage.getItem("sxsPlannerV36")||localStorage.getItem("sxsPlannerV35")||localStorage.getItem("sxsPlannerV34")||localStorage.getItem("sxsPlannerV33")||localStorage.getItem("sxsPlannerV32")||localStorage.getItem("sxsPlannerV31")||localStorage.getItem("sxsPlannerV30")||localStorage.getItem("sxsPlannerV29")||localStorage.getItem("sxsPlannerV28")||localStorage.getItem("sxsPlannerV27")||localStorage.getItem("sxsPlannerV26")||localStorage.getItem("sxsPlannerV25")||localStorage.getItem("sxsPlannerV24");
+let saved=null;for(let v=44;v>=24&&!saved;v--)saved=localStorage.getItem(`sxsPlannerV${v}`);
 if(saved){
  try{
   const parsed=JSON.parse(saved);
   applyState(parsed);
-  if(!localStorage.getItem("sxsPlannerV42"))save(true);
+  if(!localStorage.getItem("sxsPlannerV44"))save(true);
  }catch(e){console.error(e);calculate()}
 }else calculate();
 })();
