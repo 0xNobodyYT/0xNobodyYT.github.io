@@ -272,6 +272,57 @@ for row in rows("skill.csv"):
         "statusEffects": status_effects,
     }
 
+# Fantomon level curves and Baby/Adult attack skill sets. Evolution rows expose
+# which support skill is used in baby form and which entity attacks unlock in
+# adult form; the referenced skills already use the same rank/fixed curves as
+# player skills above.
+pet_level_curves = {}
+for row in rows("level_prop_pet.csv"):
+    if row.get("class_id", "").isdigit() and row.get("level", "").isdigit():
+        pet_level_curves.setdefault(row["class_id"], {})[row["level"]] = {
+            key: number(row.get(key)) for key in ("MaxHp", "Attack", "Defence", "Speed")
+        }
+
+pet_evolutions = {}
+for row in rows("pet_evolution.csv"):
+    if not row.get("ClassId", "").isdigit():
+        continue
+    def id_list(field):
+        try:
+            return [int(value) for value in ast.literal_eval(row.get(field) or "[]")]
+        except Exception:
+            return []
+    stage = row.get("EvolutionPhase") or "Childhood"
+    attacks = id_list("ActiveSkills") + id_list("SupportSkills")
+    if stage == "Adulthood":
+        attacks += id_list("EntityActiveSkills")
+    pet_evolutions.setdefault(row["ClassId"], {})[stage] = list(dict.fromkeys(attacks))
+
+pets = {}
+for row in rows("pet.csv"):
+    if not row.get("ClassId", "").isdigit():
+        continue
+    try:
+        level_ids = ast.literal_eval(row.get("LevelPropId") or "{}")
+    except Exception:
+        level_ids = {}
+    level_prop_id = str(next(iter(level_ids.values()), ""))
+    stages = pet_evolutions.get(row["ClassId"], {})
+    stage_skills = {}
+    for stage in ("Childhood", "Adulthood"):
+        ids = [skill_id for skill_id in stages.get(stage, []) if str(skill_id) in skills and skills[str(skill_id)]["effects"]]
+        stage_skills[stage] = [{
+            "id": skill_id,
+            "name": language.get(f"item_{skill_id}_name", f"Skill {skill_id}"),
+            "description": re.sub(r"<[^>]+>", "", language.get(f"item_{skill_id}_func_desc", "")),
+        } for skill_id in ids]
+    pets[row["ClassId"]] = {
+        "type": row.get("Type") or "",
+        "levelPropId": level_prop_id,
+        "levels": pet_level_curves.get(level_prop_id, {}),
+        "stages": stage_skills,
+    }
+
 payload = {
     "version": 1,
     "qualities": qualities,
@@ -283,6 +334,7 @@ payload = {
     "gems": gems,
     "equipmentSets": equipment_sets,
     "skills": skills,
+    "pets": pets,
     "combatRanks": combat_ranks,
     "skillGroups": skill_groups,
     "skillFixedCurves": skill_fixed_curves,
