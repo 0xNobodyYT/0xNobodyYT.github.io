@@ -34,6 +34,10 @@ h1{font-size:clamp(29px,4vw,48px);line-height:1.03;margin:5px 0 8px}
 .legendStack .chip{width:100%;justify-content:flex-start;display:flex;align-items:center}
 .promoRow{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
 .promoBtn{width:178px;height:44px;min-width:178px;padding:0 14px;white-space:nowrap}
+.viewTabs{display:flex;justify-content:center;gap:7px;margin:-4px 0 16px;padding:5px;border:1px solid var(--line);border-radius:13px;background:rgba(13,19,28,.86)}
+.viewTab{flex:0 1 230px;border:1px solid transparent;background:transparent;color:var(--muted);border-radius:9px;padding:10px 14px;font-weight:950}
+.viewTab.active{border-color:rgba(113,216,233,.5);background:linear-gradient(135deg,rgba(113,216,233,.17),rgba(217,224,82,.08));color:#f2fdff;box-shadow:0 5px 16px rgba(0,0,0,.2)}
+.viewTab small{display:block;font-size:9px;font-weight:750;letter-spacing:.04em;margin-top:1px;color:inherit;opacity:.8}
 
 .chip{border:1px solid var(--line);background:rgba(18,24,34,.92);border-radius:999px;padding:7px 10px;font-size:11px;font-weight:850;color:#c8d2de;white-space:nowrap}
 .layout{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(420px,.84fr);gap:15px;align-items:start}
@@ -115,9 +119,11 @@ tr:last-child td{border-bottom:0}table input{padding:7px;min-width:77px;backgrou
 .ratinggrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:9px}.rpill{border:1px solid var(--line);border-radius:8px;padding:7px 4px;text-align:center;font-size:10px;color:var(--muted)}.rpill.active{border-color:rgba(217,224,82,.48);background:rgba(217,224,82,.07);color:#edf27d;font-weight:900}
 details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summary{cursor:pointer;font-weight:850}
 .smallcheck{display:flex;gap:7px;align-items:center;font-size:11px;color:var(--muted)}.smallcheck input[type="checkbox"]{width:16px;height:16px;min-height:0;padding:0;flex:0 0 16px;border-radius:4px;accent-color:var(--cyan);box-shadow:none}.smallcheck input[type="checkbox"]:focus{box-shadow:none}.smallcheck input[type="checkbox"]:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.calendarShell{display:grid;gap:15px}.calendarShell[hidden],.layout[hidden]{display:none!important}.calendarSetup{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:15px}.calendarMetrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.calendarToolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.calendarFilters{display:flex;gap:6px;flex-wrap:wrap}.calendarFilter{border:1px solid var(--line);background:#0d131c;color:var(--muted);border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900}.calendarFilter.active{border-color:rgba(113,216,233,.52);background:rgba(113,216,233,.1);color:#dffbff}.calendarTimeline{position:relative;display:grid;gap:9px;padding-left:28px}.calendarTimeline:before{content:"";position:absolute;left:9px;top:5px;bottom:5px;width:2px;background:linear-gradient(180deg,transparent,var(--line) 18px,var(--line) calc(100% - 18px),transparent)}.calendarDay{position:relative;border:1px solid var(--line);border-radius:12px;background:#0d131c;padding:12px 14px}.calendarDay:before{content:"";position:absolute;left:-24px;top:17px;width:10px;height:10px;border-radius:999px;border:2px solid var(--cyan);background:var(--bg);box-shadow:0 0 0 4px var(--bg)}.calendarDay.today{border-color:rgba(217,224,82,.6);background:linear-gradient(135deg,rgba(217,224,82,.08),#0d131c)}.calendarDay.today:before{border-color:var(--accent);background:var(--accent)}.calendarDay.past{opacity:.58}.calendarDate{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:8px}.calendarDate strong{font-size:14px}.calendarDate span{font-size:10px;color:var(--muted);font-weight:850;text-transform:uppercase;letter-spacing:.06em}.calendarEvent{display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;padding:8px 0;border-top:1px solid rgba(42,54,71,.75)}.calendarEvent:first-of-type{border-top:0}.eventTag{align-self:start;border:1px solid currentColor;border-radius:999px;padding:3px 7px;font-size:8px;font-weight:950;text-transform:uppercase;letter-spacing:.06em}.eventTitle{font-weight:900}.eventMeta{font-size:10px;color:var(--muted);margin-top:2px}.event-season{color:var(--accent)}.event-dungeon{color:#79bdf0}.event-weekly{color:#f1ca53}.event-feature{color:#a993ff}.event-global{color:#ff8eb8}.calendarEmpty{text-align:center;color:var(--muted);padding:35px 12px}.calendarSource{font-size:10px;color:var(--muted)}
 .footer{font-size:11px;color:var(--muted);padding:17px 2px 4px}.toast{position:fixed;right:17px;bottom:17px;background:#17202c;border:1px solid var(--line);border-radius:10px;padding:9px 12px;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);pointer-events:none;transition:.18s}.toast.show{opacity:1;transform:none}
 @media(max-width:1100px){
  .layout{grid-template-columns:1fr}
+ .calendarSetup{grid-template-columns:1fr}
  .hero{grid-template-columns:1fr;text-align:center}
  .hero p{margin-left:auto;margin-right:auto}
  .heroControls{justify-content:center}
@@ -128,7 +134,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  .promoRow{width:100%;display:grid;grid-template-columns:1fr}
  .promoBtn{width:100%;min-width:0}
 }
-@media(max-width:700px){.wrap{padding:11px}.field label{height:auto;min-height:0;margin-top:3px}.grid2,.grid3,.grid4,.metrics,.realmhero{grid-template-columns:1fr}.batch{grid-template-columns:minmax(0,1fr) 112px}.batch .btn{width:112px}.unitgrid{grid-template-columns:64px 1fr 20px 1fr}.ratinggrid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:700px){.wrap{padding:11px}.field label{height:auto;min-height:0;margin-top:3px}.grid2,.grid3,.grid4,.metrics,.realmhero,.calendarMetrics{grid-template-columns:1fr}.batch{grid-template-columns:minmax(0,1fr) 112px}.batch .btn{width:112px}.unitgrid{grid-template-columns:64px 1fr 20px 1fr}.ratinggrid{grid-template-columns:repeat(4,1fr)}.viewTabs{position:sticky;top:5px;z-index:20;background:rgba(9,12,18,.96)}.calendarEvent{grid-template-columns:1fr}.eventTag{justify-self:start}}
 </style>
 </head>
 <body>
@@ -156,7 +162,12 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  </div>
 </header>
 
-<main class="layout">
+<nav class="viewTabs" aria-label="Calculator views">
+ <button class="viewTab active" id="plannerTab" type="button" aria-selected="true">Season Planner<small>Primostars, EXP & materials</small></button>
+ <button class="viewTab" id="calendarTab" type="button" aria-selected="false">Server Calendar<small>Your server day & upcoming events</small></button>
+</nav>
+
+<main class="layout" id="plannerView">
 <div class="stack">
 
 <section class="card">
@@ -546,8 +557,71 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 
 </div>
 </main>
+<section class="calendarShell" id="calendarView" hidden>
+ <div class="calendarSetup">
+  <section class="card">
+   <div class="cardhead"><h2>Server calendar setup</h2><span class="chip inputLegend">Saved on this device</span></div>
+   <div class="cardbody">
+    <div class="notice">Choose a saved server or enter its name and exact <b>Day 1 date</b>. Server days advance at the global daily reset: <b>13:00 UTC</b>.</div>
+    <div class="grid3" style="margin-top:11px">
+     <div class="field"><label>Saved server profile</label><select id="calendarProfile"><option value="">Custom / unsaved server</option></select></div>
+     <div class="field"><label>Server name</label><input id="calendarServerName" placeholder="e.g. Unshakable"></div>
+     <div class="field"><label>Server Day 1 date</label><input id="calendarStartDate" type="date"></div>
+    </div>
+    <div class="actions">
+     <button class="btn primary" id="calendarSaveProfile" type="button">Save server</button>
+     <button class="btn" id="calendarShare" type="button">Copy calendar link</button>
+     <button class="btn ghost" id="calendarDeleteProfile" type="button">Delete saved server</button>
+    </div>
+    <details>
+     <summary>Don't know the Day 1 date? Calibrate from a known server day</summary>
+     <div class="grid2" style="margin-top:10px">
+      <div class="field"><label>Server day shown in game</label><input id="calendarKnownDay" type="number" min="1" step="1" placeholder="e.g. 54"></div>
+      <div class="field"><label>Date it showed that day</label><input id="calendarKnownDate" type="date"></div>
+     </div>
+     <div class="actions"><button class="btn" id="calendarCalibrate" type="button">Calculate Day 1</button></div>
+     <p class="subtle">Use the date after that day's 13:00 UTC reset. The calculated Day 1 date can then be saved under your server name.</p>
+    </details>
+   </div>
+  </section>
+  <section class="card">
+   <div class="cardhead"><h2 id="calendarServerHeading">Select your server</h2><span class="chip" id="calendarResetLocal">13:00 UTC reset</span></div>
+   <div class="cardbody">
+    <div class="calendarMetrics">
+     <div class="metric major"><div class="k">Current server day</div><div class="v" id="calendarCurrentDay">—</div><div class="s" id="calendarCurrentDate">Set Day 1 to begin</div></div>
+     <div class="metric"><div class="k">Current season</div><div class="v" id="calendarSeason">—</div><div class="s" id="calendarSeasonDay">Server-relative progression</div></div>
+     <div class="metric"><div class="k">Next scheduled item</div><div class="v" id="calendarNextIn" style="font-size:18px">—</div><div class="s" id="calendarNextName">Waiting for server date</div></div>
+    </div>
+    <p class="calendarSource" style="margin:11px 0 0">Server-relative dates use the extracted client schedule and exact reset rule. Fixed global events are labeled separately because they do not move with server age.</p>
+   </div>
+  </section>
+ </div>
+
+ <section class="card">
+  <div class="cardhead"><h2>Event & progression timeline</h2><span class="chip" id="calendarRangeChip">Upcoming</span></div>
+  <div class="cardbody">
+   <div class="calendarToolbar">
+    <div class="calendarFilters" id="calendarFilters">
+     <button class="calendarFilter active" type="button" data-filter="all">All</button>
+     <button class="calendarFilter" type="button" data-filter="season">Seasons</button>
+     <button class="calendarFilter" type="button" data-filter="dungeon">Dungeons</button>
+     <button class="calendarFilter" type="button" data-filter="weekly">Weekly events</button>
+     <button class="calendarFilter" type="button" data-filter="feature">Features</button>
+     <button class="calendarFilter" type="button" data-filter="global">Global events</button>
+    </div>
+    <div class="actions" style="margin:0">
+     <button class="btn" id="calendarJumpToday" type="button">Jump to today</button>
+     <button class="btn ghost" id="calendarShowPast" type="button">Show full timeline</button>
+    </div>
+   </div>
+   <div class="sep"></div>
+   <div class="calendarTimeline" id="calendarTimeline"><div class="calendarEmpty">Enter your server's Day 1 date to build its calendar.</div></div>
+  </div>
+ </section>
+</section>
 <div class="footer">
  <div>Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons. The selected season defines a scoring baseline, not a ceiling (S1 Lv100/+10, S2 Lv130/+14, S3 Lv160/+17, then +30/+3); progress above that baseline continues to score. Relic planned levels are automatically limited by projected character level. Realm yields are calculated from the extracted client rules for the selected season rank, including object weights, damage, crits and break rewards. Daily refresh systems are counted only at actual reset events, with 5 Realm entries per refresh.</div>
+ <div style="margin-top:8px">Data-access direction credit: <a href="https://github.com/Mystonats" target="_blank" rel="noopener noreferrer">Mystonats</a> pointed out that the game's YooAsset cache was accessible and not encrypted. All extraction, table linking, calculations and development were completed independently.</div>
  <div style="margin-top:8px;font-weight:800;color:#cbd5df">© 2026 <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">0xNobody</a> · Made by 0xNobody · <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">YouTube</a></div>
 </div>
 </div>
@@ -1436,6 +1510,171 @@ if(saved){
   if(!localStorage.getItem("sxsPlannerV44"))save(true);
  }catch(e){console.error(e);calculate()}
 }else calculate();
+})();
+</script>
+<script>
+(()=>{
+"use strict";
+const $c=id=>document.getElementById(id), DAY=86400000, RESET_UTC_HOUR=13;
+const PROFILE_KEY="sxsServerCalendarProfilesV1", SELECTED_KEY="sxsServerCalendarSelectedV1", VIEW_KEY="sxsCalculatorViewV1";
+let activeFilter="all", showFull=false;
+const seasons=[
+ {number:1,start:1,name:"Witching Hours"},{number:2,start:47,name:"Crossed Paths"},
+ {number:3,start:114,name:"Season 3"},{number:4,start:215,name:"Season 4"},
+ {number:5,start:316,name:"Season 5"},{number:6,start:417,name:"Season 6"}
+];
+const milestones=[
+ {day:1,type:"season",title:"Season 1 · Witching Hours",meta:"Server journey begins"},
+ {day:1,type:"feature",title:"Verdantglade",meta:"First region"},
+ {day:1,type:"dungeon",title:"Auroradrasil",meta:"Normal · Hard (36K Power)"},
+ {day:4,type:"feature",title:"Cinder Ridge & 2nd Job",meta:"Lv44 · Class Lv20 + 1st Job Lv18"},
+ {day:4,type:"dungeon",title:"Mecha Summit",meta:"Normal · Hard (180K Power)"},
+ {day:12,type:"feature",title:"Aqualis & 3rd Job",meta:"Lv82 · Class Lv48 + 2nd Job Lv16"},
+ {day:12,type:"dungeon",title:"Ocean Palace Ruins",meta:"Normal · Hard (580K Power)"},
+ {day:24,type:"dungeon",title:"Aquorigin Shrine",meta:"Normal (930K + Lv100) · Hard 1.45M · Nightmare 2.05M"},
+ {day:26,type:"feature",title:"Whaleback",meta:"Seasonal map"},
+ {day:33,type:"dungeon",title:"Hellhold",meta:"Normal 2.25M · Hard 2.75M · Nightmare 3.9M · Purgatory 6.2M"},
+ {day:47,type:"season",title:"Season 2 · Crossed Paths",meta:"Loong Haven progression begins"},
+ {day:47,type:"feature",title:"Loong Haven & 4th Job",meta:"Lv106 · Class Lv89 + 3rd Job Lv19"},
+ {day:47,type:"feature",title:"Phantasm Manifestation & Dual Shadow Realm",meta:"Lv108 · Lv116"},
+ {day:47,type:"dungeon",title:"Demon Sealing Gorge",meta:"Normal · Hard (2.35M Power)"},
+ {day:60,type:"dungeon",title:"General's Mausoleum",meta:"Normal 3.55M + Lv130 · Hard 5M · Nightmare 6M"},
+ {day:71,type:"feature",title:"Sky Tower",meta:"Seasonal map · Lv130"},
+ {day:73,type:"dungeon",title:"Blue Cloud Observatory",meta:"Normal 6.2M · Hard 7.7M · Nightmare 9.8M"},
+ {day:78,type:"feature",title:"Yin Yang Engine",meta:"Ancient Relic · Loong Haven phase 2"},
+ {day:86,type:"dungeon",title:"Ancient Sword City",meta:"Normal 10M · Hard 12.5M · Nightmare 15.8M"},
+ {day:92,type:"feature",title:"Bamboo Immortal",meta:"New Fantomon"},
+ {day:99,type:"dungeon",title:"Celestial Sea Cloudship",meta:"Normal 16.5M · Hard 20M · Nightmare 24.5M · Purgatory 40M"},
+ {day:114,type:"season",title:"Season 3",meta:"Aethyris progression begins"},
+ {day:114,type:"feature",title:"Aethyris & 5th Job",meta:"Lv136 · Class Lv180 + 4th Job Lv40"},
+ {day:114,type:"dungeon",title:"Crystal Spiral Tree",meta:"Normal · Hard (9M Power)"},
+ {day:127,type:"dungeon",title:"Eternal Flower Garden",meta:"Normal 12.5M + Lv160 · Hard 15M · Nightmare 18M · Purgatory 28.5M"},
+ {day:128,type:"feature",title:"Starry Sea Cruise",meta:"Seasonal map"},
+ {day:141,type:"dungeon",title:"Battle Abyss Fortress",meta:"Normal 20M · Hard 26M · Nightmare 30M · Purgatory 46M"},
+ {day:144,type:"feature",title:"Celestial Covenant",meta:"Ancient Relic · Aethyris phase 2"},
+ {day:155,type:"dungeon",title:"Purification Garden",meta:"Normal 32.5M · Hard 43M · Nightmare 50.5M · Purgatory 75M"},
+ {day:160,type:"feature",title:"Rainbow Star Spirit",meta:"New Fantomon"},
+ {day:169,type:"dungeon",title:"Order Temple",meta:"Normal 55M · Hard 65M · Nightmare 82M · Purgatory 115M"},
+ {day:174,type:"feature",title:"Azure Radiance Codex",meta:"Ancient Relic · Aethyris phase 3"},
+ {day:183,type:"dungeon",title:"Blazing Sun Spire",meta:"Normal 84.5M · Hard 100M · Nightmare 120M · Purgatory 180M"},
+ {day:197,type:"dungeon",title:"Sovereign's Nest",meta:"Normal 125M · Hard 145M · Nightmare 180M · Purgatory 250M"},
+ {day:203,type:"dungeon",title:"Sovereign's Nest · Abyss",meta:"350M Power"},
+ {day:215,type:"season",title:"Season 4",meta:"Harpadia progression begins"},
+ {day:215,type:"feature",title:"Harpadia & 6th Job",meta:"Lv172 · Class Lv280 + 5th Job Lv50"},
+ {day:215,type:"feature",title:"Phantasm Bond & Dora",meta:"Lv180 · Lv186"},
+ {day:215,type:"dungeon",title:"Clockwork Bell Tower",meta:"Normal · Hard (27M Power)"},
+ {day:228,type:"dungeon",title:"Paradise Pirate Ship",meta:"Normal 35M + Lv190 · Hard 48M · Nightmare 57M · Purgatory 84M"},
+ {day:229,type:"feature",title:"Carnival Fantasy",meta:"Seasonal map"},
+ {day:242,type:"dungeon",title:"Sea Emperor Submarine",meta:"Normal 62M · Hard 72M · Nightmare 87M · Purgatory 130M"},
+ {day:245,type:"feature",title:"Harpadia Ancient Relic · Phase 2",meta:"Ancient Relic unlock"},
+ {day:256,type:"dungeon",title:"Clockwork Fortress",meta:"Normal 91M · Hard 110M · Nightmare 135M · Purgatory 190M"},
+ {day:270,type:"dungeon",title:"Celestial Observatory",meta:"Normal 145M · Hard 175M · Nightmare 210M · Purgatory 305M"},
+ {day:275,type:"feature",title:"Harpadia Ancient Relic · Phase 3",meta:"Ancient Relic unlock"},
+ {day:284,type:"dungeon",title:"Titan Hot Air Balloon",meta:"Normal 220M · Hard 256M · Nightmare 300M · Purgatory 460M"},
+ {day:298,type:"dungeon",title:"Starry City",meta:"Normal 315M · Hard 385M · Nightmare 435M · Purgatory 630M · Abyss 880M"},
+ {day:316,type:"season",title:"Season 5",meta:"Ignis progression begins"},
+ {day:316,type:"feature",title:"Ignis & 7th Job",meta:"Lv198 · Class Lv380 + 6th Job Lv55"},
+ {day:316,type:"dungeon",title:"Ice Spire",meta:"Normal · Hard (82M Power)"},
+ {day:329,type:"dungeon",title:"Black Rock Ruins",meta:"Normal 110M + Lv220 · Hard 130M · Nightmare 156M · Purgatory 230M"},
+ {day:330,type:"feature",title:"Frost Flame Gate",meta:"Seasonal map"},
+ {day:343,type:"dungeon",title:"Eternal Frost Castle",meta:"Normal 166M · Hard 192M · Nightmare 230M · Purgatory 350M"},
+ {day:346,type:"feature",title:"Ignis Ancient Relic · Phase 2",meta:"Ancient Relic unlock"},
+ {day:357,type:"dungeon",title:"Flame Purgatory Throne",meta:"Normal 240M · Hard 280M · Nightmare 340M · Purgatory 500M"},
+ {day:371,type:"dungeon",title:"Moon Palace",meta:"Normal 358M · Hard 415M · Nightmare 500M · Purgatory 750M"},
+ {day:376,type:"feature",title:"Ignis Ancient Relic · Phase 3",meta:"Ancient Relic unlock"},
+ {day:385,type:"dungeon",title:"Crimson Flame Wedge",meta:"Normal 514M · Hard 588M · Nightmare 720M · Purgatory 1.08B"},
+ {day:399,type:"dungeon",title:"Gate of Origin",meta:"Normal 680M · Hard 780M · Nightmare 950M · Purgatory 1.36B"},
+ {day:417,type:"season",title:"Season 6",meta:"Lv250 Primostar baseline · later activity milestones are not yet confirmed"}
+];
+const globalEvents=[
+ {date:"2026-08-18",end:"2026-08-31",type:"global",title:"Oceanic Festival",meta:"Fixed global event · Summer Getaway, Summer Chill and Ocean Chase"},
+ {date:"2026-09-01",end:"2026-09-14",type:"global",title:"Starlit Soiree",meta:"Fixed global outfit pack · Darkling Rose weapon in the set"},
+ {date:"2026-09-07",end:"2026-09-23",type:"global",title:"Spicy Chicken",meta:"Fixed global outfit pack"}
+];
+function esc(v){return String(v??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]))}
+function parseDate(value,hour=RESET_UTC_HOUR){if(!/^\d{4}-\d{2}-\d{2}$/.test(value||""))return null;const [y,m,d]=value.split("-").map(Number),date=new Date(Date.UTC(y,m-1,d,hour));return date.getUTCFullYear()===y&&date.getUTCMonth()===m-1&&date.getUTCDate()===d?date:null}
+function isoDate(date){return `${date.getUTCFullYear()}-${String(date.getUTCMonth()+1).padStart(2,"0")}-${String(date.getUTCDate()).padStart(2,"0")}`}
+function dayDate(start,day){return new Date(start.getTime()+(day-1)*DAY)}
+function serverDayAt(start,date=new Date()){return Math.floor((date.getTime()-start.getTime())/DAY)+1}
+function dateLabel(date){return new Intl.DateTimeFormat(undefined,{weekday:"short",month:"short",day:"numeric",year:"numeric"}).format(date)}
+function relativeLabel(days){return days===0?"Today":days===1?"Tomorrow":days>1?`In ${days} days`:`${Math.abs(days)} days ago`}
+function profiles(){try{const v=JSON.parse(localStorage.getItem(PROFILE_KEY)||"[]");return Array.isArray(v)?v:[]}catch{return[]}}
+function setProfiles(v){localStorage.setItem(PROFILE_KEY,JSON.stringify(v))}
+function currentSeason(day){let found=seasons[0];for(const season of seasons)if(day>=season.start)found=season;return found}
+function weeklyEvents(maxDay=520){
+ const out=[],special1=["Lucky Idol","Lucky Idol / Golden Divine Tree","Lucky Idol / Golden Divine Tree / Endless Hourglass"],special2=["Primal Gem","Primal Gem / Philosopher's Stone","Primal Gem / Philosopher's Stone / Treasure Detector"],tiers=[0,0,1,2,2],seconds=["Bingo Draw","Lucky Scratch","Fennec's Riddle"];
+ for(let r=0,day=8;day<=maxDay;r++,day+=7){
+  const region=day>=316?4:day>=215?3:day>=114?2:day>=47?1:0,tier=tiers[region],phase=r%4;
+  const reward=phase===0?"Choice: Miracle Relic Box":phase===1?`Relic: ${special1[tier]}`:phase===2?`Choice: ${region+3}${["rd","th","th","th","th"][region]} Job Skill Fragment`:`Relic: ${special2[tier]}`;
+  out.push({day,type:"weekly",title:`Grand Treasure Hunt #${r+1}`,meta:`Weekly · ${reward}`,durationHours:167});
+  if(r>=1){const index=(r-1)%3,count=Math.floor((r-1)/3)+1;out.push({day,type:"weekly",title:`${seconds[index]} #${count}`,meta:"Weekly rotation",durationHours:167})}
+ }
+ return out
+}
+const relativeEvents=[...milestones,...weeklyEvents()].sort((a,b)=>a.day-b.day);
+function populateProfiles(selected=""){
+ const select=$c("calendarProfile"),items=profiles();select.innerHTML='<option value="">Custom / unsaved server</option>'+items.map(p=>`<option value="${esc(p.id)}">${esc(p.name)} · Day 1 ${esc(p.start)}</option>`).join("");
+ select.value=items.some(p=>p.id===selected)?selected:""
+}
+function setView(view){
+ const calendar=view==="calendar";$c("plannerView").hidden=calendar;$c("calendarView").hidden=!calendar;
+ $c("plannerTab").classList.toggle("active",!calendar);$c("calendarTab").classList.toggle("active",calendar);
+ $c("plannerTab").setAttribute("aria-selected",String(!calendar));$c("calendarTab").setAttribute("aria-selected",String(calendar));localStorage.setItem(VIEW_KEY,view);
+ if(calendar)renderCalendar()
+}
+function loadFromQuery(){const q=new URLSearchParams(location.search),start=q.get("start"),name=q.get("server");if(parseDate(start)){ $c("calendarStartDate").value=start;$c("calendarServerName").value=name||"Shared server";return true }return false}
+function loadSelected(){
+ const id=localStorage.getItem(SELECTED_KEY)||"",p=profiles().find(x=>x.id===id);populateProfiles(p?.id||"");
+ if(p){$c("calendarServerName").value=p.name;$c("calendarStartDate").value=p.start}return !!p
+}
+function saveProfile(){
+ const name=$c("calendarServerName").value.trim(),start=$c("calendarStartDate").value;if(!name||!parseDate(start)){toastCalendar("Enter a server name and valid Day 1 date");return}
+ let list=profiles(),selected=$c("calendarProfile").value,p=list.find(x=>x.id===selected);
+ if(p){p.name=name;p.start=start}else{p={id:`server-${Date.now()}`,name,start};list.push(p)}
+ list.sort((a,b)=>a.name.localeCompare(b.name));setProfiles(list);localStorage.setItem(SELECTED_KEY,p.id);populateProfiles(p.id);renderCalendar();toastCalendar("Server profile saved")
+}
+function deleteProfile(){const id=$c("calendarProfile").value;if(!id){toastCalendar("No saved server selected");return}setProfiles(profiles().filter(p=>p.id!==id));localStorage.removeItem(SELECTED_KEY);populateProfiles();renderCalendar();toastCalendar("Saved server removed")}
+function toastCalendar(message){const t=$c("toast");t.textContent=message;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1800)}
+function buildEntries(start){
+ const entries=relativeEvents.map(e=>({...e,date:dayDate(start,e.day),serverDay:e.day}));
+ for(const e of globalEvents){const date=parseDate(e.date),displayEnd=parseDate(e.end),day=serverDayAt(start,date);entries.push({...e,date,displayEnd,serverDay:day,durationHours:((displayEnd.getTime()-date.getTime())/3600000)+24})}
+ return entries.sort((a,b)=>a.date-b.date||a.title.localeCompare(b.title))
+}
+function renderCalendar(){
+ const start=parseDate($c("calendarStartDate").value),name=$c("calendarServerName").value.trim()||"Custom server",now=new Date();
+ $c("calendarResetLocal").textContent=`Reset ${new Intl.DateTimeFormat(undefined,{hour:"numeric",minute:"2-digit",timeZoneName:"short"}).format(new Date(Date.UTC(2026,0,1,RESET_UTC_HOUR)))}`;
+ $c("calendarServerHeading").textContent=start?name:"Select your server";
+ if(!start){$c("calendarCurrentDay").textContent="—";$c("calendarCurrentDate").textContent="Set Day 1 to begin";$c("calendarSeason").textContent="—";$c("calendarSeasonDay").textContent="Server-relative progression";$c("calendarNextIn").textContent="—";$c("calendarNextName").textContent="Waiting for server date";$c("calendarTimeline").innerHTML='<div class="calendarEmpty">Enter your server\'s Day 1 date to build its calendar.</div>';return}
+ const todayDay=serverDayAt(start,now),season=currentSeason(Math.max(1,todayDay)),entries=buildEntries(start);
+ $c("calendarCurrentDay").textContent=todayDay>0?`Day ${todayDay}`:"Not open";$c("calendarCurrentDate").textContent=`Day 1: ${dateLabel(start)}`;
+ $c("calendarSeason").textContent=todayDay>0?`S${season.number}`:"—";$c("calendarSeasonDay").textContent=todayDay>0?`${season.name} · day ${todayDay-season.start+1}`:"Server has not reached Day 1";
+ const next=entries.find(e=>e.date.getTime()>=now.getTime()-3600000);if(next){const days=Math.ceil((next.date-now)/DAY);$c("calendarNextIn").textContent=relativeLabel(Math.max(0,days));$c("calendarNextName").textContent=`Day ${next.serverDay} · ${next.title}`}
+ renderTimeline(entries,start,todayDay,now)
+}
+function renderTimeline(entries,start,todayDay,now){
+ let filtered=entries.filter(e=>activeFilter==="all"||e.type===activeFilter);
+ if(!showFull)filtered=filtered.filter(e=>e.serverDay>=todayDay-7&&e.serverDay<=todayDay+100);
+ const todayDate=dayDate(start,todayDay),groups=new Map();
+ for(const e of filtered){const key=isoDate(e.date);if(!groups.has(key))groups.set(key,{date:e.date,day:e.serverDay,events:[]});groups.get(key).events.push(e)}
+ const todayKey=isoDate(todayDate);if((activeFilter==="all"||activeFilter==="season")&&!groups.has(todayKey))groups.set(todayKey,{date:todayDate,day:todayDay,events:[]});
+ const list=[...groups.values()].sort((a,b)=>a.date-b.date);$c("calendarRangeChip").textContent=showFull?"Full timeline":"7 days back · 100 ahead";
+ if(!list.length){$c("calendarTimeline").innerHTML='<div class="calendarEmpty">No events match this filter and range.</div>';return}
+ $c("calendarTimeline").innerHTML=list.map(group=>{
+  const isToday=isoDate(group.date)===todayKey,past=group.date<todayDate&&!isToday;
+  const eventHtml=group.events.length?group.events.map(e=>{const end=e.displayEnd||(e.durationHours?new Date(e.date.getTime()+e.durationHours*3600000):null);return `<div class="calendarEvent"><span class="eventTag event-${e.type}">${esc(e.type)}</span><div><div class="eventTitle">${esc(e.title)}</div><div class="eventMeta">${esc(e.meta||"")}${end?` · through ${esc(dateLabel(end))}`:""}</div></div></div>`}).join(""):'<div class="eventMeta">Your server is here today.</div>';
+  return `<article class="calendarDay${isToday?" today":""}${past?" past":""}" id="calendar-day-${group.day}"><div class="calendarDate"><strong>${esc(dateLabel(group.date))}</strong><span>Day ${group.day}${isToday?" · Today":""}</span></div>${eventHtml}</article>`
+ }).join("")
+}
+$c("plannerTab").onclick=()=>setView("planner");$c("calendarTab").onclick=()=>setView("calendar");
+$c("calendarProfile").onchange=e=>{const p=profiles().find(x=>x.id===e.target.value);if(p){$c("calendarServerName").value=p.name;$c("calendarStartDate").value=p.start;localStorage.setItem(SELECTED_KEY,p.id)}else localStorage.removeItem(SELECTED_KEY);renderCalendar()};
+$c("calendarServerName").addEventListener("input",renderCalendar);$c("calendarStartDate").addEventListener("change",renderCalendar);
+$c("calendarSaveProfile").onclick=saveProfile;$c("calendarDeleteProfile").onclick=deleteProfile;
+$c("calendarCalibrate").onclick=()=>{const day=Math.floor(Number($c("calendarKnownDay").value)),known=parseDate($c("calendarKnownDate").value);if(day<1||!known){toastCalendar("Enter a valid server day and date");return}const start=new Date(known.getTime()-(day-1)*DAY);$c("calendarStartDate").value=isoDate(start);renderCalendar();toastCalendar(`Day 1 calculated: ${isoDate(start)}`)};
+$c("calendarShare").onclick=async()=>{const start=$c("calendarStartDate").value,name=$c("calendarServerName").value.trim();if(!parseDate(start)){toastCalendar("Set a valid Day 1 date first");return}const u=new URL(location.href);u.search="";u.searchParams.set("view","calendar");u.searchParams.set("server",name||"Shared server");u.searchParams.set("start",start);try{await navigator.clipboard.writeText(u.toString());toastCalendar("Calendar link copied")}catch{prompt("Copy this calendar link",u.toString())}};
+$c("calendarFilters").onclick=e=>{const b=e.target.closest("[data-filter]");if(!b)return;activeFilter=b.dataset.filter;document.querySelectorAll(".calendarFilter").forEach(x=>x.classList.toggle("active",x===b));renderCalendar()};
+$c("calendarShowPast").onclick=()=>{showFull=!showFull;$c("calendarShowPast").textContent=showFull?"Show upcoming only":"Show full timeline";renderCalendar()};
+$c("calendarJumpToday").onclick=()=>{renderCalendar();requestAnimationFrame(()=>document.querySelector(".calendarDay.today")?.scrollIntoView({behavior:"smooth",block:"center"}))};
+const queryView=new URLSearchParams(location.search).get("view");const shared=loadFromQuery();if(!shared)loadSelected();else populateProfiles();setView(queryView==="calendar"||shared?"calendar":localStorage.getItem(VIEW_KEY)==="calendar"?"calendar":"planner");
 })();
 </script>
 </body>
