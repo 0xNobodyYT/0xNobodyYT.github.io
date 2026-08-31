@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Sword x Staff Wardrobe Viewer Prototype</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07111b;--panel:#111f2e;--panel2:#091723;--line:#284155;--cyan:#55dff0;--gold:#ffd33d;--text:#f7f8fb;--muted:#a9c8ec}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 15%,#173348 0,#07111b 44%);color:var(--text);font:17px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}button,input{font:inherit}.page{max-width:1540px;margin:auto;padding:32px 24px 48px}.eyebrow,.label{font-weight:900;letter-spacing:.11em;text-transform:uppercase}.eyebrow{color:var(--gold)}h1{font-size:clamp(2.8rem,6vw,5.6rem);line-height:1;margin:.18em 0}.intro{color:var(--muted);font-size:1.15rem;max-width:980px}.panel{background:rgba(17,31,46,.94);border:1px solid var(--line);border-radius:26px;padding:22px;margin-top:22px}.setup{display:grid;grid-template-columns:320px 1fr;gap:24px}.label{color:#b8d5fa;font-size:.85rem;margin-bottom:10px}.segmented,.classes{display:flex;gap:10px;flex-wrap:wrap}.choice{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:15px;padding:13px 18px;font-weight:800;cursor:pointer}.choice:hover,.choice.active{border-color:var(--cyan);background:#173844;box-shadow:0 0 0 1px #55dff055}.class-choice{min-width:150px;text-align:left}.class-choice small{display:block;color:var(--muted);font-weight:600;margin-top:2px}.workspace{display:grid;grid-template-columns:minmax(420px,1.05fr) minmax(390px,.9fr) 310px;gap:22px;align-items:start}.catalog h2,.preview h2,.summary h2{margin:0 0 4px;font-size:1.65rem}.muted{color:var(--muted)}details{background:var(--panel2);border:1px solid var(--line);border-radius:18px;margin-top:13px;overflow:hidden}summary{padding:15px 17px;cursor:pointer;font-weight:900;color:var(--cyan);list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:'+';float:right;color:var(--gold)}details[open] summary:after{content:'−'}.category{padding:0 15px 16px}.search{width:100%;border:1px solid #34738c;background:#061621;color:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;outline:none}.search:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #55dff022}.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;max-height:230px;overflow:auto;padding-right:3px}.item{display:grid;grid-template-columns:54px 1fr;gap:10px;align-items:center;border:1px solid #28485e;background:#0c1a27;color:#fff;border-radius:13px;padding:8px;text-align:left;cursor:pointer;min-height:70px}.item:hover,.item.active{border-color:var(--gold);background:#2a2712}.item img{width:54px;height:54px;object-fit:contain;border-radius:9px;background:#ffffff0b}.item strong{font-size:.89rem}.empty-icon{display:grid;place-items:center;width:54px;height:54px;border-radius:9px;background:#ffffff0b;color:#7790a6;font-size:1.5rem}.stage{position:relative;min-height:720px;border:1px solid #3b6875;border-radius:24px;overflow:hidden;background:radial-gradient(circle at 50% 42%,#e7fbff 0,#8fd4d5 22%,#376d73 55%,#122f3a 100%)}.stage:before{content:'';position:absolute;inset:auto 0 0;height:35%;background:linear-gradient(transparent,#0d232dcc)}.base{position:absolute;z-index:3;left:50%;bottom:70px;transform:translateX(-50%);height:68%;max-width:80%;object-fit:contain;filter:drop-shadow(0 18px 14px #0018)}.layer{position:absolute;z-index:4;width:105px;height:105px;object-fit:contain;filter:drop-shadow(0 8px 8px #001)}.layer-label{position:absolute;z-index:5;background:#07111bda;border:1px solid #4d7185;border-radius:999px;padding:4px 9px;font-size:.7rem;font-weight:900}.backwear{z-index:2;width:190px;height:190px;left:50%;top:28%;transform:translateX(-50%);opacity:.88}.outfit{width:115px;height:115px;left:50%;top:45%;transform:translateX(-50%)}.mainHand{left:15px;top:39%}.offHand{right:15px;top:39%}.hairstyle{left:50%;top:17%;transform:translateX(-50%)}.headwear{left:59%;top:8%;width:82px;height:82px}.facewear{left:56%;top:25%;width:70px;height:70px}.makeup-mark{position:absolute;z-index:6;left:50%;top:33%;transform:translateX(-50%);width:22px;height:8px;border-radius:100%;box-shadow:0 0 10px currentColor;background:currentColor}.stage-caption{position:absolute;z-index:8;left:16px;right:16px;bottom:15px;text-align:center;padding:10px;border-radius:13px;background:#06131de8;color:#d6edff;font-size:.8rem}.class-badge{position:absolute;z-index:8;top:16px;left:16px;background:#07111bdc;border:1px solid var(--gold);border-radius:999px;padding:8px 14px;font-weight:900}.summary-list{display:grid;gap:9px;margin-top:16px}.summary-row{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 12px}.summary-row span{display:block;color:#84b2dc;font-size:.75rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em}.summary-row strong{font-size:.93rem}.reset{width:100%;margin-top:15px;border:1px solid var(--gold);background:#28240f;color:var(--gold);border-radius:13px;padding:12px;font-weight:900;cursor:pointer}.note{margin-top:14px;padding:12px;background:#07131d;border-radius:12px;color:#9fc3e8;font-size:.82rem}.no-results{grid-column:1/-1;color:#8eabc5;padding:12px;text-align:center}@media(max-width:1180px){.workspace{grid-template-columns:1fr 1fr}.summary{grid-column:1/-1}.summary-list{grid-template-columns:repeat(4,1fr)}}@media(max-width:820px){.setup,.workspace{grid-template-columns:1fr}.summary{grid-column:auto}.items{grid-template-columns:1fr}.summary-list{grid-template-columns:1fr 1fr}.stage{min-height:640px}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="eyebrow">Sword x Staff · Appearance Lab</div>
+    <h1>Wardrobe Viewer Prototype</h1>
+    <p class="intro">Mix compatible appearance items by Gender and Class. Every category has its own search, and the preview updates as you select a look.</p>
+
+    <section class="panel setup">
+      <div><div class="label">Gender</div><div class="segmented" id="genderChoices"></div></div>
+      <div><div class="label">Class</div><div class="classes" id="classChoices"></div></div>
+    </section>
+
+    <section class="workspace">
+      <div class="panel catalog">
+        <h2>Appearance Items</h2><div class="muted">Search and select an item in each category.</div>
+        <div id="catalog"></div>
+      </div>
+      <div class="panel preview">
+        <h2>Character Preview</h2><div class="muted" id="previewSubtitle"></div>
+        <div class="stage" id="stage"><div class="class-badge" id="classBadge"></div><img class="base" id="baseCharacter" alt="Character Preview"><div class="stage-caption">Working interaction sample using extracted item artwork. Pixel-perfect fitted clothing will require the game’s Spine attachment layers.</div></div>
+      </div>
+      <aside class="panel summary">
+        <h2>Equipped Look</h2><div class="muted">Current appearance selections.</div>
+        <div class="summary-list" id="summary"></div>
+        <button class="reset" id="reset">Reset Look</button>
+        <div class="note">Weapon choices are restricted by Class: Knight uses Sword and Shield, Duelist uses Sword and Gauntlet, Sorcerer uses Staff and Spellbook, and Sage uses Staff and Orb.</div>
+      </aside>
+    </section>
+  </main>
+  <script>
+    const img=id=>`sxs-stellaris/assets/item_${id}.webp`;
+    const named=(ids,names)=>ids.map((id,i)=>({id:String(id),name:names[i],image:img(id)}));
+    const styleNames=['Pristine Formal Attire','High-Tech Combat Suit','Oath of Valor','Stellar Rite','Aether Mecha'];
+    const data={
+      outfit:{Male:named([36001,36005,36009,36016,36031],styleNames),Female:named([36101,36105,36109,36116,36131],styleNames)},
+      backwear:named([37401,37405,37409,37415,37431],['Majestic Plume','Luminous Wings','Judgment Wings','Nebula Wings','Warp Wings']),
+      sword:named([36201,36205,36209,36215,36231],['Feathered Divinity','Sacred Sword','Final Revelation','Astral Sever','Lumi Cleaver']),
+      staff:named([36301,36305,36309,36315,36331],['Feathered Authority','Sacred Staff','Stellar Chronicle','Galactic Might','Astral Pulse']),
+      shield:named([36401,36405,36409,36415,36431],['Divine Winguard','Limited Edition Cassette','Eternal Bastion','Cosmic Path','Psionic Matrix']),
+      gauntlet:named([36501,36505,36509,36515,36531],['Skybreaker Plume','Button Gloves','Grip of the Divine','Starry Echoes','Photon Blade']),
+      spellbook:named([36601,36605,36609,36615,36631],['Feathered Hymnal','Deluxe Console','Gateway to Truth','Astral Codex','Fusion Panel']),
+      orb:named([36701,36705,36709,36715,36731],['Feathered Star','Smart Sidekick','Glory Core','Everglow Nova','Type-0 Core']),
+      hairstyle:{Male:named([36801,36805,36809,36816,36831],['Listen to the World','Otherworld Warrior','Starlit Serenade','Starlit Grace','Quantum Tether']),Female:named([36901,36905,36909,36916,36931],['Listen to the World','Otherworld Warrior','Starlit Serenade','Starlit Grace','Quantum Tether'])},
+      headwear:{Male:named([37001,37009,37015],['Radiant Plume','Dawnstar Band','Celestial Crown']),Female:named([37101,37109,37116],['Radiant Plume','Dawnstar Band','Celestial Crown'])},
+      facewear:{Male:named([37231],['Holo Goggles']),Female:named([37331],['Holo Goggles'])},
+      makeup:[{id:'none',name:'None'},{id:'star',name:'Star Freckles',color:'#ffd24c'},{id:'crimson',name:'Crimson Mark',color:'#e94f64'},{id:'moon',name:'Moonlit Paint',color:'#9d8cff'},{id:'aether',name:'Aether Lines',color:'#48e7f3'}]
+    };
+    const classes={Knight:{lineage:'Warrior · Rank 2',main:'sword',off:'shield',character:'sxs-loadout-builder/assets/characters/melee.webp'},Duelist:{lineage:'Warrior · Rank 2',main:'sword',off:'gauntlet',character:'sxs-loadout-builder/assets/characters/melee.webp'},Sorcerer:{lineage:'Mage · Rank 2',main:'staff',off:'spellbook',character:'sxs-loadout-builder/assets/characters/mage.webp'},Sage:{lineage:'Mage · Rank 2',main:'staff',off:'orb',character:'sxs-loadout-builder/assets/characters/mage.webp'}};
+    const categories=[['outfit','Outfit','Body'],['backwear','Backwear','Body'],['mainHand','Main Hand','Weapon'],['offHand','Off-Hand','Weapon'],['hairstyle','Hairstyle','Head'],['headwear','Headwear','Head'],['facewear','Facewear','Head'],['makeup','Makeup','Head']];
+    const state={gender:'Male',className:'Knight',selected:{},search:{}};
+    const withNone=list=>[{id:'none',name:'None'},...list];
+    function itemsFor(key){const cls=classes[state.className];if(key==='mainHand')return data[cls.main];if(key==='offHand')return data[cls.off];if(['outfit','hairstyle','headwear','facewear'].includes(key))return key==='outfit'?data[key][state.gender]:withNone(data[key][state.gender]);if(key==='backwear')return withNone(data.backwear);return data[key]}
+    function initializeSelections(){for(const [key] of categories){const list=itemsFor(key);if(!list.some(x=>x.id===state.selected[key]))state.selected[key]=list[0].id}}
+    function renderSetup(){genderChoices.innerHTML=['Male','Female'].map(x=>`<button class="choice ${state.gender===x?'active':''}" data-gender="${x}">${x}</button>`).join('');classChoices.innerHTML=Object.entries(classes).map(([name,c])=>`<button class="choice class-choice ${state.className===name?'active':''}" data-class="${name}">${name}<small>${c.lineage}</small></button>`).join('')}
+    function renderCatalog(){const groups={Body:[],Weapon:[],Head:[]};for(const cat of categories)groups[cat[2]].push(cat);catalog.innerHTML=Object.entries(groups).map(([group,cats],i)=>`<details ${i===0?'open':''}><summary>${group}</summary>${cats.map(([key,label])=>`<div class="category"><div class="label">${label}</div><input class="search" type="search" data-search="${key}" value="${state.search[key]||''}" placeholder="Search ${label}"><div class="items" id="items-${key}"></div></div>`).join('')}</details>`).join('');for(const [key] of categories)renderItems(key)}
+    function renderItems(key){const host=document.getElementById(`items-${key}`);if(!host)return;const q=(state.search[key]||'').trim().toLowerCase();const list=itemsFor(key).filter(x=>x.name.toLowerCase().includes(q));host.innerHTML=list.length?list.map(x=>`<button class="item ${state.selected[key]===x.id?'active':''}" data-item="${key}" data-id="${x.id}">${x.image?`<img src="${x.image}" alt="">`:`<span class="empty-icon" style="color:${x.color||''}">${x.id==='none'?'×':'✦'}</span>`}<strong>${x.name}</strong></button>`).join(''):'<div class="no-results">No Matching Items</div>'}
+    function selectedItem(key){return itemsFor(key).find(x=>x.id===state.selected[key])||itemsFor(key)[0]}
+    function renderPreview(){const cls=classes[state.className];baseCharacter.src=cls.character;classBadge.textContent=`${state.gender} ${state.className}`;previewSubtitle.textContent=`${state.gender} · ${state.className} · ${cls.lineage}`;stage.querySelectorAll('.layer,.makeup-mark').forEach(x=>x.remove());for(const key of ['backwear','outfit','mainHand','offHand','hairstyle','headwear','facewear']){const item=selectedItem(key);if(item&&item.image){const el=document.createElement('img');el.className=`layer ${key}`;el.src=item.image;el.alt=item.name;el.title=item.name;stage.appendChild(el)}}const makeup=selectedItem('makeup');if(makeup&&makeup.id!=='none'){const el=document.createElement('span');el.className='makeup-mark';el.style.color=makeup.color;el.title=makeup.name;stage.appendChild(el)}summary.innerHTML=categories.map(([key,label])=>`<div class="summary-row"><span>${label}</span><strong>${selectedItem(key).name}</strong></div>`).join('')}
+    function renderAll(){initializeSelections();renderSetup();renderCatalog();renderPreview()}
+    document.addEventListener('click',e=>{const gender=e.target.closest('[data-gender]');if(gender){state.gender=gender.dataset.gender;renderAll();return}const cls=e.target.closest('[data-class]');if(cls){state.className=cls.dataset.class;state.selected.mainHand='';state.selected.offHand='';renderAll();return}const item=e.target.closest('[data-item]');if(item){state.selected[item.dataset.item]=item.dataset.id;renderItems(item.dataset.item);renderPreview()}});
+    document.addEventListener('input',e=>{if(e.target.matches('[data-search]')){state.search[e.target.dataset.search]=e.target.value;renderItems(e.target.dataset.search)}});
+    reset.addEventListener('click',()=>{state.selected={};state.search={};renderAll()});
+    renderAll();
+  </script>
+</body>
+</html>
