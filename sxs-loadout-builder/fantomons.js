@@ -1,7 +1,7 @@
 window.FANTOMON_CATALOG=[
- {id:1600,name:"Falko",type:"Attacker"},
- {id:1601,name:"Boaro",type:"Tank"},
- {id:1602,name:"Mandragora",type:"Support"},
+ {id:1600,name:"Falko",type:"Attacker",status:"Core roster"},
+ {id:1601,name:"Boaro",type:"Tank",status:"Core roster"},
+ {id:1602,name:"Mandragora",type:"Support",status:"Core roster"},
  {id:1603,name:"Zeioletus",type:"Attacker"},
  {id:1604,name:"Terragon",type:"Tank"},
  {id:1605,name:"Sylvaerie",type:"Support"},
@@ -11,8 +11,11 @@ window.FANTOMON_CATALOG=[
  {id:1609,name:"Nyxarchon",type:"Attacker"},
  {id:1610,name:"Aegiswing",type:"Tank"},
  {id:1611,name:"Pandarial",type:"Support"},
- {id:1612,name:"Chomusuke",type:"Support"},
- {id:1613,name:"Cabbage Dog",type:"Tank"},
- {id:1614,name:"Prismora",type:"Support"},
- {id:1615,name:"Luminarch Steed",type:"Tank"}
+ {id:1612,name:"Chomusuke",type:"Support",status:"KonoSuba collaboration"},
+ {id:1613,name:"Cabbage Dog",type:"Tank",status:"Collaboration Fantomon"},
+ {id:1614,name:"Prismora",type:"Support",status:"Limited Fantomon"},
+ {id:1615,name:"Luminarch Steed",type:"Tank",status:"Spring 2026 event"},
+ {id:1616,name:"Chick Flyer",type:"Attacker",status:"Future collaboration data"},
+ {id:1617,name:"Adventure Duck",type:"Tank",status:"Future event · partial localization"},
+ {id:1619,name:"Yordra",type:"Support",status:"Config-only · incomplete assets"}
 ];

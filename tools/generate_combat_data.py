@@ -414,6 +414,7 @@ for row in rows("level_prop_pet.csv"):
         }
 
 pet_evolutions = {}
+pet_forms = {}
 for row in rows("pet_evolution.csv"):
     if not row.get("ClassId", "").isdigit():
         continue
@@ -423,10 +424,23 @@ for row in rows("pet_evolution.csv"):
         except Exception:
             return []
     stage = row.get("EvolutionPhase") or "Childhood"
+    icon_match = re.search(r"pet_(\d+)", row.get("PetIcon") or "")
+    quality_match = re.search(r":\s*['\"]?([A-Za-z]+)", row.get("EvolutionSkillQuality") or "")
+    pet_forms.setdefault(row["ClassId"], {})[stage] = {
+        "iconId": int(icon_match.group(1)) if icon_match else 0,
+        "level": number(row.get("EvolutionLevel")),
+        "skillQuality": quality_match.group(1) if quality_match else "",
+    }
     attacks = id_list("ActiveSkills") + id_list("SupportSkills")
     if stage == "Adulthood":
         attacks += id_list("EntityActiveSkills")
     pet_evolutions.setdefault(row["ClassId"], {})[stage] = list(dict.fromkeys(attacks))
+
+pet_piece_qualities = {
+    row["ClassId"]: row.get("Quality") or ""
+    for row in rows("item.csv")
+    if row.get("ClassId", "").isdigit()
+}
 
 pets = {}
 for row in rows("pet.csv"):
@@ -440,7 +454,10 @@ for row in rows("pet.csv"):
     stages = pet_evolutions.get(row["ClassId"], {})
     stage_skills = {}
     for stage in ("Childhood", "Adulthood"):
-        ids = [skill_id for skill_id in stages.get(stage, []) if str(skill_id) in skills and skills[str(skill_id)]["effects"]]
+        # Support/status Fantomon skills can have all of their numeric scaling in
+        # linked status or passive tables rather than the direct attack table.
+        # Keep every referenced skill; the renderer resolves each linked source.
+        ids = [skill_id for skill_id in stages.get(stage, []) if str(skill_id) in skills]
         stage_skills[stage] = [{
             "id": skill_id,
             "name": language.get(f"item_{skill_id}_name", f"Skill {skill_id}"),
@@ -448,9 +465,11 @@ for row in rows("pet.csv"):
         } for skill_id in ids]
     pets[row["ClassId"]] = {
         "type": row.get("Type") or "",
+        "minQuality": pet_piece_qualities.get(row.get("PetPieceId"), "") or row.get("GeneralPetPieceQuality") or "Purple",
         "levelPropId": level_prop_id,
         "levels": pet_level_curves.get(level_prop_id, {}),
         "stages": stage_skills,
+        "forms": pet_forms.get(row["ClassId"], {}),
     }
 
 payload = {
