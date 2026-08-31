@@ -14,10 +14,13 @@ CONFIG = Path(r"C:\tmp\sxs-live-config-85")
 APK = Path(r"C:\tmp\sxs-assets\UnityDataAssetPack.apk")
 RESEARCH = Path(r"C:\tmp\sxs-research")
 OUT = ROOT / "sxs-stellaris" / "assets"
+LIVE_MANIFEST = Path(r"C:\tmp\PackageManifest_DefaultPackage_88_156110.bytes")
+LIVE_BUNDLES = Path(r"C:\tmp\stellaris-bundles")
 MANIFEST_ENTRY = "assets/yoo/DefaultPackage/PackageManifest_DefaultPackage_77_155937.bytes"
 
 sys.path[:0] = [str(RESEARCH / ".deps"), str(RESEARCH / "tools")]
 import UnityPy  # noqa: E402
+from bundle_crypto import decrypt_sxs_bundle  # noqa: E402
 from yoo_manifest import parse_manifest  # noqa: E402
 
 
@@ -39,35 +42,44 @@ def main() -> None:
                 item_icons[int(row["ClassId"])] = PurePosixPath(row["Icon"]).name
 
     with zipfile.ZipFile(APK) as archive:
-        manifest = parse_manifest(archive.read(MANIFEST_ENTRY))
-        by_bundle = defaultdict(dict)
+        manifest = parse_manifest(
+            LIVE_MANIFEST.read_bytes() if LIVE_MANIFEST.exists() else archive.read(MANIFEST_ENTRY)
+        )
+        by_bundle = defaultdict(lambda: defaultdict(list))
         for asset in manifest.assets:
             stem = PurePosixPath(asset.asset_path).stem
             for item_id, icon_stem in item_icons.items():
                 if stem == icon_stem:
-                    by_bundle[asset.bundle_id][stem] = item_id
+                    by_bundle[asset.bundle_id][stem].append(item_id)
 
         names = archive.namelist()
         OUT.mkdir(parents=True, exist_ok=True)
         extracted = set()
         for bundle_id, wanted in by_bundle.items():
-            filename = manifest.bundles[bundle_id].file_name(manifest.output_name_style)
+            bundle = manifest.bundles[bundle_id]
+            filename = bundle.file_name(manifest.output_name_style)
+            cached = LIVE_BUNDLES / filename
             entry = next((name for name in names if name.endswith("/" + filename)), None)
-            if not entry:
+            if cached.exists():
+                payload = cached.read_bytes()
+            elif entry:
+                payload = archive.read(entry)
+            else:
                 continue
-            environment = UnityPy.load(archive.read(entry))
+            environment = UnityPy.load(decrypt_sxs_bundle(payload, bundle.encrypted))
             for obj in environment.objects:
                 if obj.type.name != "Sprite":
                     continue
                 sprite = obj.read()
                 name = getattr(sprite, "name", getattr(sprite, "m_Name", ""))
-                item_id = wanted.get(name)
-                if item_id is None:
+                item_ids = wanted.get(name, [])
+                if not item_ids:
                     continue
                 image = sprite.image
                 image.thumbnail((128, 128))
-                image.save(OUT / f"item_{item_id}.webp", "WEBP", quality=92, method=6)
-                extracted.add(item_id)
+                for item_id in item_ids:
+                    image.save(OUT / f"item_{item_id}.webp", "WEBP", quality=92, method=6)
+                    extracted.add(item_id)
 
     print(f"Extracted {len(extracted)}/{len(ids)} Stellaris reward icons")
     missing = sorted(ids - extracted)
