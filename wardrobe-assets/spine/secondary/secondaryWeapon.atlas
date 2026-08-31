@@ -1,0 +1,4990 @@
+_transparent.png
+	size: 456, 232
+	filter: Linear, Linear
+sWeapon_11_001/W_dunpai_A_B01
+	bounds: 229, 2, 225, 225
+	offsets: 560, 223, 902, 673
+sWeapon_11_001/W_dunpai_B_B01
+	bounds: 2, 2, 225, 225
+	offsets: 124, 226, 902, 673
+
+sWeapon_11_002.png
+	size: 576, 304
+	filter: Linear, Linear
+sWeapon_11_002/W_dunpai_A_B01
+	bounds: 288, 2, 284, 297
+	offsets: 531, 190, 902, 673
+sWeapon_11_002/W_dunpai_B_B01
+	bounds: 2, 2, 284, 297
+	offsets: 99, 190, 902, 673
+
+_transparent.png
+	size: 544, 312
+	filter: Linear, Linear
+sWeapon_11_003/W_dunpai_A_B01
+	bounds: 273, 2, 269, 307
+	offsets: 543, 193, 902, 673
+sWeapon_11_003/W_dunpai_B_B01
+	bounds: 2, 2, 269, 307
+	offsets: 104, 193, 902, 673
+
+_transparent.png
+	size: 576, 296
+	filter: Linear, Linear
+sWeapon_11_004/W_dunpai_A_B01
+	bounds: 288, 2, 284, 289
+	offsets: 534, 189, 902, 673
+sWeapon_11_004/W_dunpai_B_B01
+	bounds: 2, 2, 284, 289
+	offsets: 92, 189, 902, 673
+
+_transparent.png
+	size: 452, 240
+	filter: Linear, Linear
+sWeapon_11_005/W_dunpai_A_B01
+	bounds: 2, 4, 223, 231
+	offsets: 541, 218, 902, 673
+sWeapon_11_005/W_dunpai_B_B01
+	bounds: 227, 2, 220, 233
+	offsets: 135, 221, 902, 673
+
+_transparent.png
+	size: 232, 548
+	filter: Linear, Linear
+sWeapon_11_006/W_dunpai_A_B01
+	bounds: 2, 273, 224, 272
+	offsets: 557, 207, 902, 673
+sWeapon_11_006/W_dunpai_B_B01
+	bounds: 2, 2, 225, 269
+	offsets: 119, 207, 902, 673
+
+_transparent.png
+	size: 460, 248
+	filter: Linear, Linear
+sWeapon_11_008/W_dunpai_A_B01
+	bounds: 231, 2, 227, 243
+	offsets: 567, 195, 902, 673
+sWeapon_11_008/W_dunpai_B_B01
+	bounds: 2, 2, 227, 243
+	offsets: 130, 195, 902, 673
+
+_transparent.png
+	size: 656, 308
+	filter: Linear, Linear
+sWeapon_11_009/W_dunpai_A_B01
+	bounds: 328, 2, 324, 304
+	offsets: 512, 186, 902, 673
+sWeapon_11_009/W_dunpai_B_B01
+	bounds: 2, 2, 324, 304
+	offsets: 80, 186, 902, 673
+
+_transparent.png
+	size: 308, 580
+	filter: Linear, Linear
+sWeapon_11_010/W_dunpai_A_B01
+	bounds: 2, 2, 302, 285
+	offsets: 528, 194, 902, 673
+sWeapon_11_010/W_dunpai_B_B01
+	bounds: 2, 289, 302, 286
+	offsets: 92, 193, 902, 673
+
+_transparent.png
+	size: 560, 252
+	filter: Linear, Linear
+sWeapon_11_011/W_dunpai_A_B01
+	bounds: 280, 2, 276, 247
+	offsets: 533, 202, 902, 673
+sWeapon_11_011/W_dunpai_B_B01
+	bounds: 2, 2, 276, 247
+	offsets: 91, 202, 902, 673
+
+_transparent.png
+	size: 624, 316
+	filter: Linear, Linear
+sWeapon_11_012/W_dunpai_A_B01
+	bounds: 313, 2, 309, 309
+	offsets: 513, 188, 902, 673
+sWeapon_11_012/W_dunpai_B_B01
+	bounds: 2, 2, 309, 309
+	offsets: 77, 188, 902, 673
+
+_transparent.png
+	size: 292, 608
+	filter: Linear, Linear
+sWeapon_11_013/W_dunpai_A_B01
+	bounds: 2, 2, 287, 299
+	offsets: 530, 203, 902, 673
+sWeapon_11_013/W_dunpai_B_B01
+	bounds: 2, 303, 288, 301
+	offsets: 94, 202, 902, 673
+
+_transparent.png
+	size: 640, 312
+	filter: Linear, Linear
+sWeapon_11_014/W_dunpai_A_B01
+	bounds: 2, 2, 318, 305
+	offsets: 513, 193, 902, 673
+sWeapon_11_014/W_dunpai_B_B01
+	bounds: 322, 2, 316, 305
+	offsets: 72, 193, 902, 673
+
+_transparent.png
+	size: 748, 340
+	filter: Linear, Linear
+sWeapon_11_015/W_dunpai_A_B01
+	bounds: 269, 2, 264, 335
+	offsets: 543, 169, 902, 673
+sWeapon_11_015/W_dunpai_B_B01
+	bounds: 2, 2, 265, 335
+	offsets: 99, 169, 902, 673
+sWeapon_11_015/W_dunpai_B_B01_A01
+	bounds: 535, 26, 311, 209
+	offsets: 14, 10, 343, 219
+	rotate: 90
+
+_transparent.png
+	size: 556, 268
+	filter: Linear, Linear
+sWeapon_11_016/W_dunpai_A_B01
+	bounds: 2, 2, 274, 261
+	offsets: 536, 193, 902, 673
+sWeapon_11_016/W_dunpai_B_B01
+	bounds: 278, 2, 273, 261
+	offsets: 98, 197, 902, 673
+
+_transparent.png
+	size: 520, 284
+	filter: Linear, Linear
+sWeapon_11_017/W_dunpai_A_B01
+	bounds: 260, 2, 256, 279
+	offsets: 532, 189, 902, 673
+sWeapon_11_017/W_dunpai_B_B01
+	bounds: 2, 2, 256, 279
+	offsets: 100, 191, 902, 673
+
+_transparent.png
+	size: 564, 344
+	filter: Linear, Linear
+sWeapon_11_018/W_dunpai_A_B01
+	bounds: 288, 3, 273, 337
+	offsets: 546, 165, 902, 673
+sWeapon_11_018/W_dunpai_B_B01
+	bounds: 2, 2, 284, 338
+	offsets: 85, 166, 902, 673
+
+_transparent.png
+	size: 584, 288
+	filter: Linear, Linear
+sWeapon_11_019/W_dunpai_A_B01
+	bounds: 295, 2, 286, 284
+	offsets: 546, 185, 902, 673
+sWeapon_11_019/W_dunpai_B_B01
+	bounds: 2, 2, 291, 284
+	offsets: 86, 185, 902, 673
+
+_transparent.png
+	size: 240, 532
+	filter: Linear, Linear
+sWeapon_11_020/W_dunpai_A_B01
+	bounds: 2, 2, 236, 240
+	offsets: 556, 198, 902, 673
+sWeapon_11_020/W_dunpai_B_B01
+	bounds: 2, 244, 230, 285
+	offsets: 115, 193, 902, 673
+
+_transparent.png
+	size: 468, 292
+	filter: Linear, Linear
+sWeapon_11_021/W_dunpai_A_B01
+	bounds: 2, 2, 230, 286
+	offsets: 541, 195, 902, 673
+sWeapon_11_021/W_dunpai_B_B01
+	bounds: 234, 2, 229, 286
+	offsets: 111, 195, 902, 673
+
+_transparent.png
+	size: 464, 352
+	filter: Linear, Linear
+sWeapon_11_022/W_dunpai_A_B01
+	bounds: 232, 2, 228, 347
+	offsets: 551, 185, 902, 673
+sWeapon_11_022/W_dunpai_B_B01
+	bounds: 2, 2, 228, 347
+	offsets: 119, 185, 902, 673
+
+_transparent.png
+	size: 404, 236
+	filter: Linear, Linear
+sWeapon_11_023/W_dunpai_A_B01
+	bounds: 203, 2, 199, 230
+	offsets: 570, 233, 902, 673
+sWeapon_11_023/W_dunpai_B_B01
+	bounds: 2, 2, 199, 230
+	offsets: 147, 233, 902, 673
+
+_transparent.png
+	size: 604, 300
+	filter: Linear, Linear
+sWeapon_11_024/W_dunpai_A_B01
+	bounds: 303, 2, 299, 293
+	offsets: 519, 214, 902, 673
+sWeapon_11_024/W_dunpai_B_B01
+	bounds: 2, 2, 299, 293
+	offsets: 90, 214, 902, 673
+
+_transparent.png
+	size: 600, 316
+	filter: Linear, Linear
+sWeapon_11_025/W_dunpai_A_B01
+	bounds: 2, 6, 298, 305
+	offsets: 530, 169, 902, 673
+sWeapon_11_025/W_dunpai_B_B01
+	bounds: 302, 2, 309, 293
+	offsets: 88, 180, 902, 673
+	rotate: 90
+
+_transparent.png
+	size: 612, 292
+	filter: Linear, Linear
+sWeapon_11_026/W_dunpai_A_B01
+	bounds: 307, 2, 303, 288
+	offsets: 510, 193, 902, 673
+sWeapon_11_026/W_dunpai_B_B01
+	bounds: 2, 2, 303, 288
+	offsets: 86, 192, 902, 673
+
+_transparent.png
+	size: 228, 568
+	filter: Linear, Linear
+sWeapon_11_027/W_dunpai_A_B01
+	bounds: 2, 2, 223, 275
+	offsets: 569, 205, 902, 673
+sWeapon_11_027/W_dunpai_B_B01
+	bounds: 2, 279, 223, 285
+	offsets: 123, 192, 902, 673
+
+_transparent.png
+	size: 852, 316
+	filter: Linear, Linear
+sWeapon_11_028/W_dunpai_A_B01
+	bounds: 2, 5, 311, 309
+	offsets: 526, 176, 902, 673
+sWeapon_11_028/W_dunpai_B_B01
+	bounds: 315, 18, 296, 290
+	offsets: 86, 176, 902, 673
+	rotate: 90
+sWeapon_11_028/W_dunpai_B_B01_A01
+	bounds: 708, 172, 141, 142
+	offsets: 26, 27, 193, 201
+sWeapon_11_028/W_dunpai_B_B01_A02
+	bounds: 607, 2, 101, 312
+	offsets: 10, 8, 123, 331
+
+_transparent.png
+	size: 608, 344
+	filter: Linear, Linear
+sWeapon_11_029/W_dunpai_A_B01
+	bounds: 310, 3, 296, 338
+	offsets: 521, 168, 902, 673
+sWeapon_11_029/W_dunpai_B_B01
+	bounds: 2, 2, 306, 339
+	offsets: 86, 167, 902, 673
+
+_transparent.png
+	size: 304, 660
+	filter: Linear, Linear
+sWeapon_11_030/W_dunpai_A_B01
+	bounds: 2, 2, 300, 324
+	offsets: 516, 180, 902, 673
+sWeapon_11_030/W_dunpai_B_B01
+	bounds: 2, 328, 300, 328
+	offsets: 81, 176, 902, 673
+
+_transparent.png
+	size: 648, 320
+	filter: Linear, Linear
+sWeapon_11_031/W_dunpai_A_B01
+	bounds: 324, 2, 320, 316
+	offsets: 515, 183, 902, 673
+sWeapon_11_031/W_dunpai_B_B01
+	bounds: 2, 2, 320, 316
+	offsets: 83, 184, 902, 673
+
+_transparent.png
+	size: 684, 352
+	filter: Linear, Linear
+sWeapon_11_032/W_dunpai_A_B01
+	bounds: 343, 2, 339, 347
+	offsets: 511, 175, 902, 673
+sWeapon_11_032/W_dunpai_B_B01
+	bounds: 2, 2, 339, 347
+	offsets: 79, 175, 902, 673
+
+_transparent.png
+	size: 652, 316
+	filter: Linear, Linear
+sWeapon_11_033/W_dunpai_A_B01
+	bounds: 327, 2, 323, 311
+	offsets: 516, 177, 902, 673
+sWeapon_11_033/W_dunpai_B_B01
+	bounds: 2, 2, 323, 311
+	offsets: 76, 177, 902, 673
+
+_transparent.png
+	size: 1020, 352
+	filter: Linear, Linear
+sWeapon_11_034/W_dunpai_A_B01
+	bounds: 289, 46, 285, 301
+	offsets: 524, 198, 902, 673
+sWeapon_11_034/W_dunpai_A_B01_B01
+	bounds: 798, 2, 345, 219
+	offsets: 484, 267, 902, 673
+	rotate: 90
+sWeapon_11_034/W_dunpai_B_B01
+	bounds: 2, 46, 285, 301
+	offsets: 86, 198, 902, 673
+sWeapon_11_034/W_dunpai_B_B01_A01
+	bounds: 576, 3, 344, 220
+	offsets: 66, 266, 902, 673
+	rotate: 90
+
+_transparent.png
+	size: 1072, 416
+	filter: Linear, Linear
+sWeapon_11_035/W_dunpai_A_B01
+	bounds: 2, 25, 290, 386
+	offsets: 521, 123, 902, 673
+sWeapon_11_035/W_dunpai_A_B01_B01
+	bounds: 586, 35, 376, 150
+	offsets: 484, 353, 902, 673
+	rotate: 90
+sWeapon_11_035/W_dunpai_B_B01
+	bounds: 294, 61, 290, 350
+	offsets: 108, 123, 902, 673
+sWeapon_11_035/W_dunpai_B_B01_A01
+	bounds: 935, 228, 132, 183
+	offsets: 156, 326, 902, 673
+sWeapon_11_035/W_dunpai_B_B01_A02
+	bounds: 738, 2, 409, 197
+	offsets: 47, 316, 902, 673
+	rotate: 90
+
+_transparent.png
+	size: 648, 380
+	filter: Linear, Linear
+sWeapon_11_036/W_dunpai_A_B01
+	bounds: 324, 2, 319, 374
+	offsets: 519, 149, 902, 673
+sWeapon_11_036/W_dunpai_B_B01
+	bounds: 2, 2, 320, 374
+	offsets: 82, 149, 902, 673
+
+_transparent.png
+	size: 748, 344
+	filter: Linear, Linear
+sWeapon_11_037/W_dunpai_A_B01
+	bounds: 2, 2, 377, 340
+	offsets: 482, 166, 902, 673
+sWeapon_11_037/W_dunpai_B_B01
+	bounds: 381, 2, 365, 340
+	offsets: 55, 166, 902, 673
+
+_transparent.png
+	size: 544, 280
+	filter: Linear, Linear
+sWeapon_11_038/W_dunpai_A_B01
+	bounds: 273, 2, 269, 274
+	offsets: 537, 200, 902, 673
+sWeapon_11_038/W_dunpai_B_B01
+	bounds: 2, 2, 269, 274
+	offsets: 108, 200, 902, 673
+
+_transparent.png
+	size: 320, 716
+	filter: Linear, Linear
+sWeapon_11_039/W_dunpai_A_B01
+	bounds: 2, 356, 315, 358
+	offsets: 516, 158, 902, 673
+sWeapon_11_039/W_dunpai_B_B01
+	bounds: 2, 2, 315, 352
+	offsets: 87, 161, 902, 673
+
+_transparent.png
+	size: 296, 688
+	filter: Linear, Linear
+sWeapon_11_040/W_dunpai_A_B01
+	bounds: 2, 2, 288, 337
+	offsets: 526, 168, 902, 673
+sWeapon_11_040/W_dunpai_B_B01
+	bounds: 2, 341, 289, 344
+	offsets: 98, 164, 902, 673
+
+_transparent.png
+	size: 788, 328
+	filter: Linear, Linear
+sWeapon_11_041/W_dunpai_A_B01
+	bounds: 287, 31, 283, 294
+	offsets: 534, 212, 902, 673
+sWeapon_11_041/W_dunpai_B_B01
+	bounds: 2, 31, 283, 294
+	offsets: 114, 212, 902, 673
+sWeapon_11_041/W_dunpai_B_B01_A01
+	bounds: 572, 2, 323, 213
+	offsets: 80, 253, 902, 673
+	rotate: 90
+
+_transparent.png
+	size: 324, 712
+	filter: Linear, Linear
+sWeapon_11_042/W_dunpai_A_B01
+	bounds: 2, 38, 320, 334
+	offsets: 516, 192, 902, 673
+sWeapon_11_042/W_dunpai_B_B01
+	bounds: 2, 374, 320, 334
+	offsets: 75, 192, 902, 673
+sWeapon_11_042/W_dunpai_B_B01_A01
+	bounds: 2, 2, 34, 121
+	offsets: 4, 3, 44, 129
+	rotate: 90
+
+_transparent.png
+	size: 280, 660
+	filter: Linear, Linear
+sWeapon_11_043/W_dunpai_A_B01
+	bounds: 2, 2, 275, 326
+	offsets: 539, 179, 902, 673
+sWeapon_11_043/W_dunpai_B_B01
+	bounds: 2, 330, 275, 328
+	offsets: 121, 177, 902, 673
+
+_transparent.png
+	size: 348, 1024
+	filter: Linear, Linear
+sWeapon_11_044/W_dunpai_A_B01
+	bounds: 2, 358, 306, 330
+	offsets: 517, 169, 902, 673
+sWeapon_11_044/W_dunpai_B_B01
+	bounds: 2, 690, 306, 330
+	offsets: 101, 170, 902, 673
+sWeapon_11_044/W_dunpai_B_B01_A01
+	bounds: 218, 2, 134, 128
+	rotate: 90
+sWeapon_11_044/W_dunpai_B_B01_A02
+	bounds: 2, 5, 131, 214
+	offsets: 21, 31, 180, 276
+	rotate: 90
+sWeapon_11_044/W_dunpai_B_B01_A03
+	bounds: 2, 138, 218, 276
+	rotate: 90
+
+_transparent.png
+	size: 624, 316
+	filter: Linear, Linear
+sWeapon_11_045/W_dunpai_A_B01
+	bounds: 313, 2, 309, 310
+	offsets: 516, 179, 902, 673
+sWeapon_11_045/W_dunpai_B_B01
+	bounds: 2, 2, 309, 310
+	offsets: 95, 181, 902, 673
+
+_transparent.png
+	size: 728, 460
+	filter: Linear, Linear
+sWeapon_11_046/W_dunpai_A_B01
+	bounds: 364, 2, 360, 456
+	offsets: 442, 108, 902, 673
+sWeapon_11_046/W_dunpai_B_B01
+	bounds: 2, 2, 360, 456
+	offsets: 106, 109, 902, 673
+
+_transparent.png
+	size: 708, 384
+	filter: Linear, Linear
+sWeapon_11_047/W_dunpai_A_B01
+	bounds: 354, 2, 350, 377
+	offsets: 497, 158, 902, 673
+sWeapon_11_047/W_dunpai_B_B01
+	bounds: 2, 2, 350, 377
+	offsets: 64, 159, 902, 673
+
+_transparent.png
+	size: 872, 396
+	filter: Linear, Linear
+sWeapon_11_048/W_dunpai_A_B01
+	bounds: 436, 2, 432, 391
+	offsets: 451, 158, 902, 673
+sWeapon_11_048/W_dunpai_B_B01
+	bounds: 2, 2, 432, 391
+	offsets: 24, 159, 902, 673
+
+_transparent.png
+	size: 672, 324
+	filter: Linear, Linear
+sWeapon_11_049/W_dunpai_A_B01
+	bounds: 337, 2, 333, 317
+	offsets: 496, 181, 902, 673
+sWeapon_11_049/W_dunpai_B_B01
+	bounds: 2, 2, 333, 317
+	offsets: 75, 182, 902, 673
+
+_transparent.png
+	size: 376, 852
+	filter: Linear, Linear
+sWeapon_11_050/W_dunpai_A_B01
+	bounds: 2, 2, 371, 421
+	offsets: 477, 123, 902, 673
+sWeapon_11_050/W_dunpai_B_B01
+	bounds: 2, 425, 372, 423
+	offsets: 63, 124, 902, 673
+
+_transparent.png
+	size: 492, 384
+	filter: Linear, Linear
+sWeapon_11_051/W_dunpai_A_B01
+	bounds: 247, 2, 243, 380
+	offsets: 551, 130, 902, 673
+sWeapon_11_051/W_dunpai_B_B01
+	bounds: 2, 2, 243, 380
+	offsets: 134, 130, 902, 673
+
+_transparent.png
+	size: 716, 320
+	filter: Linear, Linear
+sWeapon_11_052/W_dunpai_A_B01
+	bounds: 359, 2, 355, 316
+	offsets: 466, 196, 902, 673
+sWeapon_11_052/W_dunpai_B_B01
+	bounds: 2, 2, 355, 316
+	offsets: 73, 197, 902, 673
+
+_transparent.png
+	size: 560, 372
+	filter: Linear, Linear
+sWeapon_11_053/W_dunpai_A_B01
+	bounds: 2, 7, 279, 363
+	offsets: 521, 172, 902, 673
+sWeapon_11_053/W_dunpai_B_B01
+	bounds: 283, 2, 275, 368
+	offsets: 113, 171, 902, 673
+
+_transparent.png
+	size: 596, 280
+	filter: Linear, Linear
+sWeapon_11_054/W_dunpai_A_B01
+	bounds: 298, 2, 294, 273
+	offsets: 521, 224, 902, 673
+sWeapon_11_054/W_dunpai_B_B01
+	bounds: 2, 2, 294, 273
+	offsets: 104, 224, 902, 673
+
+_transparent.png
+	size: 564, 272
+	filter: Linear, Linear
+sWeapon_11_055/W_dunpai_A_B01
+	bounds: 282, 2, 277, 265
+	offsets: 521, 220, 902, 673
+sWeapon_11_055/W_dunpai_B_B01
+	bounds: 2, 2, 278, 265
+	offsets: 105, 219, 902, 673
+
+_transparent.png
+	size: 568, 340
+	filter: Linear, Linear
+sWeapon_11_056/W_dunpai_A_B01
+	bounds: 284, 2, 280, 333
+	offsets: 544, 187, 902, 673
+sWeapon_11_056/W_dunpai_B_B01
+	bounds: 2, 2, 280, 333
+	offsets: 67, 186, 902, 673
+
+_transparent.png
+	size: 700, 336
+	filter: Linear, Linear
+sWeapon_11_057/W_dunpai_A_B01
+	bounds: 350, 2, 346, 332
+	offsets: 478, 187, 902, 673
+sWeapon_11_057/W_dunpai_B_B01
+	bounds: 2, 2, 346, 332
+	offsets: 83, 188, 902, 673
+
+_transparent.png
+	size: 732, 360
+	filter: Linear, Linear
+sWeapon_11_058/W_dunpai_A_B01
+	bounds: 366, 2, 362, 355
+	offsets: 477, 172, 902, 673
+sWeapon_11_058/W_dunpai_B_B01
+	bounds: 2, 2, 362, 355
+	offsets: 60, 171, 902, 673
+
+_transparent.png
+	size: 756, 416
+	filter: Linear, Linear
+sWeapon_11_059/W_dunpai_A_B01
+	bounds: 2, 2, 374, 410
+	offsets: 477, 131, 902, 673
+sWeapon_11_059/W_dunpai_B_B01
+	bounds: 378, 2, 373, 410
+	offsets: 61, 132, 902, 673
+
+_transparent.png
+	size: 716, 340
+	filter: Linear, Linear
+sWeapon_11_060/W_dunpai_A_B01
+	bounds: 358, 2, 354, 334
+	offsets: 496, 171, 902, 673
+sWeapon_11_060/W_dunpai_B_B01
+	bounds: 2, 2, 354, 334
+	offsets: 79, 171, 902, 673
+
+_transparent.png
+	size: 372, 680
+	filter: Linear, Linear
+sWeapon_11_061/W_dunpai_A_B01
+	bounds: 2, 339, 368, 336
+	offsets: 477, 171, 902, 673
+sWeapon_11_061/W_dunpai_B_B01
+	bounds: 2, 2, 368, 335
+	offsets: 60, 172, 902, 673
+
+_transparent.png
+	size: 684, 396
+	filter: Linear, Linear
+sWeapon_11_062/W_dunpai_A_B01
+	bounds: 2, 2, 340, 390
+	offsets: 502, 165, 902, 673
+sWeapon_11_062/W_dunpai_B_B01
+	bounds: 344, 2, 337, 390
+	offsets: 85, 170, 902, 673
+
+_transparent.png
+	size: 724, 424
+	filter: Linear, Linear
+sWeapon_11_063/W_dunpai_A_B01
+	bounds: 367, 4, 353, 418
+	offsets: 501, 165, 902, 673
+sWeapon_11_063/W_dunpai_B_B01
+	bounds: 2, 2, 363, 420
+	offsets: 39, 170, 902, 673
+
+_transparent.png
+	size: 316, 616
+	filter: Linear, Linear
+sWeapon_11_064/W_dunpai_A_B01
+	bounds: 2, 304, 310, 309
+	offsets: 518, 179, 902, 673
+sWeapon_11_064/W_dunpai_B_B01
+	bounds: 2, 2, 310, 300
+	offsets: 94, 187, 902, 673
+
+_transparent.png
+	size: 584, 340
+	filter: Linear, Linear
+sWeapon_11_065/W_dunpai_A_B01
+	bounds: 294, 2, 285, 336
+	offsets: 513, 189, 902, 673
+sWeapon_11_065/W_dunpai_B_B01
+	bounds: 2, 2, 290, 336
+	offsets: 92, 190, 902, 673
+
+_transparent.png
+	size: 312, 772
+	filter: Linear, Linear
+sWeapon_11_066/W_dunpai_A_B01
+	bounds: 2, 385, 306, 382
+	offsets: 519, 150, 902, 673
+sWeapon_11_066/W_dunpai_B_B01
+	bounds: 2, 2, 306, 381
+	offsets: 100, 151, 902, 673
+
+_transparent.png
+	size: 704, 352
+	filter: Linear, Linear
+sWeapon_11_067/W_dunpai_A_B01
+	bounds: 356, 3, 345, 344
+	offsets: 497, 186, 902, 673
+	rotate: 90
+sWeapon_11_067/W_dunpai_B_B01
+	bounds: 2, 2, 352, 346
+	offsets: 65, 186, 902, 673
+
+_transparent.png
+	size: 576, 248
+	filter: Linear, Linear
+sWeapon_11_068/W_dunpai_A_B01
+	bounds: 288, 2, 284, 242
+	offsets: 520, 242, 902, 673
+sWeapon_11_068/W_dunpai_B_B01
+	bounds: 2, 2, 284, 242
+	offsets: 103, 242, 902, 673
+
+_transparent.png
+	size: 232, 464
+	filter: Linear, Linear
+sWeapon_11_069/W_dunpai_A_B01
+	bounds: 2, 2, 224, 222
+	offsets: 561, 225, 902, 673
+sWeapon_11_069/W_dunpai_B_B01
+	bounds: 2, 226, 227, 235
+	offsets: 122, 219, 902, 673
+
+_transparent.png
+	size: 732, 424
+	filter: Linear, Linear
+sWeapon_11_070/W_dunpai_A_B01
+	bounds: 367, 2, 363, 420
+	offsets: 492, 146, 902, 673
+sWeapon_11_070/W_dunpai_B_B01
+	bounds: 2, 2, 363, 420
+	offsets: 53, 149, 902, 673
+
+_transparent.png
+	size: 316, 772
+	filter: Linear, Linear
+sWeapon_11_071/W_dunpai_A_B01
+	bounds: 2, 385, 311, 383
+	offsets: 516, 165, 902, 673
+sWeapon_11_071/W_dunpai_B_B01
+	bounds: 2, 2, 312, 381
+	offsets: 92, 165, 902, 673
+
+_transparent.png
+	size: 512, 264
+	filter: Linear, Linear
+sWeapon_11_072/W_dunpai_A_B01
+	bounds: 2, 2, 254, 258
+	offsets: 525, 213, 902, 673
+sWeapon_11_072/W_dunpai_B_B01
+	bounds: 258, 4, 252, 256
+	offsets: 110, 211, 902, 673
+
+_transparent.png
+	size: 504, 304
+	filter: Linear, Linear
+sWeapon_11_073/W_dunpai_A_B01
+	bounds: 2, 2, 251, 299
+	offsets: 525, 187, 902, 673
+sWeapon_11_073/W_dunpai_B_B01
+	bounds: 255, 2, 244, 299
+	offsets: 105, 187, 902, 673
+
+_transparent.png
+	size: 308, 836
+	filter: Linear, Linear
+sWeapon_11_074/W_dunpai_A_B01
+	bounds: 2, 417, 304, 417
+	offsets: 506, 192, 902, 673
+sWeapon_11_074/W_dunpai_B_B01
+	bounds: 2, 2, 303, 413
+	offsets: 85, 197, 902, 673
+
+_transparent.png
+	size: 768, 400
+	filter: Linear, Linear
+sWeapon_11_075/W_dunpai_A_B01
+	bounds: 384, 2, 380, 396
+	offsets: 472, 165, 902, 673
+sWeapon_11_075/W_dunpai_B_B01
+	bounds: 2, 2, 380, 396
+	offsets: 64, 165, 902, 673
+
+_transparent.png
+	size: 296, 652
+	filter: Linear, Linear
+sWeapon_11_076/W_dunpai_A_B01
+	bounds: 2, 325, 292, 323
+	offsets: 517, 183, 902, 673
+sWeapon_11_076/W_dunpai_B_B01
+	bounds: 2, 2, 291, 321
+	offsets: 92, 185, 902, 673
+
+_transparent.png
+	size: 580, 316
+	filter: Linear, Linear
+sWeapon_11_077/W_dunpai_A_B01
+	bounds: 291, 2, 287, 309
+	offsets: 511, 182, 902, 673
+sWeapon_11_077/W_dunpai_B_B01
+	bounds: 2, 2, 287, 309
+	offsets: 94, 181, 902, 673
+
+_transparent.png
+	size: 780, 368
+	filter: Linear, Linear
+sWeapon_11_078/W_dunpai_A_B01
+	bounds: 390, 2, 386, 363
+	offsets: 452, 182, 902, 673
+sWeapon_11_078/W_dunpai_B_B01
+	bounds: 2, 2, 386, 363
+	offsets: 33, 182, 902, 673
+
+_transparent.png
+	size: 660, 268
+	filter: Linear, Linear
+sWeapon_11_079/W_dunpai_A_B01
+	bounds: 331, 2, 327, 263
+	offsets: 499, 210, 902, 673
+sWeapon_11_079/W_dunpai_B_B01
+	bounds: 2, 2, 327, 263
+	offsets: 73, 207, 902, 673
+
+_transparent.png
+	size: 752, 368
+	filter: Linear, Linear
+sWeapon_11_080/W_dunpai_A_B01
+	bounds: 2, 2, 374, 364
+	offsets: 482, 157, 902, 673
+sWeapon_11_080/W_dunpai_B_B01
+	bounds: 378, 2, 370, 364
+	offsets: 63, 159, 902, 673
+
+_transparent.png
+	size: 632, 380
+	filter: Linear, Linear
+sWeapon_11_081/W_dunpai_A_B01
+	bounds: 321, 2, 306, 375
+	offsets: 515, 163, 902, 673
+sWeapon_11_081/W_dunpai_B_B01
+	bounds: 2, 9, 317, 368
+	offsets: 90, 163, 902, 673
+
+_transparent.png
+	size: 680, 336
+	filter: Linear, Linear
+sWeapon_11_082/W_dunpai_A_B01
+	bounds: 342, 2, 336, 329
+	offsets: 502, 172, 902, 673
+sWeapon_11_082/W_dunpai_B_B01
+	bounds: 2, 2, 338, 329
+	offsets: 69, 172, 902, 673
+
+_transparent.png
+	size: 248, 640
+	filter: Linear, Linear
+sWeapon_11_083/W_dunpai_A_B01
+	bounds: 2, 2, 239, 313
+	offsets: 533, 196, 902, 673
+sWeapon_11_083/W_dunpai_B_B01
+	bounds: 2, 317, 241, 318
+	offsets: 128, 191, 902, 673
+
+_transparent.png
+	size: 568, 380
+	filter: Linear, Linear
+sWeapon_11_084/W_dunpai_A_B01
+	bounds: 284, 2, 280, 376
+	offsets: 516, 163, 902, 673
+sWeapon_11_084/W_dunpai_B_B01
+	bounds: 2, 2, 280, 376
+	offsets: 99, 162, 902, 673
+
+_transparent.png
+	size: 520, 432
+	filter: Linear, Linear
+sWeapon_11_085/W_dunpai_A_B01
+	bounds: 260, 2, 255, 425
+	offsets: 531, 123, 902, 673
+sWeapon_11_085/W_dunpai_B_B01
+	bounds: 2, 2, 256, 425
+	offsets: 115, 122, 902, 673
+
+_transparent.png
+	size: 584, 364
+	filter: Linear, Linear
+sWeapon_11_086/W_dunpai_A_B01
+	bounds: 292, 2, 288, 357
+	offsets: 527, 168, 902, 673
+sWeapon_11_086/W_dunpai_B_B01
+	bounds: 2, 2, 288, 357
+	offsets: 90, 169, 902, 673
+
+_transparent.png
+	size: 672, 368
+	filter: Linear, Linear
+sWeapon_11_087/W_dunpai_A_B01
+	bounds: 339, 2, 330, 361
+	offsets: 504, 156, 902, 673
+sWeapon_11_087/W_dunpai_B_B01
+	bounds: 2, 2, 335, 361
+	offsets: 73, 156, 902, 673
+
+_transparent.png
+	size: 732, 384
+	filter: Linear, Linear
+sWeapon_11_088/W_dunpai_A_B01
+	bounds: 367, 2, 363, 380
+	offsets: 478, 164, 902, 673
+sWeapon_11_088/W_dunpai_B_B01
+	bounds: 2, 2, 363, 380
+	offsets: 58, 163, 902, 673
+
+_transparent.png
+	size: 320, 708
+	filter: Linear, Linear
+sWeapon_11_089/W_dunpai_A_B01
+	bounds: 2, 348, 316, 355
+	offsets: 504, 188, 902, 673
+sWeapon_11_089/W_dunpai_B_B01
+	bounds: 2, 2, 308, 344
+	offsets: 91, 191, 902, 673
+
+_transparent.png
+	size: 352, 656
+	filter: Linear, Linear
+sWeapon_11_090/W_dunpai_A_B01
+	bounds: 2, 328, 345, 326
+	offsets: 491, 187, 902, 673
+sWeapon_11_090/W_dunpai_B_B01
+	bounds: 2, 2, 345, 324
+	offsets: 73, 185, 902, 673
+
+_transparent.png
+	size: 692, 400
+	filter: Linear, Linear
+sWeapon_11_091/W_dunpai_A_B01
+	bounds: 346, 2, 342, 393
+	offsets: 485, 141, 902, 673
+sWeapon_11_091/W_dunpai_B_B01
+	bounds: 2, 2, 342, 393
+	offsets: 66, 140, 902, 673
+
+_transparent.png
+	size: 600, 372
+	filter: Linear, Linear
+sWeapon_11_092/W_dunpai_A_B01
+	bounds: 2, 2, 299, 367
+	offsets: 497, 153, 902, 673
+sWeapon_11_092/W_dunpai_B_B01
+	bounds: 303, 2, 292, 367
+	offsets: 80, 153, 902, 673
+
+_transparent.png
+	size: 556, 284
+	filter: Linear, Linear
+sWeapon_11_093/W_dunpai_A_B01
+	bounds: 279, 2, 275, 280
+	offsets: 511, 175, 902, 673
+sWeapon_11_093/W_dunpai_B_B01
+	bounds: 2, 2, 275, 280
+	offsets: 94, 174, 902, 673
+
+_transparent.png
+	size: 472, 316
+	filter: Linear, Linear
+sWeapon_11_094/W_dunpai_A_B01
+	bounds: 2, 3, 233, 310
+	offsets: 532, 182, 902, 673
+sWeapon_11_094/W_dunpai_B_B01
+	bounds: 237, 2, 231, 311
+	offsets: 116, 181, 902, 673
+
+_transparent.png
+	size: 620, 276
+	filter: Linear, Linear
+sWeapon_11_095/W_dunpai_A_B01
+	bounds: 2, 2, 309, 271
+	offsets: 518, 201, 902, 673
+sWeapon_11_095/W_dunpai_B_B01
+	bounds: 313, 2, 304, 271
+	offsets: 68, 201, 902, 673
+
+_transparent.png
+	size: 660, 300
+	filter: Linear, Linear
+sWeapon_11_096/W_dunpai_A_B01
+	bounds: 330, 2, 326, 294
+	offsets: 510, 190, 902, 673
+sWeapon_11_096/W_dunpai_B_B01
+	bounds: 2, 2, 326, 294
+	offsets: 94, 192, 902, 673
+
+_transparent.png
+	size: 704, 376
+	filter: Linear, Linear
+sWeapon_11_097/W_dunpai_A_B01
+	bounds: 2, 2, 349, 371
+	offsets: 491, 152, 902, 673
+sWeapon_11_097/W_dunpai_B_B01
+	bounds: 353, 3, 348, 370
+	offsets: 62, 151, 902, 673
+
+_transparent.png
+	size: 412, 260
+	filter: Linear, Linear
+sWeapon_11_098/W_dunpai_A_B01
+	bounds: 207, 2, 203, 254
+	offsets: 558, 209, 902, 673
+sWeapon_11_098/W_dunpai_B_B01
+	bounds: 2, 2, 203, 254
+	offsets: 139, 209, 902, 673
+
+_transparent.png
+	size: 596, 340
+	filter: Linear, Linear
+sWeapon_11_099/W_dunpai_A_B01
+	bounds: 299, 2, 295, 335
+	offsets: 512, 169, 902, 673
+sWeapon_11_099/W_dunpai_B_B01
+	bounds: 2, 2, 295, 335
+	offsets: 93, 169, 902, 673
+
+_transparent.png
+	size: 508, 336
+	filter: Linear, Linear
+sWeapon_11_100/W_dunpai_A_B01
+	bounds: 255, 2, 251, 331
+	offsets: 534, 172, 902, 673
+sWeapon_11_100/W_dunpai_B_B01
+	bounds: 2, 2, 251, 331
+	offsets: 117, 171, 902, 673
+
+_transparent.png
+	size: 624, 404
+	filter: Linear, Linear
+sWeapon_11_101/W_dunpai_A_B01
+	bounds: 313, 2, 309, 400
+	offsets: 497, 161, 902, 673
+sWeapon_11_101/W_dunpai_B_B01
+	bounds: 2, 2, 309, 400
+	offsets: 78, 161, 902, 673
+
+_transparent.png
+	size: 476, 452
+	filter: Linear, Linear
+sWeapon_11_10113/W_dunpai_A_B01
+	bounds: 239, 2, 235, 447
+	offsets: 552, 154, 902, 673
+sWeapon_11_10113/W_dunpai_B_B01
+	bounds: 2, 2, 235, 447
+	offsets: 124, 154, 902, 673
+
+_transparent.png
+	size: 736, 396
+	filter: Linear, Linear
+sWeapon_11_102/W_dunpai_A_B01
+	bounds: 369, 2, 365, 390
+	offsets: 477, 169, 902, 673
+sWeapon_11_102/W_dunpai_B_B01
+	bounds: 2, 2, 365, 390
+	offsets: 60, 169, 902, 673
+
+_transparent.png
+	size: 660, 448
+	filter: Linear, Linear
+sWeapon_11_10206/W_dunpai_A_B01
+	bounds: 331, 2, 327, 442
+	offsets: 497, 149, 902, 673
+sWeapon_11_10206/W_dunpai_B_B01
+	bounds: 2, 2, 327, 442
+	offsets: 73, 149, 902, 673
+
+_transparent.png
+	size: 720, 380
+	filter: Linear, Linear
+sWeapon_11_103/W_dunpai_A_B01
+	bounds: 2, 2, 358, 375
+	offsets: 481, 149, 902, 673
+sWeapon_11_103/W_dunpai_B_B01
+	bounds: 362, 3, 356, 374
+	offsets: 63, 149, 902, 673
+
+_transparent.png
+	size: 632, 324
+	filter: Linear, Linear
+sWeapon_11_104/W_dunpai_A_B01
+	bounds: 316, 2, 312, 317
+	offsets: 504, 177, 902, 673
+sWeapon_11_104/W_dunpai_B_B01
+	bounds: 2, 2, 312, 317
+	offsets: 87, 177, 902, 673
+
+_transparent.png
+	size: 632, 276
+	filter: Linear, Linear
+sWeapon_11_10408/W_dunpai_A_B01
+	bounds: 319, 4, 308, 268
+	offsets: 489, 205, 902, 673
+sWeapon_11_10408/W_dunpai_B_B01
+	bounds: 2, 2, 315, 270
+	offsets: 53, 203, 902, 673
+
+_transparent.png
+	size: 668, 356
+	filter: Linear, Linear
+sWeapon_11_105/W_dunpai_A_B01
+	bounds: 334, 2, 330, 349
+	offsets: 493, 162, 902, 673
+sWeapon_11_105/W_dunpai_B_B01
+	bounds: 2, 2, 330, 349
+	offsets: 76, 162, 902, 673
+
+_transparent.png
+	size: 480, 360
+	filter: Linear, Linear
+sWeapon_11_10501/W_dunpai_A_B01
+	bounds: 241, 2, 237, 353
+	offsets: 542, 162, 902, 673
+sWeapon_11_10501/W_dunpai_B_B01
+	bounds: 2, 2, 237, 353
+	offsets: 124, 162, 902, 673
+
+_transparent.png
+	size: 580, 364
+	filter: Linear, Linear
+sWeapon_11_10507/W_dunpai_A_B01
+	bounds: 290, 2, 286, 360
+	offsets: 513, 158, 902, 673
+sWeapon_11_10507/W_dunpai_B_B01
+	bounds: 2, 2, 286, 360
+	offsets: 94, 158, 902, 673
+
+_transparent.png
+	size: 320, 788
+	filter: Linear, Linear
+sWeapon_11_106/W_dunpai_A_B01
+	bounds: 2, 2, 315, 387
+	offsets: 502, 148, 902, 673
+sWeapon_11_106/W_dunpai_B_B01
+	bounds: 2, 391, 315, 392
+	offsets: 84, 149, 902, 673
+
+_transparent.png
+	size: 528, 424
+	filter: Linear, Linear
+sWeapon_11_10603/W_dunpai_A_B01
+	bounds: 265, 2, 261, 418
+	offsets: 526, 159, 902, 673
+sWeapon_11_10603/W_dunpai_B_B01
+	bounds: 2, 2, 261, 418
+	offsets: 107, 159, 902, 673
+
+_transparent.png
+	size: 492, 356
+	filter: Linear, Linear
+sWeapon_11_10607/W_dunpai_A_B01
+	bounds: 247, 2, 243, 352
+	offsets: 535, 191, 902, 673
+sWeapon_11_10607/W_dunpai_B_B01
+	bounds: 2, 2, 243, 352
+	offsets: 116, 193, 902, 673
+
+_transparent.png
+	size: 676, 364
+	filter: Linear, Linear
+sWeapon_11_107/W_dunpai_A_B01
+	bounds: 339, 2, 335, 358
+	offsets: 489, 177, 902, 673
+sWeapon_11_107/W_dunpai_B_B01
+	bounds: 2, 2, 335, 358
+	offsets: 72, 177, 902, 673
+
+_transparent.png
+	size: 612, 356
+	filter: Linear, Linear
+sWeapon_11_10704/W_dunpai_A_B01
+	bounds: 311, 2, 297, 351
+	offsets: 511, 161, 902, 673
+sWeapon_11_10704/W_dunpai_B_B01
+	bounds: 2, 2, 307, 351
+	offsets: 79, 161, 902, 673
+
+_transparent.png
+	size: 612, 304
+	filter: Linear, Linear
+sWeapon_11_10705/W_dunpai_A_B01
+	bounds: 307, 2, 303, 297
+	offsets: 504, 188, 902, 673
+sWeapon_11_10705/W_dunpai_B_B01
+	bounds: 2, 2, 303, 297
+	offsets: 85, 188, 902, 673
+
+_transparent.png
+	size: 624, 436
+	filter: Linear, Linear
+sWeapon_11_108/W_dunpai_A_B01
+	bounds: 313, 2, 309, 431
+	offsets: 502, 122, 902, 673
+sWeapon_11_108/W_dunpai_B_B01
+	bounds: 2, 2, 309, 431
+	offsets: 86, 119, 902, 673
+
+_transparent.png
+	size: 516, 292
+	filter: Linear, Linear
+sWeapon_11_109/W_dunpai_A_B01
+	bounds: 259, 2, 255, 288
+	offsets: 532, 192, 902, 673
+sWeapon_11_109/W_dunpai_B_B01
+	bounds: 2, 2, 255, 288
+	offsets: 114, 193, 902, 673
+
+_transparent.png
+	size: 740, 336
+	filter: Linear, Linear
+sWeapon_11_110/W_dunpai_A_B01
+	bounds: 371, 2, 367, 331
+	offsets: 481, 153, 902, 673
+sWeapon_11_110/W_dunpai_B_B01
+	bounds: 2, 2, 367, 331
+	offsets: 61, 152, 902, 673
+
+_transparent.png
+	size: 460, 232
+	filter: Linear, Linear
+sWeapon_11_8411/W_dunpai_A_B01
+	bounds: 231, 2, 227, 227
+	offsets: 552, 214, 902, 673
+sWeapon_11_8411/W_dunpai_B_B01
+	bounds: 2, 2, 227, 227
+	offsets: 124, 214, 902, 673
+
+_transparent.png
+	size: 576, 276
+	filter: Linear, Linear
+sWeapon_11_8422/W_dunpai_A_B01
+	bounds: 288, 2, 283, 271
+	offsets: 533, 199, 902, 673
+sWeapon_11_8422/W_dunpai_B_B01
+	bounds: 2, 2, 284, 271
+	offsets: 110, 199, 902, 673
+
+_transparent.png
+	size: 316, 704
+	filter: Linear, Linear
+sWeapon_11_8427/W_dunpai_A_B01
+	bounds: 2, 351, 311, 348
+	offsets: 519, 177, 902, 673
+sWeapon_11_8427/W_dunpai_B_B01
+	bounds: 2, 2, 311, 347
+	offsets: 89, 177, 902, 673
+
+_transparent.png
+	size: 488, 236
+	filter: Linear, Linear
+sWeapon_11_8440/W_dunpai_A_B01
+	bounds: 244, 2, 240, 229
+	offsets: 538, 212, 902, 673
+sWeapon_11_8440/W_dunpai_B_B01
+	bounds: 2, 2, 240, 229
+	offsets: 115, 212, 902, 673
+
+_transparent.png
+	size: 464, 228
+	filter: Linear, Linear
+sWeapon_11_8452/W_dunpai_A_B01
+	bounds: 232, 2, 228, 224
+	offsets: 547, 227, 902, 673
+sWeapon_11_8452/W_dunpai_B_B01
+	bounds: 2, 2, 228, 224
+	offsets: 123, 227, 902, 673
+
+_transparent.png
+	size: 552, 296
+	filter: Linear, Linear
+sWeapon_11_M_001/W_dunpai_A_B01
+	bounds: 276, 2, 272, 291
+	offsets: 547, 199, 902, 673
+sWeapon_11_M_001/W_dunpai_B_B01
+	bounds: 2, 2, 272, 291
+	offsets: 108, 199, 902, 673
+
+_transparent.png
+	size: 880, 268
+	filter: Linear, Linear
+sWeapon_11_M_002/W_dunpai_A_B01
+	bounds: 635, 4, 241, 259
+	offsets: 534, 199, 902, 673
+sWeapon_11_M_002/W_dunpai_B_B01
+	bounds: 392, 2, 241, 261
+	offsets: 110, 196, 902, 673
+sWeapon_11_M_002/W_dunpai_B_B02
+	bounds: 2, 9, 388, 254
+	offsets: 11, 28, 426, 315
+
+_transparent.png
+	size: 508, 324
+	filter: Linear, Linear
+sWeapon_11_M_003/W_dunpai_A_B01
+	bounds: 255, 2, 251, 318
+	offsets: 543, 164, 902, 673
+sWeapon_11_M_003/W_dunpai_B_B01
+	bounds: 2, 2, 251, 318
+	offsets: 111, 163, 902, 673
+
+_transparent.png
+	size: 280, 780
+	filter: Linear, Linear
+sWeapon_11_M_004/W_dunpai_A_B01
+	bounds: 2, 2, 276, 386
+	offsets: 518, 166, 902, 673
+sWeapon_11_M_004/W_dunpai_B_B01
+	bounds: 2, 390, 276, 387
+	offsets: 99, 164, 902, 673
+
+_transparent.png
+	size: 288, 260
+	filter: Linear, Linear
+sWeapon_12_001/W_quantao_A_B01
+	bounds: 146, 6, 137, 249
+	offsets: 408, 57, 640, 373
+sWeapon_12_001/W_quantao_B_B01
+	bounds: 2, 2, 142, 253
+	offsets: 96, 55, 640, 373
+
+sWeapon_12_002.png
+	size: 180, 500
+	filter: Linear, Linear
+sWeapon_12_002/W_quantao_A_B01
+	bounds: 2, 240, 176, 257
+	offsets: 382, 53, 640, 373
+sWeapon_12_002/W_quantao_B_B01
+	bounds: 2, 2, 170, 236
+	offsets: 81, 55, 640, 373
+
+_transparent.png
+	size: 384, 288
+	filter: Linear, Linear
+sWeapon_12_003/W_quantao_A_B01
+	bounds: 197, 2, 183, 281
+	offsets: 382, 49, 640, 373
+sWeapon_12_003/W_quantao_B_B01
+	bounds: 2, 5, 193, 278
+	offsets: 75, 49, 640, 373
+
+_transparent.png
+	size: 328, 276
+	filter: Linear, Linear
+sWeapon_12_004/W_quantao_A_B01
+	bounds: 171, 6, 153, 267
+	offsets: 397, 53, 640, 373
+sWeapon_12_004/W_quantao_B_B01
+	bounds: 2, 2, 167, 271
+	offsets: 84, 52, 640, 373
+
+_transparent.png
+	size: 292, 244
+	filter: Linear, Linear
+sWeapon_12_005/W_quantao_A_B01
+	bounds: 148, 2, 141, 237
+	offsets: 411, 53, 640, 373
+sWeapon_12_005/W_quantao_B_B01
+	bounds: 2, 5, 144, 234
+	offsets: 99, 56, 640, 373
+
+_transparent.png
+	size: 292, 268
+	filter: Linear, Linear
+sWeapon_12_006/W_quantao_A_B01
+	bounds: 155, 4, 135, 259
+	offsets: 411, 48, 640, 373
+sWeapon_12_006/W_quantao_B_B01
+	bounds: 2, 2, 151, 261
+	offsets: 94, 49, 640, 373
+
+_transparent.png
+	size: 168, 484
+	filter: Linear, Linear
+sWeapon_12_008/W_quantao_A_B01
+	bounds: 2, 240, 160, 239
+	offsets: 407, 49, 640, 373
+sWeapon_12_008/W_quantao_B_B01
+	bounds: 2, 2, 162, 236
+	offsets: 79, 52, 640, 373
+
+_transparent.png
+	size: 320, 280
+	filter: Linear, Linear
+sWeapon_12_009/W_quantao_A_B01
+	bounds: 163, 2, 154, 273
+	offsets: 398, 46, 640, 373
+sWeapon_12_009/W_quantao_B_B01
+	bounds: 2, 4, 159, 271
+	offsets: 97, 47, 640, 373
+
+_transparent.png
+	size: 164, 560
+	filter: Linear, Linear
+sWeapon_12_010/W_quantao_A_B01
+	bounds: 2, 280, 158, 277
+	offsets: 398, 45, 640, 373
+sWeapon_12_010/W_quantao_B_B01
+	bounds: 2, 2, 158, 276
+	offsets: 94, 49, 640, 373
+
+_transparent.png
+	size: 164, 496
+	filter: Linear, Linear
+sWeapon_12_011/W_quantao_A_B01
+	bounds: 2, 2, 158, 244
+	offsets: 403, 47, 640, 373
+sWeapon_12_011/W_quantao_B_B01
+	bounds: 2, 248, 158, 245
+	offsets: 89, 46, 640, 373
+
+_transparent.png
+	size: 184, 532
+	filter: Linear, Linear
+sWeapon_12_012/W_quantao_A_B01
+	bounds: 2, 2, 178, 261
+	offsets: 393, 51, 640, 373
+sWeapon_12_012/W_quantao_B_B01
+	bounds: 2, 265, 178, 264
+	offsets: 75, 48, 640, 373
+
+_transparent.png
+	size: 360, 264
+	filter: Linear, Linear
+sWeapon_12_013/W_quantao_A_B01
+	bounds: 182, 2, 175, 259
+	offsets: 406, 50, 640, 373
+sWeapon_12_013/W_quantao_B_B01
+	bounds: 2, 3, 178, 258
+	offsets: 78, 51, 640, 373
+
+_transparent.png
+	size: 188, 492
+	filter: Linear, Linear
+sWeapon_12_014/W_quantao_A_B01
+	bounds: 2, 246, 182, 243
+	offsets: 402, 53, 640, 373
+sWeapon_12_014/W_quantao_B_B01
+	bounds: 2, 2, 182, 242
+	offsets: 75, 53, 640, 373
+
+_transparent.png
+	size: 408, 288
+	filter: Linear, Linear
+sWeapon_12_015/W_quantao_A_B01
+	bounds: 205, 2, 200, 282
+	offsets: 390, 51, 640, 373
+sWeapon_12_015/W_quantao_B_B01
+	bounds: 2, 2, 201, 282
+	offsets: 67, 50, 640, 373
+
+_transparent.png
+	size: 312, 248
+	filter: Linear, Linear
+sWeapon_12_016/W_quantao_A_B01
+	bounds: 159, 2, 148, 243
+	offsets: 402, 54, 640, 373
+sWeapon_12_016/W_quantao_B_B01
+	bounds: 2, 6, 155, 239
+	offsets: 90, 57, 640, 373
+
+_transparent.png
+	size: 224, 532
+	filter: Linear, Linear
+sWeapon_12_017/W_quantao_A_B01
+	bounds: 2, 258, 211, 269
+	offsets: 371, 38, 640, 373
+sWeapon_12_017/W_quantao_B_B01
+	bounds: 2, 2, 218, 254
+	offsets: 66, 46, 640, 373
+
+_transparent.png
+	size: 396, 292
+	filter: Linear, Linear
+sWeapon_12_018/W_quantao_A_B01
+	bounds: 202, 2, 190, 287
+	offsets: 385, 40, 640, 373
+sWeapon_12_018/W_quantao_B_B01
+	bounds: 2, 2, 198, 287
+	offsets: 83, 40, 640, 373
+
+_transparent.png
+	size: 180, 576
+	filter: Linear, Linear
+sWeapon_12_019/W_quantao_A_B01
+	bounds: 2, 286, 174, 286
+	offsets: 401, 41, 640, 373
+sWeapon_12_019/W_quantao_B_B01
+	bounds: 2, 2, 176, 282
+	offsets: 76, 45, 640, 373
+
+_transparent.png
+	size: 316, 260
+	filter: Linear, Linear
+sWeapon_12_020/W_quantao_A_B01
+	bounds: 161, 2, 152, 254
+	offsets: 407, 49, 640, 373
+sWeapon_12_020/W_quantao_B_B01
+	bounds: 2, 4, 157, 252
+	offsets: 88, 47, 640, 373
+
+_transparent.png
+	size: 364, 240
+	filter: Linear, Linear
+sWeapon_12_021/W_quantao_A_B01
+	bounds: 2, 8, 184, 227
+	offsets: 380, 36, 640, 373
+sWeapon_12_021/W_quantao_B_B01
+	bounds: 188, 2, 171, 233
+	offsets: 74, 37, 640, 373
+
+_transparent.png
+	size: 416, 236
+	filter: Linear, Linear
+sWeapon_12_022/W_quantao_A_B01
+	bounds: 2, 6, 209, 228
+	offsets: 373, 53, 640, 373
+sWeapon_12_022/W_quantao_B_B01
+	bounds: 213, 2, 199, 232
+	offsets: 77, 54, 640, 373
+
+_transparent.png
+	size: 364, 276
+	filter: Linear, Linear
+sWeapon_12_023/W_quantao_A_B01
+	bounds: 2, 2, 182, 272
+	offsets: 386, 41, 640, 373
+sWeapon_12_023/W_quantao_B_B01
+	bounds: 186, 10, 175, 264
+	offsets: 91, 41, 640, 373
+
+_transparent.png
+	size: 364, 276
+	filter: Linear, Linear
+sWeapon_12_024/W_quantao_A_B01
+	bounds: 2, 2, 180, 269
+	offsets: 386, 44, 640, 373
+sWeapon_12_024/W_quantao_B_B01
+	bounds: 184, 3, 176, 268
+	offsets: 77, 43, 640, 373
+
+_transparent.png
+	size: 344, 248
+	filter: Linear, Linear
+sWeapon_12_025/W_quantao_A_B01
+	bounds: 186, 13, 153, 230
+	offsets: 402, 55, 640, 373
+sWeapon_12_025/W_quantao_B_B01
+	bounds: 2, 2, 182, 241
+	offsets: 70, 52, 640, 373
+
+_transparent.png
+	size: 376, 260
+	filter: Linear, Linear
+sWeapon_12_026/W_quantao_A_B01
+	bounds: 188, 2, 184, 253
+	offsets: 397, 46, 640, 373
+sWeapon_12_026/W_quantao_B_B01
+	bounds: 2, 2, 184, 253
+	offsets: 72, 46, 640, 373
+
+_transparent.png
+	size: 368, 272
+	filter: Linear, Linear
+sWeapon_12_027/W_quantao_A_B01
+	bounds: 188, 3, 178, 264
+	offsets: 393, 51, 640, 373
+sWeapon_12_027/W_quantao_B_B01
+	bounds: 2, 2, 184, 265
+	offsets: 87, 47, 640, 373
+
+_transparent.png
+	size: 352, 296
+	filter: Linear, Linear
+sWeapon_12_028/W_quantao_A_B01
+	bounds: 2, 4, 175, 288
+	offsets: 396, 40, 640, 373
+sWeapon_12_028/W_quantao_B_B01
+	bounds: 179, 2, 168, 290
+	offsets: 95, 40, 640, 373
+
+_transparent.png
+	size: 364, 248
+	filter: Linear, Linear
+sWeapon_12_029/W_quantao_A_B01
+	bounds: 2, 3, 179, 240
+	offsets: 391, 49, 640, 373
+sWeapon_12_029/W_quantao_B_B01
+	bounds: 183, 2, 177, 241
+	offsets: 86, 51, 640, 373
+
+_transparent.png
+	size: 368, 272
+	filter: Linear, Linear
+sWeapon_12_030/W_quantao_A_B01
+	bounds: 192, 2, 172, 266
+	offsets: 396, 39, 640, 373
+sWeapon_12_030/W_quantao_B_B01
+	bounds: 2, 5, 188, 263
+	offsets: 80, 41, 640, 373
+
+_transparent.png
+	size: 204, 604
+	filter: Linear, Linear
+sWeapon_12_031/W_quantao_A_B01
+	bounds: 2, 291, 200, 310
+	offsets: 383, 36, 640, 373
+sWeapon_12_031/W_quantao_B_B01
+	bounds: 2, 2, 192, 287
+	offsets: 73, 46, 640, 373
+
+_transparent.png
+	size: 220, 536
+	filter: Linear, Linear
+sWeapon_12_032/W_quantao_A_B01
+	bounds: 2, 2, 214, 259
+	offsets: 381, 56, 640, 373
+sWeapon_12_032/W_quantao_B_B01
+	bounds: 2, 263, 214, 271
+	offsets: 80, 45, 640, 373
+
+_transparent.png
+	size: 216, 540
+	filter: Linear, Linear
+sWeapon_12_033/W_quantao_A_B01
+	bounds: 2, 2, 212, 262
+	offsets: 376, 48, 640, 373
+sWeapon_12_033/W_quantao_B_B01
+	bounds: 2, 266, 211, 271
+	offsets: 60, 43, 640, 373
+
+_transparent.png
+	size: 192, 552
+	filter: Linear, Linear
+sWeapon_12_034/W_quantao_A_B01
+	bounds: 2, 274, 188, 273
+	offsets: 387, 44, 640, 373
+sWeapon_12_034/W_quantao_B_B01
+	bounds: 2, 2, 188, 270
+	offsets: 75, 47, 640, 373
+
+_transparent.png
+	size: 168, 828
+	filter: Linear, Linear
+sWeapon_12_035/W_quantao_A_B01
+	bounds: 2, 579, 151, 244
+	offsets: 394, 45, 640, 373
+sWeapon_12_035/W_quantao_B_B01
+	bounds: 2, 100, 141, 204
+	offsets: 88, 50, 640, 373
+sWeapon_12_035/W_quantao_B_B01_A01
+	bounds: 2, 2, 96, 158
+	offsets: 133, 126, 640, 373
+	rotate: 90
+sWeapon_12_035/W_quantao_B_B01_A02
+	bounds: 2, 304, 273, 164
+	offsets: 20, 163, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 260, 564
+	filter: Linear, Linear
+sWeapon_12_036/W_quantao_A_B01
+	bounds: 2, 2, 253, 276
+	offsets: 359, 42, 640, 373
+sWeapon_12_036/W_quantao_B_B01
+	bounds: 2, 280, 249, 282
+	offsets: 47, 48, 640, 373
+
+_transparent.png
+	size: 240, 540
+	filter: Linear, Linear
+sWeapon_12_037/W_quantao_A_B01
+	bounds: 2, 2, 234, 265
+	offsets: 366, 39, 640, 373
+sWeapon_12_037/W_quantao_B_B01
+	bounds: 2, 269, 234, 269
+	offsets: 62, 44, 640, 373
+
+_transparent.png
+	size: 368, 280
+	filter: Linear, Linear
+sWeapon_12_038/W_quantao_A_B01
+	bounds: 187, 2, 177, 273
+	offsets: 406, 43, 640, 373
+sWeapon_12_038/W_quantao_B_B01
+	bounds: 2, 5, 183, 270
+	offsets: 82, 47, 640, 373
+
+_transparent.png
+	size: 364, 300
+	filter: Linear, Linear
+sWeapon_12_039/W_quantao_A_B01
+	bounds: 189, 8, 173, 289
+	offsets: 389, 45, 640, 373
+sWeapon_12_039/W_quantao_B_B01
+	bounds: 2, 2, 185, 295
+	offsets: 84, 42, 640, 373
+
+_transparent.png
+	size: 252, 552
+	filter: Linear, Linear
+sWeapon_12_040/W_quantao_A_B01
+	bounds: 2, 2, 245, 271
+	offsets: 366, 44, 640, 373
+sWeapon_12_040/W_quantao_B_B01
+	bounds: 2, 275, 245, 274
+	offsets: 54, 47, 640, 373
+
+_transparent.png
+	size: 232, 572
+	filter: Linear, Linear
+sWeapon_12_041/W_quantao_A_B01
+	bounds: 2, 2, 226, 280
+	offsets: 373, 42, 640, 373
+sWeapon_12_041/W_quantao_B_B01
+	bounds: 2, 284, 226, 284
+	offsets: 62, 41, 640, 373
+
+_transparent.png
+	size: 236, 584
+	filter: Linear, Linear
+sWeapon_12_042/W_quantao_A_B01
+	bounds: 2, 2, 224, 261
+	offsets: 362, 44, 640, 373
+sWeapon_12_042/W_quantao_B_B01
+	bounds: 2, 265, 231, 316
+	offsets: 77, 41, 640, 373
+
+_transparent.png
+	size: 208, 512
+	filter: Linear, Linear
+sWeapon_12_043/W_quantao_A_B01
+	bounds: 2, 252, 200, 256
+	offsets: 377, 41, 640, 373
+sWeapon_12_043/W_quantao_B_B01
+	bounds: 2, 2, 201, 248
+	offsets: 83, 44, 640, 373
+
+_transparent.png
+	size: 160, 800
+	filter: Linear, Linear
+sWeapon_12_044/W_quantao_A_B01
+	bounds: 2, 232, 154, 281
+	offsets: 399, 44, 640, 373
+sWeapon_12_044/W_quantao_B_B01
+	bounds: 2, 515, 154, 281
+	offsets: 83, 42, 640, 373
+sWeapon_12_044/W_quantao_B_B01_A01
+	bounds: 2, 2, 103, 101
+sWeapon_12_044/W_quantao_B_B01_A02
+	bounds: 2, 105, 143, 125
+
+_transparent.png
+	size: 412, 296
+	filter: Linear, Linear
+sWeapon_12_045/W_quantao_A_B01
+	bounds: 207, 5, 200, 287
+	offsets: 366, 45, 640, 373
+sWeapon_12_045/W_quantao_B_B01
+	bounds: 2, 2, 203, 290
+	offsets: 90, 41, 640, 373
+
+_transparent.png
+	size: 232, 572
+	filter: Linear, Linear
+sWeapon_12_046/W_quantao_A_B01
+	bounds: 2, 2, 219, 278
+	offsets: 371, 46, 640, 373
+sWeapon_12_046/W_quantao_B_B01
+	bounds: 2, 282, 226, 287
+	offsets: 76, 42, 640, 373
+
+_transparent.png
+	size: 248, 592
+	filter: Linear, Linear
+sWeapon_12_047/W_quantao_A_B01
+	bounds: 2, 290, 241, 298
+	offsets: 348, 39, 640, 373
+sWeapon_12_047/W_quantao_B_B01
+	bounds: 2, 2, 241, 286
+	offsets: 52, 41, 640, 373
+
+_transparent.png
+	size: 276, 564
+	filter: Linear, Linear
+sWeapon_12_048/W_quantao_A_B01
+	bounds: 2, 2, 270, 277
+	offsets: 354, 45, 640, 373
+sWeapon_12_048/W_quantao_B_B01
+	bounds: 2, 281, 270, 278
+	offsets: 37, 42, 640, 373
+
+_transparent.png
+	size: 440, 288
+	filter: Linear, Linear
+sWeapon_12_049/W_quantao_A_B01
+	bounds: 2, 3, 220, 280
+	offsets: 366, 52, 640, 373
+sWeapon_12_049/W_quantao_B_B01
+	bounds: 224, 2, 214, 281
+	offsets: 77, 57, 640, 373
+
+_transparent.png
+	size: 312, 648
+	filter: Linear, Linear
+sWeapon_12_050/W_quantao_A_B01
+	bounds: 2, 318, 298, 326
+	offsets: 337, 47, 640, 373
+sWeapon_12_050/W_quantao_B_B01
+	bounds: 2, 2, 308, 314
+	offsets: 19, 50, 640, 373
+
+_transparent.png
+	size: 204, 556
+	filter: Linear, Linear
+sWeapon_12_051/W_quantao_A_B01
+	bounds: 2, 275, 198, 279
+	offsets: 384, 55, 640, 373
+sWeapon_12_051/W_quantao_B_B01
+	bounds: 2, 2, 199, 271
+	offsets: 62, 58, 640, 373
+
+_transparent.png
+	size: 200, 596
+	filter: Linear, Linear
+sWeapon_12_052/W_quantao_A_B01
+	bounds: 2, 2, 194, 292
+	offsets: 403, 40, 640, 373
+sWeapon_12_052/W_quantao_B_B01
+	bounds: 2, 296, 195, 296
+	offsets: 64, 38, 640, 373
+
+_transparent.png
+	size: 312, 260
+	filter: Linear, Linear
+sWeapon_12_053/W_quantao_A_B01
+	bounds: 2, 2, 153, 256
+	offsets: 407, 42, 640, 373
+sWeapon_12_053/W_quantao_B_B01
+	bounds: 157, 2, 151, 256
+	offsets: 100, 42, 640, 373
+
+_transparent.png
+	size: 188, 512
+	filter: Linear, Linear
+sWeapon_12_054/W_quantao_A_B01
+	bounds: 2, 2, 183, 250
+	offsets: 410, 54, 640, 373
+sWeapon_12_054/W_quantao_B_B01
+	bounds: 2, 254, 183, 254
+	offsets: 79, 57, 640, 373
+
+_transparent.png
+	size: 160, 412
+	filter: Linear, Linear
+sWeapon_12_055/W_quantao_A_B01
+	bounds: 2, 2, 156, 198
+	offsets: 401, 71, 640, 373
+sWeapon_12_055/W_quantao_B_B01
+	bounds: 2, 202, 152, 205
+	offsets: 94, 67, 640, 373
+
+_transparent.png
+	size: 224, 580
+	filter: Linear, Linear
+sWeapon_12_056/W_quantao_A_B01
+	bounds: 2, 2, 211, 282
+	offsets: 393, 60, 640, 373
+sWeapon_12_056/W_quantao_B_B01
+	bounds: 2, 286, 217, 292
+	offsets: 67, 54, 640, 373
+
+_transparent.png
+	size: 192, 488
+	filter: Linear, Linear
+sWeapon_12_057/W_quantao_A_B01
+	bounds: 2, 243, 188, 241
+	offsets: 401, 59, 640, 373
+sWeapon_12_057/W_quantao_B_B01
+	bounds: 2, 2, 188, 239
+	offsets: 80, 59, 640, 373
+
+_transparent.png
+	size: 180, 472
+	filter: Linear, Linear
+sWeapon_12_058/W_quantao_A_B01
+	bounds: 2, 2, 170, 203
+	offsets: 394, 4, 640, 373
+sWeapon_12_058/W_quantao_B_B01
+	bounds: 2, 207, 174, 262
+	offsets: 70, 5, 640, 373
+
+_transparent.png
+	size: 364, 276
+	filter: Linear, Linear
+sWeapon_12_059/W_quantao_A_B01
+	bounds: 192, 21, 169, 253
+	offsets: 401, 73, 640, 373
+sWeapon_12_059/W_quantao_B_B01
+	bounds: 2, 2, 188, 272
+	offsets: 67, 73, 640, 373
+
+_transparent.png
+	size: 364, 260
+	filter: Linear, Linear
+sWeapon_12_060/W_quantao_A_B01
+	bounds: 188, 15, 171, 241
+	offsets: 397, 57, 640, 373
+sWeapon_12_060/W_quantao_B_B01
+	bounds: 2, 2, 184, 254
+	offsets: 56, 59, 640, 373
+
+_transparent.png
+	size: 412, 276
+	filter: Linear, Linear
+sWeapon_12_061/W_quantao_A_B01
+	bounds: 211, 2, 199, 270
+	offsets: 376, 43, 640, 373
+sWeapon_12_061/W_quantao_B_B01
+	bounds: 2, 9, 207, 263
+	offsets: 60, 47, 640, 373
+
+_transparent.png
+	size: 372, 328
+	filter: Linear, Linear
+sWeapon_12_062/W_quantao_A_B01
+	bounds: 2, 2, 191, 322
+	offsets: 375, 0, 640, 373
+sWeapon_12_062/W_quantao_B_B01
+	bounds: 195, 7, 173, 317
+	offsets: 64, 1, 640, 373
+
+_transparent.png
+	size: 392, 296
+	filter: Linear, Linear
+sWeapon_12_063/W_quantao_A_B01
+	bounds: 198, 2, 189, 289
+	offsets: 395, 54, 640, 373
+sWeapon_12_063/W_quantao_B_B01
+	bounds: 2, 5, 194, 286
+	offsets: 70, 51, 640, 373
+
+_transparent.png
+	size: 160, 520
+	filter: Linear, Linear
+sWeapon_12_064/W_quantao_A_B01
+	bounds: 2, 2, 154, 254
+	offsets: 400, 3, 640, 373
+sWeapon_12_064/W_quantao_B_B01
+	bounds: 2, 258, 154, 260
+	offsets: 92, 0, 640, 373
+
+_transparent.png
+	size: 356, 296
+	filter: Linear, Linear
+sWeapon_12_065/W_quantao_A_B01
+	bounds: 180, 2, 173, 291
+	offsets: 387, 51, 640, 373
+sWeapon_12_065/W_quantao_B_B01
+	bounds: 2, 3, 176, 290
+	offsets: 91, 53, 640, 373
+
+_transparent.png
+	size: 200, 536
+	filter: Linear, Linear
+sWeapon_12_066/W_quantao_A_B01
+	bounds: 2, 2, 193, 263
+	offsets: 386, 48, 640, 373
+sWeapon_12_066/W_quantao_B_B01
+	bounds: 2, 267, 195, 266
+	offsets: 72, 53, 640, 373
+
+_transparent.png
+	size: 396, 316
+	filter: Linear, Linear
+sWeapon_12_067/W_quantao_A_B01
+	bounds: 2, 5, 197, 308
+	offsets: 387, 47, 640, 373
+sWeapon_12_067/W_quantao_B_B01
+	bounds: 201, 2, 192, 311
+	offsets: 79, 52, 640, 373
+
+_transparent.png
+	size: 180, 460
+	filter: Linear, Linear
+sWeapon_12_068/W_quantao_A_B01
+	bounds: 2, 228, 176, 230
+	offsets: 398, 40, 640, 373
+sWeapon_12_068/W_quantao_B_B01
+	bounds: 2, 2, 172, 224
+	offsets: 78, 44, 640, 373
+
+_transparent.png
+	size: 184, 468
+	filter: Linear, Linear
+sWeapon_12_069/W_quantao_A_B01
+	bounds: 2, 2, 170, 219
+	offsets: 375, 58, 640, 373
+sWeapon_12_069/W_quantao_B_B01
+	bounds: 2, 223, 178, 243
+	offsets: 94, 55, 640, 373
+
+_transparent.png
+	size: 244, 576
+	filter: Linear, Linear
+sWeapon_12_070/W_quantao_A_B01
+	bounds: 2, 2, 236, 279
+	offsets: 359, 57, 640, 373
+sWeapon_12_070/W_quantao_B_B01
+	bounds: 2, 283, 238, 288
+	offsets: 49, 50, 640, 373
+
+_transparent.png
+	size: 212, 528
+	filter: Linear, Linear
+sWeapon_12_071/W_quantao_A_B01
+	bounds: 2, 261, 207, 264
+	offsets: 380, 40, 640, 373
+sWeapon_12_071/W_quantao_B_B01
+	bounds: 2, 2, 203, 257
+	offsets: 77, 48, 640, 373
+
+_transparent.png
+	size: 368, 216
+	filter: Linear, Linear
+sWeapon_12_072/W_quantao_A_B01
+	bounds: 188, 2, 176, 209
+	offsets: 410, 39, 640, 373
+sWeapon_12_072/W_quantao_B_B01
+	bounds: 2, 2, 184, 209
+	offsets: 95, 42, 640, 373
+
+_transparent.png
+	size: 208, 556
+	filter: Linear, Linear
+sWeapon_12_073/W_quantao_A_B01
+	bounds: 2, 276, 202, 277
+	offsets: 380, 56, 640, 373
+sWeapon_12_073/W_quantao_B_B01
+	bounds: 2, 2, 201, 272
+	offsets: 73, 52, 640, 373
+
+_transparent.png
+	size: 228, 580
+	filter: Linear, Linear
+sWeapon_12_074/W_quantao_A_B01
+	bounds: 2, 2, 220, 281
+	offsets: 361, 49, 640, 373
+sWeapon_12_074/W_quantao_B_B01
+	bounds: 2, 285, 221, 291
+	offsets: 70, 38, 640, 373
+
+_transparent.png
+	size: 424, 336
+	filter: Linear, Linear
+sWeapon_12_075/W_quantao_A_B01
+	bounds: 213, 2, 209, 331
+	offsets: 386, 11, 640, 373
+sWeapon_12_075/W_quantao_B_B01
+	bounds: 2, 2, 209, 331
+	offsets: 62, 16, 640, 373
+
+_transparent.png
+	size: 216, 364
+	filter: Linear, Linear
+sWeapon_12_076/W_quantao_A_B01
+	bounds: 2, 2, 212, 172
+	offsets: 388, 72, 640, 373
+sWeapon_12_076/W_quantao_B_B01
+	bounds: 2, 176, 212, 183
+	offsets: 47, 73, 640, 373
+
+_transparent.png
+	size: 420, 296
+	filter: Linear, Linear
+sWeapon_12_077/W_quantao_A_B01
+	bounds: 2, 2, 220, 289
+	offsets: 381, 53, 640, 373
+sWeapon_12_077/W_quantao_B_B01
+	bounds: 224, 7, 191, 284
+	offsets: 84, 58, 640, 373
+
+_transparent.png
+	size: 372, 264
+	filter: Linear, Linear
+sWeapon_12_078/W_quantao_A_B01
+	bounds: 193, 12, 177, 250
+	offsets: 393, 56, 640, 373
+sWeapon_12_078/W_quantao_B_B01
+	bounds: 2, 2, 189, 260
+	offsets: 85, 57, 640, 373
+
+_transparent.png
+	size: 272, 208
+	filter: Linear, Linear
+sWeapon_12_079/W_quantao_A_B01
+	bounds: 136, 2, 131, 203
+	offsets: 404, 74, 640, 373
+sWeapon_12_079/W_quantao_B_B01
+	bounds: 2, 2, 132, 203
+	offsets: 110, 75, 640, 373
+
+_transparent.png
+	size: 368, 276
+	filter: Linear, Linear
+sWeapon_12_080/W_quantao_A_B01
+	bounds: 2, 2, 183, 269
+	offsets: 359, 4, 640, 373
+sWeapon_12_080/W_quantao_B_B01
+	bounds: 187, 5, 178, 266
+	offsets: 119, 5, 640, 373
+
+_transparent.png
+	size: 316, 240
+	filter: Linear, Linear
+sWeapon_12_081/W_quantao_A_B01
+	bounds: 2, 3, 159, 232
+	offsets: 404, 55, 640, 373
+sWeapon_12_081/W_quantao_B_B01
+	bounds: 163, 2, 151, 233
+	offsets: 98, 58, 640, 373
+
+_transparent.png
+	size: 232, 544
+	filter: Linear, Linear
+sWeapon_12_082/W_quantao_A_B01
+	bounds: 2, 2, 223, 261
+	offsets: 369, 52, 640, 373
+sWeapon_12_082/W_quantao_B_B01
+	bounds: 2, 265, 226, 274
+	offsets: 70, 52, 640, 373
+
+_transparent.png
+	size: 320, 280
+	filter: Linear, Linear
+sWeapon_12_083/W_quantao_A_B01
+	bounds: 168, 3, 147, 274
+	offsets: 406, 57, 640, 373
+sWeapon_12_083/W_quantao_B_B01
+	bounds: 2, 2, 164, 275
+	offsets: 97, 55, 640, 373
+
+_transparent.png
+	size: 372, 284
+	filter: Linear, Linear
+sWeapon_12_084/W_quantao_A_B01
+	bounds: 189, 2, 179, 277
+	offsets: 381, 49, 640, 373
+sWeapon_12_084/W_quantao_B_B01
+	bounds: 2, 9, 185, 270
+	offsets: 93, 53, 640, 373
+
+_transparent.png
+	size: 396, 260
+	filter: Linear, Linear
+sWeapon_12_085/W_quantao_A_B01
+	bounds: 2, 2, 203, 254
+	offsets: 368, 57, 640, 373
+sWeapon_12_085/W_quantao_B_B01
+	bounds: 207, 7, 186, 249
+	offsets: 91, 56, 640, 373
+
+_transparent.png
+	size: 196, 568
+	filter: Linear, Linear
+sWeapon_12_086/W_quantao_A_B01
+	bounds: 2, 2, 187, 278
+	offsets: 387, 54, 640, 373
+sWeapon_12_086/W_quantao_B_B01
+	bounds: 2, 282, 191, 284
+	offsets: 79, 51, 640, 373
+
+_transparent.png
+	size: 368, 292
+	filter: Linear, Linear
+sWeapon_12_087/W_quantao_A_B01
+	bounds: 187, 2, 178, 286
+	offsets: 404, 49, 640, 373
+sWeapon_12_087/W_quantao_B_B01
+	bounds: 2, 7, 183, 281
+	offsets: 88, 50, 640, 373
+
+_transparent.png
+	size: 372, 276
+	filter: Linear, Linear
+sWeapon_12_088/W_quantao_A_B01
+	bounds: 190, 5, 179, 267
+	offsets: 386, 48, 640, 373
+sWeapon_12_088/W_quantao_B_B01
+	bounds: 2, 2, 186, 270
+	offsets: 79, 45, 640, 373
+
+_transparent.png
+	size: 212, 676
+	filter: Linear, Linear
+sWeapon_12_089/W_quantao_A_B01
+	bounds: 2, 338, 206, 335
+	offsets: 378, 1, 640, 373
+sWeapon_12_089/W_quantao_B_B01
+	bounds: 2, 2, 206, 334
+	offsets: 76, 0, 640, 373
+
+_transparent.png
+	size: 196, 592
+	filter: Linear, Linear
+sWeapon_12_090/W_quantao_A_B01
+	bounds: 2, 2, 182, 284
+	offsets: 400, 50, 640, 373
+sWeapon_12_090/W_quantao_B_B01
+	bounds: 2, 288, 189, 299
+	offsets: 81, 44, 640, 373
+
+_transparent.png
+	size: 428, 304
+	filter: Linear, Linear
+sWeapon_12_091/W_quantao_A_B01
+	bounds: 2, 7, 212, 293
+	offsets: 385, 44, 640, 373
+sWeapon_12_091/W_quantao_B_B01
+	bounds: 216, 2, 208, 298
+	offsets: 72, 44, 640, 373
+
+_transparent.png
+	size: 436, 308
+	filter: Linear, Linear
+sWeapon_12_092/W_quantao_A_B01
+	bounds: 221, 2, 213, 302
+	offsets: 379, 43, 640, 373
+sWeapon_12_092/W_quantao_B_B01
+	bounds: 2, 2, 217, 302
+	offsets: 61, 37, 640, 373
+
+_transparent.png
+	size: 364, 220
+	filter: Linear, Linear
+sWeapon_12_093/W_quantao_A_B01
+	bounds: 183, 2, 177, 216
+	offsets: 406, 49, 640, 373
+sWeapon_12_093/W_quantao_B_B01
+	bounds: 2, 2, 179, 216
+	offsets: 75, 48, 640, 373
+
+_transparent.png
+	size: 196, 452
+	filter: Linear, Linear
+sWeapon_12_094/W_quantao_A_B01
+	bounds: 2, 224, 191, 223
+	offsets: 404, 55, 640, 373
+sWeapon_12_094/W_quantao_B_B01
+	bounds: 2, 2, 189, 220
+	offsets: 52, 52, 640, 373
+
+_transparent.png
+	size: 200, 564
+	filter: Linear, Linear
+sWeapon_12_095/W_quantao_A_B01
+	bounds: 2, 279, 195, 282
+	offsets: 394, 45, 640, 373
+sWeapon_12_095/W_quantao_B_B01
+	bounds: 2, 2, 195, 275
+	offsets: 73, 43, 640, 373
+
+_transparent.png
+	size: 272, 848
+	filter: Linear, Linear
+sWeapon_12_096/W_quantao_A_A01
+	bounds: 2, 3, 140, 151
+	rotate: 90
+sWeapon_12_096/W_quantao_A_A02
+	bounds: 155, 2, 113, 141
+sWeapon_12_096/W_quantao_A_B01
+	bounds: 2, 491, 253, 355
+	offsets: 367, 15, 640, 373
+sWeapon_12_096/W_quantao_B_B01
+	bounds: 2, 145, 247, 344
+	offsets: 53, 20, 640, 373
+
+_transparent.png
+	size: 432, 340
+	filter: Linear, Linear
+sWeapon_12_097/W_quantao_A_B01
+	bounds: 2, 5, 214, 333
+	offsets: 384, 34, 640, 373
+sWeapon_12_097/W_quantao_B_B01
+	bounds: 218, 2, 210, 336
+	offsets: 74, 37, 640, 373
+
+_transparent.png
+	size: 224, 148
+	filter: Linear, Linear
+sWeapon_12_098/W_quantao_A_B01
+	bounds: 2, 2, 108, 143
+	offsets: 426, 58, 640, 373
+sWeapon_12_098/W_quantao_B_B01
+	bounds: 112, 2, 107, 143
+	offsets: 109, 58, 640, 373
+
+_transparent.png
+	size: 284, 212
+	filter: Linear, Linear
+sWeapon_12_099/W_quantao_A_B01
+	bounds: 146, 2, 136, 207
+	offsets: 419, 37, 640, 373
+sWeapon_12_099/W_quantao_B_B01
+	bounds: 2, 6, 142, 203
+	offsets: 111, 39, 640, 373
+
+_transparent.png
+	size: 432, 320
+	filter: Linear, Linear
+sWeapon_12_100/W_quantao_A_B01
+	bounds: 2, 2, 214, 313
+	offsets: 374, 45, 640, 373
+sWeapon_12_100/W_quantao_B_B01
+	bounds: 218, 5, 209, 310
+	offsets: 73, 52, 640, 373
+
+_transparent.png
+	size: 432, 320
+	filter: Linear, Linear
+sWeapon_12_101/W_quantao_A_B01
+	bounds: 2, 2, 213, 314
+	offsets: 377, 45, 640, 373
+sWeapon_12_101/W_quantao_B_B01
+	bounds: 217, 2, 212, 314
+	offsets: 56, 51, 640, 373
+
+_transparent.png
+	size: 332, 204
+	filter: Linear, Linear
+sWeapon_12_10111/W_quantao_A_B01
+	bounds: 169, 2, 158, 197
+	offsets: 394, 52, 640, 373
+sWeapon_12_10111/W_quantao_B_B01
+	bounds: 2, 3, 165, 196
+	offsets: 93, 58, 640, 373
+
+_transparent.png
+	size: 156, 432
+	filter: Linear, Linear
+sWeapon_12_102/W_quantao_A_B01
+	bounds: 2, 2, 150, 211
+	offsets: 411, 62, 640, 373
+sWeapon_12_102/W_quantao_B_B01
+	bounds: 2, 215, 150, 213
+	offsets: 97, 60, 640, 373
+
+_transparent.png
+	size: 456, 312
+	filter: Linear, Linear
+sWeapon_12_103/W_quantao_A_B01
+	bounds: 231, 7, 223, 300
+	offsets: 367, 46, 640, 373
+sWeapon_12_103/W_quantao_B_B01
+	bounds: 2, 2, 227, 305
+	offsets: 53, 45, 640, 373
+
+_transparent.png
+	size: 420, 308
+	filter: Linear, Linear
+sWeapon_12_104/W_quantao_A_B01
+	bounds: 212, 2, 206, 304
+	offsets: 386, 47, 640, 373
+sWeapon_12_104/W_quantao_B_B01
+	bounds: 2, 3, 208, 303
+	offsets: 69, 48, 640, 373
+
+_transparent.png
+	size: 208, 568
+	filter: Linear, Linear
+sWeapon_12_10411/W_quantao_A_B01
+	bounds: 2, 278, 201, 287
+	offsets: 371, 50, 640, 373
+sWeapon_12_10411/W_quantao_B_B01
+	bounds: 2, 2, 204, 274
+	offsets: 79, 56, 640, 373
+
+_transparent.png
+	size: 444, 304
+	filter: Linear, Linear
+sWeapon_12_105/W_quantao_A_B01
+	bounds: 225, 2, 216, 299
+	offsets: 378, 49, 640, 373
+sWeapon_12_105/W_quantao_B_B01
+	bounds: 2, 3, 221, 298
+	offsets: 65, 55, 640, 373
+
+_transparent.png
+	size: 268, 540
+	filter: Linear, Linear
+sWeapon_12_10505/W_quantao_A_B01
+	bounds: 2, 267, 263, 268
+	offsets: 357, 56, 640, 373
+sWeapon_12_10505/W_quantao_B_B01
+	bounds: 2, 2, 263, 263
+	offsets: 29, 52, 640, 373
+
+_transparent.png
+	size: 172, 520
+	filter: Linear, Linear
+sWeapon_12_106/W_quantao_A_B01
+	bounds: 2, 2, 164, 253
+	offsets: 405, 48, 640, 373
+sWeapon_12_106/W_quantao_B_B01
+	bounds: 2, 257, 166, 258
+	offsets: 89, 47, 640, 373
+
+_transparent.png
+	size: 180, 616
+	filter: Linear, Linear
+sWeapon_12_10602/W_quantao_A_B01
+	bounds: 2, 307, 173, 307
+	offsets: 398, 12, 640, 373
+sWeapon_12_10602/W_quantao_B_B01
+	bounds: 2, 2, 173, 303
+	offsets: 89, 9, 640, 373
+
+_transparent.png
+	size: 232, 680
+	filter: Linear, Linear
+sWeapon_12_10606/W_quantao_A_B01
+	bounds: 2, 2, 214, 326
+	offsets: 358, 0, 640, 373
+sWeapon_12_10606/W_quantao_B_B01
+	bounds: 2, 330, 226, 345
+	offsets: 80, 0, 640, 373
+
+_transparent.png
+	size: 452, 312
+	filter: Linear, Linear
+sWeapon_12_107/W_quantao_A_B01
+	bounds: 230, 2, 217, 305
+	offsets: 370, 46, 640, 373
+sWeapon_12_107/W_quantao_B_B01
+	bounds: 2, 7, 226, 300
+	offsets: 95, 50, 640, 373
+
+_transparent.png
+	size: 164, 520
+	filter: Linear, Linear
+sWeapon_12_10703/W_quantao_A_B01
+	bounds: 2, 258, 157, 258
+	offsets: 408, 55, 640, 373
+sWeapon_12_10703/W_quantao_B_B01
+	bounds: 2, 2, 155, 254
+	offsets: 90, 57, 640, 373
+
+_transparent.png
+	size: 308, 320
+	filter: Linear, Linear
+sWeapon_12_10707/W_quantao_A_B01
+	bounds: 2, 3, 157, 313
+	offsets: 409, 0, 640, 373
+sWeapon_12_10707/W_quantao_B_B01
+	bounds: 161, 2, 145, 314
+	offsets: 86, 0, 640, 373
+
+_transparent.png
+	size: 192, 592
+	filter: Linear, Linear
+sWeapon_12_108/W_quantao_A_B01
+	bounds: 2, 2, 185, 291
+	offsets: 388, 49, 640, 373
+sWeapon_12_108/W_quantao_B_B01
+	bounds: 2, 295, 187, 295
+	offsets: 89, 45, 640, 373
+
+_transparent.png
+	size: 252, 168
+	filter: Linear, Linear
+sWeapon_12_109/W_quantao_A_B01
+	bounds: 2, 2, 123, 163
+	offsets: 425, 24, 640, 373
+sWeapon_12_109/W_quantao_B_B01
+	bounds: 127, 2, 122, 163
+	offsets: 100, 24, 640, 373
+
+_transparent.png
+	size: 456, 296
+	filter: Linear, Linear
+sWeapon_12_110/W_quantao_A_B01
+	bounds: 2, 2, 226, 289
+	offsets: 375, 29, 640, 373
+sWeapon_12_110/W_quantao_B_B01
+	bounds: 230, 3, 224, 288
+	offsets: 63, 24, 640, 373
+
+_transparent.png
+	size: 344, 232
+	filter: Linear, Linear
+sWeapon_12_8408/W_quantao_A_B01
+	bounds: 180, 23, 159, 204
+	offsets: 402, 40, 640, 373
+sWeapon_12_8408/W_quantao_B_B01
+	bounds: 2, 2, 176, 225
+	offsets: 70, 45, 640, 373
+
+_transparent.png
+	size: 328, 304
+	filter: Linear, Linear
+sWeapon_12_8421/W_quantao_A_B01
+	bounds: 173, 2, 151, 297
+	offsets: 404, 41, 640, 373
+sWeapon_12_8421/W_quantao_B_B01
+	bounds: 2, 11, 169, 288
+	offsets: 77, 48, 640, 373
+
+_transparent.png
+	size: 384, 288
+	filter: Linear, Linear
+sWeapon_12_8423/W_quantao_A_B01
+	bounds: 200, 2, 181, 283
+	offsets: 396, 55, 640, 373
+sWeapon_12_8423/W_quantao_B_B01
+	bounds: 2, 4, 196, 281
+	offsets: 73, 57, 640, 373
+
+_transparent.png
+	size: 228, 484
+	filter: Linear, Linear
+sWeapon_12_8438/W_quantao_A_B01
+	bounds: 2, 235, 221, 245
+	offsets: 375, 48, 640, 373
+sWeapon_12_8438/W_quantao_B_B01
+	bounds: 2, 2, 220, 231
+	offsets: 54, 55, 640, 373
+
+_transparent.png
+	size: 336, 228
+	filter: Linear, Linear
+sWeapon_12_8442/W_quantao_A_B01
+	bounds: 172, 10, 161, 216
+	offsets: 390, 61, 640, 373
+sWeapon_12_8442/W_quantao_B_B01
+	bounds: 2, 2, 168, 224
+	offsets: 95, 59, 640, 373
+
+_transparent.png
+	size: 168, 496
+	filter: Linear, Linear
+sWeapon_12_8452/W_quantao_A_B01
+	bounds: 2, 244, 163, 247
+	offsets: 403, 49, 640, 373
+sWeapon_12_8452/W_quantao_B_B01
+	bounds: 2, 2, 163, 240
+	offsets: 92, 58, 640, 373
+
+_transparent.png
+	size: 400, 276
+	filter: Linear, Linear
+sWeapon_12_8454/W_quantao_A_B01
+	bounds: 200, 2, 195, 271
+	offsets: 387, 48, 640, 373
+sWeapon_12_8454/W_quantao_B_B01
+	bounds: 2, 3, 196, 270
+	offsets: 75, 59, 640, 373
+
+_transparent.png
+	size: 312, 256
+	filter: Linear, Linear
+sWeapon_12_M_001/W_quantao_A_B01
+	bounds: 162, 2, 146, 250
+	offsets: 408, 50, 640, 373
+sWeapon_12_M_001/W_quantao_B_B01
+	bounds: 2, 5, 158, 247
+	offsets: 93, 52, 640, 373
+
+_transparent.png
+	size: 184, 572
+	filter: Linear, Linear
+sWeapon_12_M_002/W_quantao_A_B01
+	bounds: 2, 284, 178, 286
+	offsets: 390, 9, 640, 373
+sWeapon_12_M_002/W_quantao_B_B01
+	bounds: 2, 2, 180, 280
+	offsets: 86, 13, 640, 373
+
+_transparent.png
+	size: 400, 256
+	filter: Linear, Linear
+sWeapon_12_M_003/W_quantao_A_B01
+	bounds: 2, 2, 197, 251
+	offsets: 406, 20, 640, 373
+sWeapon_12_M_003/W_quantao_B_B01
+	bounds: 201, 3, 195, 250
+	offsets: 88, 20, 640, 373
+
+_transparent.png
+	size: 372, 248
+	filter: Linear, Linear
+sWeapon_12_M_004/W_quantao_A_B01
+	bounds: 186, 2, 182, 244
+	offsets: 387, 38, 640, 373
+sWeapon_12_M_004/W_quantao_B_B01
+	bounds: 2, 2, 182, 244
+	offsets: 81, 38, 640, 373
+
+_transparent.png
+	size: 148, 148
+	filter: Linear, Linear
+sWeapon_21_001/W_faqiu_A_B01
+	bounds: 2, 2, 141, 141
+	offsets: 249, 116, 640, 373
+
+sWeapon_21_002.png
+	size: 212, 204
+	filter: Linear, Linear
+sWeapon_21_002/W_faqiu_A_B01
+	bounds: 2, 2, 207, 197
+	offsets: 219, 91, 640, 373
+
+_transparent.png
+	size: 200, 232
+	filter: Linear, Linear
+sWeapon_21_003/W_faqiu_A_B01
+	bounds: 2, 2, 194, 227
+	offsets: 223, 79, 640, 373
+
+_transparent.png
+	size: 208, 188
+	filter: Linear, Linear
+sWeapon_21_004/W_faqiu_A_B01
+	bounds: 2, 2, 204, 182
+	offsets: 218, 120, 640, 373
+
+_transparent.png
+	size: 184, 168
+	filter: Linear, Linear
+sWeapon_21_005/W_faqiu_A_B01
+	bounds: 2, 2, 178, 163
+	offsets: 231, 101, 640, 373
+
+_transparent.png
+	size: 308, 204
+	filter: Linear, Linear
+sWeapon_21_006/W_faqiu_A_B01
+	bounds: 2, 2, 210, 199
+	offsets: 215, 87, 640, 373
+sWeapon_21_006/W_faqiu_A_B01_A01
+	bounds: 214, 97, 91, 104
+
+_transparent.png
+	size: 192, 196
+	filter: Linear, Linear
+sWeapon_21_008/W_faqiu_A_B01
+	bounds: 2, 2, 185, 192
+	offsets: 223, 98, 640, 373
+
+_transparent.png
+	size: 228, 196
+	filter: Linear, Linear
+sWeapon_21_009/W_faqiu_A_B01
+	bounds: 2, 2, 224, 191
+	offsets: 208, 92, 640, 373
+
+_transparent.png
+	size: 188, 180
+	filter: Linear, Linear
+sWeapon_21_010/W_faqiu_A_B01
+	bounds: 2, 2, 184, 175
+	offsets: 228, 97, 640, 373
+
+_transparent.png
+	size: 168, 196
+	filter: Linear, Linear
+sWeapon_21_011/W_faqiu_A_B01
+	bounds: 2, 2, 164, 192
+	offsets: 238, 90, 640, 373
+
+_transparent.png
+	size: 188, 212
+	filter: Linear, Linear
+sWeapon_21_012/W_faqiu_A_B01
+	bounds: 2, 2, 184, 208
+	offsets: 228, 86, 640, 373
+
+_transparent.png
+	size: 240, 260
+	filter: Linear, Linear
+sWeapon_21_013/W_faqiu_A_B01
+	bounds: 2, 2, 234, 256
+	offsets: 203, 74, 640, 373
+
+_transparent.png
+	size: 200, 192
+	filter: Linear, Linear
+sWeapon_21_014/W_faqiu_A_B01
+	bounds: 2, 2, 196, 187
+	offsets: 222, 97, 640, 373
+
+_transparent.png
+	size: 380, 224
+	filter: Linear, Linear
+sWeapon_21_015/W_faqiu_A_B01
+	bounds: 276, 121, 99, 100
+	offsets: 275, 131, 640, 373
+sWeapon_21_015/W_faqiu_A_B01_A01
+	bounds: 2, 2, 277, 219
+	offsets: 185, 71, 640, 373
+
+_transparent.png
+	size: 156, 220
+	filter: Linear, Linear
+sWeapon_21_016/W_faqiu_A_B01
+	bounds: 2, 2, 151, 215
+	offsets: 245, 84, 640, 373
+
+_transparent.png
+	size: 192, 144
+	filter: Linear, Linear
+sWeapon_21_017/W_faqiu_A_B01
+	bounds: 2, 2, 186, 140
+	offsets: 227, 112, 640, 373
+
+_transparent.png
+	size: 324, 184
+	filter: Linear, Linear
+sWeapon_21_018/W_faqiu_A_B01
+	bounds: 2, 2, 230, 178
+	offsets: 205, 109, 640, 373
+sWeapon_21_018/W_faqiu_A_B01_A01
+	bounds: 234, 87, 85, 93
+
+_transparent.png
+	size: 316, 204
+	filter: Linear, Linear
+sWeapon_21_019/W_faqiu_A_B01
+	bounds: 2, 2, 260, 197
+	offsets: 199, 113, 640, 373
+sWeapon_21_019/W_faqiu_A_B01_A01
+	bounds: 264, 73, 47, 126
+	offsets: 10, 0, 66, 136
+
+_transparent.png
+	size: 296, 140
+	filter: Linear, Linear
+sWeapon_21_020/W_faqiu_A_B01
+	bounds: 2, 2, 289, 136
+	offsets: 171, 118, 640, 373
+
+_transparent.png
+	size: 240, 204
+	filter: Linear, Linear
+sWeapon_21_021/W_faqiu_A_B01
+	bounds: 2, 2, 233, 199
+	offsets: 202, 103, 640, 373
+
+_transparent.png
+	size: 144, 148
+	filter: Linear, Linear
+sWeapon_21_022/W_faqiu_A_B01
+	bounds: 2, 2, 140, 141
+	offsets: 248, 117, 640, 373
+
+_transparent.png
+	size: 224, 184
+	filter: Linear, Linear
+sWeapon_21_023/W_faqiu_A_B01
+	bounds: 2, 2, 220, 177
+	offsets: 210, 110, 640, 373
+
+_transparent.png
+	size: 196, 292
+	filter: Linear, Linear
+sWeapon_21_024/W_faqiu_A_B01
+	bounds: 2, 49, 191, 241
+	offsets: 222, 99, 640, 373
+sWeapon_21_024/W_faqiu_A_B01_B01
+	bounds: 2, 2, 45, 86
+	offsets: 9, 7, 63, 104
+	rotate: 90
+
+_transparent.png
+	size: 164, 244
+	filter: Linear, Linear
+sWeapon_21_025/W_faqiu_A_B01
+	bounds: 2, 2, 157, 240
+	offsets: 245, 69, 640, 373
+
+_transparent.png
+	size: 152, 244
+	filter: Linear, Linear
+sWeapon_21_026/W_faqiu_A_B01
+	bounds: 2, 75, 146, 167
+	offsets: 247, 127, 640, 373
+sWeapon_21_026/W_faqiu_A_B01_B01
+	bounds: 2, 2, 71, 91
+	offsets: 5, 0, 83, 103
+	rotate: 90
+
+_transparent.png
+	size: 148, 204
+	filter: Linear, Linear
+sWeapon_21_027/W_faqiu_A_B01
+	bounds: 2, 2, 144, 199
+	offsets: 248, 88, 640, 373
+
+_transparent.png
+	size: 360, 204
+	filter: Linear, Linear
+sWeapon_21_028/W_faqiu_A_B01
+	bounds: 2, 2, 266, 197
+	offsets: 194, 106, 640, 373
+sWeapon_21_028/W_faqiu_A_B01_A01
+	bounds: 270, 66, 86, 133
+	offsets: 10, 9, 96, 142
+
+_transparent.png
+	size: 152, 236
+	filter: Linear, Linear
+sWeapon_21_029/W_faqiu_A_B01
+	bounds: 2, 2, 145, 230
+	offsets: 252, 72, 640, 373
+
+_transparent.png
+	size: 252, 236
+	filter: Linear, Linear
+sWeapon_21_030/W_faqiu_A_B01
+	bounds: 2, 2, 246, 230
+	offsets: 197, 67, 640, 373
+
+_transparent.png
+	size: 224, 208
+	filter: Linear, Linear
+sWeapon_21_031/W_faqiu_A_B01
+	bounds: 2, 2, 217, 204
+	offsets: 225, 85, 640, 373
+
+_transparent.png
+	size: 272, 168
+	filter: Linear, Linear
+sWeapon_21_032/W_faqiu_A_B01
+	bounds: 2, 2, 226, 164
+	offsets: 207, 136, 640, 373
+sWeapon_21_032/W_faqiu_A_B01_A01
+	bounds: 230, 67, 37, 99
+	offsets: 12, 5, 59, 110
+
+_transparent.png
+	size: 356, 204
+	filter: Linear, Linear
+sWeapon_21_033/W_faqiu_A_B01
+	bounds: 2, 2, 294, 199
+	offsets: 173, 138, 640, 373
+sWeapon_21_033/W_faqiu_A_B01_A01
+	bounds: 298, 79, 56, 122
+	offsets: 17, 11, 89, 145
+
+_transparent.png
+	size: 252, 272
+	filter: Linear, Linear
+sWeapon_21_034/W_faqiu_A_B01
+	bounds: 2, 2, 247, 266
+	offsets: 197, 54, 640, 373
+
+_transparent.png
+	size: 368, 256
+	filter: Linear, Linear
+sWeapon_21_035/W_faqiu_A_B01
+	bounds: 55, 2, 120, 258
+	offsets: 262, 49, 640, 373
+	rotate: 270
+sWeapon_21_035/W_faqiu_A_B01_B01
+	bounds: 2, 82, 361, 169
+	offsets: 143, 121, 640, 373
+
+_transparent.png
+	size: 280, 216
+	filter: Linear, Linear
+sWeapon_21_036/W_faqiu_A_B01
+	bounds: 2, 2, 274, 211
+	offsets: 183, 81, 640, 373
+
+_transparent.png
+	size: 268, 216
+	filter: Linear, Linear
+sWeapon_21_037/W_faqiu_A_B01
+	bounds: 2, 2, 262, 212
+	offsets: 189, 100, 640, 373
+
+_transparent.png
+	size: 216, 240
+	filter: Linear, Linear
+sWeapon_21_038/W_faqiu_A_B01
+	bounds: 2, 2, 210, 234
+	offsets: 213, 69, 640, 373
+
+_transparent.png
+	size: 284, 196
+	filter: Linear, Linear
+sWeapon_21_039/W_faqiu_A_B01
+	bounds: 2, 2, 280, 191
+	offsets: 180, 106, 640, 373
+
+_transparent.png
+	size: 292, 216
+	filter: Linear, Linear
+sWeapon_21_040/W_faqiu_A_B01
+	bounds: 2, 2, 288, 212
+	offsets: 176, 91, 640, 373
+
+_transparent.png
+	size: 288, 316
+	filter: Linear, Linear
+sWeapon_21_041/W_faqiu_A_B01
+	bounds: 2, 97, 234, 216
+	offsets: 203, 101, 640, 373
+sWeapon_21_041/W_faqiu_A_B01_B01
+	bounds: 238, 96, 47, 89
+	offsets: 7, 7, 62, 104
+sWeapon_21_041/W_faqiu_A_B01_B02
+	bounds: 2, 2, 276, 93
+	offsets: 10, 9, 296, 112
+
+_transparent.png
+	size: 232, 292
+	filter: Linear, Linear
+sWeapon_21_042/W_faqiu_A_B01
+	bounds: 2, 2, 225, 286
+	offsets: 203, 77, 640, 373
+
+_transparent.png
+	size: 176, 228
+	filter: Linear, Linear
+sWeapon_21_043/W_faqiu_A_B01
+	bounds: 2, 2, 170, 222
+	offsets: 235, 82, 640, 373
+
+_transparent.png
+	size: 392, 200
+	filter: Linear, Linear
+sWeapon_21_044/W_faqiu_A_B01
+	bounds: 2, 2, 223, 196
+	offsets: 207, 88, 640, 373
+sWeapon_21_044/W_faqiu_A_B01_A01
+	bounds: 227, 26, 172, 161
+	rotate: 90
+
+_transparent.png
+	size: 224, 280
+	filter: Linear, Linear
+sWeapon_21_045/W_faqiu_A_B01
+	bounds: 2, 2, 219, 276
+	offsets: 202, 63, 640, 373
+
+_transparent.png
+	size: 372, 208
+	filter: Linear, Linear
+sWeapon_21_046/W_faqiu_A_B01
+	bounds: 2, 2, 282, 202
+	offsets: 179, 122, 640, 373
+sWeapon_21_046/W_faqiu_A_B01_A01
+	bounds: 286, 54, 84, 150
+
+_transparent.png
+	size: 328, 280
+	filter: Linear, Linear
+sWeapon_21_047/W_faqiu_A_B01
+	bounds: 2, 2, 324, 275
+	offsets: 158, 49, 640, 373
+
+_transparent.png
+	size: 376, 264
+	filter: Linear, Linear
+sWeapon_21_048/W_faqiu_A_B01
+	bounds: 2, 2, 372, 259
+	offsets: 144, 80, 640, 373
+
+_transparent.png
+	size: 300, 300
+	filter: Linear, Linear
+sWeapon_21_049/W_faqiu_A_B01
+	bounds: 2, 2, 296, 295
+	offsets: 172, 62, 640, 373
+
+_transparent.png
+	size: 452, 288
+	filter: Linear, Linear
+sWeapon_21_050/W_faqiu_A_A01
+	bounds: 306, 68, 142, 217
+	offsets: 12, 10, 174, 227
+sWeapon_21_050/W_faqiu_A_A02
+	bounds: 399, 27, 45, 58
+	offsets: 4, 4, 53, 66
+sWeapon_21_050/W_faqiu_A_A03
+	bounds: 306, 11, 92, 70
+	offsets: 17, 62, 174, 227
+sWeapon_21_050/W_faqiu_A_B01
+	bounds: 2, 2, 302, 283
+	offsets: 169, 68, 640, 373
+
+_transparent.png
+	size: 148, 360
+	filter: Linear, Linear
+sWeapon_21_051/W_faqiu_A_A01
+	bounds: 119, 89, 26, 28
+	offsets: 19, 17, 64, 63
+sWeapon_21_051/W_faqiu_A_A02
+	bounds: 2, 2, 115, 115
+sWeapon_21_051/W_faqiu_A_B01
+	bounds: 2, 119, 142, 238
+	offsets: 249, 67, 640, 373
+
+_transparent.png
+	size: 272, 308
+	filter: Linear, Linear
+sWeapon_21_052/W_faqiu_A_B01
+	bounds: 2, 2, 267, 304
+	offsets: 186, 57, 640, 373
+
+_transparent.png
+	size: 668, 136
+	filter: Linear, Linear
+sWeapon_21_053/W_faqiu_A_B01
+	bounds: 511, 2, 132, 153
+	offsets: 255, 123, 640, 373
+	rotate: 90
+sWeapon_21_053/W_faqiu_A_B02
+	bounds: 155, 14, 356, 120
+	offsets: 8, 7, 373, 143
+sWeapon_21_053/W_faqiu_A_B03
+	bounds: 2, 18, 151, 116
+
+_transparent.png
+	size: 180, 196
+	filter: Linear, Linear
+sWeapon_21_054/W_faqiu_A_B01
+	bounds: 2, 2, 176, 189
+	offsets: 232, 104, 640, 373
+
+_transparent.png
+	size: 180, 224
+	filter: Linear, Linear
+sWeapon_21_055/W_faqiu_A_B01
+	bounds: 2, 2, 173, 219
+	offsets: 228, 91, 640, 373
+
+_transparent.png
+	size: 232, 232
+	filter: Linear, Linear
+sWeapon_21_056/W_faqiu_A_B01
+	bounds: 2, 2, 228, 228
+	offsets: 206, 75, 640, 373
+
+_transparent.png
+	size: 172, 224
+	filter: Linear, Linear
+sWeapon_21_057/W_faqiu_A_B01
+	bounds: 2, 2, 165, 220
+	offsets: 238, 83, 640, 373
+
+_transparent.png
+	size: 156, 216
+	filter: Linear, Linear
+sWeapon_21_058/W_faqiu_A_B01
+	bounds: 2, 2, 152, 210
+	offsets: 244, 93, 640, 373
+
+_transparent.png
+	size: 240, 260
+	filter: Linear, Linear
+sWeapon_21_059/W_faqiu_A_B01
+	bounds: 2, 2, 234, 253
+	offsets: 210, 48, 640, 373
+
+_transparent.png
+	size: 212, 220
+	filter: Linear, Linear
+sWeapon_21_060/W_faqiu_A_B01
+	bounds: 2, 2, 206, 213
+	offsets: 217, 84, 640, 373
+
+_transparent.png
+	size: 260, 224
+	filter: Linear, Linear
+sWeapon_21_061/W_faqiu_A_B01
+	bounds: 2, 2, 253, 218
+	offsets: 194, 85, 640, 373
+
+_transparent.png
+	size: 204, 224
+	filter: Linear, Linear
+sWeapon_21_062/W_faqiu_A_B01
+	bounds: 2, 2, 200, 217
+	offsets: 221, 78, 640, 373
+
+_transparent.png
+	size: 188, 264
+	filter: Linear, Linear
+sWeapon_21_063/W_faqiu_A_B01
+	bounds: 2, 2, 182, 257
+	offsets: 221, 78, 640, 373
+
+_transparent.png
+	size: 196, 240
+	filter: Linear, Linear
+sWeapon_21_064/W_faqiu_A_B01
+	bounds: 2, 2, 191, 234
+	offsets: 225, 88, 640, 373
+
+_transparent.png
+	size: 216, 232
+	filter: Linear, Linear
+sWeapon_21_065/W_faqiu_A_B01
+	bounds: 2, 2, 209, 226
+	offsets: 225, 88, 640, 373
+
+_transparent.png
+	size: 180, 284
+	filter: Linear, Linear
+sWeapon_21_066/W_faqiu_A_A01
+	bounds: 2, 2, 114, 69
+sWeapon_21_066/W_faqiu_A_B01
+	bounds: 2, 73, 173, 209
+	offsets: 250, 82, 640, 373
+
+_transparent.png
+	size: 208, 204
+	filter: Linear, Linear
+sWeapon_21_067/W_faqiu_A_B01
+	bounds: 2, 2, 201, 197
+	offsets: 220, 117, 640, 373
+
+_transparent.png
+	size: 180, 200
+	filter: Linear, Linear
+sWeapon_21_068/W_faqiu_A_B01
+	bounds: 2, 2, 176, 195
+	offsets: 232, 119, 640, 373
+
+_transparent.png
+	size: 192, 192
+	filter: Linear, Linear
+sWeapon_21_069/W_faqiu_A_B01
+	bounds: 2, 2, 186, 187
+	offsets: 227, 93, 640, 373
+
+_transparent.png
+	size: 284, 220
+	filter: Linear, Linear
+sWeapon_21_070/W_faqiu_A_B01
+	bounds: 2, 2, 280, 213
+	offsets: 180, 108, 640, 373
+
+_transparent.png
+	size: 272, 260
+	filter: Linear, Linear
+sWeapon_21_071/W_faqiu_A_B01
+	bounds: 2, 2, 267, 253
+	offsets: 187, 60, 640, 373
+
+_transparent.png
+	size: 228, 232
+	filter: Linear, Linear
+sWeapon_21_072/W_faqiu_A_B01
+	bounds: 2, 2, 222, 225
+	offsets: 209, 66, 640, 373
+
+_transparent.png
+	size: 324, 248
+	filter: Linear, Linear
+sWeapon_21_073/W_faqiu_A_A01
+	bounds: 205, 2, 241, 115
+	offsets: 31, 0, 296, 141
+	rotate: 90
+sWeapon_21_073/W_faqiu_A_B01
+	bounds: 2, 20, 201, 223
+	offsets: 216, 56, 640, 373
+
+_transparent.png
+	size: 288, 320
+	filter: Linear, Linear
+sWeapon_21_074/W_faqiu_A_B01
+	bounds: 2, 2, 281, 313
+	offsets: 192, 51, 640, 373
+
+_transparent.png
+	size: 200, 244
+	filter: Linear, Linear
+sWeapon_21_075/W_faqiu_A_B01
+	bounds: 2, 2, 195, 237
+	offsets: 222, 61, 640, 373
+
+_transparent.png
+	size: 336, 248
+	filter: Linear, Linear
+sWeapon_21_076/W_faqiu_A_A01
+	bounds: 171, 2, 132, 244
+	offsets: 28, 28, 160, 297
+	rotate: 180
+sWeapon_21_076/W_faqiu_A_A02
+	bounds: 244, 15, 87, 149
+	offsets: 23, 41, 160, 297
+	rotate: 180
+sWeapon_21_076/W_faqiu_A_A03
+	bounds: 2, 31, 61, 35
+	offsets: 14, 11, 87, 58
+sWeapon_21_076/W_faqiu_A_B01
+	bounds: 2, 68, 177, 178
+	offsets: 228, 86, 640, 373
+
+_transparent.png
+	size: 244, 208
+	filter: Linear, Linear
+sWeapon_21_077/W_faqiu_A_B01
+	bounds: 2, 2, 238, 204
+	offsets: 197, 104, 640, 373
+
+_transparent.png
+	size: 220, 252
+	filter: Linear, Linear
+sWeapon_21_078/W_faqiu_A_B01
+	bounds: 2, 2, 213, 248
+	offsets: 206, 63, 640, 373
+
+_transparent.png
+	size: 244, 184
+	filter: Linear, Linear
+sWeapon_21_079/W_faqiu_A_B01
+	bounds: 2, 2, 182, 180
+	offsets: 231, 131, 640, 373
+sWeapon_21_079/W_faqiu_A_B02
+	bounds: 186, 85, 54, 97
+	offsets: 14, 13, 79, 130
+
+_transparent.png
+	size: 296, 312
+	filter: Linear, Linear
+sWeapon_21_080/W_faqiu_A_B01
+	bounds: 2, 2, 291, 308
+	offsets: 175, 25, 640, 373
+
+_transparent.png
+	size: 184, 300
+	filter: Linear, Linear
+sWeapon_21_081/W_faqiu_A_B01
+	bounds: 2, 70, 177, 228
+	offsets: 231, 75, 640, 373
+sWeapon_21_081/W_faqiu_A_B02
+	bounds: 2, 2, 113, 66
+	offsets: 5, 7, 130, 78
+
+_transparent.png
+	size: 216, 208
+	filter: Linear, Linear
+sWeapon_21_082/W_faqiu_A_B01
+	bounds: 2, 2, 211, 201
+	offsets: 215, 97, 640, 373
+
+_transparent.png
+	size: 192, 208
+	filter: Linear, Linear
+sWeapon_21_083/W_faqiu_A_B01
+	bounds: 2, 2, 186, 204
+	offsets: 227, 100, 640, 373
+
+_transparent.png
+	size: 248, 216
+	filter: Linear, Linear
+sWeapon_21_084/W_faqiu_A_B01
+	bounds: 2, 2, 242, 210
+	offsets: 199, 96, 640, 373
+
+_transparent.png
+	size: 156, 364
+	filter: Linear, Linear
+sWeapon_21_085/W_faqiu_A_B01
+	bounds: 2, 93, 137, 267
+	offsets: 251, 67, 640, 373
+sWeapon_21_085/W_faqiu_A_B02
+	bounds: 2, 2, 97, 89
+sWeapon_21_085/W_faqiu_A_B03
+	bounds: 101, 17, 51, 74
+
+_transparent.png
+	size: 212, 236
+	filter: Linear, Linear
+sWeapon_21_086/W_faqiu_A_B01
+	bounds: 2, 2, 208, 232
+	offsets: 216, 71, 640, 373
+
+_transparent.png
+	size: 192, 260
+	filter: Linear, Linear
+sWeapon_21_087/W_faqiu_A_B01
+	bounds: 2, 2, 188, 256
+	offsets: 226, 59, 640, 373
+
+_transparent.png
+	size: 268, 236
+	filter: Linear, Linear
+sWeapon_21_088/W_faqiu_A_B01
+	bounds: 2, 2, 262, 231
+	offsets: 189, 71, 640, 373
+
+_transparent.png
+	size: 216, 280
+	filter: Linear, Linear
+sWeapon_21_089/W_faqiu_A_B01
+	bounds: 2, 2, 210, 273
+	offsets: 215, 50, 640, 373
+
+_transparent.png
+	size: 292, 240
+	filter: Linear, Linear
+sWeapon_21_090/W_faqiu_A_B01
+	bounds: 2, 2, 288, 235
+	offsets: 176, 61, 640, 373
+
+_transparent.png
+	size: 268, 252
+	filter: Linear, Linear
+sWeapon_21_091/W_faqiu_A_B01
+	bounds: 2, 2, 264, 248
+	offsets: 189, 46, 640, 373
+
+_transparent.png
+	size: 368, 252
+	filter: Linear, Linear
+sWeapon_21_092/W_faqiu_A_B01
+	bounds: 2, 2, 364, 248
+	offsets: 138, 83, 640, 373
+
+_transparent.png
+	size: 280, 156
+	filter: Linear, Linear
+sWeapon_21_093/W_faqiu_A_B01
+	bounds: 2, 2, 276, 150
+	offsets: 182, 111, 640, 373
+
+_transparent.png
+	size: 148, 180
+	filter: Linear, Linear
+sWeapon_21_094/W_faqiu_A_B01
+	bounds: 2, 2, 144, 176
+	offsets: 267, 111, 640, 373
+
+_transparent.png
+	size: 292, 264
+	filter: Linear, Linear
+sWeapon_21_095/W_faqiu_A_B01
+	bounds: 2, 2, 287, 259
+	offsets: 212, 94, 640, 373
+
+_transparent.png
+	size: 184, 200
+	filter: Linear, Linear
+sWeapon_21_096/W_faqiu_A_B01
+	bounds: 2, 2, 180, 194
+	offsets: 226, 89, 640, 373
+
+_transparent.png
+	size: 172, 540
+	filter: Linear, Linear
+sWeapon_21_097/W_faqiu_A_A01
+	bounds: 2, 182, 138, 94
+	offsets: 28, 20, 194, 139
+sWeapon_21_097/W_faqiu_A_A02
+	bounds: 2, 2, 178, 153
+	offsets: 8, 11, 194, 179
+	rotate: 90
+sWeapon_21_097/W_faqiu_A_B01
+	bounds: 2, 278, 165, 257
+	offsets: 211, 67, 640, 373
+
+_transparent.png
+	size: 168, 168
+	filter: Linear, Linear
+sWeapon_21_098/W_faqiu_A_B01
+	bounds: 2, 2, 162, 162
+	offsets: 239, 105, 640, 373
+
+_transparent.png
+	size: 292, 276
+	filter: Linear, Linear
+sWeapon_21_099/W_faqiu_A_B01
+	bounds: 2, 2, 285, 271
+	offsets: 178, 66, 640, 373
+
+_transparent.png
+	size: 212, 320
+	filter: Linear, Linear
+sWeapon_21_100/W_faqiu_A_B01
+	bounds: 2, 2, 206, 315
+	offsets: 217, 41, 640, 373
+
+_transparent.png
+	size: 236, 276
+	filter: Linear, Linear
+sWeapon_21_101/W_faqiu_A_B01
+	bounds: 2, 2, 230, 272
+	offsets: 222, 72, 640, 373
+
+_transparent.png
+	size: 112, 144
+	filter: Linear, Linear
+sWeapon_21_10109/W_faqiu_A_B01
+	bounds: 2, 2, 107, 140
+	offsets: 267, 140, 640, 373
+
+_transparent.png
+	size: 364, 192
+	filter: Linear, Linear
+sWeapon_21_10112/W_faqiu_A_B01
+	bounds: 212, 82, 106, 106
+	offsets: 267, 122, 640, 373
+sWeapon_21_10112/W_faqiu_A_B02
+	bounds: 2, 8, 208, 180
+	offsets: 31, 24, 269, 228
+sWeapon_21_10112/W_faqiu_A_B03
+	bounds: 212, 2, 86, 78
+	offsets: 7, 12, 97, 99
+sWeapon_21_10112/W_faqiu_A_B04
+	bounds: 316, 19, 45, 158
+	offsets: 9, 0, 59, 158
+	rotate: 180
+
+_transparent.png
+	size: 140, 276
+	filter: Linear, Linear
+sWeapon_21_102/W_faqiu_A_B01
+	bounds: 2, 2, 136, 269
+	offsets: 251, 51, 640, 373
+
+_transparent.png
+	size: 204, 296
+	filter: Linear, Linear
+sWeapon_21_103/W_faqiu_A_B01
+	bounds: 2, 2, 198, 290
+	offsets: 221, 41, 640, 373
+
+_transparent.png
+	size: 196, 212
+	filter: Linear, Linear
+sWeapon_21_104/W_faqiu_A_B01
+	bounds: 2, 2, 189, 205
+	offsets: 222, 84, 640, 373
+
+_transparent.png
+	size: 168, 256
+	filter: Linear, Linear
+sWeapon_21_10410/W_faqiu_A_B01
+	bounds: 2, 58, 162, 194
+	offsets: 242, 101, 640, 373
+sWeapon_21_10410/W_faqiu_A_B02
+	bounds: 2, 2, 54, 128
+	offsets: 22, 10, 96, 138
+	rotate: 90
+
+_transparent.png
+	size: 252, 268
+	filter: Linear, Linear
+sWeapon_21_10412/W_faqiu_A_B01
+	bounds: 2, 2, 246, 262
+	offsets: 185, 55, 640, 373
+
+_transparent.png
+	size: 224, 200
+	filter: Linear, Linear
+sWeapon_21_105/W_faqiu_A_B01
+	bounds: 2, 2, 217, 195
+	offsets: 212, 88, 640, 373
+
+_transparent.png
+	size: 352, 396
+	filter: Linear, Linear
+sWeapon_21_10502/W_faqiu_A_B01
+	bounds: 2, 133, 258, 261
+	offsets: 191, 57, 640, 373
+sWeapon_21_10502/W_faqiu_A_B02
+	bounds: 238, 2, 392, 109
+	offsets: 123, 113, 640, 373
+	rotate: 270
+
+_transparent.png
+	size: 152, 236
+	filter: Linear, Linear
+sWeapon_21_10504/W_faqiu_A_B01
+	bounds: 2, 58, 146, 173
+	offsets: 249, 85, 640, 373
+sWeapon_21_10504/W_faqiu_A_B02
+	bounds: 2, 2, 54, 88
+	offsets: 24, 13, 96, 116
+	rotate: 90
+
+_transparent.png
+	size: 192, 272
+	filter: Linear, Linear
+sWeapon_21_106/W_faqiu_A_B01
+	bounds: 2, 2, 188, 266
+	offsets: 226, 52, 640, 373
+
+_transparent.png
+	size: 124, 124
+	filter: Linear, Linear
+sWeapon_21_10601/W_faqiu_A_B01
+	bounds: 2, 2, 120, 117
+	offsets: 264, 113, 640, 373
+
+_transparent.png
+	size: 184, 180
+	filter: Linear, Linear
+sWeapon_21_10605/W_faqiu_A_B01
+	bounds: 2, 2, 180, 175
+	offsets: 230, 85, 640, 373
+
+_transparent.png
+	size: 224, 388
+	filter: Linear, Linear
+sWeapon_21_10608/W_faqiu_A_A01
+	bounds: 2, 2, 103, 207
+	offsets: 31, 9, 164, 235
+	rotate: 90
+sWeapon_21_10608/W_faqiu_A_B01
+	bounds: 2, 107, 217, 279
+	offsets: 193, 88, 640, 373
+
+_transparent.png
+	size: 220, 304
+	filter: Linear, Linear
+sWeapon_21_107/W_faqiu_A_B01
+	bounds: 2, 2, 216, 297
+	offsets: 182, 40, 640, 373
+
+_transparent.png
+	size: 132, 232
+	filter: Linear, Linear
+sWeapon_21_10706/W_faqiu_A_B01
+	bounds: 2, 2, 128, 228
+	offsets: 256, 72, 640, 373
+
+_transparent.png
+	size: 296, 196
+	filter: Linear, Linear
+sWeapon_21_10708/W_faqiu_A_B01
+	bounds: 2, 2, 292, 189
+	offsets: 174, 100, 640, 373
+
+_transparent.png
+	size: 260, 304
+	filter: Linear, Linear
+sWeapon_21_108/W_faqiu_A_B01
+	bounds: 2, 2, 256, 299
+	offsets: 149, 41, 640, 373
+
+_transparent.png
+	size: 168, 220
+	filter: Linear, Linear
+sWeapon_21_10803/W_faqiu_A_B01
+	bounds: 2, 2, 161, 216
+	offsets: 231, 79, 640, 373
+
+_transparent.png
+	size: 284, 232
+	filter: Linear, Linear
+sWeapon_21_10805/W_faqiu_A_B01
+	bounds: 2, 2, 277, 226
+	offsets: 168, 82, 640, 373
+
+_transparent.png
+	size: 148, 180
+	filter: Linear, Linear
+sWeapon_21_109/W_faqiu_A_B01
+	bounds: 2, 2, 144, 175
+	offsets: 239, 99, 640, 373
+
+_transparent.png
+	size: 252, 176
+	filter: Linear, Linear
+sWeapon_21_110/W_faqiu_A_B01
+	bounds: 2, 2, 246, 170
+	offsets: 203, 92, 640, 373
+
+_transparent.png
+	size: 208, 144
+	filter: Linear, Linear
+sWeapon_21_8404/W_faqiu_A_B01
+	bounds: 2, 2, 203, 138
+	offsets: 211, 119, 640, 373
+
+_transparent.png
+	size: 240, 232
+	filter: Linear, Linear
+sWeapon_21_8409/W_faqiu_A_B01
+	bounds: 2, 2, 236, 227
+	offsets: 202, 89, 640, 373
+
+_transparent.png
+	size: 148, 372
+	filter: Linear, Linear
+sWeapon_21_8439/W_faqiu_A_B01
+	bounds: 2, 149, 142, 218
+	offsets: 250, 98, 640, 373
+sWeapon_21_8439/W_faqiu_A_B01_A01
+	bounds: 2, 65, 142, 82
+	offsets: 250, 118, 640, 373
+sWeapon_21_8439/W_faqiu_A_B01_A02
+	bounds: 2, 2, 61, 61
+
+_transparent.png
+	size: 192, 216
+	filter: Linear, Linear
+sWeapon_21_8453/W_faqiu_A_B01
+	bounds: 2, 2, 187, 212
+	offsets: 226, 89, 640, 373
+
+_transparent.png
+	size: 216, 224
+	filter: Linear, Linear
+sWeapon_21_M_001/W_faqiu_A_B01
+	bounds: 2, 2, 210, 217
+	offsets: 208, 81, 640, 373
+
+_transparent.png
+	size: 168, 196
+	filter: Linear, Linear
+sWeapon_21_M_002/W_faqiu_A_B01
+	bounds: 2, 2, 162, 189
+	offsets: 239, 109, 640, 373
+
+_transparent.png
+	size: 224, 204
+	filter: Linear, Linear
+sWeapon_21_M_003/W_faqiu_A_B01
+	bounds: 2, 2, 220, 197
+	offsets: 210, 101, 640, 373
+
+_transparent.png
+	size: 172, 216
+	filter: Linear, Linear
+sWeapon_21_M_004/W_faqiu_A_B01
+	bounds: 2, 2, 166, 212
+	offsets: 237, 103, 640, 373
+
+_transparent.png
+	size: 332, 164
+	filter: Linear, Linear
+sWeapon_22_001/W_shu_A_B01
+	bounds: 2, 8, 207, 151
+	offsets: 60, 108, 640, 373
+sWeapon_22_001/W_shu_B_B01
+	bounds: 211, 2, 116, 157
+	offsets: 416, 99, 640, 373
+
+sWeapon_22_002.png
+	size: 312, 160
+	filter: Linear, Linear
+sWeapon_22_002/W_shu_A_B01
+	bounds: 2, 9, 177, 148
+	offsets: 92, 103, 640, 373
+sWeapon_22_002/W_shu_B_B01
+	bounds: 181, 2, 129, 155
+	offsets: 410, 98, 640, 373
+
+_transparent.png
+	size: 320, 164
+	filter: Linear, Linear
+sWeapon_22_003/W_shu_A_B01
+	bounds: 2, 7, 182, 154
+	offsets: 88, 108, 640, 373
+sWeapon_22_003/W_shu_B_B01
+	bounds: 186, 2, 132, 159
+	offsets: 415, 104, 640, 373
+
+_transparent.png
+	size: 316, 152
+	filter: Linear, Linear
+sWeapon_22_004/W_shu_A_B01
+	bounds: 2, 2, 185, 148
+	offsets: 81, 110, 640, 373
+sWeapon_22_004/W_shu_B_B01
+	bounds: 189, 3, 122, 147
+	offsets: 415, 104, 640, 373
+
+_transparent.png
+	size: 296, 164
+	filter: Linear, Linear
+sWeapon_22_005/W_shu_A_B01
+	bounds: 2, 7, 172, 152
+	offsets: 90, 108, 640, 373
+sWeapon_22_005/W_shu_B_B01
+	bounds: 176, 2, 118, 157
+	offsets: 413, 100, 640, 373
+
+_transparent.png
+	size: 304, 188
+	filter: Linear, Linear
+sWeapon_22_006/W_shu_A_B01
+	bounds: 2, 7, 177, 179
+	offsets: 94, 82, 640, 373
+sWeapon_22_006/W_shu_B_B01
+	bounds: 181, 2, 120, 184
+	offsets: 414, 80, 640, 373
+
+_transparent.png
+	size: 304, 156
+	filter: Linear, Linear
+sWeapon_22_008/W_shu_A_B01
+	bounds: 2, 2, 176, 149
+	offsets: 94, 109, 640, 373
+sWeapon_22_008/W_shu_B_B01
+	bounds: 180, 2, 119, 149
+	offsets: 416, 106, 640, 373
+
+_transparent.png
+	size: 312, 184
+	filter: Linear, Linear
+sWeapon_22_009/W_shu_A_B01
+	bounds: 2, 2, 185, 180
+	offsets: 83, 76, 640, 373
+sWeapon_22_009/W_shu_B_B01
+	bounds: 189, 3, 119, 179
+	offsets: 413, 78, 640, 373
+
+_transparent.png
+	size: 316, 164
+	filter: Linear, Linear
+sWeapon_22_010/W_shu_A_B01
+	bounds: 2, 7, 187, 153
+	offsets: 88, 103, 640, 373
+sWeapon_22_010/W_shu_B_B01
+	bounds: 191, 2, 123, 158
+	offsets: 410, 101, 640, 373
+
+_transparent.png
+	size: 184, 284
+	filter: Linear, Linear
+sWeapon_22_011/W_shu_A_B01
+	bounds: 2, 128, 177, 153
+	offsets: 88, 103, 640, 373
+sWeapon_22_011/W_shu_B_B01
+	bounds: 2, 2, 124, 166
+	offsets: 408, 95, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 216, 296
+	filter: Linear, Linear
+sWeapon_22_012/W_shu_A_B01
+	bounds: 2, 125, 211, 169
+	offsets: 75, 102, 640, 373
+sWeapon_22_012/W_shu_B_B01
+	bounds: 2, 2, 121, 186
+	offsets: 408, 98, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 312, 152
+	filter: Linear, Linear
+sWeapon_22_013/W_shu_A_B01
+	bounds: 2, 2, 183, 148
+	offsets: 82, 110, 640, 373
+sWeapon_22_013/W_shu_B_B01
+	bounds: 187, 3, 120, 147
+	offsets: 415, 104, 640, 373
+
+_transparent.png
+	size: 212, 312
+	filter: Linear, Linear
+sWeapon_22_014/W_shu_A_B01
+	bounds: 2, 125, 198, 182
+	offsets: 84, 81, 640, 373
+sWeapon_22_014/W_shu_B_B01
+	bounds: 2, 2, 121, 206
+	offsets: 405, 86, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 164, 712
+	filter: Linear, Linear
+sWeapon_22_015/W_shu_A_B01
+	bounds: 2, 46, 182, 157
+	offsets: 79, 105, 640, 373
+	rotate: 270
+sWeapon_22_015/W_shu_A_B01_A01
+	bounds: 2, 2, 63, 69
+	offsets: 166, 141, 640, 373
+	rotate: 270
+sWeapon_22_015/W_shu_A_B01_A02
+	bounds: 2, 217, 274, 156
+	offsets: 40, 164, 640, 373
+	rotate: 90
+sWeapon_22_015/W_shu_B_B01
+	bounds: 2, 493, 144, 214
+	offsets: 413, 104, 640, 373
+
+_transparent.png
+	size: 308, 156
+	filter: Linear, Linear
+sWeapon_22_016/W_shu_A_B01
+	bounds: 2, 2, 182, 152
+	offsets: 86, 106, 640, 373
+sWeapon_22_016/W_shu_B_B01
+	bounds: 186, 7, 119, 147
+	offsets: 415, 104, 640, 373
+
+_transparent.png
+	size: 272, 168
+	filter: Linear, Linear
+sWeapon_22_017/W_shu_A_B01
+	bounds: 2, 6, 154, 158
+	offsets: 112, 102, 640, 373
+sWeapon_22_017/W_shu_B_B01
+	bounds: 158, 2, 109, 162
+	offsets: 429, 96, 640, 373
+
+_transparent.png
+	size: 584, 192
+	filter: Linear, Linear
+sWeapon_22_018/W_shu_A_B01
+	bounds: 2, 4, 279, 186
+	offsets: 88, 121, 768, 448
+sWeapon_22_018/W_shu_A_B01_A01
+	bounds: 511, 119, 69, 71
+sWeapon_22_018/W_shu_B_B01
+	bounds: 283, 2, 188, 226
+	offsets: 442, 82, 768, 448
+	rotate: 90
+
+_transparent.png
+	size: 240, 392
+	filter: Linear, Linear
+sWeapon_22_019/W_faqiu_A_B01_A01
+	bounds: 2, 2, 47, 126
+	offsets: 10, 0, 66, 136
+	rotate: 90
+sWeapon_22_019/W_shu_A_B01
+	bounds: 2, 199, 224, 190
+	offsets: 46, 91, 640, 373
+sWeapon_22_019/W_shu_B_B01
+	bounds: 2, 51, 146, 233
+	offsets: 416, 70, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 444, 156
+	filter: Linear, Linear
+sWeapon_22_020/W_shu_A_B01
+	bounds: 223, 2, 219, 149
+	offsets: 78, 127, 640, 373
+sWeapon_22_020/W_shu_B_B01
+	bounds: 2, 2, 219, 149
+	offsets: 356, 127, 640, 373
+
+_transparent.png
+	size: 196, 432
+	filter: Linear, Linear
+sWeapon_22_021/W_shu_A_B01
+	bounds: 2, 203, 189, 225
+	offsets: 90, 85, 640, 373
+sWeapon_22_021/W_shu_B_B01
+	bounds: 2, 2, 178, 199
+	offsets: 382, 106, 640, 373
+
+_transparent.png
+	size: 180, 264
+	filter: Linear, Linear
+sWeapon_22_022/W_shu_A_B01
+	bounds: 2, 121, 174, 141
+	offsets: 94, 102, 640, 373
+sWeapon_22_022/W_shu_B_B01
+	bounds: 2, 2, 117, 169
+	offsets: 410, 95, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 292, 180
+	filter: Linear, Linear
+sWeapon_22_023/W_shu_A_B01
+	bounds: 2, 2, 181, 175
+	offsets: 91, 102, 640, 373
+sWeapon_22_023/W_shu_B_B01
+	bounds: 185, 24, 153, 103
+	offsets: 406, 119, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 340, 184
+	filter: Linear, Linear
+sWeapon_22_024/W_shu_A_B01
+	bounds: 2, 6, 170, 176
+	offsets: 80, 113, 640, 373
+sWeapon_22_024/W_shu_A_B01_B01
+	bounds: 298, 72, 38, 110
+	offsets: 7, 0, 49, 117
+sWeapon_22_024/W_shu_B_B01
+	bounds: 174, 2, 122, 180
+	offsets: 396, 111, 640, 373
+
+_transparent.png
+	size: 352, 172
+	filter: Linear, Linear
+sWeapon_22_025/W_shu_A_B01
+	bounds: 2, 2, 203, 165
+	offsets: 77, 87, 640, 373
+sWeapon_22_025/W_shu_B_B01
+	bounds: 207, 10, 140, 157
+	offsets: 417, 97, 640, 373
+
+_transparent.png
+	size: 220, 392
+	filter: Linear, Linear
+sWeapon_22_026/W_shu_A_B01
+	bounds: 2, 200, 215, 188
+	offsets: 57, 94, 640, 373
+sWeapon_22_026/W_shu_A_B01_A01
+	bounds: 2, 2, 46, 99
+	offsets: 8, 5, 63, 110
+	rotate: 90
+sWeapon_22_026/W_shu_B_B01
+	bounds: 2, 50, 148, 214
+	offsets: 416, 99, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 360, 196
+	filter: Linear, Linear
+sWeapon_22_027/W_shu_A_B01
+	bounds: 2, 9, 204, 182
+	offsets: 86, 100, 640, 373
+sWeapon_22_027/W_shu_B_B01
+	bounds: 208, 2, 150, 189
+	offsets: 396, 90, 640, 373
+
+_transparent.png
+	size: 364, 160
+	filter: Linear, Linear
+sWeapon_22_028/W_shu_A_B01
+	bounds: 2, 5, 182, 151
+	offsets: 88, 101, 640, 373
+sWeapon_22_028/W_shu_A_B01_A01
+	bounds: 326, 78, 33, 78
+	offsets: 12, 11, 56, 110
+sWeapon_22_028/W_shu_B_B01
+	bounds: 186, 2, 138, 154
+	offsets: 407, 102, 640, 373
+
+_transparent.png
+	size: 156, 256
+	filter: Linear, Linear
+sWeapon_22_029/W_shu_A_B01
+	bounds: 2, 99, 151, 154
+	offsets: 104, 106, 640, 373
+sWeapon_22_029/W_shu_B_B01
+	bounds: 2, 2, 130, 95
+	offsets: 408, 132, 640, 373
+
+_transparent.png
+	size: 440, 204
+	filter: Linear, Linear
+sWeapon_22_030/W_shu_A_B01
+	bounds: 2, 22, 233, 180
+	offsets: 58, 100, 640, 373
+sWeapon_22_030/W_shu_A_B01_A01
+	bounds: 392, 125, 46, 77
+sWeapon_22_030/W_shu_B_B01
+	bounds: 237, 2, 153, 200
+	offsets: 380, 104, 640, 373
+
+_transparent.png
+	size: 216, 396
+	filter: Linear, Linear
+sWeapon_22_031/W_shu_A_B01
+	bounds: 2, 207, 208, 184
+	offsets: 72, 88, 640, 373
+sWeapon_22_031/W_shu_A_B01_A01
+	bounds: 2, 2, 49, 56
+	rotate: 90
+sWeapon_22_031/W_shu_B_B01
+	bounds: 2, 53, 152, 211
+	offsets: 397, 97, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 236, 388
+	filter: Linear, Linear
+sWeapon_22_032/W_shu_A_B01
+	bounds: 2, 193, 231, 191
+	offsets: 59, 110, 640, 373
+sWeapon_22_032/W_shu_A_B01_A01
+	bounds: 2, 2, 40, 115
+	offsets: 15, 10, 73, 138
+	rotate: 90
+sWeapon_22_032/W_shu_B_B01
+	bounds: 2, 44, 147, 221
+	offsets: 416, 111, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 452, 236
+	filter: Linear, Linear
+sWeapon_22_033/W_shu_A_B01
+	bounds: 2, 20, 286, 211
+	offsets: 34, 109, 640, 373
+sWeapon_22_033/W_shu_B_B01
+	bounds: 290, 2, 159, 229
+	offsets: 403, 88, 640, 373
+
+_transparent.png
+	size: 556, 228
+	filter: Linear, Linear
+sWeapon_22_034/W_shu_A_B01
+	bounds: 2, 2, 299, 224
+	offsets: 32, 89, 640, 373
+sWeapon_22_034/W_shu_A_B01_A01
+	bounds: 455, 81, 99, 145
+sWeapon_22_034/W_shu_B_B01
+	bounds: 303, 6, 150, 220
+	offsets: 398, 90, 640, 373
+
+_transparent.png
+	size: 216, 848
+	filter: Linear, Linear
+sWeapon_22_035/W_shu_A_B01
+	bounds: 2, 84, 210, 207
+	offsets: 79, 101, 640, 373
+	rotate: 270
+sWeapon_22_035/W_shu_A_B01_A01
+	bounds: 104, 2, 97, 107
+	offsets: 157, 148, 640, 373
+	rotate: 90
+sWeapon_22_035/W_shu_A_B01_A02
+	bounds: 2, 269, 333, 187
+	offsets: 5, 154, 640, 373
+	rotate: 90
+sWeapon_22_035/W_shu_B_B01
+	bounds: 2, 604, 162, 242
+	offsets: 403, 103, 640, 373
+
+_transparent.png
+	size: 452, 240
+	filter: Linear, Linear
+sWeapon_22_036/W_shu_A_B01
+	bounds: 2, 3, 280, 234
+	offsets: 24, 94, 640, 373
+sWeapon_22_036/W_shu_B_B01
+	bounds: 284, 2, 165, 235
+	offsets: 393, 99, 640, 373
+
+_transparent.png
+	size: 212, 348
+	filter: Linear, Linear
+sWeapon_22_037/W_shu_A_B01
+	bounds: 2, 157, 207, 186
+	offsets: 81, 93, 640, 373
+sWeapon_22_037/W_shu_B_B01
+	bounds: 2, 2, 153, 197
+	offsets: 397, 88, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 268, 344
+	filter: Linear, Linear
+sWeapon_22_038/W_shu_A_B01
+	bounds: 2, 151, 261, 190
+	offsets: 34, 91, 640, 373
+sWeapon_22_038/W_shu_B_B01
+	bounds: 2, 2, 147, 226
+	offsets: 401, 82, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 484, 200
+	filter: Linear, Linear
+sWeapon_22_039/W_shu_A_B01
+	bounds: 2, 2, 260, 196
+	offsets: 34, 97, 640, 373
+sWeapon_22_039/W_shu_B_B01
+	bounds: 264, 15, 183, 216
+	offsets: 385, 99, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 392, 204
+	filter: Linear, Linear
+sWeapon_22_040/W_shu_A_B01
+	bounds: 2, 2, 231, 200
+	offsets: 48, 83, 640, 373
+sWeapon_22_040/W_shu_B_B01
+	bounds: 235, 12, 154, 190
+	offsets: 397, 91, 640, 373
+
+_transparent.png
+	size: 472, 248
+	filter: Linear, Linear
+sWeapon_22_041/W_shu_A_B01
+	bounds: 2, 3, 291, 241
+	offsets: 28, 87, 640, 373
+sWeapon_22_041/W_shu_B_B01
+	bounds: 295, 2, 173, 242
+	offsets: 388, 83, 640, 373
+
+_transparent.png
+	size: 508, 236
+	filter: Linear, Linear
+sWeapon_22_042/W_shu_A_B01
+	bounds: 2, 22, 279, 211
+	offsets: 50, 102, 640, 373
+sWeapon_22_042/W_shu_A_B01_A01
+	bounds: 447, 79, 56, 154
+	offsets: 6, 0, 62, 154
+sWeapon_22_042/W_shu_B_B01
+	bounds: 283, 2, 162, 231
+	offsets: 393, 116, 640, 373
+
+_transparent.png
+	size: 376, 172
+	filter: Linear, Linear
+sWeapon_22_043/W_shu_A_B01
+	bounds: 2, 2, 189, 166
+	offsets: 84, 124, 640, 373
+sWeapon_22_043/W_shu_A_B01_A01
+	bounds: 330, 100, 43, 68
+	offsets: 11, 7, 62, 86
+sWeapon_22_043/W_shu_B_B01
+	bounds: 193, 12, 135, 156
+	offsets: 408, 124, 640, 373
+
+_transparent.png
+	size: 544, 248
+	filter: Linear, Linear
+sWeapon_22_044/W_shu_A_B01
+	bounds: 2, 8, 251, 235
+	offsets: 59, 84, 640, 373
+sWeapon_22_044/W_shu_A_B01_A01
+	bounds: 416, 100, 143, 125
+	rotate: 90
+sWeapon_22_044/W_shu_B_B01
+	bounds: 255, 2, 159, 241
+	offsets: 395, 90, 640, 373
+
+_transparent.png
+	size: 400, 292
+	filter: Linear, Linear
+sWeapon_22_045/W_shu_A_B01
+	bounds: 2, 17, 250, 271
+	offsets: 65, 43, 640, 373
+sWeapon_22_045/W_shu_B_B01
+	bounds: 254, 2, 144, 286
+	offsets: 393, 46, 640, 373
+
+_transparent.png
+	size: 520, 220
+	filter: Linear, Linear
+sWeapon_22_046/W_shu_A_B01
+	bounds: 2, 13, 273, 203
+	offsets: 46, 118, 640, 373
+sWeapon_22_046/W_shu_A_B01_A01
+	bounds: 453, 125, 62, 91
+sWeapon_22_046/W_shu_B_B01
+	bounds: 277, 2, 174, 214
+	offsets: 410, 118, 640, 373
+
+_transparent.png
+	size: 504, 284
+	filter: Linear, Linear
+sWeapon_22_047/W_shu_A_B01
+	bounds: 2, 5, 303, 275
+	offsets: 9, 71, 640, 373
+sWeapon_22_047/W_shu_B_B01
+	bounds: 307, 2, 192, 278
+	offsets: 357, 72, 640, 373
+
+_transparent.png
+	size: 468, 220
+	filter: Linear, Linear
+sWeapon_22_048/W_shu_A_B01
+	bounds: 2, 16, 276, 201
+	offsets: 39, 113, 640, 373
+sWeapon_22_048/W_shu_B_B01
+	bounds: 280, 2, 183, 215
+	offsets: 393, 107, 640, 373
+
+_transparent.png
+	size: 524, 248
+	filter: Linear, Linear
+sWeapon_22_049/W_shu_A_B01
+	bounds: 2, 2, 329, 242
+	offsets: 14, 101, 640, 373
+sWeapon_22_049/W_shu_B_B01
+	bounds: 333, 2, 186, 242
+	offsets: 393, 93, 640, 373
+
+_transparent.png
+	size: 564, 268
+	filter: Linear, Linear
+sWeapon_22_050/W_shu_A_B01
+	bounds: 2, 2, 295, 264
+	offsets: 35, 88, 640, 373
+sWeapon_22_050/W_shu_A_B01_A01
+	bounds: 474, 168, 88, 98
+sWeapon_22_050/W_shu_B_B01
+	bounds: 299, 2, 173, 264
+	offsets: 388, 86, 640, 373
+
+_transparent.png
+	size: 404, 216
+	filter: Linear, Linear
+sWeapon_22_051/W_shu_A_B01
+	bounds: 202, 2, 198, 209
+	offsets: 70, 71, 640, 373
+sWeapon_22_051/W_shu_B_B01
+	bounds: 2, 2, 198, 209
+	offsets: 368, 70, 640, 373
+
+_transparent.png
+	size: 456, 236
+	filter: Linear, Linear
+sWeapon_22_052/W_shu_A_B01
+	bounds: 2, 10, 290, 221
+	offsets: 20, 109, 640, 373
+sWeapon_22_052/W_shu_B_B01
+	bounds: 294, 2, 159, 229
+	offsets: 396, 103, 640, 373
+
+_transparent.png
+	size: 152, 340
+	filter: Linear, Linear
+sWeapon_22_053/W_shu_A_B01
+	bounds: 2, 135, 146, 200
+	offsets: 112, 109, 640, 373
+sWeapon_22_053/W_shu_B_B01
+	bounds: 2, 2, 145, 131
+	offsets: 403, 111, 640, 373
+
+_transparent.png
+	size: 388, 216
+	filter: Linear, Linear
+sWeapon_22_054/W_shu_A_B01
+	bounds: 195, 2, 191, 210
+	offsets: 81, 87, 640, 373
+sWeapon_22_054/W_shu_B_B01
+	bounds: 2, 2, 191, 210
+	offsets: 380, 85, 640, 373
+
+_transparent.png
+	size: 332, 160
+	filter: Linear, Linear
+sWeapon_22_055/W_shu_A_B01
+	bounds: 181, 11, 146, 147
+	offsets: 112, 117, 640, 373
+sWeapon_22_055/W_shu_B_B01
+	bounds: 2, 2, 177, 156
+	offsets: 361, 105, 640, 373
+
+_transparent.png
+	size: 224, 316
+	filter: Linear, Linear
+sWeapon_22_056/W_shu_A_B01
+	bounds: 2, 148, 204, 163
+	offsets: 69, 92, 640, 373
+sWeapon_22_056/W_shu_B_B01
+	bounds: 2, 2, 220, 144
+	offsets: 339, 105, 640, 373
+
+_transparent.png
+	size: 264, 384
+	filter: Linear, Linear
+sWeapon_22_057/W_shu_A_B01
+	bounds: 2, 162, 258, 220
+	offsets: 42, 76, 640, 373
+sWeapon_22_057/W_shu_B_B01
+	bounds: 2, 2, 158, 241
+	offsets: 381, 77, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 360, 188
+	filter: Linear, Linear
+sWeapon_22_058/W_shu_A_B01
+	bounds: 2, 15, 245, 170
+	offsets: 75, 101, 640, 373
+sWeapon_22_058/W_shu_B_B01
+	bounds: 249, 2, 109, 183
+	offsets: 405, 84, 640, 373
+
+_transparent.png
+	size: 372, 196
+	filter: Linear, Linear
+sWeapon_22_059/W_shu_A_B01
+	bounds: 2, 16, 211, 175
+	offsets: 75, 91, 640, 373
+sWeapon_22_059/W_shu_B_B01
+	bounds: 215, 2, 154, 189
+	offsets: 382, 81, 640, 373
+
+_transparent.png
+	size: 220, 356
+	filter: Linear, Linear
+sWeapon_22_060/W_shu_A_B01
+	bounds: 2, 170, 213, 183
+	offsets: 74, 88, 640, 373
+sWeapon_22_060/W_shu_B_B01
+	bounds: 2, 2, 166, 197
+	offsets: 381, 84, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 328, 212
+	filter: Linear, Linear
+sWeapon_22_061/W_shu_A_B01
+	bounds: 2, 2, 182, 205
+	offsets: 93, 58, 640, 373
+sWeapon_22_061/W_shu_B_B01
+	bounds: 186, 13, 137, 194
+	offsets: 397, 73, 640, 373
+
+_transparent.png
+	size: 352, 240
+	filter: Linear, Linear
+sWeapon_22_062/W_shu_A_B01
+	bounds: 2, 16, 201, 220
+	offsets: 82, 51, 640, 373
+sWeapon_22_062/W_shu_B_B01
+	bounds: 205, 2, 144, 234
+	offsets: 399, 51, 640, 373
+
+_transparent.png
+	size: 248, 392
+	filter: Linear, Linear
+sWeapon_22_063/W_shu_A_B01
+	bounds: 2, 183, 242, 206
+	offsets: 62, 81, 640, 373
+sWeapon_22_063/W_shu_B_B01
+	bounds: 2, 2, 179, 236
+	offsets: 380, 81, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 300, 184
+	filter: Linear, Linear
+sWeapon_22_064/W_shu_A_B01
+	bounds: 2, 2, 194, 179
+	offsets: 86, 81, 640, 373
+sWeapon_22_064/W_shu_B_B01
+	bounds: 198, 9, 172, 99
+	offsets: 387, 140, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 352, 188
+	filter: Linear, Linear
+sWeapon_22_065/W_shu_A_B01
+	bounds: 2, 9, 210, 174
+	offsets: 78, 81, 640, 373
+sWeapon_22_065/W_shu_B_B01
+	bounds: 214, 2, 135, 181
+	offsets: 403, 84, 640, 373
+
+_transparent.png
+	size: 368, 200
+	filter: Linear, Linear
+sWeapon_22_066/W_shu_A_B01
+	bounds: 2, 12, 211, 185
+	offsets: 78, 81, 640, 373
+sWeapon_22_066/W_shu_B_B01
+	bounds: 215, 2, 150, 195
+	offsets: 396, 89, 640, 373
+
+_transparent.png
+	size: 448, 216
+	filter: Linear, Linear
+sWeapon_22_067/W_shu_A_B01
+	bounds: 2, 16, 271, 197
+	offsets: 47, 81, 640, 373
+sWeapon_22_067/W_shu_B_B01
+	bounds: 275, 2, 169, 211
+	offsets: 386, 89, 640, 373
+
+_transparent.png
+	size: 428, 212
+	filter: Linear, Linear
+sWeapon_22_068/W_shu_A_B01
+	bounds: 240, 2, 185, 205
+	offsets: 91, 71, 640, 373
+sWeapon_22_068/W_shu_B_B01
+	bounds: 2, 2, 236, 205
+	offsets: 354, 78, 640, 373
+
+_transparent.png
+	size: 184, 288
+	filter: Linear, Linear
+sWeapon_22_069/W_shu_A_B01
+	bounds: 2, 129, 176, 156
+	offsets: 94, 108, 640, 373
+sWeapon_22_069/W_shu_B_B01
+	bounds: 2, 2, 125, 178
+	offsets: 409, 91, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 412, 172
+	filter: Linear, Linear
+sWeapon_22_070/W_shu_A_B01
+	bounds: 2, 2, 213, 168
+	offsets: 64, 102, 640, 373
+sWeapon_22_070/W_shu_B_B01
+	bounds: 217, 10, 193, 160
+	offsets: 393, 99, 640, 373
+
+_transparent.png
+	size: 324, 196
+	filter: Linear, Linear
+sWeapon_22_071/W_shu_A_B01
+	bounds: 2, 6, 176, 188
+	offsets: 100, 68, 640, 373
+sWeapon_22_071/W_shu_B_B01
+	bounds: 180, 2, 142, 192
+	offsets: 399, 75, 640, 373
+
+_transparent.png
+	size: 184, 280
+	filter: Linear, Linear
+sWeapon_22_072/W_shu_A_B01
+	bounds: 2, 118, 178, 159
+	offsets: 88, 107, 640, 373
+sWeapon_22_072/W_shu_B_B01
+	bounds: 2, 2, 175, 114
+	offsets: 385, 113, 640, 373
+
+_transparent.png
+	size: 364, 188
+	filter: Linear, Linear
+sWeapon_22_073/W_shu_A_B01
+	bounds: 2, 2, 218, 184
+	offsets: 76, 83, 640, 373
+sWeapon_22_073/W_shu_B_B01
+	bounds: 222, 27, 138, 159
+	offsets: 401, 103, 640, 373
+
+_transparent.png
+	size: 296, 540
+	filter: Linear, Linear
+sWeapon_22_074/W_shu_A_B01
+	bounds: 2, 225, 291, 311
+	offsets: 32, 61, 640, 373
+sWeapon_22_074/W_shu_B_B01
+	bounds: 2, 2, 221, 273
+	offsets: 329, 59, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 476, 248
+	filter: Linear, Linear
+sWeapon_22_075/W_shu_A_B01
+	bounds: 2, 4, 278, 239
+	offsets: 69, 66, 640, 373
+sWeapon_22_075/W_shu_B_B01
+	bounds: 282, 2, 191, 241
+	offsets: 376, 52, 640, 373
+
+_transparent.png
+	size: 524, 168
+	filter: Linear, Linear
+sWeapon_22_076/W_shu_A_B01
+	bounds: 263, 2, 259, 161
+	offsets: 48, 106, 640, 373
+sWeapon_22_076/W_shu_B_B01
+	bounds: 2, 2, 259, 161
+	offsets: 359, 103, 640, 373
+
+_transparent.png
+	size: 580, 228
+	filter: Linear, Linear
+sWeapon_22_077/W_shu_A_B01
+	bounds: 290, 2, 286, 223
+	offsets: 34, 73, 640, 373
+sWeapon_22_077/W_shu_B_B01
+	bounds: 2, 2, 286, 223
+	offsets: 346, 71, 640, 373
+
+_transparent.png
+	size: 416, 280
+	filter: Linear, Linear
+sWeapon_22_078/W_shu_A_B01
+	bounds: 2, 17, 243, 259
+	offsets: 64, 56, 640, 373
+sWeapon_22_078/W_shu_B_B01
+	bounds: 247, 2, 164, 274
+	offsets: 401, 48, 640, 373
+
+_transparent.png
+	size: 220, 424
+	filter: Linear, Linear
+sWeapon_22_079/W_shu_A_B01
+	bounds: 2, 195, 215, 224
+	offsets: 78, 91, 640, 373
+sWeapon_22_079/W_shu_B_B01
+	bounds: 2, 52, 141, 201
+	offsets: 413, 100, 640, 373
+	rotate: 90
+sWeapon_22_079/W_shu_B_B02
+	bounds: 2, 2, 48, 107
+	offsets: 17, 10, 87, 136
+	rotate: 90
+
+_transparent.png
+	size: 368, 248
+	filter: Linear, Linear
+sWeapon_22_080/W_shu_A_B01
+	bounds: 2, 30, 211, 216
+	offsets: 78, 67, 640, 373
+sWeapon_22_080/W_shu_B_B01
+	bounds: 215, 2, 150, 244
+	offsets: 404, 64, 640, 373
+
+_transparent.png
+	size: 408, 208
+	filter: Linear, Linear
+sWeapon_22_081/W_shu_A_B01
+	bounds: 2, 2, 252, 204
+	offsets: 68, 66, 640, 373
+sWeapon_22_081/W_shu_B_B01
+	bounds: 256, 27, 179, 147
+	offsets: 405, 101, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 168, 272
+	filter: Linear, Linear
+sWeapon_22_082/W_shu_A_B01
+	bounds: 2, 78, 161, 189
+	offsets: 105, 74, 640, 373
+sWeapon_22_082/W_shu_B_B01
+	bounds: 2, 2, 132, 74
+	offsets: 403, 133, 640, 373
+
+_transparent.png
+	size: 328, 156
+	filter: Linear, Linear
+sWeapon_22_083/W_shu_A_B01
+	bounds: 2, 4, 192, 147
+	offsets: 84, 106, 640, 373
+sWeapon_22_083/W_shu_B_B01
+	bounds: 196, 2, 129, 149
+	offsets: 406, 107, 640, 373
+
+_transparent.png
+	size: 336, 188
+	filter: Linear, Linear
+sWeapon_22_084/W_shu_A_B01
+	bounds: 2, 11, 208, 174
+	offsets: 85, 101, 640, 373
+sWeapon_22_084/W_shu_B_B01
+	bounds: 212, 2, 122, 183
+	offsets: 408, 98, 640, 373
+
+_transparent.png
+	size: 364, 176
+	filter: Linear, Linear
+sWeapon_22_085/W_shu_A_B01
+	bounds: 2, 2, 210, 172
+	offsets: 84, 100, 640, 373
+sWeapon_22_085/W_shu_B_B01
+	bounds: 214, 6, 147, 168
+	offsets: 405, 105, 640, 373
+
+_transparent.png
+	size: 292, 204
+	filter: Linear, Linear
+sWeapon_22_086/W_shu_A_B01
+	bounds: 146, 2, 142, 199
+	offsets: 125, 87, 640, 373
+sWeapon_22_086/W_shu_B_B01
+	bounds: 2, 2, 142, 199
+	offsets: 400, 87, 640, 373
+
+_transparent.png
+	size: 216, 340
+	filter: Linear, Linear
+sWeapon_22_087/W_shu_A_B01
+	bounds: 2, 156, 211, 179
+	offsets: 83, 97, 640, 373
+sWeapon_22_087/W_shu_B_B01
+	bounds: 2, 2, 152, 195
+	offsets: 395, 103, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 376, 184
+	filter: Linear, Linear
+sWeapon_22_088/W_shu_A_B01
+	bounds: 2, 18, 231, 164
+	offsets: 73, 92, 640, 373
+sWeapon_22_088/W_shu_B_B01
+	bounds: 235, 2, 137, 180
+	offsets: 403, 98, 640, 373
+
+_transparent.png
+	size: 376, 196
+	filter: Linear, Linear
+sWeapon_22_089/W_shu_A_B01
+	bounds: 2, 14, 211, 180
+	offsets: 83, 96, 640, 373
+sWeapon_22_089/W_shu_B_B01
+	bounds: 215, 2, 157, 192
+	offsets: 399, 90, 640, 373
+
+_transparent.png
+	size: 436, 196
+	filter: Linear, Linear
+sWeapon_22_090/W_shu_A_B01
+	bounds: 2, 2, 221, 192
+	offsets: 74, 92, 640, 373
+sWeapon_22_090/W_shu_B_B01
+	bounds: 225, 11, 183, 209
+	offsets: 397, 97, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 408, 224
+	filter: Linear, Linear
+sWeapon_22_091/W_shu_A_B01
+	bounds: 2, 18, 246, 202
+	offsets: 55, 85, 640, 373
+sWeapon_22_091/W_shu_B_B01
+	bounds: 250, 2, 156, 218
+	offsets: 397, 86, 640, 373
+
+_transparent.png
+	size: 416, 216
+	filter: Linear, Linear
+sWeapon_22_092/W_shu_A_B01
+	bounds: 2, 20, 263, 192
+	offsets: 41, 90, 640, 373
+sWeapon_22_092/W_shu_B_B01
+	bounds: 267, 2, 146, 210
+	offsets: 407, 85, 640, 373
+
+_transparent.png
+	size: 536, 244
+	filter: Linear, Linear
+sWeapon_22_093/W_shu_A_B01
+	bounds: 2, 2, 273, 237
+	offsets: 47, 45, 640, 373
+sWeapon_22_093/W_shu_B_B01
+	bounds: 277, 2, 256, 237
+	offsets: 337, 59, 640, 373
+
+_transparent.png
+	size: 376, 188
+	filter: Linear, Linear
+sWeapon_22_094/W_shu_A_B01
+	bounds: 2, 2, 214, 183
+	offsets: 86, 95, 640, 373
+sWeapon_22_094/W_shu_B_B01
+	bounds: 218, 11, 153, 174
+	offsets: 391, 91, 640, 373
+
+_transparent.png
+	size: 372, 240
+	filter: Linear, Linear
+sWeapon_22_095/W_shu_A_B01
+	bounds: 2, 7, 224, 231
+	offsets: 81, 78, 640, 373
+sWeapon_22_095/W_shu_B_B01
+	bounds: 228, 2, 140, 236
+	offsets: 417, 83, 640, 373
+
+_transparent.png
+	size: 392, 200
+	filter: Linear, Linear
+sWeapon_22_096/W_shu_A_B01
+	bounds: 2, 7, 246, 191
+	offsets: 56, 97, 640, 373
+sWeapon_22_096/W_shu_B_B01
+	bounds: 250, 2, 196, 137
+	offsets: 381, 111, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 432, 228
+	filter: Linear, Linear
+sWeapon_22_097/W_shu_A_B01
+	bounds: 2, 27, 268, 198
+	offsets: 37, 87, 640, 373
+sWeapon_22_097/W_shu_B_B01
+	bounds: 272, 2, 223, 155
+	offsets: 375, 98, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 312, 196
+	filter: Linear, Linear
+sWeapon_22_098/W_shu_A_B01
+	bounds: 217, 33, 160, 92
+	offsets: 117, 140, 640, 373
+	rotate: 90
+sWeapon_22_098/W_shu_B_B01
+	bounds: 2, 2, 213, 191
+	offsets: 411, 98, 640, 373
+
+_transparent.png
+	size: 232, 236
+	filter: Linear, Linear
+sWeapon_22_099/W_shu_A_B01
+	bounds: 2, 75, 226, 156
+	offsets: 67, 114, 640, 373
+sWeapon_22_099/W_shu_B_B01
+	bounds: 2, 2, 71, 182
+	offsets: 435, 92, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 196, 376
+	filter: Linear, Linear
+sWeapon_22_100/W_shu_A_B01
+	bounds: 2, 164, 190, 210
+	offsets: 86, 82, 640, 373
+sWeapon_22_100/W_shu_B_B01
+	bounds: 2, 2, 160, 170
+	offsets: 395, 91, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 324, 172
+	filter: Linear, Linear
+sWeapon_22_101/W_shu_A_B01
+	bounds: 2, 2, 189, 167
+	offsets: 86, 115, 640, 373
+sWeapon_22_101/W_shu_B_B01
+	bounds: 193, 17, 127, 152
+	offsets: 419, 106, 640, 373
+
+_transparent.png
+	size: 212, 368
+	filter: Linear, Linear
+sWeapon_22_10110/W_shu_A_B01
+	bounds: 2, 2, 147, 195
+	offsets: 105, 89, 640, 373
+	rotate: 90
+sWeapon_22_10110/W_shu_B_B01
+	bounds: 2, 151, 208, 215
+	offsets: 370, 79, 640, 373
+
+_transparent.png
+	size: 356, 188
+	filter: Linear, Linear
+sWeapon_22_102/W_shu_A_B01
+	bounds: 2, 13, 216, 173
+	offsets: 67, 100, 640, 373
+sWeapon_22_102/W_shu_B_B01
+	bounds: 220, 2, 132, 184
+	offsets: 418, 89, 640, 373
+
+_transparent.png
+	size: 188, 344
+	filter: Linear, Linear
+sWeapon_22_103/W_shu_A_B01
+	bounds: 2, 119, 183, 220
+	offsets: 89, 91, 640, 373
+sWeapon_22_103/W_shu_B_B01
+	bounds: 2, 2, 183, 115
+	offsets: 388, 170, 640, 373
+
+_transparent.png
+	size: 340, 172
+	filter: Linear, Linear
+sWeapon_22_104/W_shu_A_B01
+	bounds: 2, 9, 192, 158
+	offsets: 94, 120, 640, 373
+sWeapon_22_104/W_shu_B_B01
+	bounds: 196, 2, 139, 165
+	offsets: 411, 109, 640, 373
+
+_transparent.png
+	size: 248, 520
+	filter: Linear, Linear
+sWeapon_22_10409/W_shu_A_B01
+	bounds: 2, 201, 236, 317
+	offsets: 84, 38, 640, 373
+sWeapon_22_10409/W_shu_B_B01
+	bounds: 2, 2, 197, 242
+	offsets: 383, 42, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 368, 172
+	filter: Linear, Linear
+sWeapon_22_105/W_shu_A_B01
+	bounds: 2, 6, 215, 162
+	offsets: 70, 121, 640, 373
+sWeapon_22_105/W_shu_B_B01
+	bounds: 219, 2, 144, 166
+	offsets: 414, 114, 640, 373
+
+_transparent.png
+	size: 480, 252
+	filter: Linear, Linear
+sWeapon_22_10503/W_shu_A_B01
+	bounds: 2, 16, 302, 231
+	offsets: 18, 105, 640, 373
+sWeapon_22_10503/W_shu_B_B01
+	bounds: 306, 2, 172, 245
+	offsets: 401, 105, 640, 373
+
+_transparent.png
+	size: 404, 196
+	filter: Linear, Linear
+sWeapon_22_10506/W_shu_A_B01
+	bounds: 2, 2, 234, 190
+	offsets: 51, 103, 640, 373
+sWeapon_22_10506/W_shu_B_B01
+	bounds: 238, 11, 162, 181
+	offsets: 400, 101, 640, 373
+
+_transparent.png
+	size: 336, 216
+	filter: Linear, Linear
+sWeapon_22_106/W_shu_A_B01
+	bounds: 2, 7, 198, 204
+	offsets: 76, 68, 640, 373
+sWeapon_22_106/W_shu_B_B01
+	bounds: 202, 2, 129, 209
+	offsets: 419, 67, 640, 373
+
+_transparent.png
+	size: 432, 192
+	filter: Linear, Linear
+sWeapon_22_10604/W_shu_A_B01
+	bounds: 2, 2, 261, 186
+	offsets: 38, 103, 640, 373
+sWeapon_22_10604/W_shu_B_B01
+	bounds: 265, 2, 162, 186
+	offsets: 400, 101, 640, 373
+
+_transparent.png
+	size: 440, 176
+	filter: Linear, Linear
+sWeapon_22_107/W_shu_A_B01
+	bounds: 2, 2, 236, 172
+	offsets: 64, 110, 640, 373
+sWeapon_22_107/W_shu_B_B01
+	bounds: 240, 2, 172, 198
+	offsets: 418, 104, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 420, 216
+	filter: Linear, Linear
+sWeapon_22_10702/W_shu_A_B01
+	bounds: 2, 14, 232, 199
+	offsets: 74, 102, 640, 373
+sWeapon_22_10702/W_shu_B_B01
+	bounds: 236, 2, 180, 211
+	offsets: 402, 88, 640, 373
+
+_transparent.png
+	size: 388, 192
+	filter: Linear, Linear
+sWeapon_22_10708/W_shu_A_B01
+	bounds: 2, 2, 226, 188
+	offsets: 65, 101, 640, 373
+sWeapon_22_10708/W_shu_B_B01
+	bounds: 230, 10, 153, 180
+	offsets: 399, 104, 640, 373
+
+_transparent.png
+	size: 376, 180
+	filter: Linear, Linear
+sWeapon_22_108/W_shu_A_B01
+	bounds: 2, 2, 203, 175
+	offsets: 80, 99, 640, 373
+sWeapon_22_108/W_shu_B_B01
+	bounds: 207, 12, 165, 165
+	offsets: 410, 95, 640, 373
+
+_transparent.png
+	size: 260, 124
+	filter: Linear, Linear
+sWeapon_22_109/W_shu_A_B01
+	bounds: 130, 2, 126, 117
+	offsets: 125, 120, 640, 373
+sWeapon_22_109/W_shu_B_B01
+	bounds: 2, 2, 126, 117
+	offsets: 424, 123, 640, 373
+
+_transparent.png
+	size: 272, 432
+	filter: Linear, Linear
+sWeapon_22_110/W_shu_A_B01
+	bounds: 2, 203, 266, 225
+	offsets: 29, 73, 640, 373
+sWeapon_22_110/W_shu_B_B01
+	bounds: 2, 2, 199, 250
+	offsets: 399, 65, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 384, 192
+	filter: Linear, Linear
+sWeapon_22_8406/W_shu_A_B01
+	bounds: 2, 2, 230, 186
+	offsets: 59, 80, 640, 373
+sWeapon_22_8406/W_shu_B_B01
+	bounds: 234, 9, 147, 179
+	offsets: 403, 88, 640, 373
+
+_transparent.png
+	size: 300, 192
+	filter: Linear, Linear
+sWeapon_22_8424/W_shu_A_B01
+	bounds: 151, 2, 147, 188
+	offsets: 107, 101, 640, 373
+sWeapon_22_8424/W_shu_B_B01
+	bounds: 2, 2, 147, 188
+	offsets: 397, 101, 640, 373
+
+_transparent.png
+	size: 500, 204
+	filter: Linear, Linear
+sWeapon_22_8441/W_shu_A_B01
+	bounds: 2, 14, 208, 186
+	offsets: 73, 110, 640, 373
+sWeapon_22_8441/W_shu_B_B01
+	bounds: 212, 2, 150, 198
+	offsets: 413, 116, 640, 373
+sWeapon_22_8441/W_zhang_28_A01
+	bounds: 432, 64, 66, 136
+sWeapon_22_8441/W_zhang_28_B01
+	bounds: 364, 64, 66, 136
+
+_transparent.png
+	size: 568, 236
+	filter: Linear, Linear
+sWeapon_22_8455/W_shu_A_B01
+	bounds: 2, 48, 318, 183
+	offsets: 28, 114, 640, 373
+sWeapon_22_8455/W_shu_B_B01
+	bounds: 322, 16, 244, 215
+	offsets: 368, 81, 640, 373
+sWeapon_22_8455/W_zhang_28_A01
+	bounds: 2, 2, 44, 111
+	offsets: 12, 13, 66, 136
+	rotate: 90
+
+_transparent.png
+	size: 356, 192
+	filter: Linear, Linear
+sWeapon_22_M_001/W_shu_A_B01
+	bounds: 2, 2, 206, 188
+	offsets: 84, 94, 640, 373
+sWeapon_22_M_001/W_shu_B_B01
+	bounds: 210, 5, 144, 185
+	offsets: 394, 97, 640, 373
+
+_transparent.png
+	size: 260, 416
+	filter: Linear, Linear
+sWeapon_22_M_002/W_shu_A_B01
+	bounds: 2, 179, 255, 232
+	offsets: 60, 70, 640, 373
+sWeapon_22_M_002/W_shu_B_B01
+	bounds: 2, 2, 175, 242
+	offsets: 378, 72, 640, 373
+	rotate: 90
+
+_transparent.png
+	size: 364, 252
+	filter: Linear, Linear
+sWeapon_22_M_003/W_shu_A_B01
+	bounds: 2, 23, 206, 226
+	offsets: 80, 66, 640, 373
+sWeapon_22_M_003/W_shu_B_B01
+	bounds: 210, 2, 150, 247
+	offsets: 397, 63, 640, 373
+
+_transparent.png
+	size: 268, 412
+	filter: Linear, Linear
+sWeapon_22_M_004/W_shu_A_B01
+	bounds: 2, 181, 263, 228
+	offsets: 57, 92, 640, 373
+sWeapon_22_M_004/W_shu_B_B01
+	bounds: 2, 2, 177, 245
+	offsets: 395, 96, 640, 373
+	rotate: 90
