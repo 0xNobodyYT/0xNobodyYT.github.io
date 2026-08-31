@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Skills Overview · Sword x Staff</title>
   <meta name="description" content="Browse Sword x Staff class skills and compare the same skill at different grades, stars, and levels.">
-  <link rel="stylesheet" href="../sxs-explorer.css?v=58cae13">
+  <link rel="stylesheet" href="../sxs-explorer.css?v=20260831-2">
 </head>
 <body data-tool="overview">
 <main class="wrap">
@@ -18,11 +18,11 @@
     <a href="../sxs-primo-calculator/">Season Planner<small>Primostars & materials</small></a><a href="../sxs-server-calendar/">Server Calendar<small>Days & events</small></a><a href="../sxs-loadout-builder/">Loadout Builder<small>Skills & gear</small></a><a href="../sxs-skills-conversion/">Skills Conversion<small>Class-change pools</small></a><a class="active" href="./">Skills Overview<small>Compare upgrades</small></a><a href="../sxs-fantomons/">Fantomons<small>Forms & abilities</small></a>
   </nav>
   <section class="panel"><span class="label">Four advancement paths</span><div id="classTrees"></div></section>
-  <section class="panel"><div class="section-head"><div><span class="label">Inherited skill pool</span><h2>Choose a Technique or Charm</h2></div></div><div class="skill-grid" id="skillList"></div></section>
+  <section class="panel"><div class="section-head skill-pool-title"><div><span class="label">Inherited skill pool</span><h2>Choose a Technique or Charm</h2></div><label class="skill-search"><span class="sr-only">Search techniques and charms</span><input id="skillSearch" type="search" placeholder="Search skills or charms…" autocomplete="off"></label></div><div class="skill-pools"><section class="skill-pool"><div class="skill-pool-head"><span class="pill">Technique</span><h3>Skills</h3><span class="pool-count" id="techniqueCount"></span></div><div class="skill-grid" id="techniqueList"></div></section><section class="skill-pool"><div class="skill-pool-head"><span class="pill">Charm</span><h3>Charms</h3><span class="pool-count" id="charmCount"></span></div><div class="skill-grid" id="charmList"></div></section></div></section>
   <section class="panel"><div class="controls"><div class="field"><label for="combatRank">Combat rank / fixed-value curve</label><select id="combatRank"></select></div></div><div class="compare" style="margin-top:15px"><div class="controls"><div class="field"><label for="leftGrade">Left grade</label><select id="leftGrade"></select></div><div class="field"><label for="leftStars">Left stars</label><select id="leftStars"></select></div><div class="field"><label for="leftLevel">Left level</label><input id="leftLevel" type="number" min="1" max="620"></div></div><div class="controls"><div class="field"><label for="rightGrade">Right grade</label><select id="rightGrade"></select></div><div class="field"><label for="rightStars">Right stars</label><select id="rightStars"></select></div><div class="field"><label for="rightLevel">Right level</label><input id="rightLevel" type="number" min="1" max="620"></div></div></div></section>
   <section class="compare" id="comparison"></section>
   <footer class="footer">Datamining direction credited to <a href="https://github.com/Mystonats">Mystonats</a>. © 2026 0xNobody.</footer>
 </main>
-<script src="../sxs-loadout-builder/data.js"></script><script src="../sxs-loadout-builder/combat-data.js"></script><script src="../sxs-loadout-builder/fantomons.js"></script><script src="../sxs-explorer.js"></script>
+<script src="../sxs-loadout-builder/data.js"></script><script src="../sxs-loadout-builder/combat-data.js"></script><script src="../sxs-loadout-builder/fantomons.js"></script><script src="../sxs-explorer.js?v=20260831-2"></script>
 </body>
 </html>
