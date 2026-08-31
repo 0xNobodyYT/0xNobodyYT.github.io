@@ -112,7 +112,7 @@ wing_03/wing_03_A_Z_A03
 wing_03/wing_03_A_Z_A04
 	bounds: 609, 319, 196, 198
 
-_transparent.png
+wing_04.png
 	size: 948, 312
 	filter: Linear, Linear
 wing_04/L_A_01
@@ -137,7 +137,7 @@ wing_04/R_A_03
 wing_04/Z_A_01
 	bounds: 2, 125, 445, 182
 
-_transparent.png
+wing_05.png
 	size: 1628, 224
 	filter: Linear, Linear
 wing_05/R_A_01
@@ -157,7 +157,7 @@ wing_05/R_A_06
 wing_05/Z_A_01
 	bounds: 1345, 35, 160, 184
 
-_transparent.png
+wing_06.png
 	size: 700, 1124
 	filter: Linear, Linear
 wing_06/R_A_01
@@ -244,7 +244,7 @@ wing_07/Z_A_01
 wing_07/Z_A_02_B
 	bounds: 2, 1357, 283, 236
 
-_transparent.png
+wing_07_A.png
 	size: 292, 456
 	filter: Linear, Linear
 wing_07_A/R_A_03
@@ -254,14 +254,14 @@ wing_07_A/R_A_05
 	offsets: 0, 5, 117, 212
 	rotate: 270
 
-_transparent.png
+wing_08.png
 	size: 512, 596
 	filter: Linear, Linear
 wing_08/R_A_01
 	bounds: 2, 2, 506, 592
 	offsets: 40, 88, 695, 680
 
-_transparent.png
+wing_09.png
 	size: 388, 124
 	filter: Linear, Linear
 wing_09/R_A_01
@@ -272,7 +272,7 @@ wing_09/R_B_01
 	bounds: 2, 2, 245, 118
 	offsets: 0, 3, 245, 124
 
-_transparent.png
+wing_10.png
 	size: 1780, 1404
 	filter: Linear, Linear
 wing_10/L_A_01
@@ -301,7 +301,7 @@ wing_10/TX_08
 	bounds: 117, 812, 590, 403
 	rotate: 90
 
-_transparent.png
+wing_11.png
 	size: 616, 548
 	filter: Linear, Linear
 wing_11/R_A_01
@@ -355,7 +355,7 @@ wing_11/Z_A_05
 	bounds: 249, 91, 204, 453
 	offsets: 14, 2, 234, 475
 
-_transparent.png
+wing_11_A.png
 	size: 488, 500
 	filter: Linear, Linear
 wing_11_A/R_A_14
@@ -427,7 +427,7 @@ wing_12/Z_A_01
 	offsets: 4, 5, 178, 148
 	rotate: 90
 
-_transparent.png
+wing_13.png
 	size: 460, 556
 	filter: Linear, Linear
 wing_13/R_A_13

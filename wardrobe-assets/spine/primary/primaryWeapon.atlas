@@ -1,4 +1,4 @@
-_transparent.png
+pWeapon_100_001.png
 	size: 188, 620
 	filter: Linear, Linear
 pWeapon_100_001/W_jian_01
@@ -12,28 +12,28 @@ pWeapon_100_002/W_jian_02
 	bounds: 2, 2, 252, 617
 	offsets: 48, 152, 348, 925
 
-_transparent.png
+pWeapon_100_003.png
 	size: 252, 628
 	filter: Linear, Linear
 pWeapon_100_003/W_jian_03
 	bounds: 2, 2, 248, 624
 	offsets: 79, 141, 407, 925
 
-_transparent.png
+pWeapon_100_004.png
 	size: 368, 648
 	filter: Linear, Linear
 pWeapon_100_004/W_jian_04
 	bounds: 2, 2, 362, 644
 	offsets: 22, 124, 407, 925
 
-_transparent.png
+pWeapon_100_005.png
 	size: 216, 660
 	filter: Linear, Linear
 pWeapon_100_005/W_jian_05
 	bounds: 2, 2, 212, 655
 	offsets: 68, 113, 348, 925
 
-_transparent.png
+pWeapon_100_006.png
 	size: 220, 748
 	filter: Linear, Linear
 pWeapon_100_006/W_jian_06
@@ -43,63 +43,63 @@ pWeapon_100_006/W_jian_06_A01
 	bounds: 2, 2, 77, 84
 	rotate: 90
 
-_transparent.png
+pWeapon_100_007.png
 	size: 124, 612
 	filter: Linear, Linear
 pWeapon_100_007/W_jian_07
 	bounds: 2, 2, 119, 607
 	offsets: 115, 156, 348, 925
 
-_transparent.png
+pWeapon_100_008.png
 	size: 204, 616
 	filter: Linear, Linear
 pWeapon_100_008/W_jian_08
 	bounds: 2, 2, 200, 611
 	offsets: 74, 154, 348, 925
 
-_transparent.png
+pWeapon_100_009.png
 	size: 236, 700
 	filter: Linear, Linear
 pWeapon_100_009/W_jian_09
 	bounds: 2, 2, 232, 695
 	offsets: 48, 87, 348, 925
 
-_transparent.png
+pWeapon_100_010.png
 	size: 244, 636
 	filter: Linear, Linear
 pWeapon_100_010/W_jian_10
 	bounds: 2, 2, 237, 632
 	offsets: 55, 140, 348, 925
 
-_transparent.png
+pWeapon_100_011.png
 	size: 128, 636
 	filter: Linear, Linear
 pWeapon_100_011/W_jian_11
 	bounds: 2, 2, 122, 629
 	offsets: 113, 140, 348, 925
 
-_transparent.png
+pWeapon_100_012.png
 	size: 220, 676
 	filter: Linear, Linear
 pWeapon_100_012/W_jian_12
 	bounds: 2, 2, 215, 671
 	offsets: 79, 106, 348, 925
 
-_transparent.png
+pWeapon_100_013.png
 	size: 200, 632
 	filter: Linear, Linear
 pWeapon_100_013/W_jian_13
 	bounds: 2, 2, 196, 628
 	offsets: 76, 137, 348, 925
 
-_transparent.png
+pWeapon_100_014.png
 	size: 200, 676
 	filter: Linear, Linear
 pWeapon_100_014/W_jian_14
 	bounds: 2, 2, 196, 669
 	offsets: 75, 93, 348, 925
 
-_transparent.png
+pWeapon_100_015.png
 	size: 212, 760
 	filter: Linear, Linear
 pWeapon_100_015/W_jian_15
@@ -109,133 +109,133 @@ pWeapon_100_015/W_jian_15_B01
 	bounds: 2, 2, 171, 117
 	offsets: 0, 6, 171, 123
 
-_transparent.png
+pWeapon_100_016.png
 	size: 200, 608
 	filter: Linear, Linear
 pWeapon_100_016/W_jian_16
 	bounds: 2, 2, 194, 604
 	offsets: 77, 151, 348, 925
 
-_transparent.png
+pWeapon_100_017.png
 	size: 328, 680
 	filter: Linear, Linear
 pWeapon_100_017/W_jian_17
 	bounds: 2, 2, 321, 674
 	offsets: 12, 110, 348, 925
 
-_transparent.png
+pWeapon_100_018.png
 	size: 204, 640
 	filter: Linear, Linear
 pWeapon_100_018/W_jian_18
 	bounds: 2, 2, 198, 636
 	offsets: 75, 133, 348, 925
 
-_transparent.png
+pWeapon_100_019.png
 	size: 184, 628
 	filter: Linear, Linear
 pWeapon_100_019/W_jian_19
 	bounds: 2, 2, 180, 624
 	offsets: 84, 139, 348, 925
 
-_transparent.png
+pWeapon_100_020.png
 	size: 220, 620
 	filter: Linear, Linear
 pWeapon_100_020/W_jian_20
 	bounds: 2, 2, 216, 615
 	offsets: 61, 147, 348, 925
 
-_transparent.png
+pWeapon_100_021.png
 	size: 172, 632
 	filter: Linear, Linear
 pWeapon_100_021/W_jian_18
 	bounds: 2, 2, 166, 627
 	offsets: 96, 140, 348, 925
 
-_transparent.png
+pWeapon_100_022.png
 	size: 268, 704
 	filter: Linear, Linear
 pWeapon_100_022/W_jian_22
 	bounds: 2, 2, 262, 697
 	offsets: 22, 70, 348, 925
 
-_transparent.png
+pWeapon_100_023.png
 	size: 136, 584
 	filter: Linear, Linear
 pWeapon_100_023/W_jian_23
 	bounds: 2, 2, 132, 577
 	offsets: 120, 153, 348, 925
 
-_transparent.png
+pWeapon_100_024.png
 	size: 312, 684
 	filter: Linear, Linear
 pWeapon_100_024/W_jian_24
 	bounds: 2, 2, 306, 677
 	offsets: 21, 95, 348, 925
 
-_transparent.png
+pWeapon_100_025.png
 	size: 152, 640
 	filter: Linear, Linear
 pWeapon_100_025/W_jian_25
 	bounds: 2, 2, 148, 633
 	offsets: 88, 115, 348, 925
 
-_transparent.png
+pWeapon_100_026.png
 	size: 200, 648
 	filter: Linear, Linear
 pWeapon_100_026/W_jian_26
 	bounds: 2, 2, 193, 644
 	offsets: 77, 117, 348, 925
 
-_transparent.png
+pWeapon_100_027.png
 	size: 200, 652
 	filter: Linear, Linear
 pWeapon_100_027/W_jian_27
 	bounds: 2, 2, 194, 646
 	offsets: 77, 123, 348, 925
 
-_transparent.png
+pWeapon_100_028.png
 	size: 252, 632
 	filter: Linear, Linear
 pWeapon_100_028/W_jian_28
 	bounds: 2, 2, 246, 628
 	offsets: 51, 117, 348, 925
 
-_transparent.png
+pWeapon_100_029.png
 	size: 256, 684
 	filter: Linear, Linear
 pWeapon_100_029/W_jian_29
 	bounds: 2, 2, 250, 679
 	offsets: 49, 123, 348, 925
 
-_transparent.png
+pWeapon_100_030.png
 	size: 228, 728
 	filter: Linear, Linear
 pWeapon_100_030/W_jian_30
 	bounds: 2, 2, 224, 722
 	offsets: 62, 62, 348, 925
 
-_transparent.png
+pWeapon_100_031.png
 	size: 184, 700
 	filter: Linear, Linear
 pWeapon_100_031/W_jian_31
 	bounds: 2, 2, 180, 693
 	offsets: 84, 95, 348, 925
 
-_transparent.png
+pWeapon_100_032.png
 	size: 284, 652
 	filter: Linear, Linear
 pWeapon_100_032/W_jian_32
 	bounds: 2, 2, 278, 647
 	offsets: 35, 118, 348, 925
 
-_transparent.png
+pWeapon_100_033.png
 	size: 276, 640
 	filter: Linear, Linear
 pWeapon_100_033/W_jian_33
 	bounds: 2, 2, 272, 636
 	offsets: 38, 133, 348, 925
 
-_transparent.png
+pWeapon_100_034.png
 	size: 296, 1072
 	filter: Linear, Linear
 pWeapon_100_034/W_jian_34
@@ -248,14 +248,14 @@ pWeapon_100_034/W_jian_34_A02
 	bounds: 2, 134, 147, 224
 	rotate: 90
 
-_transparent.png
+pWeapon_100_035.png
 	size: 156, 620
 	filter: Linear, Linear
 pWeapon_100_035/W_jian_35
 	bounds: 2, 2, 149, 614
 	offsets: 98, 151, 348, 925
 
-_transparent.png
+pWeapon_100_036.png
 	size: 204, 772
 	filter: Linear, Linear
 pWeapon_100_036/W_jian_01
@@ -265,14 +265,14 @@ pWeapon_100_036/W_jian_01_A01
 	bounds: 2, 2, 89, 94
 	rotate: 90
 
-_transparent.png
+pWeapon_100_037.png
 	size: 204, 604
 	filter: Linear, Linear
 pWeapon_100_037/W_jian_01
 	bounds: 2, 2, 200, 599
 	offsets: 45, 124, 348, 925
 
-_transparent.png
+pWeapon_100_038.png
 	size: 180, 1024
 	filter: Linear, Linear
 pWeapon_100_038/W_jian_01
@@ -283,63 +283,63 @@ pWeapon_100_038/W_jian_01_B01
 	offsets: 0, 0, 348, 147
 	rotate: 90
 
-_transparent.png
+pWeapon_100_039.png
 	size: 208, 664
 	filter: Linear, Linear
 pWeapon_100_039/W_jian_01
 	bounds: 2, 2, 202, 659
 	offsets: 87, 100, 348, 925
 
-_transparent.png
+pWeapon_100_040.png
 	size: 316, 656
 	filter: Linear, Linear
 pWeapon_100_040/W_jian_01
 	bounds: 2, 2, 312, 649
 	offsets: 18, 110, 348, 925
 
-_transparent.png
+pWeapon_100_041.png
 	size: 260, 632
 	filter: Linear, Linear
 pWeapon_100_041/W_jian_01
 	bounds: 2, 2, 254, 628
 	offsets: 47, 130, 348, 925
 
-_transparent.png
+pWeapon_100_042.png
 	size: 308, 680
 	filter: Linear, Linear
 pWeapon_100_042/W_jian_01
 	bounds: 2, 2, 302, 673
 	offsets: 23, 85, 348, 925
 
-_transparent.png
+pWeapon_100_043.png
 	size: 312, 648
 	filter: Linear, Linear
 pWeapon_100_043/W_jian_01
 	bounds: 2, 2, 308, 642
 	offsets: 20, 117, 348, 925
 
-_transparent.png
+pWeapon_100_044.png
 	size: 320, 644
 	filter: Linear, Linear
 pWeapon_100_044/W_jian_01
 	bounds: 2, 2, 314, 638
 	offsets: 17, 120, 348, 925
 
-_transparent.png
+pWeapon_100_045.png
 	size: 128, 704
 	filter: Linear, Linear
 pWeapon_100_045/W_jian_01
 	bounds: 2, 2, 121, 698
 	offsets: 114, 80, 348, 925
 
-_transparent.png
+pWeapon_100_046.png
 	size: 116, 636
 	filter: Linear, Linear
 pWeapon_100_046/W_jian_01
 	bounds: 2, 2, 110, 631
 	offsets: 119, 141, 348, 925
 
-_transparent.png
+pWeapon_100_047.png
 	size: 152, 732
 	filter: Linear, Linear
 pWeapon_100_047/W_jian_01
@@ -350,42 +350,42 @@ pWeapon_100_047/W_jian_01_A01
 	offsets: 13, 6, 67, 141
 	rotate: 90
 
-_transparent.png
+pWeapon_100_048.png
 	size: 124, 672
 	filter: Linear, Linear
 pWeapon_100_048/W_jian_01
 	bounds: 2, 2, 120, 667
 	offsets: 112, 151, 348, 925
 
-_transparent.png
+pWeapon_100_049.png
 	size: 124, 672
 	filter: Linear, Linear
 pWeapon_100_049/W_jian_01
 	bounds: 2, 2, 120, 667
 	offsets: 112, 151, 348, 925
 
-_transparent.png
+pWeapon_100_050.png
 	size: 124, 672
 	filter: Linear, Linear
 pWeapon_100_050/W_jian_01
 	bounds: 2, 2, 120, 667
 	offsets: 110, 151, 348, 925
 
-_transparent.png
+pWeapon_100_051.png
 	size: 124, 672
 	filter: Linear, Linear
 pWeapon_100_051/W_jian_01
 	bounds: 2, 2, 120, 667
 	offsets: 112, 151, 348, 925
 
-_transparent.png
+pWeapon_100_052.png
 	size: 176, 628
 	filter: Linear, Linear
 pWeapon_100_052/W_jian_01
 	bounds: 2, 2, 172, 624
 	offsets: 88, 150, 348, 925
 
-_transparent.png
+pWeapon_100_053.png
 	size: 316, 932
 	filter: Linear, Linear
 pWeapon_100_053/W_jian_01
@@ -398,35 +398,35 @@ pWeapon_100_053/W_jian_01_A02
 pWeapon_100_053/W_jian_01_B01
 	bounds: 2, 2, 98, 925
 
-_transparent.png
+pWeapon_100_054.png
 	size: 248, 640
 	filter: Linear, Linear
 pWeapon_100_054/W_jian_01
 	bounds: 2, 2, 243, 633
 	offsets: 53, 140, 348, 925
 
-_transparent.png
+pWeapon_100_055.png
 	size: 328, 712
 	filter: Linear, Linear
 pWeapon_100_055/W_jian_01
 	bounds: 2, 2, 322, 705
 	offsets: 13, 104, 348, 925
 
-_transparent.png
+pWeapon_100_056.png
 	size: 292, 692
 	filter: Linear, Linear
 pWeapon_100_056/W_jian_01
 	bounds: 2, 2, 286, 687
 	offsets: 31, 112, 348, 925
 
-_transparent.png
+pWeapon_100_057.png
 	size: 328, 672
 	filter: Linear, Linear
 pWeapon_100_057/W_jian_01
 	bounds: 2, 2, 324, 668
 	offsets: 12, 121, 348, 925
 
-_transparent.png
+pWeapon_100_058.png
 	size: 252, 748
 	filter: Linear, Linear
 pWeapon_100_058/W_jian_01
@@ -437,14 +437,14 @@ pWeapon_100_058/W_jian_01_A01
 pWeapon_100_058/W_jian_01_A02
 	bounds: 2, 2, 113, 65
 
-_transparent.png
+pWeapon_100_059.png
 	size: 252, 648
 	filter: Linear, Linear
 pWeapon_100_059/W_jian_01
 	bounds: 2, 2, 246, 641
 	offsets: 51, 135, 348, 925
 
-_transparent.png
+pWeapon_100_060.png
 	size: 228, 1176
 	filter: Linear, Linear
 pWeapon_100_060/W_jian_01
@@ -458,42 +458,42 @@ pWeapon_100_060/W_jian_01_B01
 	offsets: 21, 14, 372, 194
 	rotate: 90
 
-_transparent.png
+pWeapon_100_061.png
 	size: 204, 620
 	filter: Linear, Linear
 pWeapon_100_061/W_jian_01
 	bounds: 2, 2, 197, 614
 	offsets: 53, 155, 348, 925
 
-_transparent.png
+pWeapon_100_062.png
 	size: 184, 696
 	filter: Linear, Linear
 pWeapon_100_062/W_jian_01
 	bounds: 2, 2, 180, 690
 	offsets: 84, 138, 348, 925
 
-_transparent.png
+pWeapon_100_063.png
 	size: 164, 648
 	filter: Linear, Linear
 pWeapon_100_063/W_jian_01
 	bounds: 2, 2, 160, 641
 	offsets: 92, 148, 348, 925
 
-_transparent.png
+pWeapon_100_064.png
 	size: 68, 676
 	filter: Linear, Linear
 pWeapon_100_064/W_jian_01
 	bounds: 2, 2, 62, 671
 	offsets: 143, 124, 348, 925
 
-_transparent.png
+pWeapon_100_065.png
 	size: 288, 764
 	filter: Linear, Linear
 pWeapon_100_065/W_jian_01
 	bounds: 2, 2, 284, 760
 	offsets: 32, 50, 348, 925
 
-_transparent.png
+pWeapon_100_066.png
 	size: 280, 808
 	filter: Linear, Linear
 pWeapon_100_066/W_jian_01
@@ -503,126 +503,126 @@ pWeapon_100_066/W_jian_01_A01
 	bounds: 2, 2, 75, 85
 	rotate: 90
 
-_transparent.png
+pWeapon_100_067.png
 	size: 336, 672
 	filter: Linear, Linear
 pWeapon_100_067/W_jian_01
 	bounds: 2, 2, 332, 667
 	offsets: 0, 126, 348, 925
 
-_transparent.png
+pWeapon_100_068.png
 	size: 260, 700
 	filter: Linear, Linear
 pWeapon_100_068/W_jian_01
 	bounds: 2, 2, 254, 695
 	offsets: 47, 131, 348, 925
 
-_transparent.png
+pWeapon_100_069.png
 	size: 176, 632
 	filter: Linear, Linear
 pWeapon_100_069/W_jian_01
 	bounds: 2, 2, 170, 627
 	offsets: 93, 150, 348, 925
 
-_transparent.png
+pWeapon_100_070.png
 	size: 148, 672
 	filter: Linear, Linear
 pWeapon_100_070/W_jian_01
 	bounds: 2, 2, 142, 666
 	offsets: 113, 126, 348, 925
 
-_transparent.png
+pWeapon_100_071.png
 	size: 220, 668
 	filter: Linear, Linear
 pWeapon_100_071/W_jian_01
 	bounds: 2, 2, 214, 662
 	offsets: 67, 131, 348, 925
 
-_transparent.png
+pWeapon_100_072.png
 	size: 156, 640
 	filter: Linear, Linear
 pWeapon_100_072/W_jian_01
 	bounds: 2, 2, 151, 636
 	offsets: 108, 150, 348, 925
 
-_transparent.png
+pWeapon_100_073.png
 	size: 264, 728
 	filter: Linear, Linear
 pWeapon_100_073/W_jian_01
 	bounds: 2, 2, 258, 724
 	offsets: 75, 78, 348, 925
 
-_transparent.png
+pWeapon_100_074.png
 	size: 320, 736
 	filter: Linear, Linear
 pWeapon_100_074/W_jian_01
 	bounds: 2, 2, 315, 729
 	offsets: 17, 50, 348, 925
 
-_transparent.png
+pWeapon_100_075.png
 	size: 236, 656
 	filter: Linear, Linear
 pWeapon_100_075/W_jian_01
 	bounds: 2, 2, 229, 650
 	offsets: 62, 121, 348, 925
 
-_transparent.png
+pWeapon_100_076.png
 	size: 252, 700
 	filter: Linear, Linear
 pWeapon_100_076/W_jian_01
 	bounds: 2, 2, 248, 695
 	offsets: 50, 94, 348, 925
 
-_transparent.png
+pWeapon_100_077.png
 	size: 188, 700
 	filter: Linear, Linear
 pWeapon_100_077/W_jian_01
 	bounds: 2, 2, 184, 695
 	offsets: 82, 82, 348, 925
 
-_transparent.png
+pWeapon_100_078.png
 	size: 248, 716
 	filter: Linear, Linear
 pWeapon_100_078/W_jian_01
 	bounds: 2, 2, 242, 711
 	offsets: 53, 106, 348, 925
 
-_transparent.png
+pWeapon_100_079.png
 	size: 260, 712
 	filter: Linear, Linear
 pWeapon_100_079/W_jian_01
 	bounds: 2, 2, 256, 707
 	offsets: 46, 101, 348, 925
 
-_transparent.png
+pWeapon_100_080.png
 	size: 268, 772
 	filter: Linear, Linear
 pWeapon_100_080/W_jian_01
 	bounds: 2, 2, 264, 768
 	offsets: 42, 110, 348, 925
 
-_transparent.png
+pWeapon_100_081.png
 	size: 252, 712
 	filter: Linear, Linear
 pWeapon_100_081/W_jian_01
 	bounds: 2, 2, 246, 708
 	offsets: 51, 142, 348, 925
 
-_transparent.png
+pWeapon_100_082.png
 	size: 216, 724
 	filter: Linear, Linear
 pWeapon_100_082/W_jian_01
 	bounds: 2, 2, 210, 720
 	offsets: 75, 119, 348, 925
 
-_transparent.png
+pWeapon_100_083.png
 	size: 284, 748
 	filter: Linear, Linear
 pWeapon_100_083/W_jian_01
 	bounds: 2, 2, 277, 744
 	offsets: 36, 104, 348, 925
 
-_transparent.png
+pWeapon_100_084.png
 	size: 292, 780
 	filter: Linear, Linear
 pWeapon_100_084/W_jian_01
@@ -632,119 +632,119 @@ pWeapon_100_084/W_jian_01_A01
 	bounds: 2, 2, 206, 65
 	offsets: 14, 27, 220, 112
 
-_transparent.png
+pWeapon_100_085.png
 	size: 244, 644
 	filter: Linear, Linear
 pWeapon_100_085/W_jian_01
 	bounds: 2, 2, 238, 638
 	offsets: 55, 143, 348, 925
 
-_transparent.png
+pWeapon_100_086.png
 	size: 176, 616
 	filter: Linear, Linear
 pWeapon_100_086/W_jian_01
 	bounds: 2, 2, 171, 611
 	offsets: 89, 145, 348, 925
 
-_transparent.png
+pWeapon_100_087.png
 	size: 324, 684
 	filter: Linear, Linear
 pWeapon_100_087/W_jian_01
 	bounds: 2, 2, 320, 680
 	offsets: 14, 100, 348, 925
 
-_transparent.png
+pWeapon_100_088.png
 	size: 348, 772
 	filter: Linear, Linear
 pWeapon_100_088/W_jian_01
 	bounds: 2, 2, 344, 765
 	offsets: 0, 29, 348, 925
 
-_transparent.png
+pWeapon_100_089.png
 	size: 200, 740
 	filter: Linear, Linear
 pWeapon_100_089/W_jian_01
 	bounds: 2, 2, 194, 736
 	offsets: 77, 109, 348, 925
 
-_transparent.png
+pWeapon_100_090.png
 	size: 200, 672
 	filter: Linear, Linear
 pWeapon_100_090/W_jian_01
 	bounds: 2, 2, 195, 665
 	offsets: 88, 118, 348, 925
 
-_transparent.png
+pWeapon_100_091.png
 	size: 304, 620
 	filter: Linear, Linear
 pWeapon_100_091/W_jian_01
 	bounds: 2, 2, 298, 616
 	offsets: 25, 143, 348, 925
 
-_transparent.png
+pWeapon_100_092.png
 	size: 216, 720
 	filter: Linear, Linear
 pWeapon_100_092/W_jian_01
 	bounds: 2, 2, 211, 716
 	offsets: 66, 77, 348, 925
 
-_transparent.png
+pWeapon_100_093.png
 	size: 300, 808
 	filter: Linear, Linear
 pWeapon_100_093/W_jian_01
 	bounds: 2, 2, 296, 804
 	offsets: 26, 88, 348, 925
 
-_transparent.png
+pWeapon_100_094.png
 	size: 296, 756
 	filter: Linear, Linear
 pWeapon_100_094/W_jian_01
 	bounds: 2, 2, 290, 750
 	offsets: 29, 89, 348, 925
 
-_transparent.png
+pWeapon_100_095.png
 	size: 220, 700
 	filter: Linear, Linear
 pWeapon_100_095/W_jian_01
 	bounds: 2, 2, 214, 694
 	offsets: 67, 110, 348, 925
 
-_transparent.png
+pWeapon_100_096.png
 	size: 172, 696
 	filter: Linear, Linear
 pWeapon_100_096/W_jian_01
 	bounds: 2, 2, 166, 692
 	offsets: 104, 154, 348, 925
 
-_transparent.png
+pWeapon_100_097.png
 	size: 184, 728
 	filter: Linear, Linear
 pWeapon_100_097/W_jian_01
 	bounds: 2, 2, 178, 723
 	offsets: 89, 116, 348, 925
 
-_transparent.png
+pWeapon_100_098.png
 	size: 304, 768
 	filter: Linear, Linear
 pWeapon_100_098/W_jian_01
 	bounds: 2, 2, 300, 761
 	offsets: 23, 82, 348, 925
 
-_transparent.png
+pWeapon_100_099.png
 	size: 172, 600
 	filter: Linear, Linear
 pWeapon_100_099/W_jian_01
 	bounds: 2, 2, 165, 593
 	offsets: 92, 163, 348, 925
 
-_transparent.png
+pWeapon_100_100.png
 	size: 256, 704
 	filter: Linear, Linear
 pWeapon_100_100/W_jian_01
 	bounds: 2, 2, 252, 698
 	offsets: 48, 119, 348, 925
 
-_transparent.png
+pWeapon_100_101.png
 	size: 132, 664
 	filter: Linear, Linear
 pWeapon_100_101/W_jian_01
@@ -778,175 +778,175 @@ pWeapon_100_101/W_jian_01_10
 	bounds: 64, 172, 40, 64
 	rotate: 90
 
-_transparent.png
+pWeapon_100_10111.png
 	size: 232, 632
 	filter: Linear, Linear
 pWeapon_100_10111/W_jian_01
 	bounds: 2, 2, 228, 626
 	offsets: 60, 101, 348, 925
 
-_transparent.png
+pWeapon_100_10113.png
 	size: 172, 700
 	filter: Linear, Linear
 pWeapon_100_10113/W_jian_01
 	bounds: 2, 2, 165, 696
 	offsets: 80, 130, 348, 925
 
-_transparent.png
+pWeapon_100_102.png
 	size: 188, 668
 	filter: Linear, Linear
 pWeapon_100_102/W_jian_01
 	bounds: 2, 2, 184, 664
 	offsets: 82, 119, 348, 925
 
-_transparent.png
+pWeapon_100_10206.png
 	size: 292, 608
 	filter: Linear, Linear
 pWeapon_100_10206/W_jian_01
 	bounds: 2, 2, 287, 604
 	offsets: 17, 125, 348, 925
 
-_transparent.png
+pWeapon_100_103.png
 	size: 276, 688
 	filter: Linear, Linear
 pWeapon_100_103/W_jian_01
 	bounds: 2, 2, 272, 683
 	offsets: 10, 118, 348, 925
 
-_transparent.png
+pWeapon_100_104.png
 	size: 228, 584
 	filter: Linear, Linear
 pWeapon_100_104/W_jian_01
 	bounds: 2, 2, 223, 580
 	offsets: 37, 144, 348, 925
 
-_transparent.png
+pWeapon_100_10408.png
 	size: 172, 680
 	filter: Linear, Linear
 pWeapon_100_10408/W_jian_01
 	bounds: 2, 2, 166, 676
 	offsets: 95, 106, 348, 925
 
-_transparent.png
+pWeapon_100_10411.png
 	size: 164, 636
 	filter: Linear, Linear
 pWeapon_100_10411/W_jian_01
 	bounds: 2, 2, 160, 630
 	offsets: 94, 152, 348, 925
 
-_transparent.png
+pWeapon_100_105.png
 	size: 304, 664
 	filter: Linear, Linear
 pWeapon_100_105/W_jian_01
 	bounds: 2, 2, 298, 659
 	offsets: 25, 127, 348, 925
 
-_transparent.png
+pWeapon_100_10501.png
 	size: 152, 696
 	filter: Linear, Linear
 pWeapon_100_10501/W_jian_01
 	bounds: 2, 2, 146, 690
 	offsets: 101, 83, 348, 925
 
-_transparent.png
+pWeapon_100_10505.png
 	size: 308, 708
 	filter: Linear, Linear
 pWeapon_100_10505/W_jian_01
 	bounds: 2, 2, 303, 704
 	offsets: 23, 105, 348, 925
 
-_transparent.png
+pWeapon_100_10507.png
 	size: 276, 644
 	filter: Linear, Linear
 pWeapon_100_10507/W_jian_01
 	bounds: 2, 2, 272, 638
 	offsets: 38, 150, 348, 925
 
-_transparent.png
+pWeapon_100_106.png
 	size: 244, 680
 	filter: Linear, Linear
 pWeapon_100_106/W_jian_01
 	bounds: 2, 2, 237, 673
 	offsets: 56, 120, 348, 925
 
-_transparent.png
+pWeapon_100_10602.png
 	size: 152, 576
 	filter: Linear, Linear
 pWeapon_100_10602/W_jian_01
 	bounds: 2, 2, 145, 570
 	offsets: 101, 110, 348, 925
 
-_transparent.png
+pWeapon_100_10603.png
 	size: 116, 764
 	filter: Linear, Linear
 pWeapon_100_10603/W_jian_01
 	bounds: 2, 2, 111, 759
 	offsets: 119, 77, 348, 925
 
-_transparent.png
+pWeapon_100_10606.png
 	size: 208, 652
 	filter: Linear, Linear
 pWeapon_100_10606/W_jian_01
 	bounds: 2, 2, 203, 647
 	offsets: 62, 139, 348, 925
 
-_transparent.png
+pWeapon_100_10607.png
 	size: 304, 652
 	filter: Linear, Linear
 pWeapon_100_10607/W_jian_01
 	bounds: 2, 2, 298, 647
 	offsets: 25, 85, 348, 925
 
-_transparent.png
+pWeapon_100_107.png
 	size: 212, 728
 	filter: Linear, Linear
 pWeapon_100_107/W_jian_01
 	bounds: 2, 2, 207, 723
 	offsets: 70, 92, 348, 925
 
-_transparent.png
+pWeapon_100_10703.png
 	size: 168, 684
 	filter: Linear, Linear
 pWeapon_100_10703/W_jian_01
 	bounds: 2, 2, 162, 680
 	offsets: 117, 88, 348, 925
 
-_transparent.png
+pWeapon_100_10704.png
 	size: 236, 660
 	filter: Linear, Linear
 pWeapon_100_10704/W_jian_01
 	bounds: 2, 2, 232, 654
 	offsets: 55, 135, 348, 925
 
-_transparent.png
+pWeapon_100_10705.png
 	size: 152, 660
 	filter: Linear, Linear
 pWeapon_100_10705/W_jian_01
 	bounds: 2, 2, 146, 656
 	offsets: 101, 150, 348, 925
 
-_transparent.png
+pWeapon_100_10707.png
 	size: 228, 712
 	filter: Linear, Linear
 pWeapon_100_10707/W_jian_01
 	bounds: 2, 2, 223, 706
 	offsets: 82, 82, 348, 925
 
-_transparent.png
+pWeapon_100_108.png
 	size: 220, 716
 	filter: Linear, Linear
 pWeapon_100_108/W_jian_01
 	bounds: 2, 2, 215, 711
 	offsets: 67, 86, 348, 925
 
-_transparent.png
+pWeapon_100_10802.png
 	size: 220, 748
 	filter: Linear, Linear
 pWeapon_100_10802/W_jian_01
 	bounds: 2, 2, 214, 744
 	offsets: 67, 121, 348, 925
 
-_transparent.png
+pWeapon_100_10806.png
 	size: 312, 1012
 	filter: Linear, Linear
 pWeapon_100_10806/W_jian_01
@@ -956,77 +956,77 @@ pWeapon_100_10806/W_jian_01_B01
 	bounds: 2, 2, 305, 314
 	offsets: 16, 36, 348, 383
 
-_transparent.png
+pWeapon_100_109.png
 	size: 268, 696
 	filter: Linear, Linear
 pWeapon_100_109/W_jian_01
 	bounds: 2, 2, 263, 692
 	offsets: 41, 95, 348, 925
 
-_transparent.png
+pWeapon_100_110.png
 	size: 308, 732
 	filter: Linear, Linear
 pWeapon_100_110/W_jian_01
 	bounds: 2, 2, 301, 727
 	offsets: 24, 111, 348, 925
 
-_transparent.png
+pWeapon_100_11001_1.png
 	size: 128, 524
 	filter: Linear, Linear
 pWeapon_100_11001_1/W_jian_01
 	bounds: 2, 2, 122, 517
 	offsets: 113, 191, 348, 925
 
-_transparent.png
+pWeapon_100_11001_2.png
 	size: 224, 624
 	filter: Linear, Linear
 pWeapon_100_11001_2/W_jian_01
 	bounds: 2, 2, 218, 619
 	offsets: 65, 159, 348, 925
 
-_transparent.png
+pWeapon_100_11001_3.png
 	size: 104, 516
 	filter: Linear, Linear
 pWeapon_100_11001_3/W_jian_01
 	bounds: 2, 2, 97, 509
 	offsets: 126, 173, 348, 925
 
-_transparent.png
+pWeapon_100_11003.png
 	size: 168, 668
 	filter: Linear, Linear
 pWeapon_100_11003/W_jian_01
 	bounds: 2, 2, 164, 664
 	offsets: 92, 132, 348, 925
 
-_transparent.png
+pWeapon_100_111.png
 	size: 160, 712
 	filter: Linear, Linear
 pWeapon_100_111/W_jian_01
 	bounds: 2, 2, 155, 706
 	offsets: 97, 70, 348, 925
 
-_transparent.png
+pWeapon_100_112.png
 	size: 324, 744
 	filter: Linear, Linear
 pWeapon_100_112/W_jian_01
 	bounds: 2, 2, 317, 740
 	offsets: 16, 101, 348, 925
 
-_transparent.png
+pWeapon_100_113.png
 	size: 264, 772
 	filter: Linear, Linear
 pWeapon_100_113/W_jian_01
 	bounds: 2, 2, 257, 765
 	offsets: 46, 76, 348, 925
 
-_transparent.png
+pWeapon_100_114.png
 	size: 208, 676
 	filter: Linear, Linear
 pWeapon_100_114/W_jian_01
 	bounds: 2, 2, 204, 669
 	offsets: 93, 120, 348, 925
 
-_transparent.png
+pWeapon_100_115.png
 	size: 244, 736
 	filter: Linear, Linear
 pWeapon_100_115/W_jian_01
@@ -1049,21 +1049,21 @@ pWeapon_100_115/W_jian_01_A04
 	offsets: 19, 19, 112, 120
 	rotate: 90
 
-_transparent.png
+pWeapon_100_116.png
 	size: 196, 656
 	filter: Linear, Linear
 pWeapon_100_116/W_jian_01
 	bounds: 2, 2, 189, 652
 	offsets: 71, 146, 348, 925
 
-_transparent.png
+pWeapon_100_117.png
 	size: 260, 636
 	filter: Linear, Linear
 pWeapon_100_117/W_jian_01
 	bounds: 2, 2, 255, 629
 	offsets: 66, 108, 348, 925
 
-_transparent.png
+pWeapon_100_118.png
 	size: 248, 1108
 	filter: Linear, Linear
 pWeapon_100_118/W_jian_01
@@ -1081,49 +1081,49 @@ pWeapon_100_118/W_jian_01_B07
 	offsets: 6, 4, 117, 189
 	rotate: 90
 
-_transparent.png
+pWeapon_100_119.png
 	size: 256, 696
 	filter: Linear, Linear
 pWeapon_100_119/W_jian_01
 	bounds: 2, 2, 250, 689
 	offsets: 15, 128, 348, 925
 
-_transparent.png
+pWeapon_100_120.png
 	size: 196, 728
 	filter: Linear, Linear
 pWeapon_100_120/W_jian_01
 	bounds: 2, 2, 191, 723
 	offsets: 79, 95, 348, 925
 
-_transparent.png
+pWeapon_100_121.png
 	size: 180, 620
 	filter: Linear, Linear
 pWeapon_100_121/W_jian_01
 	bounds: 2, 2, 175, 616
 	offsets: 86, 154, 348, 925
 
-_transparent.png
+pWeapon_100_122.png
 	size: 136, 756
 	filter: Linear, Linear
 pWeapon_100_122/W_jian_01
 	bounds: 2, 2, 130, 750
 	offsets: 109, 73, 348, 925
 
-_transparent.png
+pWeapon_100_123.png
 	size: 144, 644
 	filter: Linear, Linear
 pWeapon_100_123/W_jian_01
 	bounds: 2, 2, 140, 637
 	offsets: 104, 150, 348, 925
 
-_transparent.png
+pWeapon_100_124.png
 	size: 184, 664
 	filter: Linear, Linear
 pWeapon_100_124/W_jian_01
 	bounds: 2, 2, 178, 658
 	offsets: 83, 135, 348, 925
 
-_transparent.png
+pWeapon_100_125.png
 	size: 228, 852
 	filter: Linear, Linear
 pWeapon_100_125/W_jian_01
@@ -1133,77 +1133,77 @@ pWeapon_100_125/W_jian_01_A01
 	bounds: 2, 2, 127, 147
 	rotate: 90
 
-_transparent.png
+pWeapon_100_126.png
 	size: 284, 752
 	filter: Linear, Linear
 pWeapon_100_126/W_jian_01
 	bounds: 2, 2, 278, 747
 	offsets: 35, 67, 348, 925
 
-_transparent.png
+pWeapon_100_127.png
 	size: 228, 740
 	filter: Linear, Linear
 pWeapon_100_127/W_jian_01
 	bounds: 2, 2, 221, 735
 	offsets: 62, 127, 348, 925
 
-_transparent.png
+pWeapon_100_128.png
 	size: 260, 680
 	filter: Linear, Linear
 pWeapon_100_128/W_jian_01
 	bounds: 2, 2, 254, 673
 	offsets: 45, 96, 348, 925
 
-_transparent.png
+pWeapon_100_129.png
 	size: 208, 712
 	filter: Linear, Linear
 pWeapon_100_129/W_jian_01
 	bounds: 2, 2, 202, 707
 	offsets: 73, 120, 348, 925
 
-_transparent.png
+pWeapon_100_130.png
 	size: 200, 684
 	filter: Linear, Linear
 pWeapon_100_130/W_jian_01
 	bounds: 2, 2, 194, 679
 	offsets: 77, 115, 348, 925
 
-_transparent.png
+pWeapon_100_131.png
 	size: 248, 728
 	filter: Linear, Linear
 pWeapon_100_131/W_jian_01
 	bounds: 2, 2, 241, 724
 	offsets: 53, 107, 348, 925
 
-_transparent.png
+pWeapon_100_132.png
 	size: 200, 688
 	filter: Linear, Linear
 pWeapon_100_132/W_jian_01
 	bounds: 2, 2, 196, 682
 	offsets: 76, 108, 348, 925
 
-_transparent.png
+pWeapon_100_133.png
 	size: 332, 712
 	filter: Linear, Linear
 pWeapon_100_133/W_jian_01
 	bounds: 2, 2, 326, 708
 	offsets: 12, 102, 348, 925
 
-_transparent.png
+pWeapon_100_134.png
 	size: 192, 648
 	filter: Linear, Linear
 pWeapon_100_134/W_jian_01
 	bounds: 2, 2, 185, 641
 	offsets: 62, 129, 348, 925
 
-_transparent.png
+pWeapon_100_135.png
 	size: 192, 656
 	filter: Linear, Linear
 pWeapon_100_135/W_jian_01
 	bounds: 2, 2, 185, 652
 	offsets: 81, 128, 348, 925
 
-_transparent.png
+pWeapon_100_136.png
 	size: 160, 720
 	filter: Linear, Linear
 pWeapon_100_136/W_jian_01
@@ -1213,56 +1213,56 @@ pWeapon_100_136/W_jian_01_A01
 	bounds: 2, 2, 67, 99
 	rotate: 90
 
-_transparent.png
+pWeapon_100_8404.png
 	size: 108, 316
 	filter: Linear, Linear
 pWeapon_100_8404/W_jian_8404
 	bounds: 2, 2, 104, 311
 	offsets: 38, 71, 174, 463
 
-_transparent.png
+pWeapon_100_8408.png
 	size: 132, 624
 	filter: Linear, Linear
 pWeapon_100_8408/W_jian_01
 	bounds: 2, 2, 126, 617
 	offsets: 111, 154, 348, 925
 
-_transparent.png
+pWeapon_100_8411.png
 	size: 176, 648
 	filter: Linear, Linear
 pWeapon_100_8411/W_jian_8411
 	bounds: 2, 2, 170, 643
 	offsets: 90, 116, 348, 926
 
-_transparent.png
+pWeapon_100_8421.png
 	size: 256, 688
 	filter: Linear, Linear
 pWeapon_100_8421/W_jian_01
 	bounds: 2, 2, 250, 684
 	offsets: 48, 96, 348, 925
 
-_transparent.png
+pWeapon_100_8422.png
 	size: 220, 600
 	filter: Linear, Linear
 pWeapon_100_8422/W_jian_01
 	bounds: 2, 2, 216, 596
 	offsets: 82, 103, 348, 925
 
-_transparent.png
+pWeapon_100_8423.png
 	size: 184, 660
 	filter: Linear, Linear
 pWeapon_100_8423/W_jian_01
 	bounds: 2, 2, 178, 655
 	offsets: 85, 126, 348, 925
 
-_transparent.png
+pWeapon_100_8427.png
 	size: 304, 668
 	filter: Linear, Linear
 pWeapon_100_8427/W_jian_05
 	bounds: 2, 2, 300, 662
 	offsets: 24, 113, 348, 925
 
-_transparent.png
+pWeapon_100_8438.png
 	size: 104, 804
 	filter: Linear, Linear
 pWeapon_100_8438/W_jian_01
@@ -1272,91 +1272,91 @@ pWeapon_100_8438/W_jian_01_A01
 	bounds: 2, 2, 38, 133
 	offsets: 16, 5, 70, 147
 
-_transparent.png
+pWeapon_100_8440.png
 	size: 96, 708
 	filter: Linear, Linear
 pWeapon_100_8440/W_jian_01
 	bounds: 2, 2, 92, 703
 	offsets: 128, 72, 348, 925
 
-_transparent.png
+pWeapon_100_8442.png
 	size: 136, 644
 	filter: Linear, Linear
 pWeapon_100_8442/W_jian_01
 	bounds: 2, 2, 132, 638
 	offsets: 110, 137, 348, 925
 
-_transparent.png
+pWeapon_100_8451.png
 	size: 132, 620
 	filter: Linear, Linear
 pWeapon_100_8451/W_jian_01
 	bounds: 2, 2, 128, 614
 	offsets: 110, 161, 348, 925
 
-_transparent.png
+pWeapon_100_8452.png
 	size: 124, 640
 	filter: Linear, Linear
 pWeapon_100_8452/W_jian_01
 	bounds: 2, 2, 120, 633
 	offsets: 114, 149, 348, 925
 
-_transparent.png
+pWeapon_100_8454.png
 	size: 152, 612
 	filter: Linear, Linear
 pWeapon_100_8454/W_jian_01
 	bounds: 2, 2, 146, 608
 	offsets: 101, 161, 348, 925
 
-_transparent.png
+pWeapon_100_M_001.png
 	size: 232, 608
 	filter: Linear, Linear
 pWeapon_100_M_001/W_jian_01
 	bounds: 2, 2, 225, 604
 	offsets: 74, 113, 348, 925
 
-_transparent.png
+pWeapon_100_M_002.png
 	size: 212, 616
 	filter: Linear, Linear
 pWeapon_100_M_002/W_jian_01
 	bounds: 2, 2, 206, 610
 	offsets: 71, 158, 348, 925
 
-_transparent.png
+pWeapon_100_M_003.png
 	size: 116, 628
 	filter: Linear, Linear
 pWeapon_100_M_003/W_jian_01
 	bounds: 2, 2, 112, 621
 	offsets: 118, 151, 348, 925
 
-_transparent.png
+pWeapon_100_M_004.png
 	size: 128, 636
 	filter: Linear, Linear
 pWeapon_100_M_004/W_jian_01
 	bounds: 2, 2, 122, 632
 	offsets: 113, 150, 348, 925
 
-_transparent.png
+pWeapon_100_M_005.png
 	size: 228, 640
 	filter: Linear, Linear
 pWeapon_100_M_005/W_jian_01
 	bounds: 2, 2, 224, 635
 	offsets: 62, 150, 348, 925
 
-_transparent.png
+pWeapon_100_M_006.png
 	size: 324, 652
 	filter: Linear, Linear
 pWeapon_100_M_006/W_jian_01
 	bounds: 2, 2, 320, 648
 	offsets: 14, 109, 348, 925
 
-_transparent.png
+pWeapon_100_M_007.png
 	size: 212, 748
 	filter: Linear, Linear
 pWeapon_100_M_007/W_jian_01
 	bounds: 2, 2, 205, 742
 	offsets: 69, 59, 348, 925
 
-_transparent.png
+pWeapon_200_001.png
 	size: 280, 744
 	filter: Linear, Linear
 pWeapon_200_001/W_zhang
@@ -1370,28 +1370,28 @@ pWeapon_200_002/W_zhang_02
 	bounds: 2, 2, 272, 725
 	offsets: 88, 101, 448, 976
 
-_transparent.png
+pWeapon_200_003.png
 	size: 300, 780
 	filter: Linear, Linear
 pWeapon_200_003/W_zhang_03
 	bounds: 2, 2, 296, 773
 	offsets: 99, 99, 448, 976
 
-_transparent.png
+pWeapon_200_004.png
 	size: 368, 796
 	filter: Linear, Linear
 pWeapon_200_004/W_zhang_04
 	bounds: 2, 2, 362, 789
 	offsets: 43, 100, 448, 976
 
-_transparent.png
+pWeapon_200_005.png
 	size: 288, 724
 	filter: Linear, Linear
 pWeapon_200_005/W_zhang_05
 	bounds: 2, 2, 282, 718
 	offsets: 83, 95, 448, 976
 
-_transparent.png
+pWeapon_200_006.png
 	size: 336, 848
 	filter: Linear, Linear
 pWeapon_200_006/W_zhang_06
@@ -1400,28 +1400,28 @@ pWeapon_200_006/W_zhang_06
 pWeapon_200_006/W_zhang_06_A01
 	bounds: 2, 2, 99, 93
 
-_transparent.png
+pWeapon_200_007.png
 	size: 248, 724
 	filter: Linear, Linear
 pWeapon_200_007/W_zhang_07
 	bounds: 2, 2, 244, 718
 	offsets: 95, 104, 448, 976
 
-_transparent.png
+pWeapon_200_008.png
 	size: 256, 680
 	filter: Linear, Linear
 pWeapon_200_008/W_zhang_08
 	bounds: 2, 2, 250, 674
 	offsets: 99, 100, 448, 976
 
-_transparent.png
+pWeapon_200_009.png
 	size: 340, 752
 	filter: Linear, Linear
 pWeapon_200_009/W_zhang_09
 	bounds: 2, 2, 334, 746
 	offsets: 57, 94, 448, 976
 
-_transparent.png
+pWeapon_200_010.png
 	size: 272, 816
 	filter: Linear, Linear
 pWeapon_200_010/W_zhang_10
@@ -1431,21 +1431,21 @@ pWeapon_200_010/W_zhang_10_A01
 	bounds: 2, 2, 84, 157
 	rotate: 90
 
-_transparent.png
+pWeapon_200_011.png
 	size: 248, 724
 	filter: Linear, Linear
 pWeapon_200_011/W_zhang_11
 	bounds: 2, 2, 244, 720
 	offsets: 102, 100, 448, 976
 
-_transparent.png
+pWeapon_200_012.png
 	size: 280, 768
 	filter: Linear, Linear
 pWeapon_200_012/W_zhang_12
 	bounds: 2, 2, 273, 761
 	offsets: 90, 96, 448, 976
 
-_transparent.png
+pWeapon_200_013.png
 	size: 300, 920
 	filter: Linear, Linear
 pWeapon_200_013/W_zhang_13
@@ -1458,7 +1458,7 @@ pWeapon_200_013/W_zhang_13_A02
 	bounds: 2, 2, 109, 138
 	rotate: 90
 
-_transparent.png
+pWeapon_200_014.png
 	size: 316, 780
 	filter: Linear, Linear
 pWeapon_200_014/W_zhang_14
@@ -1469,7 +1469,7 @@ pWeapon_200_014/W_zhang_14_A01
 	offsets: 9, 0, 58, 111
 	rotate: 90
 
-_transparent.png
+pWeapon_200_015.png
 	size: 232, 872
 	filter: Linear, Linear
 pWeapon_200_015/W_zhang_15
@@ -1487,21 +1487,21 @@ pWeapon_200_015/W_zhang_15_B02
 	bounds: 2, 2, 190, 268
 	offsets: 16, 20, 216, 309
 
-_transparent.png
+pWeapon_200_016.png
 	size: 316, 724
 	filter: Linear, Linear
 pWeapon_200_016/W_zhang_16
 	bounds: 2, 2, 311, 720
 	offsets: 68, 122, 448, 976
 
-_transparent.png
+pWeapon_200_017.png
 	size: 280, 784
 	filter: Linear, Linear
 pWeapon_200_017/W_zhang_17
 	bounds: 2, 2, 274, 777
 	offsets: 86, 62, 448, 976
 
-_transparent.png
+pWeapon_200_018.png
 	size: 168, 856
 	filter: Linear, Linear
 pWeapon_200_018/W_zhang_18
@@ -1510,28 +1510,28 @@ pWeapon_200_018/W_zhang_18
 pWeapon_200_018/W_zhang_18_B01
 	bounds: 2, 2, 163, 251
 
-_transparent.png
+pWeapon_200_019.png
 	size: 284, 772
 	filter: Linear, Linear
 pWeapon_200_019/W_zhang_19
 	bounds: 2, 2, 280, 766
 	offsets: 84, 101, 448, 976
 
-_transparent.png
+pWeapon_200_020.png
 	size: 256, 752
 	filter: Linear, Linear
 pWeapon_200_020/W_zhang_20
 	bounds: 2, 2, 250, 745
 	offsets: 83, 97, 448, 976
 
-_transparent.png
+pWeapon_200_021.png
 	size: 220, 708
 	filter: Linear, Linear
 pWeapon_200_021/W_zhang_18
 	bounds: 2, 2, 214, 702
 	offsets: 117, 99, 448, 976
 
-_transparent.png
+pWeapon_200_022.png
 	size: 192, 812
 	filter: Linear, Linear
 pWeapon_200_022/W_zhang_22
@@ -1542,7 +1542,7 @@ pWeapon_200_022/W_zhang_22_B01
 	offsets: 9, 3, 157, 180
 	rotate: 90
 
-_transparent.png
+pWeapon_200_023.png
 	size: 252, 876
 	filter: Linear, Linear
 pWeapon_200_023/W_zhang_23
@@ -1551,28 +1551,28 @@ pWeapon_200_023/W_zhang_23
 pWeapon_200_023/W_zhang_23_B01
 	bounds: 2, 2, 209, 185
 
-_transparent.png
+pWeapon_200_024.png
 	size: 324, 764
 	filter: Linear, Linear
 pWeapon_200_024/W_zhang_24
 	bounds: 2, 2, 320, 759
 	offsets: 64, 94, 448, 976
 
-_transparent.png
+pWeapon_200_025.png
 	size: 296, 744
 	filter: Linear, Linear
 pWeapon_200_025/W_zhang_25
 	bounds: 2, 2, 292, 738
 	offsets: 78, 87, 448, 976
 
-_transparent.png
+pWeapon_200_026.png
 	size: 276, 716
 	filter: Linear, Linear
 pWeapon_200_026/W_zhang_26
 	bounds: 2, 2, 272, 709
 	offsets: 88, 104, 448, 976
 
-_transparent.png
+pWeapon_200_027.png
 	size: 284, 848
 	filter: Linear, Linear
 pWeapon_200_027/W_zhang_27
@@ -1583,14 +1583,14 @@ pWeapon_200_027/W_zhang_27_B01
 	offsets: 23, 9, 216, 289
 	rotate: 90
 
-_transparent.png
+pWeapon_200_028.png
 	size: 252, 700
 	filter: Linear, Linear
 pWeapon_200_028/W_zhang_28
 	bounds: 2, 2, 246, 696
 	offsets: 101, 104, 448, 976
 
-_transparent.png
+pWeapon_200_029.png
 	size: 248, 912
 	filter: Linear, Linear
 pWeapon_200_029/W_zhang_29
@@ -1600,7 +1600,7 @@ pWeapon_200_029/W_zhang_29_A01
 	bounds: 2, 2, 79, 88
 	rotate: 90
 
-_transparent.png
+pWeapon_200_030.png
 	size: 296, 844
 	filter: Linear, Linear
 pWeapon_200_030/W_zhang_30
@@ -1614,21 +1614,21 @@ pWeapon_200_030/W_zhang_30_A02
 	bounds: 126, 2, 57, 75
 	rotate: 90
 
-_transparent.png
+pWeapon_200_031.png
 	size: 252, 792
 	filter: Linear, Linear
 pWeapon_200_031/W_zhang_31
 	bounds: 2, 2, 246, 785
 	offsets: 101, 87, 448, 976
 
-_transparent.png
+pWeapon_200_032.png
 	size: 340, 788
 	filter: Linear, Linear
 pWeapon_200_032/W_zhang_32
 	bounds: 2, 2, 336, 784
 	offsets: 56, 43, 448, 976
 
-_transparent.png
+pWeapon_200_033.png
 	size: 296, 804
 	filter: Linear, Linear
 pWeapon_200_033/W_zhang_33
@@ -1639,7 +1639,7 @@ pWeapon_200_033/W_zhang_33_A01
 	offsets: 13, 6, 78, 120
 	rotate: 90
 
-_transparent.png
+pWeapon_200_034.png
 	size: 384, 1104
 	filter: Linear, Linear
 pWeapon_200_034/W_zhang_34
@@ -1650,28 +1650,28 @@ pWeapon_200_034/W_zhang_34_B01
 pWeapon_200_034/W_zhang_34_B02
 	bounds: 2, 2, 379, 129
 
-_transparent.png
+pWeapon_200_035.png
 	size: 264, 724
 	filter: Linear, Linear
 pWeapon_200_035/W_zhang
 	bounds: 2, 2, 259, 719
 	offsets: 94, 103, 448, 976
 
-_transparent.png
+pWeapon_200_036.png
 	size: 312, 828
 	filter: Linear, Linear
 pWeapon_200_036/W_zhang_16
 	bounds: 2, 2, 306, 824
 	offsets: 71, 61, 448, 976
 
-_transparent.png
+pWeapon_200_037.png
 	size: 384, 764
 	filter: Linear, Linear
 pWeapon_200_037/W_zhang_16
 	bounds: 2, 2, 377, 757
 	offsets: 36, 126, 448, 976
 
-_transparent.png
+pWeapon_200_038.png
 	size: 224, 1432
 	filter: Linear, Linear
 pWeapon_200_038/W_zhang_16
@@ -1685,105 +1685,105 @@ pWeapon_200_038/W_zhang_16_B02
 	bounds: 2, 399, 219, 295
 	offsets: 15, 12, 244, 318
 
-_transparent.png
+pWeapon_200_039.png
 	size: 352, 796
 	filter: Linear, Linear
 pWeapon_200_039/W_zhang_16
 	bounds: 2, 2, 346, 790
 	offsets: 51, 109, 448, 976
 
-_transparent.png
+pWeapon_200_040.png
 	size: 328, 728
 	filter: Linear, Linear
 pWeapon_200_040/W_zhang_16
 	bounds: 2, 2, 324, 721
 	offsets: 62, 127, 448, 976
 
-_transparent.png
+pWeapon_200_041.png
 	size: 288, 704
 	filter: Linear, Linear
 pWeapon_200_041/W_zhang_16
 	bounds: 2, 2, 282, 699
 	offsets: 83, 127, 448, 976
 
-_transparent.png
+pWeapon_200_042.png
 	size: 332, 752
 	filter: Linear, Linear
 pWeapon_200_042/W_zhang_16
 	bounds: 2, 2, 328, 747
 	offsets: 60, 130, 448, 976
 
-_transparent.png
+pWeapon_200_043.png
 	size: 284, 724
 	filter: Linear, Linear
 pWeapon_200_043/W_zhang_16
 	bounds: 2, 2, 278, 719
 	offsets: 85, 127, 448, 976
 
-_transparent.png
+pWeapon_200_044.png
 	size: 344, 808
 	filter: Linear, Linear
 pWeapon_200_044/W_zhang_16
 	bounds: 2, 2, 340, 801
 	offsets: 54, 87, 448, 976
 
-_transparent.png
+pWeapon_200_045.png
 	size: 176, 732
 	filter: Linear, Linear
 pWeapon_200_045/W_zhang
 	bounds: 2, 2, 169, 728
 	offsets: 155, 124, 448, 976
 
-_transparent.png
+pWeapon_200_046.png
 	size: 284, 732
 	filter: Linear, Linear
 pWeapon_200_046/W_zhang
 	bounds: 2, 2, 279, 726
 	offsets: 59, 107, 448, 976
 
-_transparent.png
+pWeapon_200_047.png
 	size: 320, 800
 	filter: Linear, Linear
 pWeapon_200_047/W_zhang
 	bounds: 2, 2, 316, 796
 	offsets: 76, 97, 448, 976
 
-_transparent.png
+pWeapon_200_048.png
 	size: 288, 728
 	filter: Linear, Linear
 pWeapon_200_048/W_zhang
 	bounds: 2, 2, 283, 723
 	offsets: 80, 134, 448, 976
 
-_transparent.png
+pWeapon_200_049.png
 	size: 288, 728
 	filter: Linear, Linear
 pWeapon_200_049/W_zhang
 	bounds: 2, 2, 283, 723
 	offsets: 80, 134, 448, 976
 
-_transparent.png
+pWeapon_200_050.png
 	size: 288, 728
 	filter: Linear, Linear
 pWeapon_200_050/W_zhang
 	bounds: 2, 2, 283, 723
 	offsets: 80, 134, 448, 976
 
-_transparent.png
+pWeapon_200_051.png
 	size: 336, 756
 	filter: Linear, Linear
 pWeapon_200_051/W_zhang
 	bounds: 2, 2, 330, 749
 	offsets: 58, 134, 448, 976
 
-_transparent.png
+pWeapon_200_052.png
 	size: 244, 760
 	filter: Linear, Linear
 pWeapon_200_052/W_zhang
 	bounds: 2, 2, 238, 756
 	offsets: 106, 95, 448, 976
 
-_transparent.png
+pWeapon_200_053.png
 	size: 236, 1212
 	filter: Linear, Linear
 pWeapon_200_053/W_zhang_01
@@ -1795,7 +1795,7 @@ pWeapon_200_053/W_zhang_01_A01
 pWeapon_200_053/W_zhang_01_A02
 	bounds: 2, 2, 206, 100
 
-_transparent.png
+pWeapon_200_054.png
 	size: 240, 880
 	filter: Linear, Linear
 pWeapon_200_054/W_zhang_02
@@ -1805,7 +1805,7 @@ pWeapon_200_054/W_zhang_02_A01
 	bounds: 2, 2, 101, 168
 	rotate: 90
 
-_transparent.png
+pWeapon_200_055.png
 	size: 344, 920
 	filter: Linear, Linear
 pWeapon_200_055/W_zhang_02
@@ -1815,21 +1815,21 @@ pWeapon_200_055/W_zhang_02_A01
 	bounds: 2, 2, 87, 152
 	rotate: 90
 
-_transparent.png
+pWeapon_200_056.png
 	size: 356, 840
 	filter: Linear, Linear
 pWeapon_200_056/W_zhang
 	bounds: 2, 2, 352, 836
 	offsets: 49, 70, 448, 976
 
-_transparent.png
+pWeapon_200_057.png
 	size: 428, 816
 	filter: Linear, Linear
 pWeapon_200_057/W_zhang
 	bounds: 2, 2, 422, 810
 	offsets: 13, 96, 448, 976
 
-_transparent.png
+pWeapon_200_058.png
 	size: 268, 1300
 	filter: Linear, Linear
 pWeapon_200_058/W_zhang
@@ -1843,14 +1843,14 @@ pWeapon_200_058/W_zhang_A03
 pWeapon_200_058/W_zhang_B01
 	bounds: 138, 200, 107, 63
 
-_transparent.png
+pWeapon_200_059.png
 	size: 304, 740
 	filter: Linear, Linear
 pWeapon_200_059/W_zhang
 	bounds: 2, 2, 298, 733
 	offsets: 75, 106, 448, 976
 
-_transparent.png
+pWeapon_200_060.png
 	size: 468, 1416
 	filter: Linear, Linear
 pWeapon_200_060/W_zhang
@@ -1863,42 +1863,42 @@ pWeapon_200_060/W_zhang_B01
 pWeapon_200_060/W_zhang_B02
 	bounds: 332, 508, 101, 283
 
-_transparent.png
+pWeapon_200_061.png
 	size: 276, 764
 	filter: Linear, Linear
 pWeapon_200_061/W_zhang
 	bounds: 2, 2, 270, 759
 	offsets: 91, 73, 448, 976
 
-_transparent.png
+pWeapon_200_062.png
 	size: 312, 752
 	filter: Linear, Linear
 pWeapon_200_062/W_zhang
 	bounds: 2, 2, 306, 746
 	offsets: 64, 52, 448, 976
 
-_transparent.png
+pWeapon_200_063.png
 	size: 312, 780
 	filter: Linear, Linear
 pWeapon_200_063/W_zhang
 	bounds: 2, 2, 307, 776
 	offsets: 71, 88, 448, 976
 
-_transparent.png
+pWeapon_200_064.png
 	size: 68, 792
 	filter: Linear, Linear
 pWeapon_200_064/W_zhang
 	bounds: 2, 2, 62, 786
 	offsets: 193, 82, 448, 976
 
-_transparent.png
+pWeapon_200_065.png
 	size: 276, 776
 	filter: Linear, Linear
 pWeapon_200_065/W_zhang
 	bounds: 2, 2, 271, 772
 	offsets: 88, 97, 448, 976
 
-_transparent.png
+pWeapon_200_066.png
 	size: 1136, 272
 	filter: Linear, Linear
 pWeapon_200_066/W_zhang
@@ -1917,7 +1917,7 @@ pWeapon_200_066/W_zhang_B01
 pWeapon_200_066/W_zhang_B02
 	bounds: 960, 42, 132, 50
 
-_transparent.png
+pWeapon_200_067.png
 	size: 216, 1028
 	filter: Linear, Linear
 pWeapon_200_067/W_zhang
@@ -1927,7 +1927,7 @@ pWeapon_200_067/W_zhang_A01
 	bounds: 2, 2, 218, 189
 	rotate: 90
 
-_transparent.png
+pWeapon_200_068.png
 	size: 288, 884
 	filter: Linear, Linear
 pWeapon_200_068/W_zhang_02
@@ -1940,7 +1940,7 @@ pWeapon_200_068/W_zhang_02_A02
 	bounds: 226, 40, 37, 97
 	offsets: 16, 9, 68, 118
 
-_transparent.png
+pWeapon_200_069.png
 	size: 332, 960
 	filter: Linear, Linear
 pWeapon_200_069/W_zhang_02
@@ -1954,210 +1954,210 @@ pWeapon_200_069/W_zhang_02_A02
 	offsets: 15, 14, 90, 92
 	rotate: 90
 
-_transparent.png
+pWeapon_200_070.png
 	size: 248, 720
 	filter: Linear, Linear
 pWeapon_200_070/W_zhang_01
 	bounds: 2, 2, 242, 713
 	offsets: 103, 122, 448, 976
 
-_transparent.png
+pWeapon_200_071.png
 	size: 332, 840
 	filter: Linear, Linear
 pWeapon_200_071/W_zhang_01
 	bounds: 2, 2, 325, 833
 	offsets: 44, 110, 448, 976
 
-_transparent.png
+pWeapon_200_072.png
 	size: 384, 724
 	filter: Linear, Linear
 pWeapon_200_072/W_zhang_01
 	bounds: 2, 2, 379, 719
 	offsets: 34, 128, 448, 976
 
-_transparent.png
+pWeapon_200_073.png
 	size: 332, 852
 	filter: Linear, Linear
 pWeapon_200_073/W_zhang_01
 	bounds: 2, 2, 325, 846
 	offsets: 102, 93, 448, 976
 
-_transparent.png
+pWeapon_200_074.png
 	size: 320, 788
 	filter: Linear, Linear
 pWeapon_200_074/W_zhang_01
 	bounds: 2, 2, 315, 783
 	offsets: 67, 116, 448, 976
 
-_transparent.png
+pWeapon_200_075.png
 	size: 136, 776
 	filter: Linear, Linear
 pWeapon_200_075/W_zhang_01
 	bounds: 2, 2, 132, 771
 	offsets: 165, 78, 448, 976
 
-_transparent.png
+pWeapon_200_076.png
 	size: 276, 832
 	filter: Linear, Linear
 pWeapon_200_076/W_zhang_01
 	bounds: 2, 2, 272, 826
 	offsets: 88, 36, 448, 976
 
-_transparent.png
+pWeapon_200_077.png
 	size: 296, 816
 	filter: Linear, Linear
 pWeapon_200_077/W_zhang_01
 	bounds: 2, 2, 289, 810
 	offsets: 79, 38, 448, 976
 
-_transparent.png
+pWeapon_200_078.png
 	size: 236, 884
 	filter: Linear, Linear
 pWeapon_200_078/W_zhang_01
 	bounds: 2, 2, 230, 879
 	offsets: 109, 32, 448, 976
 
-_transparent.png
+pWeapon_200_079.png
 	size: 288, 864
 	filter: Linear, Linear
 pWeapon_200_079/W_zhang_01
 	bounds: 2, 2, 284, 857
 	offsets: 54, 75, 448, 976
 
-_transparent.png
+pWeapon_200_080.png
 	size: 296, 848
 	filter: Linear, Linear
 pWeapon_200_080/W_zhang_01
 	bounds: 2, 2, 291, 841
 	offsets: 62, 88, 448, 976
 
-_transparent.png
+pWeapon_200_081.png
 	size: 272, 744
 	filter: Linear, Linear
 pWeapon_200_081/W_zhang_01
 	bounds: 2, 2, 266, 740
 	offsets: 91, 92, 448, 976
 
-_transparent.png
+pWeapon_200_082.png
 	size: 272, 804
 	filter: Linear, Linear
 pWeapon_200_082/W_zhang_01
 	bounds: 2, 2, 266, 800
 	offsets: 91, 71, 448, 976
 
-_transparent.png
+pWeapon_200_083.png
 	size: 308, 884
 	filter: Linear, Linear
 pWeapon_200_083/W_zhang_01
 	bounds: 2, 2, 304, 878
 	offsets: 72, 48, 448, 976
 
-_transparent.png
+pWeapon_200_084.png
 	size: 348, 812
 	filter: Linear, Linear
 pWeapon_200_084/W_zhang_01
 	bounds: 2, 2, 341, 807
 	offsets: 20, 64, 448, 976
 
-_transparent.png
+pWeapon_200_085.png
 	size: 252, 748
 	filter: Linear, Linear
 pWeapon_200_085/W_zhang_01
 	bounds: 2, 2, 248, 742
 	offsets: 100, 100, 448, 976
 
-_transparent.png
+pWeapon_200_086.png
 	size: 164, 572
 	filter: Linear, Linear
 pWeapon_200_086/W_zhang_01
 	bounds: 2, 2, 159, 565
 	offsets: 145, 158, 448, 976
 
-_transparent.png
+pWeapon_200_087.png
 	size: 360, 816
 	filter: Linear, Linear
 pWeapon_200_087/W_zhang_01
 	bounds: 2, 2, 354, 809
 	offsets: 47, 75, 448, 976
 
-_transparent.png
+pWeapon_200_088.png
 	size: 228, 904
 	filter: Linear, Linear
 pWeapon_200_088/W_zhang_01
 	bounds: 2, 2, 224, 898
 	offsets: 112, 78, 448, 976
 
-_transparent.png
+pWeapon_200_089.png
 	size: 292, 868
 	filter: Linear, Linear
 pWeapon_200_089/W_zhang_01
 	bounds: 2, 2, 288, 861
 	offsets: 80, 53, 448, 976
 
-_transparent.png
+pWeapon_200_090.png
 	size: 296, 732
 	filter: Linear, Linear
 pWeapon_200_090/W_zhang_01
 	bounds: 2, 2, 292, 727
 	offsets: 78, 115, 448, 976
 
-_transparent.png
+pWeapon_200_091.png
 	size: 248, 844
 	filter: Linear, Linear
 pWeapon_200_091/W_zhang_02
 	bounds: 2, 2, 242, 840
 	offsets: 103, 68, 448, 976
 
-_transparent.png
+pWeapon_200_092.png
 	size: 208, 864
 	filter: Linear, Linear
 pWeapon_200_092/W_zhang_02
 	bounds: 2, 2, 204, 857
 	offsets: 125, 80, 448, 976
 
-_transparent.png
+pWeapon_200_093.png
 	size: 404, 852
 	filter: Linear, Linear
 pWeapon_200_093/W_zhang_02
 	bounds: 2, 2, 400, 848
 	offsets: 23, 39, 448, 976
 
-_transparent.png
+pWeapon_200_094.png
 	size: 332, 868
 	filter: Linear, Linear
 pWeapon_200_094/W_zhang_02
 	bounds: 2, 2, 327, 861
 	offsets: 61, 32, 448, 976
 
-_transparent.png
+pWeapon_200_095.png
 	size: 312, 788
 	filter: Linear, Linear
 pWeapon_200_095/W_zhang_02
 	bounds: 2, 2, 305, 781
 	offsets: 77, 109, 448, 976
 
-_transparent.png
+pWeapon_200_096.png
 	size: 244, 764
 	filter: Linear, Linear
 pWeapon_200_096/W_zhang_02
 	bounds: 2, 2, 239, 759
 	offsets: 104, 99, 448, 976
 
-_transparent.png
+pWeapon_200_097.png
 	size: 328, 728
 	filter: Linear, Linear
 pWeapon_200_097/W_zhang_02
 	bounds: 2, 2, 321, 723
 	offsets: 63, 105, 448, 976
 
-_transparent.png
+pWeapon_200_098.png
 	size: 296, 824
 	filter: Linear, Linear
 pWeapon_200_098/W_zhang_02
 	bounds: 2, 2, 292, 818
 	offsets: 56, 79, 448, 976
 
-_transparent.png
+pWeapon_200_099.png
 	size: 220, 788
 	filter: Linear, Linear
 pWeapon_200_099/W_zhang_02
@@ -2168,7 +2168,7 @@ pWeapon_200_099/W_zhang_02_B01
 	offsets: 17, 16, 83, 160
 	rotate: 90
 
-_transparent.png
+pWeapon_200_100.png
 	size: 300, 1052
 	filter: Linear, Linear
 pWeapon_200_100/W_zhang_02
@@ -2183,14 +2183,14 @@ pWeapon_200_100/W_zhang_02_B01
 	bounds: 192, 326, 41, 124
 	offsets: 21, 23, 83, 160
 
-_transparent.png
+pWeapon_200_101.png
 	size: 232, 728
 	filter: Linear, Linear
 pWeapon_200_101/W_zhang_02
 	bounds: 2, 2, 226, 721
 	offsets: 111, 127, 448, 976
 
-_transparent.png
+pWeapon_200_10109.png
 	size: 252, 920
 	filter: Linear, Linear
 pWeapon_200_10109/W_zhang_02
@@ -2201,7 +2201,7 @@ pWeapon_200_10109/W_zhang_02_B01
 	offsets: 10, 0, 69, 173
 	rotate: 90
 
-_transparent.png
+pWeapon_200_10110.png
 	size: 224, 1020
 	filter: Linear, Linear
 pWeapon_200_10110/W_zhang_01
@@ -2214,7 +2214,7 @@ pWeapon_200_10110/W_zhang_01_A02
 	bounds: 2, 2, 209, 103
 	offsets: 32, 75, 269, 216
 
-_transparent.png
+pWeapon_200_10112.png
 	size: 248, 944
 	filter: Linear, Linear
 pWeapon_200_10112/W_zhang_01_A02
@@ -2225,7 +2225,7 @@ pWeapon_200_10112/W_zhang_02
 	bounds: 2, 64, 241, 875
 	offsets: 104, 30, 448, 976
 
-_transparent.png
+pWeapon_200_102.png
 	size: 184, 1056
 	filter: Linear, Linear
 pWeapon_200_102/W_zhang_02
@@ -2236,21 +2236,21 @@ pWeapon_200_102/W_zhang_02_A01
 pWeapon_200_102/W_zhang_02_A02
 	bounds: 100, 439, 62, 62
 
-_transparent.png
+pWeapon_200_103.png
 	size: 260, 768
 	filter: Linear, Linear
 pWeapon_200_103/W_zhang_02
 	bounds: 2, 2, 255, 763
 	offsets: 137, 98, 448, 976
 
-_transparent.png
+pWeapon_200_104.png
 	size: 244, 724
 	filter: Linear, Linear
 pWeapon_200_104/W_zhang_02
 	bounds: 2, 2, 237, 720
 	offsets: 112, 100, 448, 976
 
-_transparent.png
+pWeapon_200_10409.png
 	size: 248, 1220
 	filter: Linear, Linear
 pWeapon_200_10409/W_zhang_02
@@ -2264,7 +2264,7 @@ pWeapon_200_10409/W_zhang_02_B01
 	bounds: 2, 154, 252, 243
 	rotate: 90
 
-_transparent.png
+pWeapon_200_10410.png
 	size: 200, 872
 	filter: Linear, Linear
 pWeapon_200_10410/W_zhang_02
@@ -2275,7 +2275,7 @@ pWeapon_200_10410/W_zhang_02_B01
 	offsets: 32, 30, 122, 196
 	rotate: 90
 
-_transparent.png
+pWeapon_200_10412.png
 	size: 188, 832
 	filter: Linear, Linear
 pWeapon_200_10412/W_zhang_02
@@ -2286,14 +2286,14 @@ pWeapon_200_10412/W_zhang_02_B01
 	offsets: 7, 0, 200, 168
 	rotate: 180
 
-_transparent.png
+pWeapon_200_105.png
 	size: 316, 732
 	filter: Linear, Linear
 pWeapon_200_105/W_zhang_02
 	bounds: 2, 2, 309, 728
 	offsets: 70, 107, 448, 976
 
-_transparent.png
+pWeapon_200_10502.png
 	size: 352, 932
 	filter: Linear, Linear
 pWeapon_200_10502/W_zhang
@@ -2303,7 +2303,7 @@ pWeapon_200_10502/W_zhang_A01
 	bounds: 2, 2, 229, 123
 	offsets: 0, 12, 229, 154
 
-_transparent.png
+pWeapon_200_10503.png
 	size: 848, 352
 	filter: Linear, Linear
 pWeapon_200_10503/W_zhang
@@ -2320,7 +2320,7 @@ pWeapon_200_10503/W_zhang_A03
 	bounds: 190, 2, 171, 215
 	rotate: 90
 
-_transparent.png
+pWeapon_200_10504.png
 	size: 260, 876
 	filter: Linear, Linear
 pWeapon_200_10504/W_zhang
@@ -2336,28 +2336,28 @@ pWeapon_200_10504/W_zhang_B02
 	offsets: 2, 5, 102, 100
 	rotate: 90
 
-_transparent.png
+pWeapon_200_10506.png
 	size: 344, 856
 	filter: Linear, Linear
 pWeapon_200_10506/W_zhang
 	bounds: 2, 2, 338, 851
 	offsets: 55, 87, 448, 976
 
-_transparent.png
+pWeapon_200_106.png
 	size: 368, 828
 	filter: Linear, Linear
 pWeapon_200_106/W_zhang_02
 	bounds: 2, 2, 362, 821
 	offsets: 40, 57, 448, 976
 
-_transparent.png
+pWeapon_200_10601.png
 	size: 184, 696
 	filter: Linear, Linear
 pWeapon_200_10601/W_zhang_02
 	bounds: 2, 2, 180, 689
 	offsets: 134, 101, 448, 976
 
-_transparent.png
+pWeapon_200_10604.png
 	size: 168, 1032
 	filter: Linear, Linear
 pWeapon_200_10604/W_zhang_02
@@ -2369,14 +2369,14 @@ pWeapon_200_10604/W_zhang_02_A02
 	bounds: 2, 57, 125, 127
 	rotate: 90
 
-_transparent.png
+pWeapon_200_10605.png
 	size: 380, 812
 	filter: Linear, Linear
 pWeapon_200_10605/W_zhang_02
 	bounds: 2, 2, 376, 807
 	offsets: 36, 84, 448, 976
 
-_transparent.png
+pWeapon_200_10608.png
 	size: 232, 1420
 	filter: Linear, Linear
 pWeapon_200_10608/W_zhang_02
@@ -2387,21 +2387,21 @@ pWeapon_200_10608/W_zhang_02_B01
 	offsets: 29, 14, 565, 262
 	rotate: 90
 
-_transparent.png
+pWeapon_200_107.png
 	size: 288, 836
 	filter: Linear, Linear
 pWeapon_200_107/W_zhang_02
 	bounds: 2, 2, 283, 829
 	offsets: 83, 60, 448, 976
 
-_transparent.png
+pWeapon_200_10701.png
 	size: 180, 824
 	filter: Linear, Linear
 pWeapon_200_10701/W_zhang_01
 	bounds: 2, 2, 176, 819
 	offsets: 136, 26, 448, 976
 
-_transparent.png
+pWeapon_200_10702.png
 	size: 340, 884
 	filter: Linear, Linear
 pWeapon_200_10702/W_zhang_01
@@ -2411,14 +2411,14 @@ pWeapon_200_10702/W_zhang_01_A01
 	bounds: 2, 2, 39, 76
 	rotate: 90
 
-_transparent.png
+pWeapon_200_10706.png
 	size: 312, 756
 	filter: Linear, Linear
 pWeapon_200_10706/W_zhang_01
 	bounds: 2, 2, 306, 752
 	offsets: 71, 112, 448, 976
 
-_transparent.png
+pWeapon_200_10708.png
 	size: 356, 1260
 	filter: Linear, Linear
 pWeapon_200_10708/W_zhang_01
@@ -2440,63 +2440,63 @@ pWeapon_200_10708/W_zhang_01_B03
 pWeapon_200_10708/W_zhang_01_B04
 	bounds: 208, 1170, 127, 61
 
-_transparent.png
+pWeapon_200_108.png
 	size: 252, 848
 	filter: Linear, Linear
 pWeapon_200_108/W_zhang_02
 	bounds: 2, 2, 247, 844
 	offsets: 100, 51, 448, 976
 
-_transparent.png
+pWeapon_200_10803.png
 	size: 228, 712
 	filter: Linear, Linear
 pWeapon_200_10803/W_zhang_02
 	bounds: 2, 2, 224, 708
 	offsets: 112, 115, 448, 976
 
-_transparent.png
+pWeapon_200_10805.png
 	size: 156, 800
 	filter: Linear, Linear
 pWeapon_200_10805/W_zhang_02
 	bounds: 2, 2, 149, 795
 	offsets: 160, 84, 448, 976
 
-_transparent.png
+pWeapon_200_109.png
 	size: 296, 728
 	filter: Linear, Linear
 pWeapon_200_109/W_zhang_02
 	bounds: 2, 2, 290, 724
 	offsets: 79, 98, 448, 976
 
-_transparent.png
+pWeapon_200_110.png
 	size: 292, 784
 	filter: Linear, Linear
 pWeapon_200_110/W_zhang_02
 	bounds: 2, 2, 288, 778
 	offsets: 89, 91, 448, 976
 
-_transparent.png
+pWeapon_200_11002.png
 	size: 204, 748
 	filter: Linear, Linear
 pWeapon_200_11002/W_zhang_28
 	bounds: 2, 2, 198, 744
 	offsets: 125, 92, 448, 976
 
-_transparent.png
+pWeapon_200_11004.png
 	size: 220, 748
 	filter: Linear, Linear
 pWeapon_200_11004/W_zhang_28
 	bounds: 2, 2, 213, 743
 	offsets: 103, 92, 448, 976
 
-_transparent.png
+pWeapon_200_111.png
 	size: 260, 792
 	filter: Linear, Linear
 pWeapon_200_111/W_zhang_02
 	bounds: 2, 2, 256, 787
 	offsets: 96, 69, 448, 976
 
-_transparent.png
+pWeapon_200_112.png
 	size: 296, 872
 	filter: Linear, Linear
 pWeapon_200_112/W_zhang_02
@@ -2506,21 +2506,21 @@ pWeapon_200_112/W_zhang_02_A01
 	bounds: 2, 2, 65, 95
 	rotate: 90
 
-_transparent.png
+pWeapon_200_113.png
 	size: 376, 836
 	filter: Linear, Linear
 pWeapon_200_113/W_zhang_02
 	bounds: 2, 2, 369, 831
 	offsets: 40, 73, 448, 976
 
-_transparent.png
+pWeapon_200_114.png
 	size: 300, 728
 	filter: Linear, Linear
 pWeapon_200_114/W_zhang_02
 	bounds: 2, 2, 296, 723
 	offsets: 56, 138, 448, 976
 
-_transparent.png
+pWeapon_200_115.png
 	size: 268, 1396
 	filter: Linear, Linear
 pWeapon_200_115/W_zhang_02
@@ -2543,7 +2543,7 @@ pWeapon_200_115/W_zhang_02_B03
 	offsets: 12, 20, 220, 207
 	rotate: 180
 
-_transparent.png
+pWeapon_200_116.png
 	size: 212, 784
 	filter: Linear, Linear
 pWeapon_200_116/W_zhang_02
@@ -2553,14 +2553,14 @@ pWeapon_200_116/W_zhang_02_A01
 	bounds: 2, 2, 114, 133
 	rotate: 90
 
-_transparent.png
+pWeapon_200_117.png
 	size: 196, 744
 	filter: Linear, Linear
 pWeapon_200_117/W_zhang_02
 	bounds: 2, 2, 191, 737
 	offsets: 129, 141, 448, 976
 
-_transparent.png
+pWeapon_200_118.png
 	size: 208, 1308
 	filter: Linear, Linear
 pWeapon_200_118/W_zhang_02
@@ -2574,7 +2574,7 @@ pWeapon_200_118/W_zhang_02_B02
 	offsets: 0, 17, 154, 195
 	rotate: 90
 
-_transparent.png
+pWeapon_200_119.png
 	size: 312, 820
 	filter: Linear, Linear
 pWeapon_200_119/W_zhang_02
@@ -2585,35 +2585,35 @@ pWeapon_200_119/W_zhang_02_B02
 	offsets: 0, 0, 86, 146
 	rotate: 90
 
-_transparent.png
+pWeapon_200_120.png
 	size: 236, 832
 	filter: Linear, Linear
 pWeapon_200_120/W_zhang_02
 	bounds: 2, 2, 230, 827
 	offsets: 88, 69, 448, 976
 
-_transparent.png
+pWeapon_200_121.png
 	size: 268, 652
 	filter: Linear, Linear
 pWeapon_200_121/W_zhang_02
 	bounds: 2, 2, 264, 645
 	offsets: 93, 121, 448, 976
 
-_transparent.png
+pWeapon_200_122.png
 	size: 136, 756
 	filter: Linear, Linear
 pWeapon_200_122/W_zhang_02
 	bounds: 2, 2, 130, 750
 	offsets: 159, 103, 448, 976
 
-_transparent.png
+pWeapon_200_123.png
 	size: 212, 776
 	filter: Linear, Linear
 pWeapon_200_123/W_zhang_02
 	bounds: 2, 2, 208, 771
 	offsets: 120, 102, 448, 976
 
-_transparent.png
+pWeapon_200_124.png
 	size: 344, 852
 	filter: Linear, Linear
 pWeapon_200_124/W_zhang_02
@@ -2627,7 +2627,7 @@ pWeapon_200_124/W_zhang_02_B02
 	bounds: 2, 2, 83, 123
 	rotate: 90
 
-_transparent.png
+pWeapon_200_125.png
 	size: 204, 1012
 	filter: Linear, Linear
 pWeapon_200_125/W_zhang
@@ -2637,63 +2637,63 @@ pWeapon_200_125/W_zhang_A01
 	bounds: 2, 2, 169, 182
 	rotate: 90
 
-_transparent.png
+pWeapon_200_126.png
 	size: 340, 880
 	filter: Linear, Linear
 pWeapon_200_126/W_zhang_02
 	bounds: 2, 2, 336, 875
 	offsets: 56, 20, 448, 976
 
-_transparent.png
+pWeapon_200_127.png
 	size: 284, 808
 	filter: Linear, Linear
 pWeapon_200_127/W_zhang_02
 	bounds: 2, 2, 277, 803
 	offsets: 71, 102, 448, 976
 
-_transparent.png
+pWeapon_200_128.png
 	size: 252, 724
 	filter: Linear, Linear
 pWeapon_200_128/W_zhang_02
 	bounds: 2, 2, 248, 720
 	offsets: 100, 106, 448, 976
 
-_transparent.png
+pWeapon_200_129.png
 	size: 216, 768
 	filter: Linear, Linear
 pWeapon_200_129/W_zhang_02
 	bounds: 2, 2, 209, 763
 	offsets: 119, 79, 448, 976
 
-_transparent.png
+pWeapon_200_130.png
 	size: 220, 744
 	filter: Linear, Linear
 pWeapon_200_130/W_zhang_02
 	bounds: 2, 2, 214, 738
 	offsets: 117, 61, 448, 976
 
-_transparent.png
+pWeapon_200_131.png
 	size: 256, 768
 	filter: Linear, Linear
 pWeapon_200_131/W_zhang_02
 	bounds: 2, 2, 251, 762
 	offsets: 98, 79, 448, 976
 
-_transparent.png
+pWeapon_200_132.png
 	size: 312, 756
 	filter: Linear, Linear
 pWeapon_200_132/W_zhang_02
 	bounds: 2, 2, 306, 749
 	offsets: 70, 87, 448, 976
 
-_transparent.png
+pWeapon_200_133.png
 	size: 348, 872
 	filter: Linear, Linear
 pWeapon_200_133/W_zhang_02
 	bounds: 2, 2, 342, 868
 	offsets: 24, 51, 448, 976
 
-_transparent.png
+pWeapon_200_134.png
 	size: 272, 800
 	filter: Linear, Linear
 pWeapon_200_134/W_zhang_02
@@ -2704,7 +2704,7 @@ pWeapon_200_134/W_zhang_02_A01
 	offsets: 16, 17, 68, 149
 	rotate: 90
 
-_transparent.png
+pWeapon_200_135.png
 	size: 416, 436
 	filter: Linear, Linear
 pWeapon_200_135/W_zhang_02
@@ -2721,56 +2721,56 @@ pWeapon_200_135/W_zhang_02_A03
 	bounds: 251, 124, 85, 68
 	offsets: 21, 22, 128, 115
 
-_transparent.png
+pWeapon_200_136.png
 	size: 316, 852
 	filter: Linear, Linear
 pWeapon_200_136/W_zhang_02
 	bounds: 2, 2, 309, 847
 	offsets: 4, 75, 448, 976
 
-_transparent.png
+pWeapon_200_8404.png
 	size: 216, 620
 	filter: Linear, Linear
 pWeapon_200_8404/W_zhang_01
 	bounds: 2, 2, 210, 614
 	offsets: 119, 140, 448, 976
 
-_transparent.png
+pWeapon_200_8406.png
 	size: 84, 648
 	filter: Linear, Linear
 pWeapon_200_8406/W_zhang_28
 	bounds: 2, 2, 80, 644
 	offsets: 184, 104, 448, 976
 
-_transparent.png
+pWeapon_200_8409.png
 	size: 220, 744
 	filter: Linear, Linear
 pWeapon_200_8409/W_zhang_28
 	bounds: 2, 2, 214, 738
 	offsets: 117, 93, 448, 976
 
-_transparent.png
+pWeapon_200_8411.png
 	size: 92, 328
 	filter: Linear, Linear
 pWeapon_200_8411/W_zhang_8411
 	bounds: 2, 2, 86, 324
 	offsets: 72, 65, 224, 488
 
-_transparent.png
+pWeapon_200_8424.png
 	size: 308, 752
 	filter: Linear, Linear
 pWeapon_200_8424/W_zhang_28
 	bounds: 2, 2, 303, 746
 	offsets: 73, 85, 448, 976
 
-_transparent.png
+pWeapon_200_8439.png
 	size: 388, 732
 	filter: Linear, Linear
 pWeapon_200_8439/W_zhang_28
 	bounds: 2, 2, 382, 728
 	offsets: 32, 91, 448, 976
 
-_transparent.png
+pWeapon_200_8441.png
 	size: 148, 1184
 	filter: Linear, Linear
 pWeapon_200_8441/W_zhang_28
@@ -2791,7 +2791,7 @@ pWeapon_200_8441/W_zhang_A03
 	offsets: 122, 32, 260, 165
 	rotate: 180
 
-_transparent.png
+pWeapon_200_8453.png
 	size: 292, 852
 	filter: Linear, Linear
 pWeapon_200_8453/W_zhang_28
@@ -2802,7 +2802,7 @@ pWeapon_200_8453/W_zhang_28_A01
 	offsets: 12, 3, 66, 136
 	rotate: 90
 
-_transparent.png
+pWeapon_200_8455.png
 	size: 288, 848
 	filter: Linear, Linear
 pWeapon_200_8455/W_zhang_28
@@ -2813,21 +2813,21 @@ pWeapon_200_8455/W_zhang_28_A01
 	offsets: 10, 15, 66, 136
 	rotate: 90
 
-_transparent.png
+pWeapon_200_M_001.png
 	size: 304, 796
 	filter: Linear, Linear
 pWeapon_200_M_001/W_zhang
 	bounds: 2, 2, 298, 791
 	offsets: 73, 71, 448, 976
 
-_transparent.png
+pWeapon_200_M_002.png
 	size: 396, 724
 	filter: Linear, Linear
 pWeapon_200_M_002/W_zhang
 	bounds: 2, 2, 392, 718
 	offsets: 4, 103, 448, 976
 
-_transparent.png
+pWeapon_200_M_003.png
 	size: 212, 900
 	filter: Linear, Linear
 pWeapon_200_M_003/W_zhang
@@ -2841,42 +2841,42 @@ pWeapon_200_M_003/W_zhang_A02
 	bounds: 2, 628, 71, 270
 	offsets: 16, 20, 99, 301
 
-_transparent.png
+pWeapon_200_M_004.png
 	size: 224, 720
 	filter: Linear, Linear
 pWeapon_200_M_004/W_zhang
 	bounds: 2, 2, 217, 715
 	offsets: 118, 122, 448, 976
 
-_transparent.png
+pWeapon_200_M_005.png
 	size: 160, 756
 	filter: Linear, Linear
 pWeapon_200_M_005/W_zhang
 	bounds: 2, 2, 155, 752
 	offsets: 147, 115, 448, 976
 
-_transparent.png
+pWeapon_200_M_006.png
 	size: 252, 716
 	filter: Linear, Linear
 pWeapon_200_M_006/W_zhang
 	bounds: 2, 2, 247, 709
 	offsets: 92, 127, 448, 976
 
-_transparent.png
+pWeapon_200_M_007.png
 	size: 304, 836
 	filter: Linear, Linear
 pWeapon_200_M_007/W_zhang
 	bounds: 2, 2, 300, 832
 	offsets: 40, 91, 448, 976
 
-_transparent.png
+pWeapon_200_M_008.png
 	size: 236, 736
 	filter: Linear, Linear
 pWeapon_200_M_008/W_zhang_01
 	bounds: 2, 2, 232, 732
 	offsets: 107, 103, 448, 976
 
-_transparent.png
+pWeapon_200_M_009.png
 	size: 324, 784
 	filter: Linear, Linear
 pWeapon_200_M_009/W_zhang_01

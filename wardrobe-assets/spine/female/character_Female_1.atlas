@@ -1,4 +1,4 @@
-_transparent.png
+body_0_F_002.png
 	size: 2044, 276
 	filter: Linear, Linear
 body_0_F_002/body_08A_shenti1
@@ -237,7 +237,7 @@ body_0_F_002/hand_02F_shouR3_D01X
 	bounds: 1995, 40, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_003.png
 	size: 1676, 108
 	filter: Linear, Linear
 body_0_F_003/body_03A_shouL1
@@ -525,7 +525,7 @@ body_0_F_003/hand_02F_shouL3_D01X
 	bounds: 1650, 15, 19, 22
 	offsets: 25, 24, 100, 100
 
-_transparent.png
+body_0_F_004.png
 	size: 1580, 116
 	filter: Linear, Linear
 body_0_F_004/body_06A_shenti1
@@ -811,7 +811,7 @@ body_0_F_004/hand_02F_shouR3_D01X
 	bounds: 989, 3, 19, 22
 	offsets: 25, 24, 100, 100
 
-_transparent.png
+body_0_F_005.png
 	size: 220, 736
 	filter: Linear, Linear
 body_0_F_005/body_01A_shenti1
@@ -1092,7 +1092,7 @@ body_0_F_005/hand_02F_shouL3_D01X
 	bounds: 192, 155, 19, 22
 	offsets: 25, 24, 100, 100
 
-_transparent.png
+body_0_F_006.png
 	size: 652, 368
 	filter: Linear, Linear
 body_0_F_006/body_02A_pifeng01
@@ -1445,7 +1445,7 @@ body_0_F_006/hand_02F_shouR3_D01X
 	offsets: 25, 24, 100, 100
 	rotate: 90
 
-_transparent.png
+body_0_F_007.png
 	size: 2048, 488
 	filter: Linear, Linear
 body_0_F_007/body_05A_pifeng01
@@ -2155,7 +2155,7 @@ body_0_F_008/hand_02F_shouL3_D01X
 	bounds: 1922, 107, 37, 46
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_009.png
 	size: 1676, 352
 	filter: Linear, Linear
 body_0_F_009/body_15B_shenti1_B02
@@ -2470,7 +2470,7 @@ body_0_F_009/hand_02F_shouL3_D01X
 	bounds: 1603, 236, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_01.png
 	size: 2048, 284
 	filter: Linear, Linear
 body_0_F_01/body_03A_shenti1
@@ -2729,7 +2729,7 @@ body_0_F_01/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_010.png
 	size: 2048, 236
 	filter: Linear, Linear
 body_0_F_010/body_18A_shenti1
@@ -2965,7 +2965,7 @@ body_0_F_010/hand_02F_shouL3_D01X
 	bounds: 127, 15, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_011.png
 	size: 420, 1164
 	filter: Linear, Linear
 body_0_F_011/body_01A_shenti1
@@ -3216,7 +3216,7 @@ body_0_F_011/hand_02F_shouL3_D01X
 	bounds: 377, 18, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_012.png
 	size: 2044, 248
 	filter: Linear, Linear
 body_0_F_012/body_18A_pifengR_A01
@@ -3731,7 +3731,7 @@ body_0_F_013/hand_02F_shouL3_D01X
 	bounds: 506, 12, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_014.png
 	size: 740, 756
 	filter: Linear, Linear
 body_0_F_014/body_01A_shenti1
@@ -3994,7 +3994,7 @@ body_0_F_014/hand_02F_shouL3_D01X
 	bounds: 258, 156, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_015.png
 	size: 2040, 296
 	filter: Linear, Linear
 body_0_F_015/body_20A_shenti1
@@ -4270,7 +4270,7 @@ body_0_F_015/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_016.png
 	size: 2040, 360
 	filter: Linear, Linear
 body_0_F_016/body_22A_shenti1
@@ -4816,7 +4816,7 @@ body_0_F_017/hand_02F_shouL3_D01X
 	bounds: 409, 1456, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_018.png
 	size: 2048, 280
 	filter: Linear, Linear
 body_0_F_018/body_01A_pifengR_A01
@@ -5066,7 +5066,7 @@ body_0_F_018/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_019.png
 	size: 2048, 408
 	filter: Linear, Linear
 body_0_F_019/body_01A_pifengL_A01
@@ -5316,7 +5316,7 @@ body_0_F_019/hand_02F_shouL3_D01X
 	bounds: 1896, 8, 45, 54
 	offsets: 61, 56, 240, 240
 
-_transparent.png
+body_0_F_020.png
 	size: 2044, 392
 	filter: Linear, Linear
 body_0_F_020/body_01A_pifeng01
@@ -5566,7 +5566,7 @@ body_0_F_020/hand_02F_shouL3_D01X
 	offsets: 51, 46, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_021.png
 	size: 2048, 384
 	filter: Linear, Linear
 body_0_F_021/body_01B_shenti2
@@ -5830,7 +5830,7 @@ body_0_F_021/hand_02F_shouL3_D01X
 	bounds: 2006, 336, 37, 46
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_022.png
 	size: 2048, 356
 	filter: Linear, Linear
 body_0_F_022/body_08A_shenti1
@@ -6092,7 +6092,7 @@ body_0_F_022/hand_02F_shouL3_D01X
 	bounds: 1973, 249, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_023.png
 	size: 2048, 328
 	filter: Linear, Linear
 body_0_F_023/body_23A_shenti1
@@ -6350,7 +6350,7 @@ body_0_F_023/hand_02F_shouL3_D01X
 	bounds: 276, 282, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_024.png
 	size: 2048, 392
 	filter: Linear, Linear
 body_0_F_024/body_24A_shenti1
@@ -6603,7 +6603,7 @@ body_0_F_024/hand_02F_shouL3_D01X
 	bounds: 1141, 30, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_025.png
 	size: 2044, 356
 	filter: Linear, Linear
 body_0_F_025/body_25A_shenti1
@@ -6849,7 +6849,7 @@ body_0_F_025/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_026.png
 	size: 2048, 236
 	filter: Linear, Linear
 body_0_F_026/body_26A_pifengR_A01
@@ -7084,7 +7084,7 @@ body_0_F_026/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_027.png
 	size: 556, 1788
 	filter: Linear, Linear
 body_0_F_027/body_27A_pifeng01_B01
@@ -7365,7 +7365,7 @@ body_0_F_027/hand_02F_shouL3_D01X
 	bounds: 509, 393, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_028.png
 	size: 2040, 268
 	filter: Linear, Linear
 body_0_F_028/body_28A_shenti1
@@ -7602,7 +7602,7 @@ body_0_F_028/hand_02F_shouR3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_029.png
 	size: 2016, 404
 	filter: Linear, Linear
 body_0_F_029/body_29A_pifeng01_B01
@@ -7868,7 +7868,7 @@ body_0_F_029/hand_02F_shouR3_D01X
 	bounds: 1954, 76, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_030.png
 	size: 872, 768
 	filter: Linear, Linear
 body_0_F_030/body_30A_shenti1
@@ -8127,7 +8127,7 @@ body_0_F_030/hand_02F_shouL3_D01X
 	bounds: 44, 719, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_031.png
 	size: 2048, 328
 	filter: Linear, Linear
 body_0_F_031/body_31A_pifengR_A01
@@ -8382,7 +8382,7 @@ body_0_F_031/hand_02F_shouL3_D01X
 	bounds: 1813, 95, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_032.png
 	size: 708, 860
 	filter: Linear, Linear
 body_0_F_032/body_32A_shenti1
@@ -8646,7 +8646,7 @@ body_0_F_032/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_033.png
 	size: 2048, 580
 	filter: Linear, Linear
 body_0_F_033/body_33A_pifengL_A01
@@ -9086,7 +9086,7 @@ body_0_F_033/hand_02F_shouR3_D01X
 	bounds: 580, 478, 37, 46
 	offsets: 52, 47, 202, 202
 
-_transparent.png
+body_0_F_034.png
 	size: 2048, 400
 	filter: Linear, Linear
 body_0_F_034/body_34A_shenti1
@@ -9324,7 +9324,7 @@ body_0_F_034/hand_02F_shouR3_D01X
 	bounds: 2009, 177, 37, 46
 	offsets: 52, 47, 202, 202
 
-_transparent.png
+body_0_F_035.png
 	size: 1056, 596
 	filter: Linear, Linear
 body_0_F_035/body_35A_shent1_A01
@@ -9583,7 +9583,7 @@ body_0_F_035/hand_02F_shouL3_D01X
 	bounds: 1006, 362, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_036.png
 	size: 2048, 492
 	filter: Linear, Linear
 body_0_F_036/body_36A_shenti1
@@ -9824,7 +9824,7 @@ body_0_F_036/hand_02F_shouL3_D01X
 	bounds: 2000, 442, 37, 46
 	offsets: 52, 47, 202, 202
 
-_transparent.png
+body_0_F_037.png
 	size: 2008, 244
 	filter: Linear, Linear
 body_0_F_037/body_37A_pifengR_A01
@@ -10048,7 +10048,7 @@ body_0_F_037/hand_02F_shouL3_D01X
 	bounds: 1728, 6, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_038.png
 	size: 1972, 364
 	filter: Linear, Linear
 body_0_F_038/body_38A_shenti1
@@ -10318,7 +10318,7 @@ body_0_F_038/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_039.png
 	size: 1588, 460
 	filter: Linear, Linear
 body_0_F_039/body_39A_shenti1
@@ -10744,7 +10744,7 @@ body_0_F_039/hand_02F_shouR3_D01X
 	bounds: 1465, 18, 37, 46
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_040.png
 	size: 2048, 588
 	filter: Linear, Linear
 body_0_F_040/body_40A_pifeng01_B01
@@ -11002,7 +11002,7 @@ body_0_F_040/hand_02F_shouL3_D01X
 	bounds: 2007, 539, 37, 47
 	offsets: 52, 47, 202, 202
 
-_transparent.png
+body_0_F_041.png
 	size: 340, 2044
 	filter: Linear, Linear
 body_0_F_041/body_41A_pifeng01
@@ -11283,7 +11283,7 @@ body_0_F_041/hand_02F_shouL3_D01X
 	bounds: 284, 1312, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_042.png
 	size: 2048, 272
 	filter: Linear, Linear
 body_0_F_042/body_42A_pifengL_A01
@@ -11537,7 +11537,7 @@ body_0_F_042/hand_02F_shouL3_D01X
 	bounds: 1678, 92, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_043.png
 	size: 2044, 416
 	filter: Linear, Linear
 body_0_F_043/body_43A_pifengL_A01
@@ -11828,7 +11828,7 @@ body_0_F_043/hand_02F_shouL3_D01X
 	offsets: 51, 46, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_044.png
 	size: 640, 1024
 	filter: Linear, Linear
 body_0_F_044/body_44A_shenti1
@@ -12085,7 +12085,7 @@ body_0_F_044/hand_02F_shouL3_D01X
 	bounds: 595, 728, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_045.png
 	size: 1380, 460
 	filter: Linear, Linear
 body_0_F_045/body_45A_pifengL_A01
@@ -12350,7 +12350,7 @@ body_0_F_045/hand_02F_shouL3_D01X
 	bounds: 1335, 342, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_046.png
 	size: 2048, 208
 	filter: Linear, Linear
 body_0_F_046/body_46A_pifengR_A01
@@ -12568,7 +12568,7 @@ body_0_F_046/hand_02F_shouL3_D01X
 	bounds: 1447, 3, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_047.png
 	size: 2048, 244
 	filter: Linear, Linear
 body_0_F_047/body_47A_shenti1
@@ -12800,7 +12800,7 @@ body_0_F_047/hand_02F_shouL3_D01X
 	bounds: 917, 2, 37, 46
 	offsets: 52, 47, 202, 202
 
-_transparent.png
+body_0_F_048.png
 	size: 2048, 324
 	filter: Linear, Linear
 body_0_F_048/body_48A_pifengR_A01
@@ -13043,7 +13043,7 @@ body_0_F_048/hand_02F_shouL3_D01X
 	bounds: 654, 224, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_049.png
 	size: 492, 1308
 	filter: Linear, Linear
 body_0_F_049/body_49A_shenti1
@@ -13296,7 +13296,7 @@ body_0_F_049/hand_02F_shouL3_D01X
 	bounds: 452, 60, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_050.png
 	size: 2048, 280
 	filter: Linear, Linear
 body_0_F_050/body_50A_pinfengR_A01
@@ -13547,7 +13547,7 @@ body_0_F_050/hand_02F_shouL3_D01X
 	bounds: 143, 19, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_051.png
 	size: 2048, 1200
 	filter: Linear, Linear
 body_0_F_051/body_51A_pifengL_A01
@@ -13780,7 +13780,7 @@ body_0_F_051/hand_02F_shouL3_D01S
 body_0_F_051/hand_02F_shouL3_D01X
 	bounds: 28, 995, 200, 200
 
-_transparent.png
+body_0_F_052.png
 	size: 2048, 328
 	filter: Linear, Linear
 body_0_F_052/body_52A_pifengR_A01
@@ -14053,7 +14053,7 @@ body_0_F_052/hand_02F_shouL3_D01X
 	bounds: 312, 193, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_053.png
 	size: 1832, 468
 	filter: Linear, Linear
 body_0_F_053/body_53A_pifeng01
@@ -14331,7 +14331,7 @@ body_0_F_053/hand_02F_shouL3_D01X
 	bounds: 384, 194, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_054.png
 	size: 1080, 472
 	filter: Linear, Linear
 body_0_F_054/body_54A_pifengL_A01
@@ -14610,7 +14610,7 @@ body_0_F_054/hand_02F_shouL3_D01X
 	bounds: 1035, 159, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_055.png
 	size: 2048, 292
 	filter: Linear, Linear
 body_0_F_055/body_55A_pifengR_A01
@@ -14854,7 +14854,7 @@ body_0_F_055/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_056.png
 	size: 584, 1428
 	filter: Linear, Linear
 body_0_F_056/body_56A_shenti1
@@ -15104,7 +15104,7 @@ body_0_F_056/hand_02F_shouL3_D01X
 	offsets: 52, 47, 202, 202
 	rotate: 90
 
-_transparent.png
+body_0_F_057.png
 	size: 2048, 492
 	filter: Linear, Linear
 body_0_F_057/body_57A_shenti1
@@ -15376,7 +15376,7 @@ body_0_F_057/hand_02F_shouR3_D01X
 	bounds: 2008, 442, 37, 47
 	offsets: 52, 47, 202, 202
 
-_transparent.png
+body_0_F_058.png
 	size: 2044, 260
 	filter: Linear, Linear
 body_0_F_058/body_58A_shenti1
@@ -15617,7 +15617,7 @@ body_0_F_058/hand_02F_shouL3_D01X
 	bounds: 687, 112, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_059.png
 	size: 284, 2012
 	filter: Linear, Linear
 body_0_F_059/body_59A_pifengR_A01
@@ -15892,7 +15892,7 @@ body_0_F_059/hand_02F_shouL3_D01X
 	bounds: 242, 1426, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_060.png
 	size: 2048, 304
 	filter: Linear, Linear
 body_0_F_060/body_60A_pifengR_A01
@@ -16123,7 +16123,7 @@ body_0_F_060/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_061.png
 	size: 2048, 216
 	filter: Linear, Linear
 body_0_F_061/body_61A_shenti1
@@ -16350,7 +16350,7 @@ body_0_F_061/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_F_062.png
 	size: 2024, 248
 	filter: Linear, Linear
 body_0_F_062/body_62A_shenti1
@@ -16579,7 +16579,7 @@ body_0_F_062/hand_02F_shouL3_D01X
 	bounds: 1245, 69, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_063.png
 	size: 2048, 272
 	filter: Linear, Linear
 body_0_F_063/body_63A_shenti1
@@ -16808,7 +16808,7 @@ body_0_F_063/hand_02F_shouL3_D01X
 	bounds: 1757, 129, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_064.png
 	size: 2044, 232
 	filter: Linear, Linear
 body_0_F_064/body_63A_shenti1_A01
@@ -17034,7 +17034,7 @@ body_0_F_064/hand_02F_shouL3_D01X
 	bounds: 1301, 78, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_065.png
 	size: 2048, 244
 	filter: Linear, Linear
 body_0_F_065/body_64A_shenti1
@@ -17271,7 +17271,7 @@ body_0_F_065/hand_02F_shouL3_D01X
 	bounds: 1538, 45, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_066.png
 	size: 2036, 228
 	filter: Linear, Linear
 body_0_F_066/body_66A_shenti1
@@ -17491,7 +17491,7 @@ body_0_F_066/hand_02F_shouL3_D01X
 	bounds: 1997, 11, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_F_067.png
 	size: 444, 1656
 	filter: Linear, Linear
 body_0_F_067/body_67A_shenti1
@@ -17774,7 +17774,7 @@ body_0_F_067/hand_02F_shouL3_D01X
 	bounds: 397, 7, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_G_001.png
 	size: 2048, 512
 	filter: Linear, Linear
 body_0_G_001/body_03A_pifengR_A01
@@ -17988,7 +17988,7 @@ body_0_G_001/hand_02F_shouL3_D01X
 	bounds: 238, 6, 49, 61
 	offsets: 55, 26, 200, 200
 
-_transparent.png
+body_0_G_002.png
 	size: 556, 1992
 	filter: Linear, Linear
 body_0_G_002/body_03A_shent1_A01
@@ -18185,7 +18185,7 @@ body_0_G_002/hand_02F_shouL3_D01X
 	bounds: 479, 686, 49, 61
 	offsets: 55, 26, 200, 200
 
-_transparent.png
+body_0_G_003.png
 	size: 512, 864
 	filter: Linear, Linear
 body_0_G_003/body_03A_shenti1
@@ -18414,7 +18414,7 @@ body_0_G_003/hand_02F_shouL3_D01X
 	bounds: 292, 722, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_G_004.png
 	size: 2048, 540
 	filter: Linear, Linear
 body_0_G_004/body_03A_pifengR_A01
@@ -18627,7 +18627,7 @@ body_0_G_004/hand_02F_shouL3_D01X
 	offsets: 55, 26, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_G_005.png
 	size: 2048, 404
 	filter: Linear, Linear
 body_0_G_005/body_03A_shenti3
@@ -18839,7 +18839,7 @@ body_0_G_005/hand_02F_shouL3_D01X
 	bounds: 976, 6, 46, 67
 	offsets: 57, 16, 200, 200
 
-_transparent.png
+body_0_G_006.png
 	size: 2040, 280
 	filter: Linear, Linear
 body_0_G_006/body_36A_pifengR_A01
@@ -19081,7 +19081,7 @@ body_0_G_006/hand_02F_shouL3_D01X
 	bounds: 737, 48, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_G_007.png
 	size: 888, 560
 	filter: Linear, Linear
 body_0_G_007/body_07A_shenti1_A01
@@ -19331,7 +19331,7 @@ body_0_G_007/hand_02F_shouL3_D01X
 	bounds: 2, 310, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_G_008.png
 	size: 2044, 232
 	filter: Linear, Linear
 body_0_G_008/body_08A_shenti1
@@ -19559,7 +19559,7 @@ body_0_G_008/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_0_G_009.png
 	size: 292, 1820
 	filter: Linear, Linear
 body_0_G_009/body_09A_shenti1
@@ -19817,7 +19817,7 @@ body_0_G_009/hand_02F_shouL3_D01X
 	bounds: 191, 1773, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_G_010.png
 	size: 2048, 268
 	filter: Linear, Linear
 body_0_G_010/body_10A_shenti1
@@ -20056,7 +20056,7 @@ body_0_G_010/hand_02F_shouL3_D01X
 	bounds: 2000, 12, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_G_011.png
 	size: 2048, 380
 	filter: Linear, Linear
 body_0_G_011/body_11A_shenti1
@@ -20255,7 +20255,7 @@ body_0_G_011/hand_02F_shouL3_D01X
 	bounds: 542, 318, 47, 59
 	offsets: 65, 31, 202, 202
 
-_transparent.png
+body_0_G_012.png
 	size: 1384, 364
 	filter: Linear, Linear
 body_0_G_012/body_38A_shenti3
@@ -20456,7 +20456,7 @@ body_0_G_012/hand_02F_shouL3_D01X
 	bounds: 1310, 238, 43, 45
 	offsets: 61, 47, 202, 202
 
-_transparent.png
+body_0_G_013.png
 	size: 336, 1584
 	filter: Linear, Linear
 body_0_G_013/body_13A_shenti2_A03
@@ -20645,7 +20645,7 @@ body_0_G_013/hand_02F_shouL3_D01X
 	bounds: 293, 1535, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_G_014.png
 	size: 360, 1576
 	filter: Linear, Linear
 body_0_G_014/body_14A_pifengR_A01
@@ -20691,7 +20691,7 @@ body_0_G_014/body_38A_shenti3
 	bounds: 297, 848, 53, 69
 	offsets: 3, 0, 59, 69
 
-_transparent.png
+body_0_G_015.png
 	size: 268, 1732
 	filter: Linear, Linear
 body_0_G_015/body_15A_shent1
@@ -20889,7 +20889,7 @@ body_0_G_015/hand_02F_shouL3_D01X
 	offsets: 64, 47, 202, 202
 	rotate: 90
 
-_transparent.png
+body_0_G_016.png
 	size: 2048, 368
 	filter: Linear, Linear
 body_0_G_016/body_59A_pifengR_A01
@@ -21128,7 +21128,7 @@ body_0_G_016/hand_02F_shouL3_D01X
 	bounds: 577, 64, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_0_G_017.png
 	size: 1896, 388
 	filter: Linear, Linear
 body_0_G_017/body_60A_pifengR1_A01
@@ -21404,7 +21404,7 @@ body_0_G_017/hand_02F_shouL3_D01X
 	bounds: 1823, 247, 37, 46
 	offsets: 52, 47, 202, 202
 
-_transparent.png
+body_0_G_018.png
 	size: 584, 1000
 	filter: Linear, Linear
 body_0_G_018/body_18A_shenti1
@@ -21616,7 +21616,7 @@ body_0_G_018/hand_02F_shouL3_D01X
 	offsets: 51, 47, 200, 200
 	rotate: 90
 
-_transparent.png
+body_100_F_01.png
 	size: 2048, 416
 	filter: Linear, Linear
 body_100_F_01/body_01A_pifeng02
@@ -21912,7 +21912,7 @@ body_100_F_01/hand_02F_shouL3_D01X
 	bounds: 1058, 6, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_100_F_02.png
 	size: 2048, 380
 	filter: Linear, Linear
 body_100_F_02/body_06A_pifeng01_A01
@@ -22180,7 +22180,7 @@ body_100_F_02/hand_02F_shouL3_D01X
 	bounds: 1672, 132, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_100_F_03.png
 	size: 2048, 380
 	filter: Linear, Linear
 body_100_F_03/body_07A_pifeng01
@@ -22434,7 +22434,7 @@ body_100_F_03/hand_02F_shouL3_D01X
 	bounds: 1046, 262, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_200_F_01.png
 	size: 1156, 664
 	filter: Linear, Linear
 body_200_F_01/body_02A_pifeng01
@@ -22730,7 +22730,7 @@ body_200_F_01/hand_02F_shouL3_D01X
 	bounds: 1110, 4, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_200_F_02.png
 	size: 2040, 404
 	filter: Linear, Linear
 body_200_F_02/body_09A_pifeng01
@@ -22974,7 +22974,7 @@ body_200_F_02/hand_02F_shouL3_D01X
 	bounds: 1517, 166, 37, 44
 	offsets: 51, 47, 200, 200
 
-_transparent.png
+body_200_F_03.png
 	size: 824, 904
 	filter: Linear, Linear
 body_200_F_03/body_08A_pifeng01
@@ -23451,7 +23451,7 @@ brow/forehead_biaoqing_D
 	bounds: 133, 14, 73, 9
 	offsets: 44, 38, 139, 154
 
-_transparent.png
+ethnicity_01.png
 	size: 52, 144
 	filter: Linear, Linear
 ethnicity_01/ethnicity_5_01A_erduoL01
@@ -23465,7 +23465,7 @@ ethnicity_01/ethnicity_5_01B_erduoR01
 	bounds: 2, 84, 43, 57
 	offsets: 3, 6, 52, 68
 
-_transparent.png
+ethnicity_02.png
 	size: 168, 552
 	filter: Linear, Linear
 ethnicity_02/ethnicity_1_01A_erduoL01
@@ -23498,7 +23498,7 @@ ethnicity_02/ethnicity_1_01B_erduoR01
 	offsets: 0, 7, 124, 148
 	rotate: 180
 
-_transparent.png
+ethnicity_03.png
 	size: 364, 192
 	filter: Linear, Linear
 ethnicity_03/ethnicity_1_02A_erduoL01
@@ -23522,7 +23522,7 @@ ethnicity_03/ethnicity_1_02B_erduoR03
 	bounds: 139, 3, 83, 184
 	offsets: 0, 0, 90, 184
 
-_transparent.png
+ethnicity_04.png
 	size: 440, 216
 	filter: Linear, Linear
 ethnicity_04/ethnicity_2_01A_erduoL01
@@ -23547,7 +23547,7 @@ ethnicity_04/ethnicity_5_01B_erduoR01
 	bounds: 393, 154, 43, 57
 	offsets: 3, 6, 52, 68
 
-_transparent.png
+ethnicity_05.png
 	size: 128, 472
 	filter: Linear, Linear
 ethnicity_05/ethnicity_2_02A_erduoL01
@@ -23575,7 +23575,7 @@ ethnicity_05/ethnicity_5_01B_erduoR01
 	offsets: 3, 6, 52, 68
 	rotate: 90
 
-_transparent.png
+ethnicity_06.png
 	size: 356, 116
 	filter: Linear, Linear
 ethnicity_06/ethnicity_3_01A_erduoL01
@@ -23591,7 +23591,7 @@ ethnicity_06/ethnicity_3_01B_erduoR01
 	bounds: 120, 14, 74, 99
 	offsets: 13, 14, 102, 138
 
-_transparent.png
+ethnicity_07.png
 	size: 484, 124
 	filter: Linear, Linear
 ethnicity_07/ethnicity_3_02A_erduoL01
@@ -23622,7 +23622,7 @@ ethnicity_07/ethnicity_3_02B_erduoR02
 	bounds: 201, 2, 64, 119
 	offsets: 8, 8, 80, 134
 
-_transparent.png
+ethnicity_08.png
 	size: 136, 676
 	filter: Linear, Linear
 ethnicity_08/ethnicity_4_01A_erduoL01
@@ -23647,7 +23647,7 @@ ethnicity_08/ethnicity_5_01B_erduoR01
 	bounds: 91, 307, 43, 57
 	offsets: 3, 6, 52, 68
 
-_transparent.png
+ethnicity_09.png
 	size: 80, 776
 	filter: Linear, Linear
 ethnicity_09/ethnicity_4_02A_erduoL01
@@ -23675,7 +23675,7 @@ ethnicity_09/ethnicity_5_01B_erduoR01
 	offsets: 3, 6, 52, 68
 	rotate: 90
 
-_transparent.png
+ethnicity_10.png
 	size: 128, 748
 	filter: Linear, Linear
 ethnicity_10/ethnicity_1_03A_erduoL01
@@ -23708,7 +23708,7 @@ ethnicity_10/ethnicity_1_03B_erduoR01
 	offsets: 7, 10, 120, 160
 	rotate: 180
 
-_transparent.png
+ethnicity_11.png
 	size: 428, 108
 	filter: Linear, Linear
 ethnicity_11/ethnicity_1_04A_erduoL01
@@ -23726,7 +23726,7 @@ ethnicity_11/ethnicity_1_04B_erduoR01
 	offsets: 8, 13, 118, 124
 	rotate: 90
 
-_transparent.png
+ethnicity_12.png
 	size: 240, 436
 	filter: Linear, Linear
 ethnicity_12/ethnicity_12A_erduoL01
@@ -23760,7 +23760,7 @@ ethnicity_12/ethnicity_12B_erduoR01
 	bounds: 151, 221, 79, 211
 	offsets: 14, 5, 102, 222
 
-_transparent.png
+ethnicity_13.png
 	size: 132, 868
 	filter: Linear, Linear
 ethnicity_13/ethnicity_13A_erduoL01
@@ -23794,7 +23794,7 @@ ethnicity_13/ethnicity_13B_erduoR01
 	bounds: 2, 563, 122, 154
 	offsets: 5, 5, 134, 164
 
-_transparent.png
+ethnicity_14.png
 	size: 140, 736
 	filter: Linear, Linear
 ethnicity_14/ethnicity_14A_erduoL01
@@ -23828,7 +23828,7 @@ ethnicity_14/ethnicity_14B_erduoR02
 	offsets: 6, 6, 134, 116
 	rotate: 90
 
-_transparent.png
+ethnicity_15.png
 	size: 184, 612
 	filter: Linear, Linear
 ethnicity_15/ethnicity_15A_erduoL01
@@ -23852,7 +23852,7 @@ ethnicity_15/ethnicity_15B_erduoR01
 	offsets: 0, 4, 178, 154
 	rotate: 270
 
-_transparent.png
+ethnicity_16.png
 	size: 632, 160
 	filter: Linear, Linear
 ethnicity_16/ethnicity_16A_erduoL01
@@ -23879,7 +23879,7 @@ ethnicity_16/ethnicity_5_01B_erduoR01
 	bounds: 585, 100, 43, 57
 	offsets: 3, 6, 52, 68
 
-_transparent.png
+ethnicity_17.png
 	size: 164, 592
 	filter: Linear, Linear
 ethnicity_17/ethnicity_17A_erduoL01
@@ -23908,7 +23908,7 @@ ethnicity_17/ethnicity_5_01B_erduoR01
 	offsets: 3, 6, 52, 68
 	rotate: 90
 
-_transparent.png
+ethnicity_18.png
 	size: 232, 488
 	filter: Linear, Linear
 ethnicity_18/ethnicity_18A_erduoL01
@@ -23938,7 +23938,7 @@ ethnicity_18/ethnicity_5_01B_erduoR01
 	offsets: 3, 6, 52, 68
 	rotate: 90
 
-_transparent.png
+ethnicity_19.png
 	size: 592, 144
 	filter: Linear, Linear
 ethnicity_19/ethnicity_19A_erduoL01
@@ -23966,7 +23966,7 @@ ethnicity_19/ethnicity_5_01B_erduoR01
 	bounds: 545, 84, 43, 57
 	offsets: 3, 6, 52, 68
 
-_transparent.png
+ethnicity_20.png
 	size: 668, 164
 	filter: Linear, Linear
 ethnicity_20/ethnicity_20A_erduoL01
@@ -23993,7 +23993,7 @@ ethnicity_20/ethnicity_5_01B_erduoR01
 	bounds: 618, 104, 43, 57
 	offsets: 3, 6, 52, 68
 
-_transparent.png
+ethnicity_21.png
 	size: 188, 648
 	filter: Linear, Linear
 ethnicity_21/ethnicity_21A_erduoL01
@@ -24022,7 +24022,7 @@ ethnicity_21/ethnicity_5_01B_erduoR01
 	offsets: 3, 6, 52, 68
 	rotate: 90
 
-_transparent.png
+ethnicity_22.png
 	size: 396, 184
 	filter: Linear, Linear
 ethnicity_22/ethnicity_22A_erduoL01
@@ -24038,7 +24038,7 @@ ethnicity_22/ethnicity_22B_erduoR01
 	bounds: 230, 13, 85, 169
 	offsets: 9, 10, 102, 190
 
-_transparent.png
+ethnicity_23.png
 	size: 352, 144
 	filter: Linear, Linear
 ethnicity_23/ethnicity_23A_erduoL01
@@ -24054,7 +24054,7 @@ ethnicity_23/ethnicity_23B_erduoR01
 	bounds: 113, 10, 86, 131
 	offsets: 10, 9, 104, 150
 
-_transparent.png
+ethnicity_24.png
 	size: 468, 136
 	filter: Linear, Linear
 ethnicity_24/ethnicity_24A_erduoL01
@@ -24070,7 +24070,7 @@ ethnicity_24/ethnicity_24B_erduoR01
 	bounds: 2, 3, 130, 131
 	offsets: 9, 10, 148, 150
 
-_transparent.png
+ethnicity_25.png
 	size: 456, 72
 	filter: Linear, Linear
 ethnicity_25/ethnicity_25A_erduoL01
@@ -24086,7 +24086,7 @@ ethnicity_25/ethnicity_25B_erduoR01
 	bounds: 2, 2, 129, 66
 	offsets: 8, 10, 148, 84
 
-_transparent.png
+ethnicity_26.png
 	size: 416, 144
 	filter: Linear, Linear
 ethnicity_26/ethnicity_26A_erduoL01
@@ -24102,7 +24102,7 @@ ethnicity_26/ethnicity_26B_erduoR01
 	bounds: 2, 2, 118, 139
 	offsets: 9, 10, 136, 158
 
-_transparent.png
+ethnicity_27.png
 	size: 380, 132
 	filter: Linear, Linear
 ethnicity_27/ethnicity_27A_erduoL01
@@ -24118,7 +24118,7 @@ ethnicity_27/ethnicity_27B_erduoR01
 	bounds: 125, 2, 87, 125
 	offsets: 9, 9, 103, 142
 
-_transparent.png
+ethnicity_28.png
 	size: 96, 620
 	filter: Linear, Linear
 ethnicity_28/ethnicity_28A_erduoL01
@@ -24145,7 +24145,7 @@ ethnicity_28/ethnicity_5_01B_erduoR01
 	offsets: 3, 6, 52, 68
 	rotate: 90
 
-_transparent.png
+ethnicity_29.png
 	size: 528, 164
 	filter: Linear, Linear
 ethnicity_29/ethnicity_29A_erduoL01
@@ -24171,7 +24171,7 @@ ethnicity_29/ethnicity_5_01B_erduoR01
 	bounds: 480, 105, 43, 57
 	offsets: 3, 6, 52, 68
 
-_transparent.png
+ethnicity_30.png
 	size: 136, 576
 	filter: Linear, Linear
 ethnicity_30/ethnicity_30A_erduoL01
@@ -24201,7 +24201,7 @@ ethnicity_30/ethnicity_5_01B_erduoR01
 	offsets: 3, 6, 52, 68
 	rotate: 90
 
-_transparent.png
+ethnicity_31.png
 	size: 116, 776
 	filter: Linear, Linear
 ethnicity_31/ethnicity_31A_erduoL01
@@ -24227,7 +24227,7 @@ ethnicity_31/ethnicity_5_01B_erduoR01
 	offsets: 3, 6, 52, 68
 	rotate: 90
 
-_transparent.png
+ethnicity_32.png
 	size: 176, 528
 	filter: Linear, Linear
 ethnicity_32/ethnicity_32A_erduoL01
@@ -24252,7 +24252,7 @@ ethnicity_32/ethnicity_5_01B_erduoR01
 	bounds: 128, 183, 43, 57
 	offsets: 3, 6, 52, 68
 
-_transparent.png
+ethnicity_33.png
 	size: 444, 176
 	filter: Linear, Linear
 ethnicity_33/ethnicity_33A_erduoL01
@@ -24277,7 +24277,7 @@ ethnicity_33/ethnicity_5_01B_erduoR01
 	bounds: 398, 117, 43, 57
 	offsets: 3, 6, 52, 68
 
-_transparent.png
+ethnicity_G_34.png
 	size: 344, 60
 	filter: Linear, Linear
 ethnicity_G_34/ethnicity_5_01A_erduoL01
@@ -24542,300 +24542,300 @@ face/mouth_biaoqing_J
 	bounds: 622, 5, 50, 48
 	offsets: 137, 21, 277, 308
 
-_transparent.png
+faceDecoration_1_F_001.png
 	size: 328, 336
 	filter: Linear, Linear
 faceDecoration_1_F_001/faceDecoration_1_F_001
 	bounds: 2, 2, 323, 331
 	offsets: 4, 5, 332, 341
 
-_transparent.png
+faceDecoration_1_G_001.png
 	size: 196, 196
 	filter: Linear, Linear
 faceDecoration_1_G_001/headOrnament_01S
 	bounds: 2, 2, 191, 189
 	offsets: 63, 49, 277, 308
 
-_transparent.png
+faceDecoration_1_G_004.png
 	size: 212, 232
 	filter: Linear, Linear
 faceDecoration_1_G_004/headOrnament_G_22_S
 	bounds: 2, 2, 205, 226
 	offsets: 10, 12, 225, 253
 
-_transparent.png
+faceDecoration_1_G_005.png
 	size: 264, 176
 	filter: Linear, Linear
 faceDecoration_1_G_005/headOrnament_G_23_S
 	bounds: 2, 2, 259, 171
 	offsets: 0, 0, 260, 172
 
-_transparent.png
+faceDecoration_1_G_006.png
 	size: 280, 248
 	filter: Linear, Linear
 faceDecoration_1_G_006/headOrnament_G_24_S
 	bounds: 2, 2, 273, 243
 	offsets: 24, 17, 329, 290
 
-_transparent.png
+faceDecoration_1_G_007.png
 	size: 272, 184
 	filter: Linear, Linear
 faceDecoration_1_G_007/headOrnament_G_A_31_S
 	bounds: 2, 2, 266, 179
 	offsets: 3, 2, 272, 183
 
-_transparent.png
+faceDecoration_1_G_008.png
 	size: 272, 152
 	filter: Linear, Linear
 faceDecoration_1_G_008/headOrnament_G_A_32_S
 	bounds: 2, 2, 266, 147
 	offsets: 2, 3, 271, 152
 
-_transparent.png
+faceDecoration_1_G_009.png
 	size: 116, 108
 	filter: Linear, Linear
 faceDecoration_1_G_009/faceDecoration_01S
 	bounds: 2, 2, 109, 104
 	offsets: 59, 51, 277, 308
 
-_transparent.png
+faceDecoration_1_G_010.png
 	size: 232, 76
 	filter: Linear, Linear
 faceDecoration_1_G_010/faceDecoration_08S
 	bounds: 2, 2, 228, 72
 	offsets: 41, 42, 277, 308
 
-_transparent.png
+faceDecoration_1_G_011.png
 	size: 188, 32
 	filter: Linear, Linear
 faceDecoration_1_G_011/faceDecoration_17S
 	bounds: 2, 2, 181, 27
 	offsets: 4, 4, 190, 36
 
-_transparent.png
+faceDecoration_1_G_012.png
 	size: 176, 164
 	filter: Linear, Linear
 faceDecoration_1_G_012/faceDecoration_21X
 	bounds: 2, 2, 171, 160
 	offsets: 5, 5, 181, 170
 
-_transparent.png
+faceDecoration_1_G_013.png
 	size: 104, 48
 	filter: Linear, Linear
 faceDecoration_1_G_013/faceDecoration_1_G_013
 	bounds: 2, 2, 97, 44
 	offsets: 24, 12, 130, 80
 
-_transparent.png
+faceDecoration_1_G_014.png
 	size: 216, 220
 	filter: Linear, Linear
 faceDecoration_1_G_014/faceDecoration_1_G_014
 	bounds: 2, 2, 211, 214
 	offsets: 25, 13, 240, 236
 
-_transparent.png
+faceDecoration_1_G_015.png
 	size: 168, 188
 	filter: Linear, Linear
 faceDecoration_1_G_015/faceDecoration_1_G_015
 	bounds: 2, 2, 161, 183
 	offsets: 53, 11, 240, 236
 
-_transparent.png
+faceDecoration_1_G_016.png
 	size: 96, 108
 	filter: Linear, Linear
 faceDecoration_1_G_016/faceDecoration_1_G_016
 	bounds: 2, 2, 92, 101
 	offsets: 26, 19, 142, 139
 
-_transparent.png
+faceDecoration_1_G_018.png
 	size: 224, 176
 	filter: Linear, Linear
 faceDecoration_1_G_018/faceDecoration_1_G_018
 	bounds: 2, 2, 219, 171
 	offsets: 16, 15, 256, 191
 
-_transparent.png
+faceDecoration_1_G_019.png
 	size: 192, 120
 	filter: Linear, Linear
 faceDecoration_1_G_019/faceDecoration_1_G_019
 	bounds: 2, 2, 185, 113
 	offsets: 36, 39, 256, 191
 
-_transparent.png
+faceDecoration_2_F_001.png
 	size: 236, 96
 	filter: Linear, Linear
 faceDecoration_2_F_001/faceDecoration_2_F_001
 	bounds: 2, 2, 232, 91
 	offsets: 5, 5, 242, 105
 
-_transparent.png
+faceDecoration_2_G_001.png
 	size: 132, 104
 	filter: Linear, Linear
 faceDecoration_2_G_001/faceDecoration_02S
 	bounds: 2, 2, 127, 99
 
-_transparent.png
+faceDecoration_2_G_002.png
 	size: 160, 68
 	filter: Linear, Linear
 faceDecoration_2_G_002/faceDecoration_03X
 	bounds: 2, 2, 153, 62
 	offsets: 1, 0, 154, 62
 
-_transparent.png
+faceDecoration_2_G_003.png
 	size: 128, 104
 	filter: Linear, Linear
 faceDecoration_2_G_003/faceDecoration_04X
 	bounds: 2, 2, 122, 99
 	offsets: 0, 11, 122, 111
 
-_transparent.png
+faceDecoration_2_G_004.png
 	size: 116, 56
 	filter: Linear, Linear
 faceDecoration_2_G_004/faceDecoration_06S
 	bounds: 2, 2, 111, 49
 	offsets: 109, 61, 277, 308
 
-_transparent.png
+faceDecoration_2_G_005.png
 	size: 132, 80
 	filter: Linear, Linear
 faceDecoration_2_G_005/faceDecoration_07S
 	bounds: 2, 2, 125, 75
 	offsets: 51, 50, 277, 308
 
-_transparent.png
+faceDecoration_2_G_006.png
 	size: 104, 48
 	filter: Linear, Linear
 faceDecoration_2_G_006/faceDecoration_09S
 	bounds: 2, 2, 98, 42
 	offsets: 118, 56, 277, 308
 
-_transparent.png
+faceDecoration_2_G_007.png
 	size: 184, 60
 	filter: Linear, Linear
 faceDecoration_2_G_007/faceDecoration_10S
 	bounds: 2, 2, 180, 55
 	offsets: 24, 5, 209, 66
 
-_transparent.png
+faceDecoration_2_G_008.png
 	size: 144, 64
 	filter: Linear, Linear
 faceDecoration_2_G_008/faceDecoration_11X
 	bounds: 2, 2, 140, 60
 	offsets: 83, 24, 277, 308
 
-_transparent.png
+faceDecoration_2_G_009.png
 	size: 196, 136
 	filter: Linear, Linear
 faceDecoration_2_G_009/faceDecoration_12X
 	bounds: 2, 2, 190, 129
 	offsets: 53, 67, 277, 308
 
-_transparent.png
+faceDecoration_2_G_010.png
 	size: 196, 80
 	filter: Linear, Linear
 faceDecoration_2_G_010/faceDecoration_13X
 	bounds: 2, 2, 190, 75
 	offsets: 50, 66, 277, 308
 
-_transparent.png
+faceDecoration_2_G_011.png
 	size: 192, 92
 	filter: Linear, Linear
 faceDecoration_2_G_011/faceDecoration_14X
 	bounds: 2, 2, 188, 85
 	offsets: 58, 52, 277, 308
 
-_transparent.png
+faceDecoration_2_G_012.png
 	size: 44, 76
 	filter: Linear, Linear
 faceDecoration_2_G_012/faceDecoration_2_G_012
 	bounds: 2, 2, 37, 70
 	offsets: 20, 13, 79, 99
 
-_transparent.png
+faceDecoration_2_G_013.png
 	size: 204, 100
 	filter: Linear, Linear
 faceDecoration_2_G_013/faceDecoration_16X
 	bounds: 2, 2, 197, 94
 	offsets: 53, 57, 277, 308
 
-_transparent.png
+faceDecoration_2_G_014.png
 	size: 220, 108
 	filter: Linear, Linear
 faceDecoration_2_G_014/faceDecoration_19X
 	bounds: 2, 2, 213, 102
 	offsets: 36, 56, 277, 308
 
-_transparent.png
+faceDecoration_2_G_015.png
 	size: 192, 100
 	filter: Linear, Linear
 faceDecoration_2_G_015/faceDecoration_20X
 	bounds: 2, 2, 187, 93
 	offsets: 61, 59, 277, 308
 
-_transparent.png
+faceDecoration_2_G_016.png
 	size: 188, 140
 	filter: Linear, Linear
 faceDecoration_2_G_016/faceDecoration_23X
 	bounds: 2, 2, 181, 133
 	offsets: 5, 5, 190, 142
 
-_transparent.png
+faceDecoration_2_G_017.png
 	size: 64, 76
 	filter: Linear, Linear
 faceDecoration_2_G_017/faceDecoration_22X
 	bounds: 2, 2, 57, 71
 	offsets: 8, 4, 71, 80
 
-_transparent.png
+faceDecoration_2_G_018.png
 	size: 192, 72
 	filter: Linear, Linear
 faceDecoration_2_G_018/faceDecoration_2_F_002
 	bounds: 2, 2, 186, 65
 	offsets: 7, 5, 199, 75
 
-_transparent.png
+faceDecoration_2_G_019.png
 	size: 180, 144
 	filter: Linear, Linear
 faceDecoration_2_G_019/faceDecoration_2_G_019
 	bounds: 2, 2, 176, 137
 	offsets: 16, 15, 213, 159
 
-_transparent.png
+faceDecoration_2_G_020.png
 	size: 104, 56
 	filter: Linear, Linear
 faceDecoration_2_G_020/faceDecoration_2_G_019
 	bounds: 2, 2, 99, 50
 	offsets: 62, 32, 213, 159
 
-_transparent.png
+faceDecoration_2_G_021.png
 	size: 52, 52
 	filter: Linear, Linear
 faceDecoration_2_G_021/faceDecoration_2_G_019
 	bounds: 2, 2, 45, 45
 	offsets: 96, 39, 213, 159
 
-_transparent.png
+faceDecoration_2_G_022.png
 	size: 184, 168
 	filter: Linear, Linear
 faceDecoration_2_G_022/faceDecoration_2_G_022
 	bounds: 2, 2, 179, 162
 	offsets: 23, 17, 213, 201
 
-_transparent.png
+faceDecoration_2_G_023.png
 	size: 124, 124
 	filter: Linear, Linear
 faceDecoration_2_G_023/faceDecoration_2_G_023
 	bounds: 2, 2, 119, 117
 	offsets: 2, 4, 124, 134
 
-_transparent.png
+faceDecoration_2_G_024.png
 	size: 176, 212
 	filter: Linear, Linear
 faceDecoration_2_G_024/faceDecoration_2_G_024
 	bounds: 2, 2, 169, 207
 	offsets: 6, 6, 184, 224
 
-_transparent.png
+faceDecoration_3_F_001.png
 	size: 480, 468
 	filter: Linear, Linear
 faceDecoration_3_F_001/faceDecoration_3_F_001
@@ -24847,42 +24847,42 @@ faceDecoration_3_F_001/headOrnament_2_A_F_011_S01
 faceDecoration_3_F_001/headOrnament_2_A_F_011_S02
 	bounds: 2, 2, 402, 191
 
-_transparent.png
+faceDecoration_3_G_001.png
 	size: 376, 296
 	filter: Linear, Linear
 faceDecoration_3_G_001/headOrnament_G_20_S
 	bounds: 2, 2, 369, 292
 	offsets: 20, 10, 396, 341
 
-_transparent.png
+faceDecoration_3_G_002.png
 	size: 328, 320
 	filter: Linear, Linear
 faceDecoration_3_G_002/headOrnament_G_21_S
 	bounds: 2, 2, 321, 315
 	offsets: 27, 15, 365, 346
 
-_transparent.png
+faceDecoration_3_G_003.png
 	size: 340, 332
 	filter: Linear, Linear
 faceDecoration_3_G_003/faceDecoration_2_G_019
 	bounds: 2, 2, 335, 328
 	offsets: 21, 13, 369, 359
 
-_transparent.png
+faceDecoration_3_G_004.png
 	size: 368, 360
 	filter: Linear, Linear
 faceDecoration_3_G_004/faceDecoration_1_G_017
 	bounds: 2, 2, 364, 356
 	offsets: 8, 6, 384, 371
 
-_transparent.png
+facePaint_F.png
 	size: 20, 20
 	filter: Linear, Linear
 facePaint_F/facePaint_G_10
 	bounds: 2, 2, 16, 14
 	offsets: 6, 5, 27, 24
 
-_transparent.png
+facePaint_G.png
 	size: 236, 152
 	filter: Linear, Linear
 facePaint_G/facePaint_G_02
@@ -24915,7 +24915,7 @@ facePaint_G/facePaint_G_12
 	bounds: 200, 4, 27, 27
 	offsets: 2, 4, 31, 36
 
-_transparent.png
+hair_F_01.png
 	size: 660, 788
 	filter: Linear, Linear
 hair_F_01/hair_01A_toufaA_A02
@@ -24951,7 +24951,7 @@ hair_F_01/hair_01B_toufa_fajixian
 	offsets: 9, 8, 250, 232
 	rotate: 90
 
-_transparent.png
+hair_F_02.png
 	size: 1132, 256
 	filter: Linear, Linear
 hair_F_02/hair_02A_toufaA_A01
@@ -24982,7 +24982,7 @@ hair_F_02/hair_02A_toufa_fajixian
 hair_F_02/hair_02B_toufaC_B01
 	bounds: 2, 2, 276, 250
 
-_transparent.png
+hair_F_03.png
 	size: 1452, 280
 	filter: Linear, Linear
 hair_F_03/hair_03A_toufaA_A01
@@ -25019,7 +25019,7 @@ hair_F_03/hair_03B_toufa_fajixian
 	offsets: 9, 8, 276, 252
 	rotate: 90
 
-_transparent.png
+hair_F_04.png
 	size: 1284, 288
 	filter: Linear, Linear
 hair_F_04/hair_04A_toufaA_A01
@@ -25056,7 +25056,7 @@ hair_F_04/hair_04B_toufaC_B03
 	bounds: 2, 11, 306, 272
 	offsets: 4, 7, 310, 286
 
-_transparent.png
+hair_F_05.png
 	size: 1064, 424
 	filter: Linear, Linear
 hair_F_05/hair_05A_toufaA_A01
@@ -25084,7 +25084,7 @@ hair_F_05/hair_05A_toufa_fajixian
 	offsets: 8, 10, 252, 230
 	rotate: 90
 
-_transparent.png
+hair_F_06.png
 	size: 1576, 284
 	filter: Linear, Linear
 hair_F_06/hair_06A_toufaA_A01
@@ -25127,7 +25127,7 @@ hair_F_06/hair_06B_toufa_fajixian
 	offsets: 12, 6, 268, 246
 	rotate: 90
 
-_transparent.png
+hair_F_07.png
 	size: 472, 972
 	filter: Linear, Linear
 hair_F_07/hair_07A_toufaA_A01
@@ -25168,7 +25168,7 @@ hair_F_07/hair_07B_toufaD_B03
 hair_F_07/hair_07B_toufaD_B04
 	bounds: 2, 183, 150, 146
 
-_transparent.png
+hair_F_08.png
 	size: 296, 892
 	filter: Linear, Linear
 hair_F_08/hair_08A_toufaA_A01
@@ -25205,7 +25205,7 @@ hair_F_08/hair_08B_toufaD_B02
 	offsets: 8, 10, 142, 144
 	rotate: 90
 
-_transparent.png
+hair_F_09.png
 	size: 928, 320
 	filter: Linear, Linear
 hair_F_09/hair_09A_toufaA_A01
@@ -25235,7 +25235,7 @@ hair_F_09/hair_09B_toufaC_B01
 	bounds: 2, 81, 263, 236
 	offsets: 6, 10, 280, 254
 
-_transparent.png
+hair_F_10.png
 	size: 272, 1336
 	filter: Linear, Linear
 hair_F_10/hair_10A_toufaA_A01
@@ -25262,7 +25262,7 @@ hair_F_10/hair_10B_toufaC_B02
 hair_F_10/hair_10B_toufaD_B02
 	bounds: 2, 724, 266, 370
 
-_transparent.png
+hair_F_11.png
 	size: 1000, 320
 	filter: Linear, Linear
 hair_F_11/hair_11A_toufaA_A01
@@ -25289,7 +25289,7 @@ hair_F_11/hair_11A_toufa_fajixian
 hair_F_11/hair_11B_toufaC_B02
 	bounds: 2, 15, 448, 300
 
-_transparent.png
+hair_F_12.png
 	size: 348, 1100
 	filter: Linear, Linear
 hair_F_12/hair_01A_toufaD_B01
@@ -25312,7 +25312,7 @@ hair_F_12/hair_12A_toufa_fajixian
 	bounds: 2, 366, 233, 222
 	offsets: 9, 8, 250, 240
 
-_transparent.png
+hair_F_13.png
 	size: 1180, 508
 	filter: Linear, Linear
 hair_F_13/hair_15A_fajixian
@@ -25341,7 +25341,7 @@ hair_F_13/hair_15B_toufaA_A01
 hair_F_13/hair_15B_toufaD_B02
 	bounds: 336, 2, 350, 503
 
-_transparent.png
+hair_F_14.png
 	size: 1920, 428
 	filter: Linear, Linear
 hair_F_14/hair_07B_toufaD_B02
@@ -25430,7 +25430,7 @@ hair_F_15/hair_15B_toufaD_B04
 	offsets: 5, 5, 112, 142
 	rotate: 90
 
-_transparent.png
+hair_F_16.png
 	size: 864, 452
 	filter: Linear, Linear
 hair_F_16/hair_01B_toufa_fajixian
@@ -25460,7 +25460,7 @@ hair_F_16/hair_17A_toufa_fajixian
 	offsets: 5, 4, 240, 226
 	rotate: 90
 
-_transparent.png
+hair_F_17.png
 	size: 1896, 396
 	filter: Linear, Linear
 hair_F_17/hair_18A_fajixian
@@ -25565,7 +25565,7 @@ hair_F_18/hair_toufachaoqian_A01
 	bounds: 130, 49, 59, 49
 	offsets: 4, 4, 67, 57
 
-_transparent.png
+hair_F_19.png
 	size: 1416, 432
 	filter: Linear, Linear
 hair_F_19/hair_21A_toufaA_A01
@@ -25615,7 +25615,7 @@ hair_F_19/hair_21B_toufa_fajixian
 	offsets: 4, 6, 241, 224
 	rotate: 90
 
-_transparent.png
+hair_F_20.png
 	size: 936, 292
 	filter: Linear, Linear
 hair_F_20/hair_20A_toufaA_A01
@@ -25638,7 +25638,7 @@ hair_F_20/hair_20B_toufa_fajixian
 	offsets: 4, 6, 241, 224
 	rotate: 90
 
-_transparent.png
+hair_F_21.png
 	size: 1588, 332
 	filter: Linear, Linear
 hair_F_21/hair_21A_toufaA_A01
@@ -25708,7 +25708,7 @@ hair_F_22/hair_22B_toufa_fajixian
 	offsets: 4, 7, 241, 224
 	rotate: 90
 
-_transparent.png
+hair_F_23.png
 	size: 1356, 508
 	filter: Linear, Linear
 hair_F_23/hair_01A_toufaA_A01
@@ -25760,7 +25760,7 @@ hair_F_23/hair_01B_toufa_fajixian
 	offsets: 4, 7, 230, 209
 	rotate: 90
 
-_transparent.png
+hair_F_24.png
 	size: 780, 448
 	filter: Linear, Linear
 hair_F_24/hair_01A_toufaA_A01
@@ -25800,7 +25800,7 @@ hair_F_24/hair_01B_toufa_fajixian
 	bounds: 2, 195, 236, 248
 	offsets: 5, 5, 246, 258
 
-_transparent.png
+hair_F_25.png
 	size: 1488, 296
 	filter: Linear, Linear
 hair_F_25/hair_01A_toufaA_A01
@@ -25837,7 +25837,7 @@ hair_F_25/x03
 	bounds: 949, 5, 53, 84
 	offsets: 8, 2, 65, 150
 
-_transparent.png
+hair_F_26.png
 	size: 264, 1712
 	filter: Linear, Linear
 hair_F_26/hair_01A_fajixian
@@ -25876,7 +25876,7 @@ hair_F_26/hair_01B_toufaC_B01
 	bounds: 2, 1182, 257, 258
 	offsets: 5, 6, 267, 268
 
-_transparent.png
+hair_F_27.png
 	size: 408, 836
 	filter: Linear, Linear
 hair_F_27/hair_27A_fajixian
@@ -25901,7 +25901,7 @@ hair_F_27/hair_27A_toufaD_B01
 hair_F_27/hair_27B_toufaD_B02
 	bounds: 2, 369, 323, 464
 
-_transparent.png
+hair_F_28.png
 	size: 956, 324
 	filter: Linear, Linear
 hair_F_28/hair_28A_fajixian
@@ -25934,7 +25934,7 @@ hair_F_28/hair_28B_toufaC_B01
 	bounds: 558, 195, 123, 124
 	offsets: 5, 5, 133, 134
 
-_transparent.png
+hair_F_29.png
 	size: 288, 820
 	filter: Linear, Linear
 hair_F_29/hair_29A_fajixian
@@ -25956,7 +25956,7 @@ hair_F_29/hair_29B_toufaC_B01
 	bounds: 47, 80, 112, 106
 	offsets: 4, 6, 121, 116
 
-_transparent.png
+hair_F_30.png
 	size: 1252, 280
 	filter: Linear, Linear
 hair_F_30/hair_30A_fajixian
@@ -25994,7 +25994,7 @@ hair_F_30/hair_30B_toufaC_B02
 	bounds: 763, 50, 227, 147
 	rotate: 90
 
-_transparent.png
+hair_F_31.png
 	size: 760, 388
 	filter: Linear, Linear
 hair_F_31/hair_31A_fajixian
@@ -26027,7 +26027,7 @@ hair_F_31/hair_31B_fajixian
 	bounds: 2, 135, 248, 251
 	offsets: 3, 5, 257, 259
 
-_transparent.png
+hair_F_32.png
 	size: 1068, 268
 	filter: Linear, Linear
 hair_F_32/hair_31A_toufaA_A01
@@ -26052,7 +26052,7 @@ hair_F_32/hair_32B_toufaD_B01
 hair_F_32/hair_32B_toufaD_B02
 	bounds: 556, 15, 132, 250
 
-_transparent.png
+hair_F_33.png
 	size: 432, 788
 	filter: Linear, Linear
 hair_F_33/hair_01A_toufaA_A04
@@ -26083,7 +26083,7 @@ hair_F_33/hair_33B_toufaC_B01
 	bounds: 2, 306, 262, 235
 	offsets: 5, 5, 271, 245
 
-_transparent.png
+hair_F_34.png
 	size: 296, 840
 	filter: Linear, Linear
 hair_F_34/hair_34A_fajixian
@@ -26103,7 +26103,7 @@ hair_F_34/hair_34A_toufaA_A03
 hair_F_34/hair_34B_toufaC_B01
 	bounds: 2, 543, 292, 293
 
-_transparent.png
+hair_F_35.png
 	size: 776, 312
 	filter: Linear, Linear
 hair_F_35/hair_25A_fajixian
@@ -26126,7 +26126,7 @@ hair_F_35/hair_25A_toufaA_B01
 hair_F_35/hair_25B_toufaC_B01
 	bounds: 2, 22, 342, 288
 
-_transparent.png
+hair_F_36.png
 	size: 1436, 276
 	filter: Linear, Linear
 hair_F_36/hair_26A_fajixian
@@ -26165,7 +26165,7 @@ hair_F_36/hair_26B_toufaC_B02
 	bounds: 795, 116, 155, 179
 	rotate: 270
 
-_transparent.png
+hair_F_37.png
 	size: 1048, 372
 	filter: Linear, Linear
 hair_F_37/hair_37A_fajixian
@@ -26210,7 +26210,7 @@ hair_F_37/hair_37B_toufaD_B04
 	offsets: 0, 3, 138, 159
 	rotate: 90
 
-_transparent.png
+hair_F_38.png
 	size: 320, 1404
 	filter: Linear, Linear
 hair_F_38/hair_01B_toufa_fajixian
@@ -26241,7 +26241,7 @@ hair_F_38/hair_38A_toufaD_B02
 	bounds: 2, 903, 273, 499
 	offsets: 16, 0, 289, 499
 
-_transparent.png
+hair_F_39.png
 	size: 876, 312
 	filter: Linear, Linear
 hair_F_39/hair_39A_fajixian
@@ -26270,7 +26270,7 @@ hair_F_39/hair_39B_toufaC_B01
 	bounds: 2, 28, 312, 282
 	offsets: 0, 0, 312, 286
 
-_transparent.png
+hair_F_40.png
 	size: 824, 524
 	filter: Linear, Linear
 hair_F_40/hair_40A_fajixian
@@ -26298,7 +26298,7 @@ hair_F_40/hair_40B_toufaD_B02
 	bounds: 603, 123, 165, 219
 	rotate: 90
 
-_transparent.png
+hair_F_41.png
 	size: 960, 252
 	filter: Linear, Linear
 hair_F_41/hair_41A_fajixian
@@ -26334,7 +26334,7 @@ hair_F_41/hair_41B_toufaC_B01
 	bounds: 2, 2, 250, 245
 	offsets: 14, 15, 279, 274
 
-_transparent.png
+hair_F_42.png
 	size: 604, 796
 	filter: Linear, Linear
 hair_F_42/hair_01B_toufa_fajixian
@@ -26368,7 +26368,7 @@ hair_F_42/hair_42B_toufaD_B03
 hair_F_42/hair_42B_toufaD_B04
 	bounds: 2, 706, 98, 87
 
-_transparent.png
+hair_F_43.png
 	size: 2048, 284
 	filter: Linear, Linear
 hair_F_43/hair_43A_fajixian
@@ -26414,7 +26414,7 @@ hair_F_43/hair_43B_toufaD_B03
 	offsets: 3, 0, 177, 563
 	rotate: 90
 
-_transparent.png
+hair_F_44.png
 	size: 568, 1100
 	filter: Linear, Linear
 hair_F_44/hair_42A_fajixian
@@ -26459,7 +26459,7 @@ hair_F_44/hair_42B_toufaD_B03
 	bounds: 254, 150, 195, 308
 	rotate: 90
 
-_transparent.png
+hair_F_45.png
 	size: 916, 428
 	filter: Linear, Linear
 hair_F_45/hair_45A_fajixian
@@ -26496,7 +26496,7 @@ hair_F_45/hair_45B_toufa_fajixian
 	bounds: 2, 177, 253, 248
 	offsets: 4, 7, 268, 260
 
-_transparent.png
+hair_F_46.png
 	size: 1108, 452
 	filter: Linear, Linear
 hair_F_46/hair_46A_toufaA_A01
@@ -26537,7 +26537,7 @@ hair_F_46/hair_46B_toufaC_B01
 	bounds: 59, 185, 272, 262
 	offsets: 2, 3, 276, 266
 
-_transparent.png
+hair_F_47.png
 	size: 324, 1232
 	filter: Linear, Linear
 hair_F_47/hair_47A_toufaA_A01
@@ -26581,7 +26581,7 @@ hair_F_47/hair_47B_toufaD_B04
 	bounds: 235, 346, 53, 208
 	offsets: 0, 0, 53, 211
 
-_transparent.png
+hair_F_48.png
 	size: 736, 424
 	filter: Linear, Linear
 hair_F_48/hair_48A_fajixian
@@ -26604,7 +26604,7 @@ hair_F_48/hair_48B_fajixian
 hair_F_48/hair_48B_toufaC_B01
 	bounds: 2, 120, 379, 301
 
-_transparent.png
+hair_F_49.png
 	size: 1724, 336
 	filter: Linear, Linear
 hair_F_49/hair_49A_fajixian
@@ -26638,7 +26638,7 @@ hair_F_49/hair_49B_toufaC_B02
 	bounds: 1197, 22, 309, 347
 	rotate: 90
 
-_transparent.png
+hair_F_50.png
 	size: 324, 1540
 	filter: Linear, Linear
 hair_F_50/hair_50A_fajixian
@@ -26666,7 +26666,7 @@ hair_F_50/hair_50B_toufaD_B04
 	bounds: 15, 136, 304, 258
 	rotate: 180
 
-_transparent.png
+hair_F_51.png
 	size: 276, 1024
 	filter: Linear, Linear
 hair_F_51/hair_51A_fajixian
@@ -26689,7 +26689,7 @@ hair_F_51/hair_51B_toufaD_B01
 	bounds: 2, 750, 260, 269
 	offsets: 0, 3, 260, 272
 
-_transparent.png
+hair_F_52.png
 	size: 1092, 720
 	filter: Linear, Linear
 hair_F_52/hair_52A_fajixian
@@ -26739,7 +26739,7 @@ hair_F_52/hair_52B_toufaD_B04
 	offsets: 11, 5, 292, 134
 	rotate: 90
 
-_transparent.png
+hair_F_53.png
 	size: 276, 1516
 	filter: Linear, Linear
 hair_F_53/hair_52B_toufaC_B01
@@ -26766,7 +26766,7 @@ hair_F_53/hair_53B_toufaD_B03
 	bounds: 147, 845, 162, 103
 	rotate: 90
 
-_transparent.png
+hair_F_54.png
 	size: 1548, 336
 	filter: Linear, Linear
 hair_F_54/hair_54A_fajixian
@@ -26800,7 +26800,7 @@ hair_F_54/hair_54B_toufaD_B02
 	bounds: 883, 73, 258, 368
 	rotate: 90
 
-_transparent.png
+hair_F_55.png
 	size: 804, 284
 	filter: Linear, Linear
 hair_F_55/faceDecoration_1_M_A_002
@@ -26815,7 +26815,7 @@ hair_F_55/hair_56B_toufaC_B01
 	bounds: 321, 2, 305, 278
 	offsets: 4, 21, 313, 303
 
-_transparent.png
+hair_F_56.png
 	size: 964, 304
 	filter: Linear, Linear
 hair_F_56/hair_56A_fajixian
@@ -26838,7 +26838,7 @@ hair_F_56/hair_56A_toufaA_A04
 hair_F_56/hair_56B_toufaD_B01
 	bounds: 2, 21, 291, 281
 
-_transparent.png
+hair_F_57.png
 	size: 340, 1932
 	filter: Linear, Linear
 hair_F_57/hair_57A_fajixian
@@ -26872,7 +26872,7 @@ hair_F_57/hair_57B_toufaA_A04
 hair_F_57/hair_57B_toufaD_B03
 	bounds: 2, 1350, 326, 577
 
-_transparent.png
+hair_F_58.png
 	size: 740, 736
 	filter: Linear, Linear
 hair_F_58/hair_58A_fajixian
@@ -26920,7 +26920,7 @@ hair_F_58/hair_58A_toufaD_B04
 hair_F_58/hair_58B_fajixian
 	bounds: 2, 2, 227, 195
 
-_transparent.png
+hair_F_59.png
 	size: 508, 1004
 	filter: Linear, Linear
 hair_F_59/hair_43B_toufa_fajixian
@@ -26954,7 +26954,7 @@ hair_F_59/hair_59A_toufa_fajixian
 	bounds: 2, 14, 245, 237
 	offsets: 0, 0, 253, 238
 
-_transparent.png
+hair_F_60.png
 	size: 680, 716
 	filter: Linear, Linear
 hair_F_60/hair_60A_fajixian
@@ -26988,7 +26988,7 @@ hair_F_60/hair_60B_toufaD_B04
 	bounds: 17, 58, 305, 156
 	rotate: 180
 
-_transparent.png
+hair_F_61.png
 	size: 1696, 376
 	filter: Linear, Linear
 hair_F_61/hair_61A_fajixian
@@ -27031,7 +27031,7 @@ hair_F_61/hair_61B_toufaC_B01
 	bounds: 494, 101, 256, 272
 	offsets: 4, 4, 265, 281
 
-_transparent.png
+hair_F_62.png
 	size: 764, 388
 	filter: Linear, Linear
 hair_F_62/hair_62A_fajixian
@@ -27063,7 +27063,7 @@ hair_F_62/hair_62B_toufaC_B02
 	offsets: 2, 0, 82, 192
 	rotate: 270
 
-_transparent.png
+hair_F_63.png
 	size: 244, 1712
 	filter: Linear, Linear
 hair_F_63/hair_01A_toufa_fajixian
@@ -27096,7 +27096,7 @@ hair_F_63/hair_63B_toufaC_B01
 	bounds: 2, 1483, 230, 225
 	offsets: 4, 4, 238, 233
 
-_transparent.png
+hair_F_64.png
 	size: 668, 616
 	filter: Linear, Linear
 hair_F_64/hair_64A_fajixian
@@ -27144,7 +27144,7 @@ hair_F_64/hair_64B_toufaD_B03
 	bounds: 227, 370, 117, 158
 	offsets: 5, 6, 127, 169
 
-_transparent.png
+hair_F_65.png
 	size: 2040, 344
 	filter: Linear, Linear
 hair_F_65/hair_65A_fajixian
@@ -27193,7 +27193,7 @@ hair_F_65/hair_65B_toufaD_B03
 hair_F_65/hair_65B_toufaD_B04
 	bounds: 1670, 108, 173, 234
 
-_transparent.png
+hair_F_66.png
 	size: 240, 2032
 	filter: Linear, Linear
 hair_F_66/hair_66A_fajixian
@@ -27228,7 +27228,7 @@ hair_F_66/hair_66B_toufaC_B02
 hair_F_66/hair_66B_toufaD_B01
 	bounds: 2, 1419, 222, 335
 
-_transparent.png
+hair_F_67.png
 	size: 676, 500
 	filter: Linear, Linear
 hair_F_67/hair_67A_fajixian
@@ -27257,7 +27257,7 @@ hair_F_67/hair_67A_toufaD_B02
 	bounds: 389, 14, 148, 350
 	rotate: 180
 
-_transparent.png
+hair_F_68.png
 	size: 884, 472
 	filter: Linear, Linear
 hair_F_68/hair_01A_toufa_fajixian
@@ -27282,7 +27282,7 @@ hair_F_68/hair_68B_toufaD_B01
 hair_F_68/hair_68B_toufaD_B02
 	bounds: 2, 2, 489, 468
 
-_transparent.png
+hair_F_69.png
 	size: 1944, 472
 	filter: Linear, Linear
 hair_F_69/hair_69A_toufaA_A01
@@ -27347,7 +27347,7 @@ hair_F_69/hair_69B_toufa_fajixian
 	offsets: 8, 9, 253, 236
 	rotate: 270
 
-_transparent.png
+hair_F_70.png
 	size: 1920, 280
 	filter: Linear, Linear
 hair_F_70/hair_70A_toufaA_A01
@@ -27408,7 +27408,7 @@ hair_F_70/hair_70B_toufaD_B04
 	offsets: 1, 4, 191, 146
 	rotate: 270
 
-_transparent.png
+hair_F_71.png
 	size: 2048, 376
 	filter: Linear, Linear
 hair_F_71/hair_71A_toufaA_A01
@@ -27465,7 +27465,7 @@ hair_F_71/hair_71B_toufaD_B04
 hair_F_71/hair_71B_toufa_fajixian
 	bounds: 2, 89, 288, 283
 
-_transparent.png
+hair_F_72.png
 	size: 1192, 308
 	filter: Linear, Linear
 hair_F_72/hair_72A_toufaA_A01
@@ -27508,7 +27508,7 @@ hair_F_72/hair_72B_toufa_fajixian
 	bounds: 2, 37, 280, 269
 	offsets: 0, 8, 280, 277
 
-_transparent.png
+hair_F_73.png
 	size: 2036, 348
 	filter: Linear, Linear
 hair_F_73/hair_73A_toufaA_A01
@@ -27567,7 +27567,7 @@ hair_F_73/hair_73B_toufa_fajixian
 	offsets: 1, 3, 253, 236
 	rotate: 90
 
-_transparent.png
+hair_F_74.png
 	size: 288, 1592
 	filter: Linear, Linear
 hair_F_74/hair_74A_toufaA_A01
@@ -27599,7 +27599,7 @@ hair_F_74/hair_74B_toufaC_B01
 hair_F_74/hair_74B_toufa_fajixian
 	bounds: 2, 834, 233, 216
 
-_transparent.png
+hair_F_75.png
 	size: 624, 960
 	filter: Linear, Linear
 hair_F_75/hair_75A_toufaA_A01
@@ -27647,7 +27647,7 @@ hair_F_75/hair_75B_toufa_fajixian
 	offsets: 0, 8, 253, 236
 	rotate: 270
 
-_transparent.png
+hair_F_76.png
 	size: 488, 812
 	filter: Linear, Linear
 hair_F_76/hair_76A_toufaA_A01
@@ -27677,7 +27677,7 @@ hair_F_76/hair_76D_toufaC_B01
 hair_F_76/hair_76D_toufaC_B02
 	bounds: 394, 61, 82, 230
 
-_transparent.png
+hair_F_77.png
 	size: 480, 1084
 	filter: Linear, Linear
 hair_F_77/hair_77A_toufaA_A01
@@ -27714,7 +27714,7 @@ hair_F_77/hair_77B_toufaD_B03
 	bounds: 178, 626, 285, 455
 	rotate: 180
 
-_transparent.png
+hair_F_78.png
 	size: 292, 1176
 	filter: Linear, Linear
 hair_F_78/hair_78A_toufaA_A01
@@ -27741,7 +27741,7 @@ hair_F_78/hair_78B_toufaC_B01
 	offsets: 5, 4, 260, 274
 	rotate: 90
 
-_transparent.png
+hair_F_79.png
 	size: 440, 624
 	filter: Linear, Linear
 hair_F_79/hair_79A_toufaA_A01
@@ -27774,7 +27774,7 @@ hair_F_79/hair_79B_toufaC_B01
 	offsets: 4, 5, 271, 267
 	rotate: 90
 
-_transparent.png
+hair_F_80.png
 	size: 988, 560
 	filter: Linear, Linear
 hair_F_80/hair_80A_toufaA_A01
@@ -27818,7 +27818,7 @@ hair_F_80/hair_80B_toufaD_B02
 hair_F_80/hair_80B_toufaD_B03
 	bounds: 74, 184, 238, 372
 
-_transparent.png
+hair_F_81.png
 	size: 716, 576
 	filter: Linear, Linear
 hair_F_81/hair_81A_toufaA_A01
@@ -27849,7 +27849,7 @@ hair_F_81/hair_81A_toufa_fajixian
 hair_F_81/hair_81B_toufaD_B01
 	bounds: 2, 13, 453, 559
 
-_transparent.png
+hair_F_82.png
 	size: 500, 764
 	filter: Linear, Linear
 hair_F_82/hair_82A_toufaA_A01
@@ -27874,7 +27874,7 @@ hair_F_82/hair_82A_toufaD_B03
 	bounds: 65, 239, 352, 520
 	rotate: 180
 
-_transparent.png
+hair_G_01.png
 	size: 1408, 296
 	filter: Linear, Linear
 hair_G_01/body_03A_pifengR_A01
@@ -27908,7 +27908,7 @@ hair_G_01/hair_01B_toufaC_B01
 	bounds: 2, 2, 391, 292
 	offsets: 5, 12, 401, 309
 
-_transparent.png
+hair_G_02.png
 	size: 1076, 300
 	filter: Linear, Linear
 hair_G_02/hair_01A_toufaA_A03
@@ -27930,7 +27930,7 @@ hair_G_02/hair_01B_toufaA_A05
 	offsets: 21, 11, 318, 194
 	rotate: 90
 
-_transparent.png
+hair_G_03.png
 	size: 252, 912
 	filter: Linear, Linear
 hair_G_03/hair_03A_toufaA_A01
@@ -27969,7 +27969,7 @@ hair_G_03/hair_03B_toufaC_B01
 	bounds: 2, 686, 225, 224
 	offsets: 5, 28, 239, 257
 
-_transparent.png
+hair_G_04.png
 	size: 1328, 324
 	filter: Linear, Linear
 hair_G_04/body_04A_pifengR_A01
@@ -28002,7 +28002,7 @@ hair_G_04/hair_04B_toufaC_B01
 	bounds: 2, 2, 376, 318
 	offsets: 5, 13, 386, 336
 
-_transparent.png
+hair_G_05.png
 	size: 316, 652
 	filter: Linear, Linear
 hair_G_05/hair_05A_toufaA_A01
@@ -28022,7 +28022,7 @@ hair_G_05/hair_05B_toufaC_B01
 	bounds: 2, 113, 310, 266
 	offsets: 5, 7, 326, 278
 
-_transparent.png
+hair_G_06.png
 	size: 324, 948
 	filter: Linear, Linear
 hair_G_06/hair_06A_toufaA_A01
@@ -28032,7 +28032,7 @@ hair_G_06/hair_06A_toufaC_B01
 hair_G_06/hair_06B_toufaC_B01
 	bounds: 2, 190, 317, 373
 
-_transparent.png
+hair_G_07.png
 	size: 652, 356
 	filter: Linear, Linear
 hair_G_07/hair_07A_toufaA_A01
@@ -28045,7 +28045,7 @@ hair_G_07/hair_07B_toufaC_B01
 	bounds: 281, 8, 287, 346
 	rotate: 180
 
-_transparent.png
+hair_G_08.png
 	size: 336, 1964
 	filter: Linear, Linear
 hair_G_08/hair_08A_toufaA_A01
@@ -28087,7 +28087,7 @@ hair_G_08/hair_08B_toufaD_B03
 hair_G_08/hair_08B_toufaD_B04
 	bounds: 235, 181, 84, 137
 
-_transparent.png
+hair_G_09.png
 	size: 1860, 384
 	filter: Linear, Linear
 hair_G_09/hair_09A_fajixian
@@ -28124,7 +28124,7 @@ hair_G_09/hair_09B_toufaC_B02
 	bounds: 1156, 178, 202, 281
 	rotate: 90
 
-_transparent.png
+hair_G_10.png
 	size: 272, 1032
 	filter: Linear, Linear
 hair_G_10/hair_10A_fajixian
@@ -28141,7 +28141,7 @@ hair_G_10/hair_10B_toufaC_B02
 	bounds: 2, 838, 256, 192
 	offsets: 4, 5, 264, 202
 
-_transparent.png
+hair_G_11.png
 	size: 752, 364
 	filter: Linear, Linear
 hair_G_11/hair_11A_fajixian
@@ -28157,7 +28157,7 @@ hair_G_11/hair_11A_toufaC_B01
 	bounds: 2, 2, 401, 360
 	offsets: 5, 12, 410, 377
 
-_transparent.png
+hair_G_12.png
 	size: 936, 504
 	filter: Linear, Linear
 hair_G_12/hair_12A_fajixian
@@ -28182,7 +28182,7 @@ hair_G_12/hair_12B_fajixian
 	bounds: 699, 257, 231, 242
 	offsets: 4, 5, 236, 251
 
-_transparent.png
+hair_G_13.png
 	size: 1060, 296
 	filter: Linear, Linear
 hair_G_13/hair_13A_toufaA_A01
@@ -28214,7 +28214,7 @@ hair_G_13/hair_13B_toufaC_B02
 	bounds: 643, 85, 113, 206
 	offsets: 4, 4, 121, 214
 
-_transparent.png
+hair_G_14.png
 	size: 1480, 304
 	filter: Linear, Linear
 hair_G_14/hair_77A_toufaA_A01
@@ -28257,7 +28257,7 @@ hair_G_14/hair_77B_toufaD_B03
 	bounds: 1401, 68, 74, 80
 	offsets: 4, 5, 83, 90
 
-_transparent.png
+hair_G_15.png
 	size: 960, 520
 	filter: Linear, Linear
 hair_G_15/hair_78A_toufaA_A01
@@ -28280,7 +28280,7 @@ hair_G_15/hair_78B_toufaD_B02
 	bounds: 312, 29, 306, 486
 	rotate: 180
 
-_transparent.png
+hair_G_16.png
 	size: 304, 948
 	filter: Linear, Linear
 hair_G_16/hair_16A_toufaA_A01
@@ -28294,7 +28294,7 @@ hair_G_16/hair_16B_toufaD_B01
 	bounds: 2, 247, 299, 344
 	offsets: 5, 10, 309, 359
 
-_transparent.png
+headOrnament_1_F_001.png
 	size: 1020, 308
 	filter: Linear, Linear
 headOrnament_1_F_001/headOrnament_1_AF_001_A01
@@ -28310,7 +28310,7 @@ headOrnament_1_F_001/headOrnament_1_BF_001_B01
 	bounds: 2, 234, 355, 72
 	offsets: 4, 5, 363, 82
 
-_transparent.png
+headOrnament_1_F_002.png
 	size: 680, 480
 	filter: Linear, Linear
 headOrnament_1_F_002/headOrnament_1_F_001_S01
@@ -28328,7 +28328,7 @@ headOrnament_1_F_002/headOrnament_1_F_001_X02
 	offsets: 0, 0, 242, 170
 	rotate: 90
 
-_transparent.png
+headOrnament_1_F_003.png
 	size: 900, 244
 	filter: Linear, Linear
 headOrnament_1_F_003/headOrnament_1_F_003A_S01
@@ -28340,7 +28340,7 @@ headOrnament_1_F_003/headOrnament_1_F_003B_X02
 	bounds: 385, 28, 385, 214
 	offsets: 5, 4, 394, 223
 
-_transparent.png
+headOrnament_1_F_004.png
 	size: 348, 844
 	filter: Linear, Linear
 headOrnament_1_F_004/headOrnament_1_F_A_004_S01
@@ -28360,7 +28360,7 @@ headOrnament_1_F_004/headOrnament_1_F_B_004_X02
 	bounds: 2, 564, 342, 278
 	offsets: 5, 5, 352, 288
 
-_transparent.png
+headOrnament_1_F_005.png
 	size: 864, 488
 	filter: Linear, Linear
 headOrnament_1_F_005/headOrnament_1_F_A_005_X01
@@ -28370,7 +28370,7 @@ headOrnament_1_F_005/headOrnament_1_F_A_005_X01
 headOrnament_1_F_005/headOrnament_1_F_A_005_X02
 	bounds: 2, 25, 678, 459
 
-_transparent.png
+headOrnament_1_F_006.png
 	size: 344, 332
 	filter: Linear, Linear
 headOrnament_1_F_006/headOrnament_1_F_A_006_S01
@@ -28380,7 +28380,7 @@ headOrnament_1_F_006/headOrnament_1_F_B_006_X01
 	bounds: 2, 2, 317, 122
 	offsets: 9, 4, 347, 131
 
-_transparent.png
+headOrnament_1_F_007.png
 	size: 660, 816
 	filter: Linear, Linear
 headOrnament_1_F_007/headOrnament_1_F_A_007_S01
@@ -28403,7 +28403,7 @@ headOrnament_1_F_007/headOrnament_1_F_B_007_X01
 headOrnament_1_F_007/headOrnament_1_F_B_007_X02
 	bounds: 492, 419, 150, 157
 
-_transparent.png
+headOrnament_1_F_008.png
 	size: 900, 220
 	filter: Linear, Linear
 headOrnament_1_F_008/headOrnament_1_F_A_008_S01
@@ -28416,7 +28416,7 @@ headOrnament_1_F_008/headOrnament_1_F_A_008_X02
 	bounds: 2, 2, 379, 213
 	offsets: 5, 5, 395, 223
 
-_transparent.png
+headOrnament_1_F_009.png
 	size: 1428, 296
 	filter: Linear, Linear
 headOrnament_1_F_009/headOrnament_1_F_A_009_S01
@@ -28443,7 +28443,7 @@ headOrnament_1_F_009/headOrnament_1_F_B_009_X02
 	offsets: 0, 0, 437, 243
 	rotate: 180
 
-_transparent.png
+headOrnament_1_F_010.png
 	size: 444, 236
 	filter: Linear, Linear
 headOrnament_1_F_010/headOrnament_1_F_A_010_S01
@@ -28453,7 +28453,7 @@ headOrnament_1_F_010/headOrnament_1_F_B_010_S01
 headOrnament_1_F_010/headOrnament_1_F_B_010_X01
 	bounds: 318, 104, 124, 127
 
-_transparent.png
+headOrnament_1_F_011.png
 	size: 456, 1388
 	filter: Linear, Linear
 headOrnament_1_F_011/headOrnament_1_F_A_011_S01
@@ -28468,14 +28468,14 @@ headOrnament_1_F_011/headOrnament_1_F_B_011_X02
 	bounds: 2, 133, 347, 386
 	rotate: 90
 
-_transparent.png
+headOrnament_1_G_001.png
 	size: 64, 148
 	filter: Linear, Linear
 headOrnament_1_G_001/faceDecoration_05S
 	bounds: 2, 2, 57, 141
 	offsets: 142, 67, 277, 308
 
-_transparent.png
+headOrnament_1_G_002.png
 	size: 476, 820
 	filter: Linear, Linear
 headOrnament_1_G_002/headOrnament_G_A_40_S1
@@ -28492,7 +28492,7 @@ headOrnament_1_G_002/headOrnament_G_B_40_X2
 	bounds: 160, 2, 224, 289
 	rotate: 270
 
-_transparent.png
+headOrnament_1_G_003.png
 	size: 1048, 180
 	filter: Linear, Linear
 headOrnament_1_G_003/hair_35A_toufaA_A02
@@ -28513,7 +28513,7 @@ headOrnament_1_G_003/headOrnament_2_A_040
 	offsets: 5, 5, 175, 201
 	rotate: 90
 
-_transparent.png
+headOrnament_1_G_004.png
 	size: 476, 556
 	filter: Linear, Linear
 headOrnament_1_G_004/headOrnament_1_G_004A_S1
@@ -28526,7 +28526,7 @@ headOrnament_1_G_004/headOrnament_1_G_004B_X1
 	bounds: 2, 198, 472, 249
 	offsets: 4, 4, 480, 259
 
-_transparent.png
+headOrnament_1_G_005.png
 	size: 832, 308
 	filter: Linear, Linear
 headOrnament_1_G_005/headOrnament_1_G_005A_S1
@@ -28535,7 +28535,7 @@ headOrnament_1_G_005/headOrnament_1_G_005A_S1
 headOrnament_1_G_005/headOrnament_1_G_005A_S2
 	bounds: 2, 2, 482, 302
 
-_transparent.png
+headOrnament_1_G_006.png
 	size: 360, 556
 	filter: Linear, Linear
 headOrnament_1_G_006/headOrnament_1_F_004A_S02
@@ -28543,28 +28543,28 @@ headOrnament_1_G_006/headOrnament_1_F_004A_S02
 headOrnament_1_G_006/headOrnament_1_F_004B_S02
 	bounds: 2, 2, 353, 272
 
-_transparent.png
+headOrnament_1_G_007.png
 	size: 168, 116
 	filter: Linear, Linear
 headOrnament_1_G_007/headOrnament_G_A_59_S1
 	bounds: 2, 2, 163, 110
 	offsets: 7, 33, 176, 177
 
-_transparent.png
+headOrnament_2_F_001.png
 	size: 272, 192
 	filter: Linear, Linear
 headOrnament_2_F_001/headOrnament_2_F_045
 	bounds: 2, 2, 267, 186
 	offsets: 4, 4, 276, 194
 
-_transparent.png
+headOrnament_2_F_002.png
 	size: 64, 60
 	filter: Linear, Linear
 headOrnament_2_F_002/headOrnament_2_F_002
 	bounds: 2, 2, 58, 56
 	offsets: 5, 4, 68, 64
 
-_transparent.png
+headOrnament_2_F_003.png
 	size: 216, 212
 	filter: Linear, Linear
 headOrnament_2_F_003/headOrnament_2_A_F_003
@@ -28574,7 +28574,7 @@ headOrnament_2_F_003/headOrnament_2_B_F_003
 	bounds: 2, 105, 210, 102
 	offsets: 2, 1, 214, 105
 
-_transparent.png
+headOrnament_2_F_004.png
 	size: 316, 224
 	filter: Linear, Linear
 headOrnament_2_F_004/headOrnament_2_A_F_004_S01
@@ -28583,14 +28583,14 @@ headOrnament_2_F_004/headOrnament_2_A_F_004_S02
 	bounds: 2, 2, 310, 217
 	offsets: 0, 5, 310, 222
 
-_transparent.png
+headOrnament_2_F_005.png
 	size: 88, 76
 	filter: Linear, Linear
 headOrnament_2_F_005/headOrnament_2_A_F_005_S02
 	bounds: 2, 2, 82, 72
 	offsets: 4, 4, 91, 80
 
-_transparent.png
+headOrnament_2_F_006.png
 	size: 476, 204
 	filter: Linear, Linear
 headOrnament_2_F_006/headOrnament_2_A_F_006_S01
@@ -28607,7 +28607,7 @@ headOrnament_2_F_006/headOrnament_2_A_F_006_X02
 	bounds: 369, 2, 91, 87
 	offsets: 4, 4, 100, 96
 
-_transparent.png
+headOrnament_2_F_007.png
 	size: 988, 236
 	filter: Linear, Linear
 headOrnament_2_F_007/headOrnament_2_A_F_007_S01
@@ -28627,7 +28627,7 @@ headOrnament_2_F_007/headOrnament_2_B_F_007_X02
 	offsets: 4, 4, 190, 162
 	rotate: 90
 
-_transparent.png
+headOrnament_2_F_008.png
 	size: 688, 332
 	filter: Linear, Linear
 headOrnament_2_F_008/headOrnament_2_A_F_008_S01
@@ -28638,20 +28638,20 @@ headOrnament_2_F_008/headOrnament_2_A_F_008_X02
 	bounds: 2, 25, 395, 304
 	offsets: 105, 23, 500, 327
 
-_transparent.png
+headOrnament_2_F_009.png
 	size: 104, 108
 	filter: Linear, Linear
 headOrnament_2_F_009/headOrnament_2_A_F_009_S01
 	bounds: 2, 2, 97, 103
 
-_transparent.png
+headOrnament_2_F_010.png
 	size: 324, 224
 	filter: Linear, Linear
 headOrnament_2_F_010/headOrnament_2_A_F_010_S01
 	bounds: 2, 2, 318, 218
 	offsets: 4, 2, 322, 227
 
-_transparent.png
+headOrnament_2_F_011.png
 	size: 632, 188
 	filter: Linear, Linear
 headOrnament_2_F_011/headOrnament_2_A_F_010_S01
@@ -28660,7 +28660,7 @@ headOrnament_2_F_011/headOrnament_2_A_F_010_S02
 	bounds: 2, 53, 213, 133
 	offsets: 5, 5, 223, 143
 
-_transparent.png
+headOrnament_2_F_012.png
 	size: 524, 304
 	filter: Linear, Linear
 headOrnament_2_F_012/headOrnament_2_A_F_012_S01
@@ -28673,7 +28673,7 @@ headOrnament_2_F_012/headOrnament_2_B_F_012_S01
 	bounds: 2, 68, 267, 232
 	offsets: 4, 5, 276, 242
 
-_transparent.png
+headOrnament_2_F_013.png
 	size: 504, 264
 	filter: Linear, Linear
 headOrnament_2_F_013/headOrnament_2_F_A_013_S01
@@ -28684,7 +28684,7 @@ headOrnament_2_F_013/headOrnament_2_F_A_013_X01
 	bounds: 2, 53, 348, 206
 	offsets: 5, 7, 356, 220
 
-_transparent.png
+headOrnament_2_F_014.png
 	size: 248, 224
 	filter: Linear, Linear
 headOrnament_2_F_014/headOrnament_2_F_A_014_S01
@@ -28698,7 +28698,7 @@ headOrnament_2_F_014/headOrnament_2_F_A_014_S02
 headOrnament_2_F_014/headOrnament_2_F_B_014_S01
 	bounds: 2, 50, 143, 172
 
-_transparent.png
+headOrnament_2_F_015.png
 	size: 244, 188
 	filter: Linear, Linear
 headOrnament_2_F_015/headOrnament_2_F_A_015_S01
@@ -28707,7 +28707,7 @@ headOrnament_2_F_015/headOrnament_2_F_B_015_X01
 	bounds: 2, 5, 117, 181
 	offsets: 1, 1, 119, 184
 
-_transparent.png
+headOrnament_2_F_016.png
 	size: 724, 396
 	filter: Linear, Linear
 headOrnament_2_F_016/headOrnament_2_A_F_016_S01
@@ -28725,21 +28725,21 @@ headOrnament_2_F_016/headOrnament_2_B_F_016_X02
 	bounds: 523, 2, 197, 192
 	offsets: 7, 0, 211, 200
 
-_transparent.png
+headOrnament_2_F_017.png
 	size: 80, 136
 	filter: Linear, Linear
 headOrnament_2_F_017/headOrnament_2_A_F_017_S01
 	bounds: 2, 2, 75, 132
 	offsets: 5, 4, 85, 140
 
-_transparent.png
+headOrnament_2_G_001.png
 	size: 76, 80
 	filter: Linear, Linear
 headOrnament_2_G_001/headOrnament_02S
 	bounds: 2, 2, 72, 76
 	offsets: 28, 138, 277, 308
 
-_transparent.png
+headOrnament_2_G_002.png
 	size: 72, 100
 	filter: Linear, Linear
 headOrnament_2_G_002/headOrnament_G_03
@@ -28753,27 +28753,27 @@ headOrnament_2_G_003/headOrnament_G_08
 	bounds: 2, 2, 274, 112
 	offsets: 5, 5, 284, 122
 
-_transparent.png
+headOrnament_2_G_004.png
 	size: 232, 144
 	filter: Linear, Linear
 headOrnament_2_G_004/headOrnament_G_05
 	bounds: 2, 2, 225, 138
 	offsets: 4, 6, 234, 148
 
-_transparent.png
+headOrnament_2_G_005.png
 	size: 212, 100
 	filter: Linear, Linear
 headOrnament_2_G_005/headOrnament_G_06
 	bounds: 2, 2, 208, 96
 	offsets: 5, 5, 217, 106
 
-_transparent.png
+headOrnament_2_G_006.png
 	size: 224, 128
 	filter: Linear, Linear
 headOrnament_2_G_006/headOrnament_G_07
 	bounds: 2, 2, 219, 123
 
-_transparent.png
+headOrnament_2_G_007.png
 	size: 296, 472
 	filter: Linear, Linear
 headOrnament_2_G_007/headOrnament_G_09_S
@@ -28783,76 +28783,76 @@ headOrnament_2_G_007/headOrnament_G_09_X
 	bounds: 2, 231, 292, 238
 	offsets: 15, 21, 328, 278
 
-_transparent.png
+headOrnament_2_G_008.png
 	size: 152, 180
 	filter: Linear, Linear
 headOrnament_2_G_008/headOrnament_G_10_S
 	bounds: 2, 2, 147, 174
 	offsets: 17, 12, 185, 205
 
-_transparent.png
+headOrnament_2_G_009.png
 	size: 220, 84
 	filter: Linear, Linear
 headOrnament_2_G_009/headOrnament_G_11_S
 	bounds: 2, 2, 214, 79
 	offsets: 11, 28, 237, 124
 
-_transparent.png
+headOrnament_2_G_010.png
 	size: 108, 172
 	filter: Linear, Linear
 headOrnament_2_G_010/headOrnament_G_12_S
 	bounds: 2, 2, 101, 165
 	offsets: 21, 17, 133, 202
 
-_transparent.png
+headOrnament_2_G_011.png
 	size: 264, 172
 	filter: Linear, Linear
 headOrnament_2_G_011/headOrnament_G_13_S
 	bounds: 2, 2, 258, 166
 	offsets: 49, 24, 362, 226
 
-_transparent.png
+headOrnament_2_G_012.png
 	size: 112, 92
 	filter: Linear, Linear
 headOrnament_2_G_012/headOrnament_G_14_S
 	bounds: 2, 2, 106, 88
 	offsets: 15, 16, 145, 124
 
-_transparent.png
+headOrnament_2_G_013.png
 	size: 288, 220
 	filter: Linear, Linear
 headOrnament_2_G_013/headOrnament_G_15_S
 	bounds: 2, 2, 282, 214
 	offsets: 36, 22, 338, 263
 
-_transparent.png
+headOrnament_2_G_014.png
 	size: 152, 136
 	filter: Linear, Linear
 headOrnament_2_G_014/headOrnament_G_16_S
 	bounds: 2, 2, 148, 129
 	offsets: 48, 29, 230, 193
 
-_transparent.png
+headOrnament_2_G_015.png
 	size: 92, 116
 	filter: Linear, Linear
 headOrnament_2_G_015/headOrnament_G_17_S
 	bounds: 2, 2, 88, 109
 
-_transparent.png
+headOrnament_2_G_016.png
 	size: 160, 160
 	filter: Linear, Linear
 headOrnament_2_G_016/headOrnament_G_18_S
 	bounds: 2, 2, 155, 155
 	offsets: 70, 37, 270, 221
 
-_transparent.png
+headOrnament_2_G_017.png
 	size: 76, 152
 	filter: Linear, Linear
 headOrnament_2_G_017/headOrnament_G_19_S
 	bounds: 2, 2, 70, 147
 	offsets: 29, 25, 140, 194
 
-_transparent.png
+headOrnament_2_G_018.png
 	size: 664, 228
 	filter: Linear, Linear
 headOrnament_2_G_018/headOrnament_G_A_25_S
@@ -28866,7 +28866,7 @@ headOrnament_2_G_018/headOrnament_G_B_25_X
 	bounds: 2, 2, 287, 224
 	offsets: 4, 4, 296, 232
 
-_transparent.png
+headOrnament_2_G_019.png
 	size: 392, 312
 	filter: Linear, Linear
 headOrnament_2_G_019/headOrnament_G_26_S
@@ -28877,21 +28877,21 @@ headOrnament_2_G_019/headOrnament_G_26_X
 	bounds: 2, 115, 292, 193
 	offsets: 18, 122, 325, 319
 
-_transparent.png
+headOrnament_2_G_020.png
 	size: 72, 92
 	filter: Linear, Linear
 headOrnament_2_G_020/headOrnament_G_27_S
 	bounds: 2, 2, 66, 86
 	offsets: 5, 5, 75, 95
 
-_transparent.png
+headOrnament_2_G_021.png
 	size: 120, 144
 	filter: Linear, Linear
 headOrnament_2_G_021/headOrnament_G_28_X
 	bounds: 2, 2, 115, 139
 	offsets: 5, 4, 124, 148
 
-_transparent.png
+headOrnament_2_G_022.png
 	size: 148, 124
 	filter: Linear, Linear
 headOrnament_2_G_022/headOrnament_G_A_29_S
@@ -28905,42 +28905,42 @@ headOrnament_2_G_023/headOrnament_G_A_30_S
 	bounds: 2, 2, 194, 118
 	offsets: 5, 5, 354, 145
 
-_transparent.png
+headOrnament_2_G_024.png
 	size: 108, 72
 	filter: Linear, Linear
 headOrnament_2_G_024/headOrnament_G_A_33_S
 	bounds: 2, 2, 101, 66
 	offsets: 18, 29, 129, 117
 
-_transparent.png
+headOrnament_2_G_025.png
 	size: 84, 84
 	filter: Linear, Linear
 headOrnament_2_G_025/headOrnament_G_A_34_S
 	bounds: 2, 2, 79, 79
 	offsets: 25, 21, 129, 117
 
-_transparent.png
+headOrnament_2_G_026.png
 	size: 76, 72
 	filter: Linear, Linear
 headOrnament_2_G_026/headOrnament_G_A_35_S
 	bounds: 2, 2, 69, 68
 	offsets: 24, 29, 129, 117
 
-_transparent.png
+headOrnament_2_G_027.png
 	size: 84, 88
 	filter: Linear, Linear
 headOrnament_2_G_027/headOrnament_G_A_36_S
 	bounds: 2, 2, 80, 83
 	offsets: 26, 19, 129, 117
 
-_transparent.png
+headOrnament_2_G_028.png
 	size: 92, 92
 	filter: Linear, Linear
 headOrnament_2_G_028/headOrnament_G_A_37_S
 	bounds: 2, 2, 86, 85
 	offsets: 20, 18, 129, 117
 
-_transparent.png
+headOrnament_2_G_029.png
 	size: 340, 140
 	filter: Linear, Linear
 headOrnament_2_G_029/headOrnament_G_A_38_S
@@ -28950,7 +28950,7 @@ headOrnament_2_G_029/headOrnament_G_B_38_X
 	bounds: 2, 2, 166, 136
 	offsets: 4, 5, 175, 146
 
-_transparent.png
+headOrnament_2_G_030.png
 	size: 452, 172
 	filter: Linear, Linear
 headOrnament_2_G_030/headOrnament_G_A_39_S
@@ -28960,7 +28960,7 @@ headOrnament_2_G_030/headOrnament_G_B_39_X
 	bounds: 232, 2, 216, 166
 	offsets: 8, 7, 231, 179
 
-_transparent.png
+headOrnament_2_G_031.png
 	size: 172, 336
 	filter: Linear, Linear
 headOrnament_2_G_031/headOrnament_2_G_031_A_S01
@@ -28971,14 +28971,14 @@ headOrnament_2_G_031/headOrnament_2_G_031_A_S02
 	offsets: 0, 0, 88, 168
 	rotate: 270
 
-_transparent.png
+headOrnament_2_G_032.png
 	size: 120, 92
 	filter: Linear, Linear
 headOrnament_2_G_032/headOrnament_2_G_032_A_S01
 	bounds: 2, 2, 114, 88
 	offsets: 5, 5, 123, 98
 
-_transparent.png
+headOrnament_2_G_033.png
 	size: 160, 392
 	filter: Linear, Linear
 headOrnament_2_G_033/headOrnament_2_G_033_A_S01
@@ -28988,7 +28988,7 @@ headOrnament_2_G_033/headOrnament_2_G_033_B_S01
 	bounds: 2, 2, 151, 195
 	offsets: 19, 10, 185, 210
 
-_transparent.png
+headOrnament_2_G_034.png
 	size: 160, 392
 	filter: Linear, Linear
 headOrnament_2_G_034/headOrnament_2_G_034_A_S01
@@ -28998,7 +28998,7 @@ headOrnament_2_G_034/headOrnament_2_G_034_B_S01
 	bounds: 2, 2, 151, 195
 	offsets: 19, 10, 185, 210
 
-_transparent.png
+headOrnament_2_G_035.png
 	size: 160, 392
 	filter: Linear, Linear
 headOrnament_2_G_035/headOrnament_2_G_035_A_S01
@@ -29008,7 +29008,7 @@ headOrnament_2_G_035/headOrnament_2_G_035_B_S01
 	bounds: 2, 2, 151, 195
 	offsets: 19, 10, 185, 210
 
-_transparent.png
+headOrnament_2_G_036.png
 	size: 236, 808
 	filter: Linear, Linear
 headOrnament_2_G_036/headOrnament_2_G_034_A_S01
@@ -29035,7 +29035,7 @@ headOrnament_2_G_036/headOrnament_2_G_034_B_S03
 headOrnament_2_G_036/headOrnament_2_G_034_B_S04
 	bounds: 2, 457, 210, 183
 
-_transparent.png
+headOrnament_2_G_037.png
 	size: 208, 520
 	filter: Linear, Linear
 headOrnament_2_G_037/headOrnament_2_G_037_A_S01
@@ -29049,7 +29049,7 @@ headOrnament_2_G_037/headOrnament_2_G_037_B_S01
 	offsets: 5, 5, 213, 211
 	rotate: 90
 
-_transparent.png
+headOrnament_2_G_038.png
 	size: 152, 272
 	filter: Linear, Linear
 headOrnament_2_G_038/headOrnament_2_G_038_A_S01
@@ -29059,28 +29059,28 @@ headOrnament_2_G_038/headOrnament_2_G_038_B_S01
 	bounds: 2, 136, 148, 134
 	offsets: 25, 32, 198, 188
 
-_transparent.png
+headOrnament_2_G_039.png
 	size: 128, 212
 	filter: Linear, Linear
 headOrnament_2_G_039/headOrnament_2_A_039
 	bounds: 2, 2, 121, 206
 	offsets: 4, 5, 130, 216
 
-_transparent.png
+headOrnament_2_G_040.png
 	size: 156, 160
 	filter: Linear, Linear
 headOrnament_2_G_040/headOrnament_2_A_040
 	bounds: 2, 2, 151, 156
 	offsets: 10, 30, 166, 216
 
-_transparent.png
+headOrnament_2_G_041.png
 	size: 112, 128
 	filter: Linear, Linear
 headOrnament_2_G_041/headOrnament_2_A_041
 	bounds: 2, 2, 105, 121
 	offsets: 31, 47, 166, 216
 
-_transparent.png
+headOrnament_2_G_042.png
 	size: 176, 580
 	filter: Linear, Linear
 headOrnament_2_G_042/headOrnament_2_A_042_S1
@@ -29093,7 +29093,7 @@ headOrnament_2_G_042/headOrnament_2_B_042_S1
 	bounds: 2, 350, 171, 225
 	offsets: 5, 5, 181, 235
 
-_transparent.png
+headOrnament_2_G_043.png
 	size: 452, 184
 	filter: Linear, Linear
 headOrnament_2_G_043/headOrnament_2_A_042_S2
@@ -29105,14 +29105,14 @@ headOrnament_2_G_043/headOrnament_2_B_043_S1
 	bounds: 174, 2, 151, 180
 	offsets: 14, 25, 181, 235
 
-_transparent.png
+headOrnament_2_G_044.png
 	size: 256, 116
 	filter: Linear, Linear
 headOrnament_2_G_044/headOrnament_2_G_044
 	bounds: 2, 2, 252, 111
 	offsets: 40, 26, 296, 142
 
-_transparent.png
+headOrnament_2_G_045.png
 	size: 276, 368
 	filter: Linear, Linear
 headOrnament_2_G_045/headOrnament_1_G_004A_S1
@@ -29122,7 +29122,7 @@ headOrnament_2_G_045/headOrnament_1_G_004B_X1
 	bounds: 2, 173, 270, 191
 	offsets: 5, 5, 279, 200
 
-_transparent.png
+headOrnament_2_G_046.png
 	size: 400, 228
 	filter: Linear, Linear
 headOrnament_2_G_046/headOrnament_2_G_046_A_S1
@@ -29132,7 +29132,7 @@ headOrnament_2_G_046/headOrnament_2_G_046_B_S1
 	bounds: 2, 2, 196, 222
 	offsets: 5, 4, 205, 230
 
-_transparent.png
+headOrnament_2_G_047.png
 	size: 144, 160
 	filter: Linear, Linear
 headOrnament_2_G_047/headOrnament_2_G_047_A_S1
@@ -29141,21 +29141,21 @@ headOrnament_2_G_047/headOrnament_2_G_047_A_S2
 	bounds: 93, 113, 27, 42
 	offsets: 3, 3, 33, 49
 
-_transparent.png
+headOrnament_2_G_048.png
 	size: 148, 96
 	filter: Linear, Linear
 headOrnament_2_G_048/headOrnament_2_G_048_A_S1
 	bounds: 2, 2, 142, 91
 	offsets: 4, 4, 150, 99
 
-_transparent.png
+headOrnament_2_G_049.png
 	size: 84, 84
 	filter: Linear, Linear
 headOrnament_2_G_049/headOrnament_G_A_34_S
 	bounds: 2, 2, 80, 80
 	offsets: 24, 21, 129, 117
 
-_transparent.png
+headOrnament_2_G_050.png
 	size: 368, 132
 	filter: Linear, Linear
 headOrnament_2_G_050/headOrnament_G_A_50_S
@@ -29165,7 +29165,7 @@ headOrnament_2_G_050/headOrnament_G_B_50_S
 	bounds: 186, 3, 178, 125
 	offsets: 30, 24, 237, 159
 
-_transparent.png
+headOrnament_2_G_051.png
 	size: 552, 220
 	filter: Linear, Linear
 headOrnament_2_G_051/headOrnament_G_A_51_S
@@ -29175,14 +29175,14 @@ headOrnament_2_G_051/headOrnament_G_A_51_X
 	bounds: 2, 13, 301, 204
 	offsets: 16, 9, 331, 217
 
-_transparent.png
+headOrnament_2_G_052.png
 	size: 144, 176
 	filter: Linear, Linear
 headOrnament_2_G_052/headOrnament_G_A_52_S
 	bounds: 2, 2, 139, 172
 	offsets: 45, 12, 237, 209
 
-_transparent.png
+headOrnament_2_G_053.png
 	size: 308, 308
 	filter: Linear, Linear
 headOrnament_2_G_053/headOrnament_G_A_53_S1
@@ -29198,14 +29198,14 @@ headOrnament_2_G_053/headOrnament_G_B_53_S2
 	offsets: 4, 0, 81, 181
 	rotate: 270
 
-_transparent.png
+headOrnament_2_G_054.png
 	size: 108, 208
 	filter: Linear, Linear
 headOrnament_2_G_054/headOrnament_2_M_A_005
 	bounds: 2, 2, 103, 204
 	offsets: 4, 4, 111, 212
 
-_transparent.png
+headOrnament_2_G_055.png
 	size: 92, 164
 	filter: Linear, Linear
 headOrnament_2_G_055/headOrnament_G_A_55_S1
@@ -29214,21 +29214,21 @@ headOrnament_2_G_055/headOrnament_G_A_55_S1
 headOrnament_2_G_055/headOrnament_G_A_55_S2
 	bounds: 2, 2, 75, 67
 
-_transparent.png
+headOrnament_2_G_056.png
 	size: 184, 216
 	filter: Linear, Linear
 headOrnament_2_G_056/headOrnament_G_A_54_S1
 	bounds: 2, 2, 177, 211
 	offsets: 35, 36, 288, 264
 
-_transparent.png
+headOrnament_2_G_057.png
 	size: 92, 84
 	filter: Linear, Linear
 headOrnament_2_G_057/headOrnament_G_A_54_S1
 	bounds: 2, 2, 87, 77
 	offsets: 22, 28, 136, 127
 
-_transparent.png
+headOrnament_2_G_058.png
 	size: 144, 308
 	filter: Linear, Linear
 headOrnament_2_G_058/headOrnament_G_A_54_S1
@@ -29239,35 +29239,35 @@ headOrnament_2_G_058/headOrnament_G_B_54_X1
 	bounds: 2, 146, 139, 160
 	offsets: 19, 9, 176, 177
 
-_transparent.png
+headOrnament_2_G_059.png
 	size: 120, 84
 	filter: Linear, Linear
 headOrnament_2_G_059/headOrnament_G_A_59_S1
 	bounds: 2, 2, 115, 80
 	offsets: 31, 43, 176, 177
 
-_transparent.png
+headOrnament_2_G_060.png
 	size: 100, 100
 	filter: Linear, Linear
 headOrnament_2_G_060/headOrnament_G_A_59_S1
 	bounds: 2, 2, 93, 96
 	offsets: 32, 43, 176, 177
 
-_transparent.png
+headOrnament_2_G_061.png
 	size: 176, 212
 	filter: Linear, Linear
 headOrnament_2_G_061/headOrnament_G_A_59_S1
 	bounds: 2, 2, 171, 206
 	offsets: 5, 15, 176, 233
 
-_transparent.png
+headOrnament_2_G_062.png
 	size: 152, 116
 	filter: Linear, Linear
 headOrnament_2_G_062/headOrnament_G_A_59_S1
 	bounds: 2, 2, 147, 112
 	offsets: 14, 33, 176, 177
 
-_transparent.png
+headOrnament_2_G_063.png
 	size: 256, 156
 	filter: Linear, Linear
 headOrnament_2_G_063/headOrnament_G_A_63_S1
@@ -29277,7 +29277,7 @@ headOrnament_2_G_063/headOrnament_G_B_63_S1
 	bounds: 2, 2, 125, 149
 	offsets: 26, 15, 176, 177
 
-_transparent.png
+headOrnament_2_G_064.png
 	size: 272, 164
 	filter: Linear, Linear
 headOrnament_2_G_064/headOrnament_G_A_64_S1
@@ -29287,56 +29287,56 @@ headOrnament_2_G_064/headOrnament_G_B_64_S1
 	bounds: 2, 2, 133, 157
 	offsets: 30, 7, 176, 177
 
-_transparent.png
+headOrnament_2_G_065.png
 	size: 352, 276
 	filter: Linear, Linear
 headOrnament_2_G_065/headOrnament_G_A_65_S1
 	bounds: 2, 2, 348, 272
 	offsets: 16, 12, 380, 301
 
-_transparent.png
+headOrnament_2_G_066.png
 	size: 116, 128
 	filter: Linear, Linear
 headOrnament_2_G_066/headOrnament_G_A_66_S1
 	bounds: 2, 2, 109, 124
 	offsets: 29, 17, 164, 171
 
-_transparent.png
+headOrnament_2_G_067.png
 	size: 108, 216
 	filter: Linear, Linear
 headOrnament_2_G_067/headOrnament_G_A_67_S1
 	bounds: 2, 2, 104, 212
 	offsets: 13, 17, 135, 257
 
-_transparent.png
+headOrnament_2_G_068.png
 	size: 296, 160
 	filter: Linear, Linear
 headOrnament_2_G_068/headOrnament_G_A_68_S1
 	bounds: 2, 2, 291, 153
 	offsets: 11, 11, 315, 185
 
-_transparent.png
+headOrnament_2_G_069.png
 	size: 244, 212
 	filter: Linear, Linear
 headOrnament_2_G_069/headOrnament_G_A_69_S1
 	bounds: 2, 2, 238, 206
 	offsets: 14, 10, 263, 239
 
-_transparent.png
+headOrnament_2_G_070.png
 	size: 132, 108
 	filter: Linear, Linear
 headOrnament_2_G_070/headOrnament_G_A_70_S1
 	bounds: 2, 2, 125, 101
 	offsets: 26, 5, 193, 118
 
-_transparent.png
+headOrnament_2_G_071.png
 	size: 216, 132
 	filter: Linear, Linear
 headOrnament_2_G_071/headOrnament_G_A_71_S1
 	bounds: 2, 2, 211, 125
 	offsets: 13, 1, 238, 134
 
-_transparent.png
+headOrnament_2_G_072.png
 	size: 524, 252
 	filter: Linear, Linear
 headOrnament_2_G_072/headOrnament_G_A_72_S1
@@ -29350,34 +29350,34 @@ headOrnament_2_G_072/headOrnament_G_B_72_X1
 	bounds: 2, 2, 229, 247
 	offsets: 0, 1, 238, 258
 
-_transparent.png
+headOrnament_2_G_073.png
 	size: 172, 128
 	filter: Linear, Linear
 headOrnament_2_G_073/headOrnament_G_A_73_S1
 	bounds: 2, 2, 167, 124
 	offsets: 33, 25, 238, 174
 
-_transparent.png
+headOrnament_2_G_074.png
 	size: 204, 204
 	filter: Linear, Linear
 headOrnament_2_G_074/headOrnament_G_A_74_S1
 	bounds: 2, 2, 199, 199
 
-_transparent.png
+headOrnament_2_G_075.png
 	size: 284, 184
 	filter: Linear, Linear
 headOrnament_2_G_075/headOrnament_G_A_75_S1
 	bounds: 2, 2, 278, 177
 	offsets: 15, 4, 312, 192
 
-_transparent.png
+headOrnament_2_G_076.png
 	size: 152, 148
 	filter: Linear, Linear
 headOrnament_2_G_076/headOrnament_G_A_76_S1
 	bounds: 2, 2, 145, 142
 	offsets: 23, 0, 186, 160
 
-_transparent.png
+headOrnament_2_G_077.png
 	size: 224, 108
 	filter: Linear, Linear
 headOrnament_2_G_077/headOrnament_G_A_77_S1
@@ -29387,21 +29387,21 @@ headOrnament_2_G_077/headOrnament_G_B_77_X1
 	bounds: 2, 2, 108, 104
 	offsets: 44, 28, 186, 160
 
-_transparent.png
+headOrnament_2_G_078.png
 	size: 232, 128
 	filter: Linear, Linear
 headOrnament_2_G_078/headOrnament_G_A_78_S1
 	bounds: 2, 2, 228, 124
 	offsets: 6, 7, 240, 160
 
-_transparent.png
+headOrnament_2_G_079.png
 	size: 80, 76
 	filter: Linear, Linear
 headOrnament_2_G_079/headOrnament_G_A_79_S1
 	bounds: 2, 2, 76, 72
 	offsets: 82, 45, 240, 160
 
-_transparent.png
+headOrnament_2_G_080.png
 	size: 156, 236
 	filter: Linear, Linear
 headOrnament_2_G_080/headOrnament_G_A_80_S1
@@ -29411,7 +29411,7 @@ headOrnament_2_G_080/headOrnament_G_B_80_X1
 	bounds: 2, 113, 152, 119
 	offsets: 44, 9, 240, 160
 
-_transparent.png
+headOrnament_2_G_081.png
 	size: 312, 140
 	filter: Linear, Linear
 headOrnament_2_G_081/headOrnament_G_A_81_S1
@@ -29422,7 +29422,7 @@ headOrnament_2_G_081/headOrnament_G_B_81_X1
 	offsets: 44, 10, 240, 160
 	rotate: 90
 
-_transparent.png
+headOrnament_2_G_082.png
 	size: 300, 128
 	filter: Linear, Linear
 headOrnament_2_G_082/headOrnament_G_A_82_S1
@@ -29432,7 +29432,7 @@ headOrnament_2_G_082/headOrnament_G_B_82_X1
 	bounds: 159, 2, 138, 122
 	offsets: 44, 9, 240, 160
 
-_transparent.png
+headOrnament_2_G_083.png
 	size: 324, 132
 	filter: Linear, Linear
 headOrnament_2_G_083/headOrnament_G_A_83_S1
@@ -29442,14 +29442,14 @@ headOrnament_2_G_083/headOrnament_G_B_83_X1
 	bounds: 177, 2, 144, 125
 	offsets: 39, 9, 240, 160
 
-_transparent.png
+headOrnament_2_G_084.png
 	size: 312, 184
 	filter: Linear, Linear
 headOrnament_2_G_084/headOrnament_G_A_84_S1
 	bounds: 2, 2, 305, 180
 	offsets: 49, 14, 398, 200
 
-_transparent.png
+map.png
 	size: 2048, 324
 	filter: Linear, Linear
 map/M_GaoZi
@@ -29557,21 +29557,21 @@ map/shaozi_01
 	offsets: 7, 3, 70, 428
 	rotate: 90
 
-_transparent.png
+pWeapon_100_001.png
 	size: 96, 312
 	filter: Linear, Linear
 pWeapon_100_001/W_jian_01
 	bounds: 2, 2, 92, 308
 	offsets: 41, 75, 174, 463
 
-_transparent.png
+pWeapon_200_002.png
 	size: 140, 368
 	filter: Linear, Linear
 pWeapon_200_002/W_zhang_02
 	bounds: 2, 2, 136, 363
 	offsets: 44, 50, 224, 488
 
-_transparent.png
+sWeapon_11_003.png
 	size: 140, 344
 	filter: Linear, Linear
 sWeapon_11_003/W_dunpai_A_A01
@@ -29584,7 +29584,7 @@ sWeapon_11_003/W_dunpai_B_B01
 	bounds: 2, 187, 135, 154
 	offsets: 52, 97, 451, 337
 
-_transparent.png
+sWeapon_12_002.png
 	size: 92, 316
 	filter: Linear, Linear
 sWeapon_12_002/W_quantao_A_A01
@@ -29597,14 +29597,14 @@ sWeapon_12_002/W_quantao_B_B01
 	bounds: 2, 193, 86, 118
 	offsets: 41, 27, 320, 187
 
-_transparent.png
+sWeapon_21_002.png
 	size: 108, 104
 	filter: Linear, Linear
 sWeapon_21_002/W_faqiu_A_A02
 	bounds: 2, 2, 104, 100
 	offsets: 109, 45, 320, 187
 
-_transparent.png
+sWeapon_22_002.png
 	size: 160, 84
 	filter: Linear, Linear
 sWeapon_22_002/W_shu_A_A02
@@ -29614,14 +29614,14 @@ sWeapon_22_002/W_shu_B_A02
 	bounds: 93, 2, 65, 78
 	offsets: 205, 49, 320, 187
 
-_transparent.png
+tail_01.png
 	size: 184, 48
 	filter: Linear, Linear
 tail_01/tail_01
 	bounds: 2, 2, 180, 41
 	offsets: 5, 4, 196, 52
 
-_transparent.png
+wing_02.png
 	size: 372, 372
 	filter: Linear, Linear
 wing_02/wing_16A_01_L01
