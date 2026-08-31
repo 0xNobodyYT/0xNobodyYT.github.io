@@ -8,12 +8,14 @@ from __future__ import annotations
 import ast
 import csv
 import json
+import os
 import re
 from pathlib import Path
 
 ROOT = Path(r"C:\tmp\sxs-live-config-85")
 LANG = Path(r"C:\tmp\sxs-loadout-extract\en_us\Language\en_US\text.g.csv")
-OUT = Path(__file__).resolve().parents[1] / "sxs-loadout-builder" / "combat-data.js"
+OUT = Path(os.environ.get("SXS_COMBAT_OUT") or (Path(__file__).resolve().parents[1] / "sxs-loadout-builder" / "combat-data.js"))
+ENTITY_LINKS = Path(__file__).with_name("skill-entity-links.json")
 
 
 def rows(name: str):
@@ -196,6 +198,40 @@ status_rank_props = {}
 for row in rows("level_prop_status.csv"):
     status_rank_props.setdefault(row["class_id"], {})[row["level"]] = row
 
+entity_graph = json.loads(ENTITY_LINKS.read_text(encoding="utf-8")) if ENTITY_LINKS.exists() else {"skills": {}, "links": {}}
+summon_add_props = {row["class_id"]: row for row in rows("summon_monster_add_prop.csv") if row.get("class_id", "").isdigit()}
+summon_rank_factors = {}
+for summon_rank in rows("summon_rank_additive_factor.csv"):
+    if summon_rank.get("rank_group", "").isdigit() and summon_rank.get("Rank", "").isdigit():
+        summon_rank_factors.setdefault(summon_rank["rank_group"], {})[summon_rank["Rank"]] = summon_rank
+
+
+def linked_entities(skill_id: str, fallback: set[int]) -> set[int]:
+    """Return every nested entity referenced by a player skill prefab."""
+    pending = list(entity_graph.get("skills", {}).get(skill_id, fallback))
+    found = set()
+    while pending:
+        entity_id = int(pending.pop())
+        if entity_id in found:
+            continue
+        found.add(entity_id)
+        pending.extend(entity_graph.get("links", {}).get(str(entity_id), []))
+    return found
+
+
+# Numeric status properties exposed by reachable player-skill entities.  The
+# metadata columns and boolean flags are deliberately excluded.
+status_value_fields = {
+    key
+    for status in status_props.values()
+    for key, value in status.items()
+    if key not in {
+        "EntityId", "Memo", "Memo2", "PvpPropScale", "RankPropId",
+        "GroupLevelPropId", "SubRankPropId", "AffectedBySkillRank",
+    }
+    and number(value)
+}
+
 # Passive skills use three rank tables (percentage, main, and secondary
 # properties), a rank multiplier, and a level/combat-rank fixed curve.  Keep
 # the pieces separate in the browser payload so comparisons can be evaluated
@@ -243,6 +279,14 @@ for source in passive_source_rows:
     passive_fields_by_group.setdefault(source.get("PassiveGroupLevelPropId"), set()).update(
         loose_dict(source.get("PassivePropFactors", ""))
     )
+for skill_id, roots in entity_graph.get("skills", {}).items():
+    for entity_id in linked_entities(skill_id, set(roots)):
+        status = status_props.get(str(entity_id))
+        if status and status.get("GroupLevelPropId"):
+            passive_fields_by_group.setdefault(status["GroupLevelPropId"], set()).update(
+                key for key in status_value_fields if number(status.get(key))
+            )
+used_passive_group_ids.update(passive_fields_by_group)
 used_passive_curve_ids = {
     curve_id for group_id in used_passive_group_ids
     for curve_id in skill_groups.get(group_id, {}).values()
@@ -266,10 +310,19 @@ for row in skill_source_rows:
         entities = ast.literal_eval(row.get("ViewPropEntities") or "[]")
     except Exception:
         entities = []
+    try:
+        passive_entities = ast.literal_eval(row.get("PassiveStatusIdList") or "[]")
+    except Exception:
+        passive_entities = []
+    root_entity_ids = {
+        int(entity_id) for entity_id in [row.get("EcEntityId"), *entities, *passive_entities]
+        if str(entity_id).isdigit() and int(entity_id) > 0
+    }
+    all_entity_ids = linked_entities(row["ClassId"], root_entity_ids)
     view_entities = [entity_props[str(eid)] for eid in entities if str(eid) in entity_props]
     primary_entity = entity_props.get(row.get("EcEntityId")) or (view_entities[0] if view_entities else None)
     passive_factors = {key: number(value) for key, value in loose_dict(row.get("PassivePropFactors", "")).items() if number(value)}
-    if not primary_entity and not passive_factors:
+    if not primary_entity and not passive_factors and not any(str(entity_id) in status_props for entity_id in all_entity_ids):
         continue
     effect_fields = ("SkillAttack1", "SkillAttack2", "SkillAttack3", "SkillAttack4", "SkillCureByHp", "SkillCureByAttack", "SkillCureByTargetHp", "SkillFixedShield", "SkillFixedCure")
     entity = next((candidate for candidate in view_entities if any(number(candidate.get(key)) for key in effect_fields)), primary_entity) or {}
@@ -290,16 +343,16 @@ for row in skill_source_rows:
             effects[str(rank)] = item
     cd_entity = next((candidate for candidate in [primary_entity, *view_entities] if candidate and number(candidate.get("CD"))), None)
     status_effects = []
-    status_fields = ("ShieldByTargetHp", "ShieldByDefence", "ShieldByConvertedCurHp", "SkillFixedShield")
-    for status in (status_props[str(eid)] for eid in entities if str(eid) in status_props):
-        if not any(number(status.get(key)) for key in status_fields):
+    for status in (status_props[str(eid)] for eid in all_entity_ids if str(eid) in status_props):
+        active_fields = [key for key in status_value_fields if number(status.get(key))]
+        if not active_fields:
             continue
         status_ranks = status_rank_props.get(status.get("RankPropId"), {})
         ranked_effects = {}
         for rank in range(1, 35):
             rr = status_ranks.get(str(rank), {})
             item = {}
-            for prop in status_fields:
+            for prop in active_fields:
                 factor = number(status.get(prop))
                 if factor:
                     rank_value = number(rr.get(prop)) or 10000
@@ -310,12 +363,37 @@ for row in skill_source_rows:
             status_effects.append({
                 "effects": ranked_effects,
                 "groupId": status.get("GroupLevelPropId") or entity.get("GroupLevelPropId") or "",
+                "entityId": number(status.get("EntityId")),
             })
+    summon_effects = []
+    summon_class_ids = {
+        str(summon_id)
+        for entity_id in all_entity_ids
+        for summon_id in entity_graph.get("summons", {}).get(str(entity_id), [])
+    }
+    for summon_id in sorted(summon_class_ids, key=int):
+        summon = summon_add_props.get(summon_id)
+        if not summon:
+            continue
+        rank_factors = summon_rank_factors.get(summon.get("rank_group"), {})
+        ranked = {}
+        for rank in range(1, 35):
+            rank_row = rank_factors.get(str(rank), {})
+            item = {}
+            for prop in ("MaxHp", "Attack", "Defence", "Speed"):
+                factor = number(summon.get(prop))
+                if factor:
+                    item[prop] = round(factor * (number(rank_row.get(prop)) or 10000) / 10000)
+            if item:
+                ranked[str(rank)] = item
+        if ranked:
+            summon_effects.append({"classId": number(summon_id), "effects": ranked})
     skills[row["ClassId"]] = {
         "effects": effects,
         "cd": number(cd_entity.get("CD")) / 10000 if cd_entity else None,
         "groupId": entity.get("GroupLevelPropId") or "",
         "statusEffects": status_effects,
+        "summons": summon_effects,
         "passive": {
             "rankPropId": row.get("PassiveRankPropId") or "",
             "groupId": row.get("PassiveGroupLevelPropId") or "",
