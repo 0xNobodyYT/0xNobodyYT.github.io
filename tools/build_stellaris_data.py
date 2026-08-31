@@ -30,6 +30,13 @@ HANDBOOK_STAR_STEPS = {
     360: (5, 6, 15, 20),
 }
 
+COOKING_PROP_LABELS = {
+    "BaseAttackPercent": "ATK",
+    "BaseDefencePercent": "DEF",
+    "BaseMaxHpPercent": "HP",
+    "BaseSpeedPercent": "SPD",
+}
+
 
 def dictionary(value):
     return {key: int(amount) for key, amount in re.findall(r"([A-Za-z]+|\d+)\s*:\s*(\d+)", value or "")}
@@ -66,6 +73,54 @@ def main():
             if piece_id.isdigit():
                 relic_piece_to_parent[int(piece_id)] = relic_id
 
+    cooking = {}
+    with (CONFIG / "cooking.csv").open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle):
+            cooking_id = row.get("Id", "")
+            if cooking_id.isdigit():
+                cooking[int(cooking_id)] = row
+
+    cooking_props = {}
+    with (CONFIG / "level_prop_cooking.csv").open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle):
+            cooking_id = row.get("class_id", "")
+            if cooking_id.isdigit():
+                cooking_props[int(cooking_id)] = row
+
+    cooking_efficiency = {}
+    with (CONFIG / "cooking_prop_effect_full.csv").open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle):
+            cooking_id = row.get("CookingId", "")
+            if cooking_id.isdigit() and row.get("StartCount", "").isdigit():
+                cooking_efficiency.setdefault(int(cooking_id), []).append(
+                    (int(row["StartCount"]), int(row.get("Efficiency") or 0))
+                )
+
+    def cooking_description(item_id):
+        prop_row = cooking_props.get(item_id, {})
+        permanent = []
+        for prop, label in COOKING_PROP_LABELS.items():
+            value = int(prop_row.get(prop) or 0)
+            if value:
+                permanent.append(f"{label} +{value / 100:g}%")
+
+        temporary = language.get(f"entry_{item_id + 20000}_desc", "")
+        temporary = re.sub(r"^Effective in \{0\}\.\s*", "", temporary).strip()
+        parts = []
+        if permanent:
+            parts.append(f"Permanent when consumed: {', '.join(permanent)}.")
+        if temporary:
+            parts.append(f"Temporary in Kingdom Map battles: {temporary}")
+
+        efficiencies = sorted(cooking_efficiency.get(item_id, []))
+        if len(efficiencies) > 1:
+            transitions = ", ".join(
+                f"{efficiency / 100:g}% from use {start}"
+                for start, efficiency in efficiencies[1:]
+            )
+            parts.append(f"Permanent gain is at full efficiency for uses 1–10, then {transitions}.")
+        return " ".join(parts)
+
     def reward(item_id, amount):
         meta = items.get(item_id, {})
         name = language.get(f"item_{item_id}_name", f"Item {item_id}")
@@ -75,6 +130,9 @@ def main():
             kind = "Appearance"
         elif "ItemIcon/Food/" in icon:
             kind = "Dish"
+            extracted_description = cooking_description(item_id)
+            if extracted_description:
+                description = extracted_description
         elif item_id in relics:
             kind = "Relic"
             effects = RELIC_EFFECTS.get(item_id)
