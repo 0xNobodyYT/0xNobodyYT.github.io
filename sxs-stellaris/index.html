@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Browse all Sword x Staff Stellaris reward milestones and estimate the spend required for each tier.">
+  <title>Stellaris Rewards · Sword x Staff</title>
+  <link rel="stylesheet" href="../sxs-explorer.css?v=20260831-4">
+  <link rel="stylesheet" href="stellaris.css?v=20260831-2">
+</head>
+<body>
+<main class="wrap">
+  <a class="home" href="../">← 0xNobody Tools</a>
+  <header class="tool-header">
+    <div><span class="eyebrow">Sword x Staff · Spending Milestones</span><h1>Stellaris Rewards</h1><p>See every cumulative Stellaris milestone, its complete reward bundle, and the approximate regional spend required to reach it.</p></div>
+    <a class="coffee" href="https://buymeacoffee.com/0xnobody" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+  </header>
+  <nav class="tabs" aria-label="Sword x Staff tools">
+    <a href="../sxs-primo-calculator/">Season Planner<small>Primostars & materials</small></a><a href="../sxs-server-calendar/">Server Calendar<small>Days & events</small></a><a href="../sxs-loadout-builder/">Loadout Builder<small>Skills & gear</small></a><a href="../sxs-skills-conversion/">Skills Conversion<small>Class-change pools</small></a><a href="../sxs-skills-overview/">Skills Overview<small>Compare upgrades</small></a><a href="../sxs-fantomons/">Fantomons<small>Forms & abilities</small></a><a class="active" href="./" aria-current="page">Stellaris<small>Rewards & pricing</small></a>
+  </nav>
+
+  <section class="panel intro-panel">
+    <div><span class="label">How it works</span><h2>Cumulative purchase rewards</h2><p>Purchasing packs directly—or spending paid vouchers—earns Stellaris points. Voucher top-ups do not award the points until those vouchers are spent.</p></div>
+    <div class="source-badge"><b>75</b><span>extracted milestones</span><small>Client config v85</small></div>
+  </section>
+
+  <section class="panel controls-panel">
+    <div class="controls stellaris-controls">
+      <div class="field"><label for="currency">Store currency</label><select id="currency"></select></div>
+      <div class="field"><label for="currentPoints">Your current Stellaris points</label><input id="currentPoints" type="number" min="0" step="1" value="0"></div>
+      <div class="field"><label for="rewardSearch">Find a reward</label><input id="rewardSearch" type="search" placeholder="Outfit, badge, Stellatie…" autocomplete="off"></div>
+      <label class="major-toggle"><input id="majorOnly" type="checkbox"><span><b>Major milestones only</b><small>Show highlighted tiers</small></span></label>
+    </div>
+    <p class="notice" id="currencyNote"></p>
+  </section>
+
+  <section class="summary-grid" aria-live="polite">
+    <div class="summary-card"><span>Current points</span><b id="summaryCurrent">0</b></div>
+    <div class="summary-card"><span>Next reward</span><b id="summaryNext">Level 1</b></div>
+    <div class="summary-card"><span>Points remaining</span><b id="summaryRemaining">500</b></div>
+    <div class="summary-card accent"><span>Approx. additional spend</span><b id="summarySpend">$5.00</b></div>
+  </section>
+
+  <section class="panel reward-panel">
+    <div class="section-head"><div><span class="label">Complete reward track</span><h2>All Stellaris milestones</h2></div><span class="count" id="resultCount"></span></div>
+    <div class="table-wrap">
+      <table class="reward-table">
+        <thead><tr><th>Level</th><th>Stellaris points</th><th>Approx. total spend</th><th>From previous</th><th>Core reward</th><th>Additional rewards</th><th>From your points</th></tr></thead>
+        <tbody id="rewardRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel disclaimer"><span class="label">Pricing note</span><p>The client stores regional thresholds, not your final checkout receipt. Prices are approximate and may differ because of platform pricing, tax, exchange-rate adjustments, or regional pack availability. This tool does not recommend spending.</p></section>
+  <footer class="footer">Datamining direction credited to <a href="https://github.com/Mystonats">Mystonats</a>. © 2026 0xNobody.</footer>
+</main>
+<script src="data.js?v=20260831-2"></script>
+<script src="stellaris.js?v=20260831-2"></script>
+</body>
+</html>
