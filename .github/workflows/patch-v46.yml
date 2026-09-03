@@ -18,6 +18,8 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import re
+
           p = Path('sxs-primo-calculator/index.html')
           s = p.read_text(encoding='utf-8')
 
@@ -25,30 +27,28 @@ jobs:
           assert old in s, 'v45 title not found'
           s = s.replace(old, 'Sword x Staff — Multi-Season Primostar & Realm Planner v46', 1)
 
-          old = '2:{floor:130,relicFloor:14,scorePerStar:27,weights:{char:27,gear:10.3,skill:3.5,fant:3.8,relic:15.4},gearPostSeason:{threshold:160,pointsPerLevel:38}}'
-          new = '2:{floor:130,relicFloor:13,scorePerStar:27,weights:{char:27,gear:10.3,skill:3.5,fant:3.8,relic:15.4},gearPostSeason:{threshold:160,pointsPerLevel:38}}'
-          assert old in s, 'S2 season rule not found'
-          s = s.replace(old, new, 1)
+          s, n = re.subn(
+              r'(2:\{rank:"Gold",floor:130,relicFloor:)14(,relicBase:13,)',
+              r'\g<1>13\g<2>',
+              s,
+              count=1,
+          )
+          assert n == 1, 'S2 relicFloor rule not found'
 
           old = '<input id="relicFloor" type="number" value="14" readonly>'
           new = '<input id="relicFloor" type="number" value="13" readonly>'
           assert old in s, 'relicFloor input not found'
           s = s.replace(old, new, 1)
 
-          old = 'S1 = Lv100 / relic +10, S2 = Lv130 / +14.'
-          new = 'S1 = Lv100 / relic +10, S2 = Lv130 / +13.'
-          assert old in s, 'advanced baseline copy not found'
+          old = 'relic baselines are +10, +14, +17, +20, +23 and +26.'
+          new = 'relic baselines are +10, +13, +17, +20, +23 and +26.'
+          assert old in s, 'relic baseline explanation not found'
           s = s.replace(old, new, 1)
 
-          old = 'Baselines are Lv100/+10 and Lv130/+14.'
-          new = 'Baselines are Lv100/+10 and Lv130/+13.'
-          assert old in s, 'footer baseline copy not found'
-          s = s.replace(old, new, 1)
-
-          assert '2:{floor:130,relicFloor:13,scorePerStar:27' in s
-          assert 'S2 = Lv130 / +13.' in s
-          assert 'Baselines are Lv100/+10 and Lv130/+13.' in s
-          # Do not change the character-level relic cap rule: Lv130 still unlocks +14.
+          assert '2:{rank:"Gold",floor:130,relicFloor:13,relicBase:13' in s
+          assert '<input id="relicFloor" type="number" value="13" readonly>' in s
+          assert 'relic baselines are +10, +13, +17, +20, +23 and +26.' in s
+          # Character-level relic unlock cap is a separate rule and stays +14 at Lv130.
           assert 'Lv.130 → +14' in s
 
           p.write_text(s, encoding='utf-8')
