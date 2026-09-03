@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="0xNobody">
 <meta name="color-scheme" content="dark">
-<title>Sword x Staff — Multi-Season Primostar & Realm Planner v45</title>
+<title>Sword x Staff — Multi-Season Primostar & Realm Planner v46</title>
 <style>
 :root{
  --bg:#090c12;--panel:#121822;--panel2:#171f2b;--ink:#f4f7fb;--muted:#9babbe;
@@ -286,7 +286,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
    <summary>Season scoring data</summary>
    <div class="grid4" style="margin-top:9px">
     <div class="field"><label>Character / Gear / Skill / Fantomon baseline</label><input id="floor" type="number" value="130" readonly></div>
-    <div class="field"><label>Relic baseline</label><input id="relicFloor" type="number" value="14" readonly></div>
+    <div class="field"><label>Relic baseline</label><input id="relicFloor" type="number" value="13" readonly></div>
     <div class="field"><label>Score / Primostar</label><input id="scorePerStar" type="number" value="27" readonly></div>
     <div class="field"><label>Fixed season Primostars</label><input id="fixedStars" type="number" value="45" readonly></div>
     <div class="field"><label>Character weight</label><input id="charW" type="number" value="100" readonly></div>
@@ -295,7 +295,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
     <div class="field"><label>Fantomon weight</label><input id="fantW" type="number" value="8" readonly></div>
     <div class="field"><label>Relic weight</label><input id="relicW" type="number" value="33" readonly></div>
    </div>
-   <p class="subtle" style="margin-top:9px">Live game data provides the baseline, fixed award, conversion and category weights for Seasons 1–6. Baselines are not caps: normal levels advance by 30 each season, while relic baselines are +10, +14, +17, +20, +23 and +26.</p>
+   <p class="subtle" style="margin-top:9px">Live game data provides the baseline, fixed award, conversion and category weights for Seasons 1–6. Baselines are not caps: normal levels advance by 30 each season, while relic baselines are +10, +13, +17, +20, +23 and +26.</p>
   </details>
  </div>
 </section>
@@ -659,7 +659,7 @@ function ratingsForSeason(season){
 }
 const SEASON_RULES={
  1:{rank:"Silver",floor:100,relicFloor:10,relicBase:10,fixed:10,perStar:100,charW:100,gearW:38,relicW:57,skillW:13,fantW:14,gearBase:9280,gearRate:92.8,forgeStone:450,skillBase:6025,skillRate:60.25,relicBaseCost:3200,relicRate:320,relicTier:"blue"},
- 2:{rank:"Gold",floor:130,relicFloor:14,relicBase:13,fixed:45,perStar:27,charW:100,gearW:18,relicW:33,skillW:7,fantW:8,gearBase:16630,gearRate:166.3,forgeStone:510,skillBase:12025,skillRate:120.25,relicBaseCost:1350,relicRate:135,relicTier:"purple"},
+ 2:{rank:"Gold",floor:130,relicFloor:13,relicBase:13,fixed:45,perStar:27,charW:100,gearW:18,relicW:33,skillW:7,fantW:8,gearBase:16630,gearRate:166.3,forgeStone:510,skillBase:12025,skillRate:120.25,relicBaseCost:1350,relicRate:135,relicTier:"purple"},
  3:{rank:"Saint",floor:160,relicFloor:17,relicBase:16,fixed:65,perStar:13,charW:100,gearW:14,relicW:26,skillW:5,fantW:6,gearBase:26000,gearRate:260,forgeStone:540,skillBase:19225,skillRate:192.25,relicBaseCost:2300,relicRate:230,relicTier:"purple"},
  4:{rank:"Legend",floor:190,relicFloor:20,relicBase:19,fixed:120,perStar:7,charW:100,gearW:17,relicW:28,skillW:5,fantW:11,gearBase:57000,gearRate:570,forgeStone:550,skillBase:38425,skillRate:384.25,relicBaseCost:4600,relicRate:460,relicTier:"purple"},
  5:{rank:"Angel",floor:220,relicFloor:23,relicBase:22,fixed:150,perStar:4,charW:100,gearW:18,relicW:30,skillW:6,fantW:12,gearBase:101000,gearRate:1010,forgeStone:580,skillBase:65425,skillRate:654.25,relicBaseCost:8000,relicRate:800,relicTier:"purple"},
