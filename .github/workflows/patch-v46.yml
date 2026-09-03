@@ -1,0 +1,62 @@
+name: Patch calculator v46
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/patch-v46.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch calculator
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('sxs-primo-calculator/index.html')
+          s = p.read_text(encoding='utf-8')
+
+          old = 'Sword x Staff — Multi-Season Primostar & Realm Planner v45'
+          assert old in s, 'v45 title not found'
+          s = s.replace(old, 'Sword x Staff — Multi-Season Primostar & Realm Planner v46', 1)
+
+          old = '2:{floor:130,relicFloor:14,scorePerStar:27,weights:{char:27,gear:10.3,skill:3.5,fant:3.8,relic:15.4},gearPostSeason:{threshold:160,pointsPerLevel:38}}'
+          new = '2:{floor:130,relicFloor:13,scorePerStar:27,weights:{char:27,gear:10.3,skill:3.5,fant:3.8,relic:15.4},gearPostSeason:{threshold:160,pointsPerLevel:38}}'
+          assert old in s, 'S2 season rule not found'
+          s = s.replace(old, new, 1)
+
+          old = '<input id="relicFloor" type="number" value="14" readonly>'
+          new = '<input id="relicFloor" type="number" value="13" readonly>'
+          assert old in s, 'relicFloor input not found'
+          s = s.replace(old, new, 1)
+
+          old = 'S1 = Lv100 / relic +10, S2 = Lv130 / +14.'
+          new = 'S1 = Lv100 / relic +10, S2 = Lv130 / +13.'
+          assert old in s, 'advanced baseline copy not found'
+          s = s.replace(old, new, 1)
+
+          old = 'Baselines are Lv100/+10 and Lv130/+14.'
+          new = 'Baselines are Lv100/+10 and Lv130/+13.'
+          assert old in s, 'footer baseline copy not found'
+          s = s.replace(old, new, 1)
+
+          assert '2:{floor:130,relicFloor:13,scorePerStar:27' in s
+          assert 'S2 = Lv130 / +13.' in s
+          assert 'Baselines are Lv100/+10 and Lv130/+13.' in s
+          # Do not change the character-level relic cap rule: Lv130 still unlocks +14.
+          assert 'Lv.130 → +14' in s
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit v46
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sxs-primo-calculator/index.html
+          git commit -m "Fix Season 2 relic baseline to +13"
+          git push
