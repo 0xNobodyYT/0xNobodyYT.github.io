@@ -5,13 +5,13 @@ on:
       - '.github/workflows/inspect-formation-breaker.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect combat data
+      - name: Extract relevant combat data
         run: |
           node <<'NODE'
           const fs = require('fs');
@@ -20,29 +20,31 @@ jobs:
           const C = JSON.parse(s);
           const id = '10092';
           const skill = C.skills[id];
-          console.log('QUALITIES', JSON.stringify(C.qualities));
-          console.log('SKILL', JSON.stringify(skill, null, 2));
+          const out = { qualities: C.qualities, skill };
           if (skill?.groupId) {
-            console.log('GROUP', skill.groupId, JSON.stringify(C.skillGroups?.[skill.groupId], null, 2));
-            const curve = C.skillGroups?.[skill.groupId]?.Silver3;
-            console.log('FIXED_CURVE_ID', curve);
-            if (curve) {
-              const rows = C.skillFixedCurves?.[curve] || C.skillPassiveCurves?.[curve];
-              console.log('CURVE_106', JSON.stringify(rows?.['106'] || rows?.[106] || null, null, 2));
-              console.log('CURVE_105', JSON.stringify(rows?.['105'] || rows?.[105] || null, null, 2));
-              console.log('CURVE_107', JSON.stringify(rows?.['107'] || rows?.[107] || null, null, 2));
+            out.group = C.skillGroups?.[skill.groupId] || null;
+            out.groupCurves = {};
+            for (const [rank, curveId] of Object.entries(out.group || {})) {
+              const rows = C.skillFixedCurves?.[curveId] || C.skillPassiveCurves?.[curveId] || null;
+              out.groupCurves[rank] = { curveId, row105: rows?.['105'] || rows?.[105] || null, row106: rows?.['106'] || rows?.[106] || null, row107: rows?.['107'] || rows?.[107] || null };
             }
           }
-          for (const st of skill?.statusEffects || []) {
-            console.log('STATUS', JSON.stringify(st, null, 2));
-            const curve = C.skillGroups?.[st.groupId]?.Silver3;
-            console.log('STATUS_GROUP', st.groupId, 'CURVE', curve);
-            if (curve) {
-              const rows = C.skillPassiveCurves?.[curve] || C.skillFixedCurves?.[curve];
-              console.log('STATUS_CURVE_106', JSON.stringify(rows?.['106'] || rows?.[106] || null, null, 2));
+          out.statuses = (skill?.statusEffects || []).map(st => {
+            const groups = C.skillGroups?.[st.groupId] || {};
+            const curves = {};
+            for (const [rank, curveId] of Object.entries(groups)) {
+              const rows = C.skillPassiveCurves?.[curveId] || C.skillFixedCurves?.[curveId] || null;
+              curves[rank] = { curveId, row105: rows?.['105'] || rows?.[105] || null, row106: rows?.['106'] || rows?.[106] || null, row107: rows?.['107'] || rows?.[107] || null };
             }
-          }
-          if (skill?.passive) {
-            console.log('PASSIVE', JSON.stringify(skill.passive, null, 2));
-          }
+            return { status: st, groups, curves };
+          });
+          if (skill?.passive) out.passive = skill.passive;
+          fs.writeFileSync('formation-inspect.json', JSON.stringify(out, null, 2) + '\n');
           NODE
+      - name: Commit inspection output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add formation-inspect.json
+          git commit -m "Add temporary Formation Breaker inspection output" || exit 0
+          git push
