@@ -1,4 +1,4 @@
-name: Inspect Formation Breaker
+name: Apply skill grade and Formation Breaker fixes
 on:
   push:
     paths:
@@ -7,43 +7,65 @@ on:
 permissions:
   contents: write
 jobs:
-  inspect:
+  patch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Search fixed/passive curves
+      - name: Patch generated data and renderer
         run: |
           node <<'NODE'
           const fs=require('fs');
-          let s=fs.readFileSync('sxs-loadout-builder/combat-data.js','utf8').trim().replace(/^window\.SXS_COMBAT_DATA\s*=\s*/,'').replace(/;\s*$/,'');
-          const C=JSON.parse(s);
-          const out={};
-          const ids=['1824','1834','1844','1854'];
-          out.selected={};
-          for(const id of ids){
-            out.selected[id]={fixed106:C.skillFixedCurves?.[id]?.['106']||null,passive106:C.skillPassiveCurves?.[id]?.['106']||null};
+          function replaceOnce(text,from,to,label){
+            if(!text.includes(from)) throw new Error(`Missing ${label}`);
+            return text.replace(from,to);
           }
-          function scan(table){
-            const hits=[];
-            for(const [id,rows] of Object.entries(table||{})){
-              const row=rows?.['106']; if(!row) continue;
-              const keys=Object.keys(row);
-              const statusKeys=keys.filter(k=>/status|add/i.test(k));
-              const near25=Object.entries(row).filter(([k,v])=>typeof v==='number' && v>=24800 && v<=25200);
-              const near17600=Object.entries(row).filter(([k,v])=>typeof v==='number' && v>=17400 && v<=17800);
-              if(statusKeys.length||near25.length||near17600.length) hits.push({id,statusKeys,status:Object.fromEntries(statusKeys.map(k=>[k,row[k]])),near25,near17600});
-              if(hits.length>=200) break;
-            }
-            return hits;
+
+          // Correct the player-facing quality names while keeping the raw client
+          // colors/rank IDs unchanged: Red = Divine, Rainbow = Immortal.
+          let combat=fs.readFileSync('sxs-loadout-builder/combat-data.js','utf8');
+          combat=replaceOnce(combat,'{"raw":"Red","name":"Immortal"','{"raw":"Red","name":"Divine"','Red quality name');
+          combat=replaceOnce(combat,'{"raw":"Rainbow","name":"Divine"','{"raw":"Rainbow","name":"Immortal"','Rainbow quality name');
+          fs.writeFileSync('sxs-loadout-builder/combat-data.js',combat);
+
+          // Keep the generator source aligned so a future regeneration does not
+          // reintroduce the reversed names.
+          let gen=fs.readFileSync('tools/generate_combat_data.py','utf8');
+          gen=replaceOnce(gen,'{"raw": "Red", "name": "Immortal",','{"raw": "Red", "name": "Divine",','generator Red name');
+          gen=replaceOnce(gen,'{"raw": "Rainbow", "name": "Divine",','{"raw": "Rainbow", "name": "Immortal",','generator Rainbow name');
+          fs.writeFileSync('tools/generate_combat_data.py',gen);
+
+          // Formation Breaker (skill 10092, status entity 24192) stores the ATK
+          // percentage in StatusAdd1 and its rank-scaled fixed coefficient in
+          // StatusFixedAdd1.  The client payload did not preserve the dedicated
+          // status fixed-value curve, so calibrate that coefficient to the
+          // confirmed in-game Lv106 value (Mythic 1★: 18% + 17,600) and follow
+          // the extracted skill fixed-value curve for level/combat-rank scaling.
+          let explorer=fs.readFileSync('sxs-explorer.js','utf8');
+          const marker='function statusRows(meta,rank,level,combatRank){';
+          if(!explorer.includes('function formationBreakerFixed(')){
+            const helper="function formationBreakerFixed(effect,level,combatRank){const raw=+effect.StatusFixedAdd1||0;if(!raw)return 0;const curveId=C.skillGroups?.['4']?.[combatRank]||C.skillGroups?.['4']?.Silver3,anchorId=C.skillGroups?.['4']?.Silver3,row=curveId?nearest(C.skillFixedCurves?.[curveId],level):{},anchor=anchorId?nearest(C.skillFixedCurves?.[anchorId],106):{},rowValue=+row.SkillFixedAttack1||0,anchorValue=+anchor.SkillFixedAttack1||0,levelFactor=rowValue&&anchorValue?rowValue/anchorValue:1;return Math.round(raw*2.5*levelFactor)}\n";
+            explorer=replaceOnce(explorer,marker,helper+marker,'statusRows marker');
           }
-          out.fixedHits=scan(C.skillFixedCurves);
-          out.passiveHits=scan(C.skillPassiveCurves);
-          fs.writeFileSync('formation-curve-search.json',JSON.stringify(out,null,2)+'\n');
+          const usedMarker='levelRow=curve?nearest(C.skillPassiveCurves?.[curve],level):{},used=new Set();for(const [percentProp,fixedProp,label,source] of statusPairs){';
+          if(!explorer.includes("+st.entityId===24192&&effect.StatusAdd1")){
+            const replacement="levelRow=curve?nearest(C.skillPassiveCurves?.[curve],level):{},used=new Set();if(+st.entityId===24192&&effect.StatusAdd1){result.push({label:'ATK',pct:(+effect.StatusAdd1||0)/100,fixed:formationBreakerFixed(effect,level,combatRank),source:'caster ATK'});used.add('StatusAdd1');used.add('StatusFixedAdd1')}for(const [percentProp,fixedProp,label,source] of statusPairs){";
+            explorer=replaceOnce(explorer,usedMarker,replacement,'Formation Breaker status hook');
+          }
+          fs.writeFileSync('sxs-explorer.js',explorer);
+
+          // Bust cached JS/data on pages that consume the shared explorer/data.
+          for(const file of ['sxs-skills-overview/index.html','sxs-skills-conversion/index.html','sxs-fantomons/index.html','sxs-loadout-builder/index.html']){
+            if(!fs.existsSync(file)) continue;
+            let html=fs.readFileSync(file,'utf8');
+            html=html.replace(/combat-data\.js(?:\?v=[^"']+)?/g,'combat-data.js?v=20260904-1');
+            html=html.replace(/sxs-explorer\.js(?:\?v=[^"']+)?/g,'sxs-explorer.js?v=20260904-1');
+            fs.writeFileSync(file,html);
+          }
           NODE
-      - name: Commit inspection output
+      - name: Commit fixes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add formation-curve-search.json
-          git commit -m "Add temporary Formation Breaker curve search" || exit 0
+          git add sxs-loadout-builder/combat-data.js tools/generate_combat_data.py sxs-explorer.js sxs-skills-overview/index.html sxs-skills-conversion/index.html sxs-fantomons/index.html sxs-loadout-builder/index.html
+          git commit -m "Fix Divine and Immortal ranks and Formation Breaker values"
           git push
