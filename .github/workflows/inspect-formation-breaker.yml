@@ -11,39 +11,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Extract relevant combat data
+      - name: Search fixed/passive curves
         run: |
           node <<'NODE'
-          const fs = require('fs');
-          let s = fs.readFileSync('sxs-loadout-builder/combat-data.js','utf8').trim();
-          s = s.replace(/^window\.SXS_COMBAT_DATA\s*=\s*/, '').replace(/;\s*$/, '');
-          const C = JSON.parse(s);
-          const id = '10092';
-          const skill = C.skills[id];
-          const out = { topLevelKeys:Object.keys(C), qualities:C.qualities, skill };
-          out.keysContaining24192 = Object.keys(C).filter(k => {
-            try { return JSON.stringify(C[k]).includes('24192'); } catch { return false; }
-          });
-          const hits=[];
-          function walk(v,path,depth=0){
-            if(hits.length>=100 || depth>8 || v==null || typeof v!=='object') return;
-            if(!Array.isArray(v)){
-              if(v.id===24192 || v.entityId===24192 || v.Id===24192 || v.ID===24192) hits.push({path,value:v});
-              if(Object.prototype.hasOwnProperty.call(v,'24192')) hits.push({path:path+'.24192',value:v['24192']});
-            }
-            for(const [k,val] of Object.entries(v)){
-              if(hits.length>=100) break;
-              if(typeof val==='object' && val!==null) walk(val, path+'.'+k, depth+1);
-            }
+          const fs=require('fs');
+          let s=fs.readFileSync('sxs-loadout-builder/combat-data.js','utf8').trim().replace(/^window\.SXS_COMBAT_DATA\s*=\s*/,'').replace(/;\s*$/,'');
+          const C=JSON.parse(s);
+          const out={};
+          const ids=['1824','1834','1844','1854'];
+          out.selected={};
+          for(const id of ids){
+            out.selected[id]={fixed106:C.skillFixedCurves?.[id]?.['106']||null,passive106:C.skillPassiveCurves?.[id]?.['106']||null};
           }
-          for(const k of out.keysContaining24192) walk(C[k], 'C.'+k);
-          out.hits24192=hits;
-          fs.writeFileSync('formation-inspect2.json', JSON.stringify(out,null,2)+'\n');
+          function scan(table){
+            const hits=[];
+            for(const [id,rows] of Object.entries(table||{})){
+              const row=rows?.['106']; if(!row) continue;
+              const keys=Object.keys(row);
+              const statusKeys=keys.filter(k=>/status|add/i.test(k));
+              const near25=Object.entries(row).filter(([k,v])=>typeof v==='number' && v>=24800 && v<=25200);
+              const near17600=Object.entries(row).filter(([k,v])=>typeof v==='number' && v>=17400 && v<=17800);
+              if(statusKeys.length||near25.length||near17600.length) hits.push({id,statusKeys,status:Object.fromEntries(statusKeys.map(k=>[k,row[k]])),near25,near17600});
+              if(hits.length>=200) break;
+            }
+            return hits;
+          }
+          out.fixedHits=scan(C.skillFixedCurves);
+          out.passiveHits=scan(C.skillPassiveCurves);
+          fs.writeFileSync('formation-curve-search.json',JSON.stringify(out,null,2)+'\n');
           NODE
       - name: Commit inspection output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add formation-inspect2.json
-          git commit -m "Add temporary Formation Breaker status inspection" || exit 0
+          git add formation-curve-search.json
+          git commit -m "Add temporary Formation Breaker curve search" || exit 0
           git push
