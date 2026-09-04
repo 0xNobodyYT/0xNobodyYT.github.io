@@ -1,0 +1,2619 @@
+{
+  "qualities": [
+    {
+      "raw": "White",
+      "name": "Common",
+      "rankId": 1210,
+      "affixes": 0,
+      "roll": [
+        70,
+        80
+      ]
+    },
+    {
+      "raw": "Blue",
+      "name": "Rare",
+      "rankId": 1211,
+      "affixes": 2,
+      "roll": [
+        70,
+        90
+      ]
+    },
+    {
+      "raw": "Purple",
+      "name": "Epic",
+      "rankId": 1212,
+      "affixes": 3,
+      "roll": [
+        80,
+        100
+      ]
+    },
+    {
+      "raw": "Orange",
+      "name": "Legendary",
+      "rankId": 1213,
+      "affixes": 4,
+      "roll": [
+        80,
+        115
+      ]
+    },
+    {
+      "raw": "Gold",
+      "name": "Mythic",
+      "rankId": 1214,
+      "affixes": 4,
+      "roll": [
+        80,
+        125
+      ]
+    },
+    {
+      "raw": "Red",
+      "name": "Immortal",
+      "rankId": 1215,
+      "affixes": 4,
+      "roll": [
+        80,
+        125
+      ]
+    },
+    {
+      "raw": "Rainbow",
+      "name": "Divine",
+      "rankId": 1216,
+      "affixes": 4,
+      "roll": [
+        80,
+        125
+      ]
+    }
+  ],
+  "skill": {
+    "effects": {},
+    "cd": 2,
+    "groupId": "4",
+    "statusEffects": [
+      {
+        "effects": {
+          "1": {
+            "StatusAdd1": 720,
+            "StatusFixedAdd1": 528
+          },
+          "2": {
+            "StatusAdd1": 720,
+            "StatusFixedAdd1": 704
+          },
+          "3": {
+            "StatusAdd1": 1080,
+            "StatusFixedAdd1": 1254
+          },
+          "4": {
+            "StatusAdd1": 1080,
+            "StatusFixedAdd1": 1452
+          },
+          "5": {
+            "StatusAdd1": 1080,
+            "StatusFixedAdd1": 1650
+          },
+          "6": {
+            "StatusAdd1": 1440,
+            "StatusFixedAdd1": 2640
+          },
+          "7": {
+            "StatusAdd1": 1440,
+            "StatusFixedAdd1": 3168
+          },
+          "8": {
+            "StatusAdd1": 1440,
+            "StatusFixedAdd1": 3696
+          },
+          "9": {
+            "StatusAdd1": 1440,
+            "StatusFixedAdd1": 4224
+          },
+          "10": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 6160
+          },
+          "11": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 7040
+          },
+          "12": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 7920
+          },
+          "13": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 8800
+          },
+          "14": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 9680
+          },
+          "15": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 10560
+          },
+          "16": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 14520
+          },
+          "17": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 16368
+          },
+          "18": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 18216
+          },
+          "19": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 20064
+          },
+          "20": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 21912
+          },
+          "21": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 23760
+          },
+          "22": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 25608
+          },
+          "23": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 27456
+          },
+          "24": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 35112
+          },
+          "25": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 38192
+          },
+          "26": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 41272
+          },
+          "27": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 44352
+          },
+          "28": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 47432
+          },
+          "29": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 50512
+          },
+          "30": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 53592
+          },
+          "31": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 56672
+          },
+          "32": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 59752
+          },
+          "33": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 62832
+          },
+          "34": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 65912
+          }
+        },
+        "groupId": "4",
+        "entityId": 24192
+      }
+    ],
+    "summons": [],
+    "passive": null
+  },
+  "group": {
+    "Norank": "1824",
+    "Blackiron1": "1824",
+    "Blackiron2": "1824",
+    "Blackiron3": "1824",
+    "Bronze1": "1824",
+    "Bronze2": "1824",
+    "Bronze3": "1824",
+    "Silver1": "1824",
+    "Silver2": "1824",
+    "Silver3": "1824",
+    "Gold1": "1824",
+    "Gold2": "1824",
+    "Gold3": "1824",
+    "Saint1": "1834",
+    "Saint2": "1834",
+    "Saint3": "1834",
+    "Legend1": "1844",
+    "Legend2": "1844",
+    "Legend3": "1844",
+    "Angel1": "1854",
+    "Angel2": "1854",
+    "Angel3": "1854",
+    "Godtouched1_1": "1854",
+    "Godtouched1_2": "1854",
+    "Godtouched1_3": "1854",
+    "Godtouched2_1": "1854",
+    "Godtouched2_2": "1854",
+    "Godtouched2_3": "1854",
+    "Godtouched3_1": "1854",
+    "Godtouched3_2": "1854",
+    "Godtouched3_3": "1854",
+    "Demigod1_1": "1854",
+    "Demigod1_2": "1854",
+    "Demigod1_3": "1854",
+    "Demigod2_1": "1854",
+    "Demigod2_2": "1854",
+    "Demigod2_3": "1854",
+    "Demigod3_1": "1854",
+    "Demigod3_2": "1854",
+    "Demigod3_3": "1854"
+  },
+  "groupCurves": {
+    "Norank": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Blackiron1": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Blackiron2": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Blackiron3": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Bronze1": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Bronze2": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Bronze3": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Silver1": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Silver2": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Silver3": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Gold1": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Gold2": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Gold3": {
+      "curveId": "1824",
+      "row105": {
+        "SkillFixedAttack1": 29976,
+        "SkillFixedAttack2": 29976,
+        "SkillFixedAttack3": 29976,
+        "SkillFixedAttack4": 29976,
+        "SkillFixedCure": 499615,
+        "SkillFixedShield": 499615
+      },
+      "row106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "row107": {
+        "SkillFixedAttack1": 30301,
+        "SkillFixedAttack2": 30301,
+        "SkillFixedAttack3": 30301,
+        "SkillFixedAttack4": 30301,
+        "SkillFixedCure": 505030,
+        "SkillFixedShield": 505030
+      }
+    },
+    "Saint1": {
+      "curveId": "1834",
+      "row105": {
+        "SkillFixedAttack1": 32946,
+        "SkillFixedAttack2": 32946,
+        "SkillFixedAttack3": 32946,
+        "SkillFixedAttack4": 32946,
+        "SkillFixedCure": 549948,
+        "SkillFixedShield": 549948
+      },
+      "row106": {
+        "SkillFixedAttack1": 33675,
+        "SkillFixedAttack2": 33675,
+        "SkillFixedAttack3": 33675,
+        "SkillFixedAttack4": 33675,
+        "SkillFixedCure": 562109,
+        "SkillFixedShield": 562109
+      },
+      "row107": {
+        "SkillFixedAttack1": 34404,
+        "SkillFixedAttack2": 34404,
+        "SkillFixedAttack3": 34404,
+        "SkillFixedAttack4": 34404,
+        "SkillFixedCure": 574270,
+        "SkillFixedShield": 574270
+      }
+    },
+    "Saint2": {
+      "curveId": "1834",
+      "row105": {
+        "SkillFixedAttack1": 32946,
+        "SkillFixedAttack2": 32946,
+        "SkillFixedAttack3": 32946,
+        "SkillFixedAttack4": 32946,
+        "SkillFixedCure": 549948,
+        "SkillFixedShield": 549948
+      },
+      "row106": {
+        "SkillFixedAttack1": 33675,
+        "SkillFixedAttack2": 33675,
+        "SkillFixedAttack3": 33675,
+        "SkillFixedAttack4": 33675,
+        "SkillFixedCure": 562109,
+        "SkillFixedShield": 562109
+      },
+      "row107": {
+        "SkillFixedAttack1": 34404,
+        "SkillFixedAttack2": 34404,
+        "SkillFixedAttack3": 34404,
+        "SkillFixedAttack4": 34404,
+        "SkillFixedCure": 574270,
+        "SkillFixedShield": 574270
+      }
+    },
+    "Saint3": {
+      "curveId": "1834",
+      "row105": {
+        "SkillFixedAttack1": 32946,
+        "SkillFixedAttack2": 32946,
+        "SkillFixedAttack3": 32946,
+        "SkillFixedAttack4": 32946,
+        "SkillFixedCure": 549948,
+        "SkillFixedShield": 549948
+      },
+      "row106": {
+        "SkillFixedAttack1": 33675,
+        "SkillFixedAttack2": 33675,
+        "SkillFixedAttack3": 33675,
+        "SkillFixedAttack4": 33675,
+        "SkillFixedCure": 562109,
+        "SkillFixedShield": 562109
+      },
+      "row107": {
+        "SkillFixedAttack1": 34404,
+        "SkillFixedAttack2": 34404,
+        "SkillFixedAttack3": 34404,
+        "SkillFixedAttack4": 34404,
+        "SkillFixedCure": 574270,
+        "SkillFixedShield": 574270
+      }
+    },
+    "Legend1": {
+      "curveId": "1844",
+      "row105": {
+        "SkillFixedAttack1": 159479,
+        "SkillFixedAttack2": 159479,
+        "SkillFixedAttack3": 159479,
+        "SkillFixedAttack4": 159479,
+        "SkillFixedCure": 2658729,
+        "SkillFixedShield": 2658729
+      },
+      "row106": {
+        "SkillFixedAttack1": 160298,
+        "SkillFixedAttack2": 160298,
+        "SkillFixedAttack3": 160298,
+        "SkillFixedAttack4": 160298,
+        "SkillFixedCure": 2672382,
+        "SkillFixedShield": 2672382
+      },
+      "row107": {
+        "SkillFixedAttack1": 161120,
+        "SkillFixedAttack2": 161120,
+        "SkillFixedAttack3": 161120,
+        "SkillFixedAttack4": 161120,
+        "SkillFixedCure": 2686090,
+        "SkillFixedShield": 2686090
+      }
+    },
+    "Legend2": {
+      "curveId": "1844",
+      "row105": {
+        "SkillFixedAttack1": 159479,
+        "SkillFixedAttack2": 159479,
+        "SkillFixedAttack3": 159479,
+        "SkillFixedAttack4": 159479,
+        "SkillFixedCure": 2658729,
+        "SkillFixedShield": 2658729
+      },
+      "row106": {
+        "SkillFixedAttack1": 160298,
+        "SkillFixedAttack2": 160298,
+        "SkillFixedAttack3": 160298,
+        "SkillFixedAttack4": 160298,
+        "SkillFixedCure": 2672382,
+        "SkillFixedShield": 2672382
+      },
+      "row107": {
+        "SkillFixedAttack1": 161120,
+        "SkillFixedAttack2": 161120,
+        "SkillFixedAttack3": 161120,
+        "SkillFixedAttack4": 161120,
+        "SkillFixedCure": 2686090,
+        "SkillFixedShield": 2686090
+      }
+    },
+    "Legend3": {
+      "curveId": "1844",
+      "row105": {
+        "SkillFixedAttack1": 159479,
+        "SkillFixedAttack2": 159479,
+        "SkillFixedAttack3": 159479,
+        "SkillFixedAttack4": 159479,
+        "SkillFixedCure": 2658729,
+        "SkillFixedShield": 2658729
+      },
+      "row106": {
+        "SkillFixedAttack1": 160298,
+        "SkillFixedAttack2": 160298,
+        "SkillFixedAttack3": 160298,
+        "SkillFixedAttack4": 160298,
+        "SkillFixedCure": 2672382,
+        "SkillFixedShield": 2672382
+      },
+      "row107": {
+        "SkillFixedAttack1": 161120,
+        "SkillFixedAttack2": 161120,
+        "SkillFixedAttack3": 161120,
+        "SkillFixedAttack4": 161120,
+        "SkillFixedCure": 2686090,
+        "SkillFixedShield": 2686090
+      }
+    },
+    "Angel1": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Angel2": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Angel3": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Godtouched1_1": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Godtouched1_2": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Godtouched1_3": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Godtouched2_1": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Godtouched2_2": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Godtouched2_3": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Godtouched3_1": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Godtouched3_2": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Godtouched3_3": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Demigod1_1": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Demigod1_2": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Demigod1_3": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Demigod2_1": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Demigod2_2": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Demigod2_3": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Demigod3_1": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Demigod3_2": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    },
+    "Demigod3_3": {
+      "curveId": "1854",
+      "row105": {
+        "SkillFixedAttack1": 298601,
+        "SkillFixedAttack2": 298601,
+        "SkillFixedAttack3": 298601,
+        "SkillFixedAttack4": 298601,
+        "SkillFixedCure": 4977536,
+        "SkillFixedShield": 4977536
+      },
+      "row106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "row107": {
+        "SkillFixedAttack1": 300743,
+        "SkillFixedAttack2": 300743,
+        "SkillFixedAttack3": 300743,
+        "SkillFixedAttack4": 300743,
+        "SkillFixedCure": 5013254,
+        "SkillFixedShield": 5013254
+      }
+    }
+  },
+  "statuses": [
+    {
+      "status": {
+        "effects": {
+          "1": {
+            "StatusAdd1": 720,
+            "StatusFixedAdd1": 528
+          },
+          "2": {
+            "StatusAdd1": 720,
+            "StatusFixedAdd1": 704
+          },
+          "3": {
+            "StatusAdd1": 1080,
+            "StatusFixedAdd1": 1254
+          },
+          "4": {
+            "StatusAdd1": 1080,
+            "StatusFixedAdd1": 1452
+          },
+          "5": {
+            "StatusAdd1": 1080,
+            "StatusFixedAdd1": 1650
+          },
+          "6": {
+            "StatusAdd1": 1440,
+            "StatusFixedAdd1": 2640
+          },
+          "7": {
+            "StatusAdd1": 1440,
+            "StatusFixedAdd1": 3168
+          },
+          "8": {
+            "StatusAdd1": 1440,
+            "StatusFixedAdd1": 3696
+          },
+          "9": {
+            "StatusAdd1": 1440,
+            "StatusFixedAdd1": 4224
+          },
+          "10": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 6160
+          },
+          "11": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 7040
+          },
+          "12": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 7920
+          },
+          "13": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 8800
+          },
+          "14": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 9680
+          },
+          "15": {
+            "StatusAdd1": 1800,
+            "StatusFixedAdd1": 10560
+          },
+          "16": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 14520
+          },
+          "17": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 16368
+          },
+          "18": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 18216
+          },
+          "19": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 20064
+          },
+          "20": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 21912
+          },
+          "21": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 23760
+          },
+          "22": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 25608
+          },
+          "23": {
+            "StatusAdd1": 2160,
+            "StatusFixedAdd1": 27456
+          },
+          "24": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 35112
+          },
+          "25": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 38192
+          },
+          "26": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 41272
+          },
+          "27": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 44352
+          },
+          "28": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 47432
+          },
+          "29": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 50512
+          },
+          "30": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 53592
+          },
+          "31": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 56672
+          },
+          "32": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 59752
+          },
+          "33": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 62832
+          },
+          "34": {
+            "StatusAdd1": 2520,
+            "StatusFixedAdd1": 65912
+          }
+        },
+        "groupId": "4",
+        "entityId": 24192
+      },
+      "groups": {
+        "Norank": "1824",
+        "Blackiron1": "1824",
+        "Blackiron2": "1824",
+        "Blackiron3": "1824",
+        "Bronze1": "1824",
+        "Bronze2": "1824",
+        "Bronze3": "1824",
+        "Silver1": "1824",
+        "Silver2": "1824",
+        "Silver3": "1824",
+        "Gold1": "1824",
+        "Gold2": "1824",
+        "Gold3": "1824",
+        "Saint1": "1834",
+        "Saint2": "1834",
+        "Saint3": "1834",
+        "Legend1": "1844",
+        "Legend2": "1844",
+        "Legend3": "1844",
+        "Angel1": "1854",
+        "Angel2": "1854",
+        "Angel3": "1854",
+        "Godtouched1_1": "1854",
+        "Godtouched1_2": "1854",
+        "Godtouched1_3": "1854",
+        "Godtouched2_1": "1854",
+        "Godtouched2_2": "1854",
+        "Godtouched2_3": "1854",
+        "Godtouched3_1": "1854",
+        "Godtouched3_2": "1854",
+        "Godtouched3_3": "1854",
+        "Demigod1_1": "1854",
+        "Demigod1_2": "1854",
+        "Demigod1_3": "1854",
+        "Demigod2_1": "1854",
+        "Demigod2_2": "1854",
+        "Demigod2_3": "1854",
+        "Demigod3_1": "1854",
+        "Demigod3_2": "1854",
+        "Demigod3_3": "1854"
+      },
+      "curves": {
+        "Norank": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Blackiron1": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Blackiron2": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Blackiron3": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Bronze1": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Bronze2": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Bronze3": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Silver1": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Silver2": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Silver3": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Gold1": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Gold2": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Gold3": {
+          "curveId": "1824",
+          "row105": {
+            "SkillFixedAttack1": 29976,
+            "SkillFixedAttack2": 29976,
+            "SkillFixedAttack3": 29976,
+            "SkillFixedAttack4": 29976,
+            "SkillFixedCure": 499615,
+            "SkillFixedShield": 499615
+          },
+          "row106": {
+            "SkillFixedAttack1": 30139,
+            "SkillFixedAttack2": 30139,
+            "SkillFixedAttack3": 30139,
+            "SkillFixedAttack4": 30139,
+            "SkillFixedCure": 502322,
+            "SkillFixedShield": 502322
+          },
+          "row107": {
+            "SkillFixedAttack1": 30301,
+            "SkillFixedAttack2": 30301,
+            "SkillFixedAttack3": 30301,
+            "SkillFixedAttack4": 30301,
+            "SkillFixedCure": 505030,
+            "SkillFixedShield": 505030
+          }
+        },
+        "Saint1": {
+          "curveId": "1834",
+          "row105": {
+            "SkillFixedAttack1": 32946,
+            "SkillFixedAttack2": 32946,
+            "SkillFixedAttack3": 32946,
+            "SkillFixedAttack4": 32946,
+            "SkillFixedCure": 549948,
+            "SkillFixedShield": 549948
+          },
+          "row106": {
+            "SkillFixedAttack1": 33675,
+            "SkillFixedAttack2": 33675,
+            "SkillFixedAttack3": 33675,
+            "SkillFixedAttack4": 33675,
+            "SkillFixedCure": 562109,
+            "SkillFixedShield": 562109
+          },
+          "row107": {
+            "SkillFixedAttack1": 34404,
+            "SkillFixedAttack2": 34404,
+            "SkillFixedAttack3": 34404,
+            "SkillFixedAttack4": 34404,
+            "SkillFixedCure": 574270,
+            "SkillFixedShield": 574270
+          }
+        },
+        "Saint2": {
+          "curveId": "1834",
+          "row105": {
+            "SkillFixedAttack1": 32946,
+            "SkillFixedAttack2": 32946,
+            "SkillFixedAttack3": 32946,
+            "SkillFixedAttack4": 32946,
+            "SkillFixedCure": 549948,
+            "SkillFixedShield": 549948
+          },
+          "row106": {
+            "SkillFixedAttack1": 33675,
+            "SkillFixedAttack2": 33675,
+            "SkillFixedAttack3": 33675,
+            "SkillFixedAttack4": 33675,
+            "SkillFixedCure": 562109,
+            "SkillFixedShield": 562109
+          },
+          "row107": {
+            "SkillFixedAttack1": 34404,
+            "SkillFixedAttack2": 34404,
+            "SkillFixedAttack3": 34404,
+            "SkillFixedAttack4": 34404,
+            "SkillFixedCure": 574270,
+            "SkillFixedShield": 574270
+          }
+        },
+        "Saint3": {
+          "curveId": "1834",
+          "row105": {
+            "SkillFixedAttack1": 32946,
+            "SkillFixedAttack2": 32946,
+            "SkillFixedAttack3": 32946,
+            "SkillFixedAttack4": 32946,
+            "SkillFixedCure": 549948,
+            "SkillFixedShield": 549948
+          },
+          "row106": {
+            "SkillFixedAttack1": 33675,
+            "SkillFixedAttack2": 33675,
+            "SkillFixedAttack3": 33675,
+            "SkillFixedAttack4": 33675,
+            "SkillFixedCure": 562109,
+            "SkillFixedShield": 562109
+          },
+          "row107": {
+            "SkillFixedAttack1": 34404,
+            "SkillFixedAttack2": 34404,
+            "SkillFixedAttack3": 34404,
+            "SkillFixedAttack4": 34404,
+            "SkillFixedCure": 574270,
+            "SkillFixedShield": 574270
+          }
+        },
+        "Legend1": {
+          "curveId": "1844",
+          "row105": {
+            "SkillFixedAttack1": 159479,
+            "SkillFixedAttack2": 159479,
+            "SkillFixedAttack3": 159479,
+            "SkillFixedAttack4": 159479,
+            "SkillFixedCure": 2658729,
+            "SkillFixedShield": 2658729
+          },
+          "row106": {
+            "SkillFixedAttack1": 160298,
+            "SkillFixedAttack2": 160298,
+            "SkillFixedAttack3": 160298,
+            "SkillFixedAttack4": 160298,
+            "SkillFixedCure": 2672382,
+            "SkillFixedShield": 2672382
+          },
+          "row107": {
+            "SkillFixedAttack1": 161120,
+            "SkillFixedAttack2": 161120,
+            "SkillFixedAttack3": 161120,
+            "SkillFixedAttack4": 161120,
+            "SkillFixedCure": 2686090,
+            "SkillFixedShield": 2686090
+          }
+        },
+        "Legend2": {
+          "curveId": "1844",
+          "row105": {
+            "SkillFixedAttack1": 159479,
+            "SkillFixedAttack2": 159479,
+            "SkillFixedAttack3": 159479,
+            "SkillFixedAttack4": 159479,
+            "SkillFixedCure": 2658729,
+            "SkillFixedShield": 2658729
+          },
+          "row106": {
+            "SkillFixedAttack1": 160298,
+            "SkillFixedAttack2": 160298,
+            "SkillFixedAttack3": 160298,
+            "SkillFixedAttack4": 160298,
+            "SkillFixedCure": 2672382,
+            "SkillFixedShield": 2672382
+          },
+          "row107": {
+            "SkillFixedAttack1": 161120,
+            "SkillFixedAttack2": 161120,
+            "SkillFixedAttack3": 161120,
+            "SkillFixedAttack4": 161120,
+            "SkillFixedCure": 2686090,
+            "SkillFixedShield": 2686090
+          }
+        },
+        "Legend3": {
+          "curveId": "1844",
+          "row105": {
+            "SkillFixedAttack1": 159479,
+            "SkillFixedAttack2": 159479,
+            "SkillFixedAttack3": 159479,
+            "SkillFixedAttack4": 159479,
+            "SkillFixedCure": 2658729,
+            "SkillFixedShield": 2658729
+          },
+          "row106": {
+            "SkillFixedAttack1": 160298,
+            "SkillFixedAttack2": 160298,
+            "SkillFixedAttack3": 160298,
+            "SkillFixedAttack4": 160298,
+            "SkillFixedCure": 2672382,
+            "SkillFixedShield": 2672382
+          },
+          "row107": {
+            "SkillFixedAttack1": 161120,
+            "SkillFixedAttack2": 161120,
+            "SkillFixedAttack3": 161120,
+            "SkillFixedAttack4": 161120,
+            "SkillFixedCure": 2686090,
+            "SkillFixedShield": 2686090
+          }
+        },
+        "Angel1": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Angel2": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Angel3": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Godtouched1_1": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Godtouched1_2": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Godtouched1_3": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Godtouched2_1": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Godtouched2_2": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Godtouched2_3": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Godtouched3_1": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Godtouched3_2": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Godtouched3_3": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Demigod1_1": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Demigod1_2": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Demigod1_3": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Demigod2_1": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Demigod2_2": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Demigod2_3": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Demigod3_1": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Demigod3_2": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        },
+        "Demigod3_3": {
+          "curveId": "1854",
+          "row105": {
+            "SkillFixedAttack1": 298601,
+            "SkillFixedAttack2": 298601,
+            "SkillFixedAttack3": 298601,
+            "SkillFixedAttack4": 298601,
+            "SkillFixedCure": 4977536,
+            "SkillFixedShield": 4977536
+          },
+          "row106": {
+            "SkillFixedAttack1": 299670,
+            "SkillFixedAttack2": 299670,
+            "SkillFixedAttack3": 299670,
+            "SkillFixedAttack4": 299670,
+            "SkillFixedCure": 4995362,
+            "SkillFixedShield": 4995362
+          },
+          "row107": {
+            "SkillFixedAttack1": 300743,
+            "SkillFixedAttack2": 300743,
+            "SkillFixedAttack3": 300743,
+            "SkillFixedAttack4": 300743,
+            "SkillFixedCure": 5013254,
+            "SkillFixedShield": 5013254
+          }
+        }
+      }
+    }
+  ]
+}
