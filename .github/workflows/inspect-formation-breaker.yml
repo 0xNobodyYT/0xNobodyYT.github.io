@@ -1,0 +1,48 @@
+name: Inspect Formation Breaker
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-formation-breaker.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect combat data
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          let s = fs.readFileSync('sxs-loadout-builder/combat-data.js','utf8').trim();
+          s = s.replace(/^window\.SXS_COMBAT_DATA\s*=\s*/, '').replace(/;\s*$/, '');
+          const C = JSON.parse(s);
+          const id = '10092';
+          const skill = C.skills[id];
+          console.log('QUALITIES', JSON.stringify(C.qualities));
+          console.log('SKILL', JSON.stringify(skill, null, 2));
+          if (skill?.groupId) {
+            console.log('GROUP', skill.groupId, JSON.stringify(C.skillGroups?.[skill.groupId], null, 2));
+            const curve = C.skillGroups?.[skill.groupId]?.Silver3;
+            console.log('FIXED_CURVE_ID', curve);
+            if (curve) {
+              const rows = C.skillFixedCurves?.[curve] || C.skillPassiveCurves?.[curve];
+              console.log('CURVE_106', JSON.stringify(rows?.['106'] || rows?.[106] || null, null, 2));
+              console.log('CURVE_105', JSON.stringify(rows?.['105'] || rows?.[105] || null, null, 2));
+              console.log('CURVE_107', JSON.stringify(rows?.['107'] || rows?.[107] || null, null, 2));
+            }
+          }
+          for (const st of skill?.statusEffects || []) {
+            console.log('STATUS', JSON.stringify(st, null, 2));
+            const curve = C.skillGroups?.[st.groupId]?.Silver3;
+            console.log('STATUS_GROUP', st.groupId, 'CURVE', curve);
+            if (curve) {
+              const rows = C.skillPassiveCurves?.[curve] || C.skillFixedCurves?.[curve];
+              console.log('STATUS_CURVE_106', JSON.stringify(rows?.['106'] || rows?.[106] || null, null, 2));
+            }
+          }
+          if (skill?.passive) {
+            console.log('PASSIVE', JSON.stringify(skill.passive, null, 2));
+          }
+          NODE
