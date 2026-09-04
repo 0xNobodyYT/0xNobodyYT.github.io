@@ -1,0 +1,316 @@
+{
+  "selected": {
+    "1824": {
+      "fixed106": {
+        "SkillFixedAttack1": 30139,
+        "SkillFixedAttack2": 30139,
+        "SkillFixedAttack3": 30139,
+        "SkillFixedAttack4": 30139,
+        "SkillFixedCure": 502322,
+        "SkillFixedShield": 502322
+      },
+      "passive106": null
+    },
+    "1834": {
+      "fixed106": {
+        "SkillFixedAttack1": 33675,
+        "SkillFixedAttack2": 33675,
+        "SkillFixedAttack3": 33675,
+        "SkillFixedAttack4": 33675,
+        "SkillFixedCure": 562109,
+        "SkillFixedShield": 562109
+      },
+      "passive106": null
+    },
+    "1844": {
+      "fixed106": {
+        "SkillFixedAttack1": 160298,
+        "SkillFixedAttack2": 160298,
+        "SkillFixedAttack3": 160298,
+        "SkillFixedAttack4": 160298,
+        "SkillFixedCure": 2672382,
+        "SkillFixedShield": 2672382
+      },
+      "passive106": null
+    },
+    "1854": {
+      "fixed106": {
+        "SkillFixedAttack1": 299670,
+        "SkillFixedAttack2": 299670,
+        "SkillFixedAttack3": 299670,
+        "SkillFixedAttack4": 299670,
+        "SkillFixedCure": 4995362,
+        "SkillFixedShield": 4995362
+      },
+      "passive106": null
+    }
+  },
+  "fixedHits": [],
+  "passiveHits": [
+    {
+      "id": "1911",
+      "statusKeys": [
+        "FireDamageAdd",
+        "WindDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "FireDamageAdd": 1502,
+        "WindDamageAdd": 1502,
+        "WaterDamageAdd": 1502
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1913",
+      "statusKeys": [
+        "DarkDamageAdd",
+        "LightDamageAdd"
+      ],
+      "status": {
+        "DarkDamageAdd": 2134,
+        "LightDamageAdd": 2134
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1921",
+      "statusKeys": [
+        "FireDamageAdd",
+        "WindDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "FireDamageAdd": 936,
+        "WindDamageAdd": 936,
+        "WaterDamageAdd": 936
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1923",
+      "statusKeys": [
+        "DarkDamageAdd",
+        "LightDamageAdd"
+      ],
+      "status": {
+        "DarkDamageAdd": 1837,
+        "LightDamageAdd": 1837
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1924",
+      "statusKeys": [
+        "WindDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "WindDamageAdd": 2205,
+        "WaterDamageAdd": 2205
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1932",
+      "statusKeys": [
+        "FireDamageAdd",
+        "WindDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "FireDamageAdd": 693,
+        "WindDamageAdd": 693,
+        "WaterDamageAdd": 693
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1933",
+      "statusKeys": [
+        "DarkDamageAdd",
+        "LightDamageAdd"
+      ],
+      "status": {
+        "DarkDamageAdd": 1194,
+        "LightDamageAdd": 1194
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1934",
+      "statusKeys": [
+        "WindDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "WindDamageAdd": 1194,
+        "WaterDamageAdd": 1194
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1935",
+      "statusKeys": [
+        "FireDamageAdd",
+        "DarkDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "FireDamageAdd": 1682,
+        "DarkDamageAdd": 1682,
+        "WaterDamageAdd": 1682
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1942",
+      "statusKeys": [
+        "FireDamageAdd",
+        "WindDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "FireDamageAdd": 406,
+        "WindDamageAdd": 406,
+        "WaterDamageAdd": 406
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1943",
+      "statusKeys": [
+        "DarkDamageAdd",
+        "LightDamageAdd"
+      ],
+      "status": {
+        "DarkDamageAdd": 1384,
+        "LightDamageAdd": 1384
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1944",
+      "statusKeys": [
+        "WindDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "WindDamageAdd": 1950,
+        "WaterDamageAdd": 1950
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1945",
+      "statusKeys": [
+        "FireDamageAdd",
+        "DarkDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "FireDamageAdd": 2377,
+        "DarkDamageAdd": 2377,
+        "WaterDamageAdd": 2377
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1946",
+      "statusKeys": [
+        "LightDamageAdd"
+      ],
+      "status": {
+        "LightDamageAdd": 2819
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1953",
+      "statusKeys": [
+        "FireDamageAdd",
+        "LightDamageAdd",
+        "WindDamageAdd",
+        "DarkDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "FireDamageAdd": 232,
+        "LightDamageAdd": 232,
+        "WindDamageAdd": 232,
+        "DarkDamageAdd": 232,
+        "WaterDamageAdd": 232
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1954",
+      "statusKeys": [
+        "WindDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "WindDamageAdd": 1011,
+        "WaterDamageAdd": 1011
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1955",
+      "statusKeys": [
+        "FireDamageAdd",
+        "DarkDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "FireDamageAdd": 1446,
+        "DarkDamageAdd": 1446,
+        "WaterDamageAdd": 1446
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1956",
+      "statusKeys": [
+        "LightDamageAdd"
+      ],
+      "status": {
+        "LightDamageAdd": 1784
+      },
+      "near25": [],
+      "near17600": []
+    },
+    {
+      "id": "1957",
+      "statusKeys": [
+        "FireDamageAdd",
+        "WindDamageAdd",
+        "WaterDamageAdd"
+      ],
+      "status": {
+        "FireDamageAdd": 2086,
+        "WindDamageAdd": 2086,
+        "WaterDamageAdd": 2086
+      },
+      "near25": [],
+      "near17600": []
+    }
+  ]
+}
