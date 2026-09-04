@@ -20,31 +20,30 @@ jobs:
           const C = JSON.parse(s);
           const id = '10092';
           const skill = C.skills[id];
-          const out = { qualities: C.qualities, skill };
-          if (skill?.groupId) {
-            out.group = C.skillGroups?.[skill.groupId] || null;
-            out.groupCurves = {};
-            for (const [rank, curveId] of Object.entries(out.group || {})) {
-              const rows = C.skillFixedCurves?.[curveId] || C.skillPassiveCurves?.[curveId] || null;
-              out.groupCurves[rank] = { curveId, row105: rows?.['105'] || rows?.[105] || null, row106: rows?.['106'] || rows?.[106] || null, row107: rows?.['107'] || rows?.[107] || null };
+          const out = { topLevelKeys:Object.keys(C), qualities:C.qualities, skill };
+          out.keysContaining24192 = Object.keys(C).filter(k => {
+            try { return JSON.stringify(C[k]).includes('24192'); } catch { return false; }
+          });
+          const hits=[];
+          function walk(v,path,depth=0){
+            if(hits.length>=100 || depth>8 || v==null || typeof v!=='object') return;
+            if(!Array.isArray(v)){
+              if(v.id===24192 || v.entityId===24192 || v.Id===24192 || v.ID===24192) hits.push({path,value:v});
+              if(Object.prototype.hasOwnProperty.call(v,'24192')) hits.push({path:path+'.24192',value:v['24192']});
+            }
+            for(const [k,val] of Object.entries(v)){
+              if(hits.length>=100) break;
+              if(typeof val==='object' && val!==null) walk(val, path+'.'+k, depth+1);
             }
           }
-          out.statuses = (skill?.statusEffects || []).map(st => {
-            const groups = C.skillGroups?.[st.groupId] || {};
-            const curves = {};
-            for (const [rank, curveId] of Object.entries(groups)) {
-              const rows = C.skillPassiveCurves?.[curveId] || C.skillFixedCurves?.[curveId] || null;
-              curves[rank] = { curveId, row105: rows?.['105'] || rows?.[105] || null, row106: rows?.['106'] || rows?.[106] || null, row107: rows?.['107'] || rows?.[107] || null };
-            }
-            return { status: st, groups, curves };
-          });
-          if (skill?.passive) out.passive = skill.passive;
-          fs.writeFileSync('formation-inspect.json', JSON.stringify(out, null, 2) + '\n');
+          for(const k of out.keysContaining24192) walk(C[k], 'C.'+k);
+          out.hits24192=hits;
+          fs.writeFileSync('formation-inspect2.json', JSON.stringify(out,null,2)+'\n');
           NODE
       - name: Commit inspection output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add formation-inspect.json
-          git commit -m "Add temporary Formation Breaker inspection output" || exit 0
+          git add formation-inspect2.json
+          git commit -m "Add temporary Formation Breaker status inspection" || exit 0
           git push
