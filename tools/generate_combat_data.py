@@ -53,8 +53,8 @@ qualities = [
     {"raw": "Purple", "name": "Epic", "rankId": 1212, "affixes": 3, "roll": [80, 100]},
     {"raw": "Orange", "name": "Legendary", "rankId": 1213, "affixes": 4, "roll": [80, 115]},
     {"raw": "Gold", "name": "Mythic", "rankId": 1214, "affixes": 4, "roll": [80, 125]},
-    {"raw": "Red", "name": "Immortal", "rankId": 1215, "affixes": 4, "roll": [80, 125]},
-    {"raw": "Rainbow", "name": "Divine", "rankId": 1216, "affixes": 4, "roll": [80, 125]},
+    {"raw": "Red", "name": "Divine", "rankId": 1215, "affixes": 4, "roll": [80, 125]},
+    {"raw": "Rainbow", "name": "Immortal", "rankId": 1216, "affixes": 4, "roll": [80, 125]},
 ]
 
 base_stats = {}
