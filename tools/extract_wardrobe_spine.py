@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import json
 import re
+import subprocess
 import sys
 import zipfile
 from collections import defaultdict
@@ -11,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "wardrobe-assets" / "spine"
+ICON_OUTPUT = ROOT / "wardrobe-assets" / "icons"
 CATALOG = ROOT / "wardrobe-assets" / "catalog.js"
 APK = Path(r"C:\tmp\sxs-research\current-155937\UnityDataAssetPack.apk")
 CACHE = Path(r"C:\tmp\sxs-yoo-cache\wardrobe-bundles")
@@ -18,6 +20,8 @@ CONFIG = Path(r"C:\tmp\sxs-yoo-cache\config")
 MANIFEST = Path(r"C:\tmp\sxs-yoo-cache\PackageManifest_DefaultPackage_88_156110.bytes")
 RESEARCH_TOOLS = Path(r"C:\tmp\sxs-research\tools")
 UNITY_DEPS = Path(r"C:\tmp\sxs-research\.deps")
+ADB = Path(r"C:\Program Files\BlueStacks_nxt\HD-Adb.exe")
+REMOTE_CACHE = "/sdcard/Android/data/com.zjcs.android.us/files/yoo/DefaultPackage/CacheFiles"
 
 sys.path[:0] = [str(RESEARCH_TOOLS), str(UNITY_DEPS)]
 
@@ -110,6 +114,82 @@ def extract_bundle(blob: bytes, target: Path, *, texts: bool, textures: bool) ->
     return text_count, texture_count
 
 
+def ensure_cached_bundles(manifest, bundle_ids: set[int]) -> None:
+    missing = [bundle_id for bundle_id in bundle_ids if not (CACHE / f"{bundle_id}-{manifest.bundles[bundle_id].file_hash}.bundle").exists()]
+    if not missing or not ADB.exists():
+        return
+    listing = subprocess.run(
+        [str(ADB), "shell", f"find {REMOTE_CACHE} -name __data"],
+        check=True, capture_output=True, text=True,
+    ).stdout.splitlines()
+    remote_by_hash = {}
+    for raw_path in listing:
+        path = raw_path.rstrip("\r").strip()
+        parts = path.split("/")
+        if len(parts) >= 2 and parts[-1] == "__data":
+            remote_by_hash[parts[-2]] = path
+    CACHE.mkdir(parents=True, exist_ok=True)
+    pulled = 0
+    for bundle_id in missing:
+        bundle = manifest.bundles[bundle_id]
+        remote = remote_by_hash.get(bundle.file_hash)
+        if not remote:
+            continue
+        target = CACHE / f"{bundle_id}-{bundle.file_hash}.bundle"
+        subprocess.run([str(ADB), "pull", remote, str(target)], check=True, stdout=subprocess.DEVNULL)
+        pulled += 1
+    print(f"icons: pulled {pulled}/{len(missing)} required bundles from the running client cache")
+
+
+def extract_item_icons(manifest, archive: zipfile.ZipFile) -> None:
+    items = csv_rows("item", "ClassId")
+    appearance_ids = set(csv_rows("append_appearance", "ClassId"))
+    wanted: dict[str, set[str]] = defaultdict(set)
+    for item_id, row in items.items():
+        if item_id not in appearance_ids:
+            continue
+        icon = row.get("Icon", "").replace("\\", "/")
+        if icon:
+            wanted[f"{icon.rsplit('/', 1)[-1]}.png".lower()].add(item_id)
+
+    assets_by_name = {
+        asset.asset_path.rsplit("/", 1)[-1].lower(): asset
+        for asset in manifest.assets
+        if "/ItemIcon/" in asset.asset_path and asset.asset_path.lower().endswith(".png")
+    }
+    selected = {name: assets_by_name[name] for name in wanted if name in assets_by_name}
+    bundle_ids = {asset.bundle_id for asset in selected.values()}
+    ensure_cached_bundles(manifest, bundle_ids)
+    names_by_bundle: dict[int, set[str]] = defaultdict(set)
+    for name, asset in selected.items():
+        names_by_bundle[asset.bundle_id].add(name)
+
+    ICON_OUTPUT.mkdir(parents=True, exist_ok=True)
+    for old in ICON_OUTPUT.glob("*.webp"):
+        old.unlink()
+    written = unavailable = 0
+    for bundle_id, names in names_by_bundle.items():
+        try:
+            environment = UnityPy.load(bundle_blob(manifest, bundle_id, archive))
+        except FileNotFoundError:
+            unavailable += len(names)
+            continue
+        for obj in environment.objects:
+            if obj.type.name != "Texture2D":
+                continue
+            value = obj.read()
+            name = object_name(value, str(obj.path_id)).lower()
+            key = name if name.endswith(".png") else f"{name}.png"
+            if key not in names:
+                continue
+            image = value.image.convert("RGBA")
+            image.thumbnail((160, 160), Image.Resampling.LANCZOS)
+            for item_id in wanted[key]:
+                image.save(ICON_OUTPUT / f"item_{item_id}.webp", "WEBP", quality=88, method=3)
+                written += 1
+    print(f"icons: {written} item thumbnails written; {unavailable} asset entries were not cached")
+
+
 def atlas_pages(path: Path) -> list[str]:
     return list(dict.fromkeys(re.findall(r"(?m)^([^\r\n:]+\.png)\s*$", path.read_text("utf-8", errors="replace"))))
 
@@ -146,6 +226,25 @@ def sex_for_skin(skin: str) -> tuple[str, ...]:
     if re.search(r"(?:^|_)F(?:_|$)", skin):
         return ("Female",)
     return ("Male", "Female")
+
+
+def skin_thumbnail(group: str, pages: list[str], skin: str) -> str | None:
+    if not pages:
+        return None
+    source = OUTPUT / group / pages[0]
+    if not source.exists():
+        return None
+    image = Image.open(source).convert("RGBA")
+    bounds = image.getchannel("A").getbbox()
+    if bounds:
+        image = image.crop(bounds)
+    image.thumbnail((144, 144), Image.Resampling.LANCZOS)
+    canvas = Image.new("RGBA", (160, 160), (0, 0, 0, 0))
+    canvas.alpha_composite(image, ((160 - image.width) // 2, (160 - image.height) // 2))
+    safe = re.sub(r"[^A-Za-z0-9_-]+", "_", f"{group}_{skin}")
+    path = ICON_OUTPUT / f"skin_{safe}.webp"
+    canvas.save(path, "WEBP", quality=88, method=3)
+    return f"wardrobe-assets/icons/{path.name}"
 
 
 def write_catalog(page_maps: dict[str, set[str]], skin_pages: dict[str, dict[str, list[str]]]) -> None:
@@ -207,7 +306,9 @@ def write_catalog(page_maps: dict[str, set[str]], skin_pages: dict[str, dict[str
             elif bundle.startswith("Activity"):
                 acquisition = "Limited-time event cosmetic"
             elif bundle.startswith("Map_"):
-                acquisition = f"World progression: {bundle.replace('_', ' ')}"
+                map_number = bundle.removeprefix("Map_")
+                region = {"11": "Forest Kingdom"}.get(map_number, f"world region {map_number}")
+                acquisition = f"{region} progression reward (exploration, dungeon, monster, or NPC gear)"
             elif bundle == "Profession":
                 acquisition = "Class / profession progression"
             elif row.get("SkinUseType") == "Free":
@@ -227,6 +328,13 @@ def write_catalog(page_maps: dict[str, set[str]], skin_pages: dict[str, dict[str
             pages = skin_pages.get(actual_group, {}).get(lookup, [])
             if not pages:
                 continue
+            item_icon = (
+                f"wardrobe-assets/icons/item_{appearance_id}.webp"
+                if appearance_id.isdigit() and (ICON_OUTPUT / f"item_{appearance_id}.webp").exists()
+                else f"sxs-stellaris/assets/item_{appearance_id}.webp"
+                if appearance_id.isdigit() and (ROOT / "sxs-stellaris" / "assets" / f"item_{appearance_id}.webp").exists()
+                else skin_thumbnail(actual_group, pages, skin)
+            )
             data[category][sex].append({
                 "id": f"{sex[0]}-{appearance_id}-{skin_id}",
                 "itemId": appearance_id if appearance_id.isdigit() else None,
@@ -235,9 +343,7 @@ def write_catalog(page_maps: dict[str, set[str]], skin_pages: dict[str, dict[str
                 "pages": pages,
                 "group": actual_group,
                 "acquisition": acquisition,
-                "icon": f"sxs-stellaris/assets/item_{appearance_id}.webp"
-                if appearance_id.isdigit() and (ROOT / "sxs-stellaris" / "assets" / f"item_{appearance_id}.webp").exists()
-                else None,
+                "icon": item_icon,
             })
 
     for category, by_sex in data.items():
@@ -260,6 +366,7 @@ def main() -> int:
     skin_page_maps: dict[str, dict[str, list[str]]] = {}
     OUTPUT.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(APK) as archive:
+        extract_item_icons(manifest, archive)
         for group, spec in GROUPS.items():
             target = OUTPUT / group
             target.mkdir(parents=True, exist_ok=True)
