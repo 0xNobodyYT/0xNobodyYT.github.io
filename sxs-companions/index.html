@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Browse every Sword x Staff companion, friendship stat curve, class profile, gift preference, unlock source and biography.">
+  <title>Companions · Sword x Staff</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../sxs-explorer.css?v=20260907-1">
+  <link rel="stylesheet" href="companions.css?v=20260907-1">
+</head>
+<body>
+<main class="wrap">
+  <a class="home" href="../">← 0xNobody Tools</a>
+  <header class="tool-header">
+    <div><span class="eyebrow">Sword x Staff · Friendship Archive</span><h1>Companions</h1><p>Explore every localized companion, their complete friendship stat curve, travel bonuses, preferred gifts, unlock route, and profile chapters.</p></div>
+    <a class="coffee" href="https://buymeacoffee.com/0xnobody" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+  </header>
+  <nav class="tabs" aria-label="Sword x Staff tools">
+    <a href="../sxs-primo-calculator/">Season Planner<small>Primostars & materials</small></a><a href="../sxs-server-calendar/">Server Calendar<small>Days & events</small></a><a href="../sxs-loadout-builder/">Loadout Builder<small>Skills & gear</small></a><a href="../sxs-skills-conversion/">Skills Conversion<small>Class-change pools</small></a><a href="../sxs-skills-overview/">Skills Overview<small>Compare upgrades</small></a><a href="../sxs-fantomons/">Fantomons<small>Forms & abilities</small></a><a href="../sxs-stellaris/">Stellaris<small>Rewards & pricing</small></a><a href="../sxs-wardrobe-viewer/">Wardrobe Viewer<small>Cosmetics & appearances</small></a><a class="active" href="./" aria-current="page">Companions<small>Stats & friendship</small></a>
+  </nav>
+
+  <section class="panel companion-intro">
+    <div><span class="label">Current client catalog</span><h2>Every verified friendship companion</h2><p>Premium status, native class, unlock data, artwork, profiles, and all level-by-level values come from the current English client configuration.</p></div>
+    <div class="catalog-metrics"><div><b id="totalCount">0</b><span>companions</span></div><div><b id="premiumCount">0</b><span>premium</span></div><div><b>100</b><span>friendship levels</span></div></div>
+  </section>
+
+  <section class="panel filters">
+    <div class="field search-field"><label for="search">Find a companion</label><input id="search" type="search" placeholder="Name, class, gift, region…" autocomplete="off"></div>
+    <div class="field"><label for="recommendedFilter">Recommended for</label><select id="recommendedFilter"><option value="">All classes</option><option>Knight</option><option>Duelist</option><option>Sorcerer</option><option>Sage</option></select></div>
+    <div class="field"><label for="nativeFilter">Native class</label><select id="nativeFilter"><option value="">All native classes</option><option>Knight</option><option>Duelist</option><option>Sorcerer</option><option>Sage</option></select></div>
+    <div class="field"><label for="rarityFilter">Companion type</label><select id="rarityFilter"><option value="">Premium & standard</option><option value="premium">Premium</option><option value="standard">Standard</option></select></div>
+    <div class="field"><label for="catalogFilter">Origin</label><select id="catalogFilter"><option value="">World & crossover</option><option>World</option><option>Crossover</option></select></div>
+  </section>
+
+  <section class="panel catalog-panel">
+    <div class="section-head"><div><span class="label">Companion roster</span><h2>Choose a Companion</h2></div><span class="count" id="resultCount"></span></div>
+    <div class="companion-grid" id="companionGrid"></div>
+  </section>
+
+  <section class="panel detail-panel" id="detailPanel">
+    <div class="companion-hero">
+      <div class="portrait-stage"><img id="figure" alt=""><div class="portrait-fallback" id="portraitFallback">✦</div></div>
+      <div class="identity">
+        <div class="badges" id="badges"></div><h2 id="companionName"></h2><p id="identityLine"></p>
+        <div class="recommendation"><span>Recommended for</span><div id="recommendedClasses"></div><small>Inferred from the companion's bonus profile; companions are not class-locked.</small></div>
+        <div class="quick-facts" id="quickFacts"></div>
+      </div>
+    </div>
+
+    <div class="friendship-control">
+      <div><span class="label">Friendship progression</span><h3>Bonus stats at Level <output id="levelOutput">100</output></h3></div>
+      <input id="friendshipLevel" type="range" min="1" max="100" value="100">
+      <input id="friendshipNumber" aria-label="Friendship level" type="number" min="1" max="100" value="100">
+    </div>
+    <div class="level-note" id="levelNote"></div>
+
+    <div class="stat-sections">
+      <section class="stat-box"><span class="label">Core bonus stats</span><div class="stat-list" id="coreStats"></div></section>
+      <section class="stat-box special"><span class="label">Special bonus stats</span><div class="stat-list" id="specialStats"></div></section>
+      <section class="stat-box"><span class="label">Travel bonuses</span><div class="stat-list" id="travelStats"></div></section>
+    </div>
+
+    <div class="lower-grid">
+      <section class="info-card"><span class="label">How to meet</span><h3 id="unlockLabel"></h3><div class="source-chips" id="unlockSources"></div></section>
+      <section class="info-card"><span class="label">Profile archive</span><div class="profiles" id="profiles"></div></section>
+    </div>
+  </section>
+
+  <section class="panel methodology"><span class="label">Data note</span><p>Stats are the exact cumulative values stored for the selected friendship level. Percentage fields are converted from the client's basis-point representation. “Recommended for” is an editorial grouping based on the final bonus profile, matching the logic used by community infographics; native class is the companion's own combat profession.</p></section>
+  <footer class="footer">Datamining direction credited to <a href="https://github.com/Mystonats">Mystonats</a>. © 2026 0xNobody.</footer>
+</main>
+<script src="data.js?v=20260907-1"></script>
+<script src="companions.js?v=20260907-1"></script>
+</body>
+</html>
