@@ -135,7 +135,11 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  .promoRow{width:100%;display:grid;grid-template-columns:1fr}
  .promoBtn{width:100%;min-width:0}
 }
-@media(max-width:700px){.wrap{padding:11px}.field label{height:auto;min-height:0;margin-top:3px}.grid2,.grid3,.grid4,.metrics,.realmhero,.calendarMetrics{grid-template-columns:1fr}.batch{grid-template-columns:minmax(0,1fr) 112px}.batch .btn{width:112px}.unitgrid{grid-template-columns:64px 1fr 20px 1fr}.ratinggrid{grid-template-columns:repeat(4,1fr)}.viewTabs{position:sticky;top:5px;z-index:20;background:rgba(9,12,18,.96)}.difficultyGrid{flex-wrap:wrap}.difficultyRow{flex-basis:calc(50% - 4px)}.eventHeader{padding-left:11px}.eventMark{flex-basis:34px;width:34px;height:34px}.eventTag{justify-self:start}.eventArt{width:42%;opacity:.52}.calendarEvent.hasArt .eventHeader,.calendarEvent.hasArt .eventBody{padding-right:38%}.event-season:after{display:none}.event-season .eventHeadText{padding-right:0}}
+.event-major{--event-color:#ffd34f;border-color:rgba(255,211,79,.72);box-shadow:0 0 0 1px rgba(255,211,79,.12),inset 0 0 42px rgba(255,211,79,.09)}
+.event-major:after{content:"MAJOR MILESTONE";position:absolute;right:12px;top:10px;border:1px solid rgba(255,211,79,.72);border-radius:999px;padding:4px 8px;color:#ffe788;background:#211b0b;font-size:9px;font-weight:950;letter-spacing:.09em}
+.event-major .eventMark{border-radius:50%;color:#171204;background:var(--event-color);box-shadow:0 0 18px rgba(255,211,79,.38)}
+.event-major .eventHeadText{padding-right:116px}
+@media(max-width:700px){.wrap{padding:11px}.field label{height:auto;min-height:0;margin-top:3px}.grid2,.grid3,.grid4,.metrics,.realmhero,.calendarMetrics{grid-template-columns:1fr}.batch{grid-template-columns:minmax(0,1fr) 112px}.batch .btn{width:112px}.unitgrid{grid-template-columns:64px 1fr 20px 1fr}.ratinggrid{grid-template-columns:repeat(4,1fr)}.viewTabs{position:sticky;top:5px;z-index:20;background:rgba(9,12,18,.96)}.difficultyGrid{flex-wrap:wrap}.difficultyRow{flex-basis:calc(50% - 4px)}.eventHeader{padding-left:11px}.eventMark{flex-basis:34px;width:34px;height:34px}.eventTag{justify-self:start}.eventArt{width:42%;opacity:.52}.calendarEvent.hasArt .eventHeader,.calendarEvent.hasArt .eventBody{padding-right:38%}.event-season:after,.event-major:after{display:none}.event-season .eventHeadText,.event-major .eventHeadText{padding-right:0}}
 @media(max-width:700px){.difficultyGrid{flex-direction:column}.difficultyRow{flex-basis:auto}}
 @media(max-width:700px){.viewTabs{justify-content:flex-start;overflow-x:auto}.viewTab{flex:0 0 170px;padding:10px 8px}}
 </style>
@@ -1562,9 +1566,9 @@ const milestones=[
  {day:60,type:"dungeon",title:"Warlord's Rest",meta:"Normal 3.55M + Lv130 · Hard 5M · Nightmare 6M"},
  {day:71,type:"feature",title:"Sky Tower",meta:"Seasonal map · Lv130"},
  {day:73,type:"dungeon",title:"Cloudcrest Temple",meta:"Normal 6.2M · Hard 7.7M · Nightmare 9.8M"},
- {day:78,type:"feature",title:"Yin Yang Engine",meta:"Ancient Relic · Loong Haven phase 2"},
+ {day:78,type:"feature",major:true,title:"Yin Yang Engine",meta:"Ancient Relic · Loong Haven Phase 2"},
  {day:86,type:"dungeon",title:"Bladeshire",meta:"Normal 10M · Hard 12.5M · Nightmare 15.8M"},
- {day:92,type:"feature",title:"Bamboo Immortal",meta:"New Fantomon"},
+ {day:92,type:"feature",major:true,title:"Pandarial",meta:"New Fantomon becomes available"},
  {day:99,type:"dungeon",title:"Celestship",meta:"Normal 16.5M · Hard 20M · Nightmare 24.5M · Purgatory 40M"},
  {day:114,type:"season",title:"Season 3",meta:"Aethyris progression begins"},
  {day:114,type:"feature",title:"Aethyris & 5th Job",meta:"Lv136 · Class Lv180 + 4th Job Lv40"},
@@ -1714,7 +1718,7 @@ function eventCardHtml(e){
  if(difficulties.length)body=`<div class="eventBody"><div class="rewardLabel">Difficulty requirements</div><div class="difficultyGrid">${difficulties.map(d=>`<div class="difficultyRow"><span class="difficultyName">${esc(d.name)}</span><span class="difficultyPower">${esc(d.requirement)}</span></div>`).join("")}</div></div>`;
  else if(e.rewards?.length)body=`<div class="eventBody"><div class="rewardLabel">${esc(e.rewardLabel||"Rewards")}</div><div class="rewardStrip">${e.rewards.map(rewardChipHtml).join("")}</div>${e.tasks?.length?`<div class="taskStrip">${e.tasks.map(task=>`<span class="taskChip">${esc(task)}</span>`).join("")}</div>`:""}${e.note?`<div class="eventMeta" style="margin-top:7px">${esc(e.note)}</div>`:""}</div>`;
  const art=CALENDAR_ASSETS[EVENT_ART[e.title]],mark=e.type==="season"?`S${e.title.match(/Season\s+(\d+)/i)?.[1]||""}`:(EVENT_ICONS[e.type]||"•"),tag=e.type==="season"?"Season":e.type;
- return `<div class="calendarEvent event-${e.type}${art?" hasArt":""}">${art?`<img class="eventArt" src="${art}" alt="">`:""}<div class="eventHeader"><span class="eventMark" aria-hidden="true">${mark}</span><div class="eventHeadText"><div class="eventTopline"><span class="eventTag">${esc(tag)}</span><span class="eventTitle">${esc(e.title)}</span></div><div class="eventMeta">${esc(meta)}${esc(duration)}</div></div></div>${body}</div>`
+ return `<div class="calendarEvent event-${e.type}${e.major?" event-major":""}${art?" hasArt":""}">${art?`<img class="eventArt" src="${art}" alt="">`:""}<div class="eventHeader"><span class="eventMark" aria-hidden="true">${mark}</span><div class="eventHeadText"><div class="eventTopline"><span class="eventTag">${esc(e.major?"Major milestone":tag)}</span><span class="eventTitle">${esc(e.title)}</span></div><div class="eventMeta">${esc(meta)}${esc(duration)}</div></div></div>${body}</div>`
 }
 function renderTimeline(entries,start,todayDay,now){
  let filtered=entries.filter(e=>activeFilter==="all"||e.type===activeFilter);

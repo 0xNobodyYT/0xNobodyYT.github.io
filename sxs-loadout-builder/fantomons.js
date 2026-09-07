@@ -16,6 +16,5 @@ window.FANTOMON_CATALOG=[
  {id:1614,name:"Prismora",type:"Support",status:"Limited Fantomon"},
  {id:1615,name:"Luminarch Steed",type:"Tank",status:"Spring 2026 event"},
  {id:1616,name:"Chick Flyer",type:"Attacker",status:"Future collaboration data"},
- {id:1617,name:"Adventure Duck",type:"Tank",status:"Future event · partial localization"},
- {id:1619,name:"Yordra",type:"Support",status:"Config-only · incomplete assets"}
+ {id:1617,name:"Adventure Duck",type:"Tank",status:"Future event · partial localization"}
 ];
