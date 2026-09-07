@@ -55,15 +55,15 @@
   <script>
     const none={id:'none',name:'None',skin:null,pages:[],acquisition:'Not equipped'};
     const classes={
-      Knight:{lineage:'Warrior · Rank 2',mainPrefix:'pWeapon_100_',offPrefix:'sWeapon_11_',mainAnimation:'100/100_loop',offAnimation:'100_11_loop_home',mainTransform:'translate(-132px,108px) scale(.62)',offTransform:'translate(140px,112px) scale(.58)'},
-      Duelist:{lineage:'Warrior · Rank 2',mainPrefix:'pWeapon_100_',offPrefix:'sWeapon_12_',mainAnimation:'100/100_loop',offAnimation:'100_12_loop_A',mainTransform:'translate(-132px,108px) scale(.62)',offTransform:'translate(120px,122px) scale(.60)'},
-      Sorcerer:{lineage:'Mage · Rank 2',mainPrefix:'pWeapon_200_',offPrefix:'sWeapon_22_',mainAnimation:'200/200_loop',offAnimation:'200_22_loop_home',mainTransform:'translate(-92px,142px) scale(.88) rotate(-38deg)',offTransform:'translate(138px,-42px) scale(.90)'},
-      Sage:{lineage:'Mage · Rank 2',mainPrefix:'pWeapon_200_',offPrefix:'sWeapon_21_',mainAnimation:'200/200_loop',offAnimation:'200_21_loop_home',mainTransform:'translate(-92px,142px) scale(.88) rotate(-38deg)',offTransform:'translate(138px,-24px) scale(.74)'}
+      Knight:{lineage:'Warrior · Rank 2',mainPrefix:'pWeapon_100_',offPrefix:'sWeapon_11_',mainAnimation:'100/100_loop',offAnimation:'100_11_loop_home'},
+      Duelist:{lineage:'Warrior · Rank 2',mainPrefix:'pWeapon_100_',offPrefix:'sWeapon_12_',mainAnimation:'100/100_loop',offAnimation:'100_12_loop_A'},
+      Sorcerer:{lineage:'Mage · Rank 2',mainPrefix:'pWeapon_200_',offPrefix:'sWeapon_22_',mainAnimation:'200/200_loop',offAnimation:'200_22_loop_home'},
+      Sage:{lineage:'Mage · Rank 2',mainPrefix:'pWeapon_200_',offPrefix:'sWeapon_21_',mainAnimation:'200/200_loop',offAnimation:'200_21_loop_home'}
     };
-    Object.assign(classes.Knight,{mainTransform:'translate(-70px,154px) scale(.62)',offTransform:'translate(54px,158px) scale(.58)',offLayer:2});
-    Object.assign(classes.Duelist,{mainTransform:'translate(-70px,154px) scale(.62)',offTransform:'translate(48px,164px) scale(.58)',offLayer:2});
-    Object.assign(classes.Sorcerer,{mainTransform:'translate(-42px,166px) scale(.82) rotate(-38deg)',offTransform:'translate(138px,-42px) scale(.90)',offLayer:4});
-    Object.assign(classes.Sage,{mainTransform:'translate(-42px,166px) scale(.82) rotate(-38deg)',offTransform:'translate(138px,-24px) scale(.74)',offLayer:4});
+    Object.assign(classes.Knight,{mainAnchor:'pWeapon_R1',mainScale:.25,mainRotation:180,offAnchor:'sWeapon_dunpai',offScale:.32,offRotation:0,offLayer:4});
+    Object.assign(classes.Duelist,{mainAnchor:'pWeapon_R1',mainScale:.25,mainRotation:180,offAnchor:'sWeapon_quantao',offScale:.25,offRotation:0,offLayer:4});
+    Object.assign(classes.Sorcerer,{mainAnchor:'pWeapon_R1',mainScale:.28,mainRotation:0,mainFixedRotation:true,mainBoneRotation:90,offAnchor:'tou_1',offScale:.32,offRotation:0,offFixedRotation:true,offOffsetX:110,offOffsetY:0,offLayer:4});
+    Object.assign(classes.Sage,{mainAnchor:'pWeapon_R1',mainScale:.28,mainRotation:0,mainFixedRotation:true,mainBoneRotation:90,offAnchor:'tou_1',offScale:.32,offRotation:0,offFixedRotation:true,offOffsetX:100,offOffsetY:-14,offLayer:4});
     const categories=[['outfit','Outfit','Body'],['backwear','Backwear','Body'],['mainHand','Main Hand','Weapon'],['offHand','Off-Hand','Weapon'],['hairstyle','Hairstyle','Head'],['headwear','Headwear','Head'],['facewear','Facewear','Head'],['makeup','Makeup','Head']];
     const nullable=new Set(['backwear','headwear','facewear','makeup']);
     const rigs={
@@ -121,13 +121,20 @@
     }
     async function createRig(key,pages,onReady){
       const token=tokens[key]=(tokens[key]||0)+1;const atlas=await dynamicAtlas(key,pages);if(token!==tokens[key]){URL.revokeObjectURL(atlas.blob);return}disposePlayer(key);blobUrls[key]=atlas.blob;const rig=rigs[key];
-      players[key]=new spine.SpinePlayer(rig.host,{...basePlayer,skeleton:rig.skeleton,atlas:atlas.atlasKey,rawDataURIs:atlas.rawDataURIs,viewport:key==='male'||key==='female'?bodyViewport:accessoryViewport,success(player){if(token!==tokens[key])return;players[key]=player;onReady(player)}});
+      const isWeapon=key==='primary'||key==='secondary';
+      players[key]=new spine.SpinePlayer(rig.host,{...basePlayer,skeleton:rig.skeleton,atlas:atlas.atlasKey,rawDataURIs:atlas.rawDataURIs,viewport:isWeapon||key==='male'||key==='female'?bodyViewport:accessoryViewport,updateWorldTransform:isWeapon?(player)=>bindWeaponRig(player,key):undefined,success(player){if(token!==tokens[key])return;players[key]=player;onReady(player)}});
+    }
+    function bindWeaponRig(player,key){
+      const body=players[state.gender.toLowerCase()];const cls=classes[state.className];const main=key==='primary';
+      const anchor=body?.skeleton?.findBone(main?cls.mainAnchor:cls.offAnchor);const root=player.skeleton.getRootBone();
+      if(anchor&&root){const scale=main?cls.mainScale:cls.offScale;const rotation=main?cls.mainRotation:cls.offRotation;const fixed=main?cls.mainFixedRotation:cls.offFixedRotation;root.x=anchor.worldX+(main?cls.mainOffsetX||0:cls.offOffsetX||0);root.y=anchor.worldY+(main?cls.mainOffsetY||0:cls.offOffsetY||0);root.rotation=(fixed?0:Math.atan2(anchor.c,anchor.a)*180/Math.PI)+(rotation||0);root.scaleX=scale;root.scaleY=scale;const boneRotation=main?cls.mainBoneRotation:cls.offBoneRotation;if(boneRotation!=null){const slot=player.skeleton.slots.find(entry=>entry.attachment);if(slot)slot.bone.rotation=boneRotation}}
+      player.skeleton.updateWorldTransform(2);
     }
     async function createBody(){loading.classList.remove('ready');const key=state.gender.toLowerCase();await createRig(key,bodyPages(),player=>{applySkin(player,bodySkins());player.setAnimation('home/idle_01',true);loading.classList.add('ready')})}
     async function createBack(){const item=selectedItem('backwear');await createRig('back',item.pages||[],player=>{applySkin(player,item.skin?[item.skin]:['default']);player.setAnimation('loop_A',true);if(item.skin)forceSkinAttachments(player,item.skin);player.play()})}
     async function createWeapon(which){
       const key=which==='mainHand'?'primary':'secondary';const item=selectedItem(which);const cls=classes[state.className];
-      await createRig(key,item.pages||[],player=>{applySkin(player,[item.skin]);player.setAnimation(which==='mainHand'?cls.mainAnimation:cls.offAnimation,true);forceSkinAttachments(player,item.skin);const host=document.getElementById(rigs[key].host);host.style.transform=which==='mainHand'?cls.mainTransform:cls.offTransform;host.style.zIndex=which==='mainHand'?5:cls.offLayer})
+      await createRig(key,item.pages||[],player=>{applySkin(player,[item.skin]);player.setAnimation(which==='mainHand'?cls.mainAnimation:cls.offAnimation,true);forceSkinAttachments(player,item.skin);const host=document.getElementById(rigs[key].host);host.style.transform='none';host.style.zIndex=which==='mainHand'?5:cls.offLayer})
     }
     function refreshPreview(key){if(['outfit','hairstyle','headwear','facewear','makeup'].includes(key))createBody();else if(key==='backwear')createBack();else if(key==='mainHand')createWeapon('mainHand');else if(key==='offHand')createWeapon('offHand')}
 
