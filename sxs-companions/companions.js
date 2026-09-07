@@ -6,8 +6,8 @@
   const state = {selected: data[0]?.id, level: 100, selectedStats: new Set()};
   const coreNames = new Set(['ATK','DEF','HP','SPD']);
   const travelNames = new Set(['Travel Base Reward +','Travel Reward Bonus','Travel Extra Reward Chance']);
-  const statOrder = ['ATK','ATK %','DEF','DEF %','HP','HP %','SPD','SPD %','Crit Rate','Crit RES','Accuracy','Block Rate','Healing Boost','DMG Boost','DMG RES','Travel Reward Bonus','Travel Extra Reward Chance'];
-  const statNames = [...new Set(data.flatMap(c => Object.keys(c.curve[c.maxLevel - 1] || {})))].sort((a,b) => (statOrder.indexOf(a) < 0 ? 999 : statOrder.indexOf(a)) - (statOrder.indexOf(b) < 0 ? 999 : statOrder.indexOf(b)) || a.localeCompare(b));
+  const statOrder = ['ATK %','DEF %','HP %','SPD %','Crit Rate','Crit RES','Accuracy','Block Rate','Healing Boost','DMG Boost','DMG RES'];
+  const statNames = statOrder.filter(stat => data.some(c => Number((c.curve[c.maxLevel - 1] || {})[stat]) > 0));
   const format = (name, value) => {
     if (name.includes('%') || ['Crit Rate','Crit RES','Accuracy','Block Rate','Crit DMG','Healing Boost','DMG Boost','DMG RES','Travel Reward Bonus','Travel Extra Reward Chance'].includes(name)) return `${Number(value).toLocaleString(undefined,{maximumFractionDigits:2})}%`;
     return Number(value).toLocaleString(undefined,{maximumFractionDigits:0});
