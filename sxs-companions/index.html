@@ -7,13 +7,13 @@
   <title>Companions · Sword x Staff</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../sxs-explorer.css?v=20260907-1">
-  <link rel="stylesheet" href="companions.css?v=20260907-1">
+  <link rel="stylesheet" href="companions.css?v=20260907-2">
 </head>
 <body>
 <main class="wrap">
   <a class="home" href="../">← 0xNobody Tools</a>
   <header class="tool-header">
-    <div><span class="eyebrow">Sword x Staff · Friendship Archive</span><h1>Companions</h1><p>Explore every localized companion, their complete friendship stat curve, travel bonuses, preferred gifts, unlock route, and profile chapters.</p></div>
+    <div><span class="eyebrow">Sword x Staff · Friendship Archive</span><h1>Companions</h1><p>Explore every known companion, their friendship stat curve, travel bonuses, preferred gifts, unlock route, and profile chapters.</p></div>
     <a class="coffee" href="https://buymeacoffee.com/0xnobody" target="_blank" rel="noopener">☕ Buy me a coffee</a>
   </header>
   <nav class="tabs" aria-label="Sword x Staff tools">
@@ -21,16 +21,17 @@
   </nav>
 
   <section class="panel companion-intro">
-    <div><span class="label">Current client catalog</span><h2>Every verified friendship companion</h2><p>Premium status, native class, unlock data, artwork, profiles, and all level-by-level values come from the current English client configuration.</p></div>
+    <div><span class="label">Global + TW catalog</span><h2>Every verified friendship companion</h2><p>Localized and unreleased global records come from the current client. Clearly marked TW / future entries use confirmed IDs with their matching friendship curve.</p></div>
     <div class="catalog-metrics"><div><b id="totalCount">0</b><span>companions</span></div><div><b id="premiumCount">0</b><span>premium</span></div><div><b>100</b><span>friendship levels</span></div></div>
   </section>
 
   <section class="panel filters">
     <div class="field search-field"><label for="search">Find a companion</label><input id="search" type="search" placeholder="Name, class, gift, region…" autocomplete="off"></div>
-    <div class="field"><label for="recommendedFilter">Recommended for</label><select id="recommendedFilter"><option value="">All classes</option><option>Knight</option><option>Duelist</option><option>Sorcerer</option><option>Sage</option></select></div>
+    <div class="field"><label for="recommendedFilter">Best fit</label><select id="recommendedFilter"><option value="">All stat profiles</option><option>Knight</option><option>Duelist</option><option>Sorcerer</option><option>Sage</option></select></div>
     <div class="field"><label for="nativeFilter">Native class</label><select id="nativeFilter"><option value="">All native classes</option><option>Knight</option><option>Duelist</option><option>Sorcerer</option><option>Sage</option></select></div>
-    <div class="field"><label for="rarityFilter">Companion type</label><select id="rarityFilter"><option value="">Premium & standard</option><option value="premium">Premium</option><option value="standard">Standard</option></select></div>
-    <div class="field"><label for="catalogFilter">Origin</label><select id="catalogFilter"><option value="">World & crossover</option><option>World</option><option>Crossover</option></select></div>
+    <div class="field"><label for="rarityFilter">Companion type</label><select id="rarityFilter"><option value="">All types</option><option value="premium">Premium</option><option value="standard">Standard</option></select></div>
+    <div class="field"><label for="catalogFilter">Origin</label><select id="catalogFilter"><option value="">All origins</option><option>World</option><option>Crossover</option></select></div>
+    <div class="field"><label for="availabilityFilter">Availability</label><select id="availabilityFilter"><option value="">All availability</option><option value="Global client">Global localized</option><option value="Global client (unreleased)">Global unreleased</option><option value="TW / future">TW / future</option></select></div>
   </section>
 
   <section class="panel catalog-panel">
@@ -43,7 +44,7 @@
       <div class="portrait-stage"><img id="figure" alt=""><div class="portrait-fallback" id="portraitFallback">✦</div></div>
       <div class="identity">
         <div class="badges" id="badges"></div><h2 id="companionName"></h2><p id="identityLine"></p>
-        <div class="recommendation"><span>Recommended for</span><div id="recommendedClasses"></div><small>Inferred from the companion's bonus profile; companions are not class-locked.</small></div>
+        <div class="recommendation"><span>Best fit by stat profile</span><div id="recommendedClasses"></div><small id="recommendationReason"></small><small>Editorial guidance only; companions are not class-locked.</small></div>
         <div class="quick-facts" id="quickFacts"></div>
       </div>
     </div>
@@ -67,10 +68,10 @@
     </div>
   </section>
 
-  <section class="panel methodology"><span class="label">Data note</span><p>Stats are the exact cumulative values stored for the selected friendship level. Percentage fields are converted from the client's basis-point representation. “Recommended for” is an editorial grouping based on the final bonus profile, matching the logic used by community infographics; native class is the companion's own combat profession.</p></section>
+  <section class="panel methodology"><span class="label">Data note</span><p>Stats are the exact cumulative values stored for the selected friendship level. Percentage fields are converted from the client's basis-point representation. “Best fit” is an editorial stat-synergy grouping—not a class restriction. Native class is the companion's own combat profession. TW / future entries may not yet have global unlock text or profile chapters.</p></section>
   <footer class="footer">Datamining direction credited to <a href="https://github.com/Mystonats">Mystonats</a>. © 2026 0xNobody.</footer>
 </main>
-<script src="data.js?v=20260907-1"></script>
-<script src="companions.js?v=20260907-1"></script>
+<script src="data.js?v=20260907-2"></script>
+<script src="companions.js?v=20260907-2"></script>
 </body>
 </html>

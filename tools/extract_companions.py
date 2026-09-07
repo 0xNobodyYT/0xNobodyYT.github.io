@@ -19,6 +19,7 @@ MANIFEST = Path(r"C:\tmp\sxs-yoo-cache\PackageManifest_DefaultPackage_88_156110.
 RESEARCH = Path(r"C:\tmp\sxs-research\tools")
 DEPS = Path(r"C:\tmp\sxs-research\.deps")
 CDN = "https://zhangjcsomqdl.boltraygames.com/patch/20260828203788/Android/DefaultPackage"
+FALLBACK_ART = "https://lootandwaifus.com/companions/swordxstaff/npc_icon_{id}.png"
 
 sys.path[:0] = [str(RESEARCH), str(DEPS)]
 import UnityPy  # noqa: E402
@@ -28,7 +29,7 @@ from yoo_manifest import load_manifest  # noqa: E402
 
 
 PROFESSIONS = {"Doushi": "Duelist", "Shushi": "Sorcerer", "Huwei": "Knight", "Xianzhe": "Sage"}
-GIFTS = {"Flower": "Flowers", "Commodity": "Practical Goods", "Valuables": "Valuables", "Book": "Books"}
+GIFTS = {"Flower": "Flowers", "Commodity": "Furniture", "Valuables": "Jewelry", "Book": "Books"}
 STAT_LABELS = {
     "Attack": "ATK", "MaxHp": "HP", "Defence": "DEF", "Speed": "SPD",
     "BaseMaxHpPercent": "HP %", "BaseAttackPercent": "ATK %",
@@ -44,6 +45,33 @@ STAT_LABELS = {
 }
 FLAT_STATS = {"Attack", "MaxHp", "Defence", "Speed", "EffectRate", "EffectDodge", "TravelNpcBaseRewardAddCount"}
 PERCENT_STATS = set(STAT_LABELS) - FLAT_STATS
+
+# These records are present in the global client but their English names are
+# deliberately hidden behind DNT placeholders. Names are resolved against the
+# Chinese client strings and the public TW roster.
+NAME_OVERRIDES = {
+    "10109": "Dream Witch Kroll", "10112": "Dream Tour · Fei Le",
+    "10113": "Canghui Fantasy · Weilan", "10408": "Caihong New Year · Ming",
+    "10409": "Burning Lamps & Blessings · Year-End", "10410": "Thousand Lamps · Jiangwang",
+    "10411": "Taoyao", "11007": "Xiaohei", "11008": "Wuxian", "11009": "Luye",
+    "11010": "Nezha", "11011": "Wu Liuqi", "11012": "Plum Blossom Thirteen",
+    "11013": "Chicken Dabao", "11014": "He Dachun",
+}
+
+# Confirmed companion entries from the newer TW roster which are not yet in
+# the current global NPC table. bond_id points to the same exact friendship
+# stat curve stored in the global client.
+TW_SUPPLEMENTS = [
+    {"Id":"11019","Name":"Hitori Gotoh","Gift":"Flowers","LevelPropId":"5003","Class":"Knight","Premium":True},
+    {"Id":"11020","Name":"Nijika Ijichi","Gift":"Jewelry","LevelPropId":"5004","Class":"Sage","Premium":True},
+    {"Id":"11021","Name":"Ryo Yamada","Gift":"Books","LevelPropId":"5015","Class":"Duelist","Premium":True},
+    {"Id":"11022","Name":"Ikuyo Kita","Gift":"Furniture","LevelPropId":"5000","Class":"Sorcerer","Premium":False},
+    {"Id":"11024","Name":"Supreme Treasure","Gift":"Jewelry","LevelPropId":"5007","Class":"Knight","Premium":False},
+    {"Id":"11025","Name":"Zixia Fairy","Gift":"Flowers","LevelPropId":"5016","Class":"Sorcerer","Premium":True},
+    {"Id":"11026","Name":"Sun Wukong","Gift":"Furniture","LevelPropId":"5015","Class":"Duelist","Premium":True},
+    {"Id":"11027","Name":"Tang Sanzang","Gift":"Books","LevelPropId":"5004","Class":"Sage","Premium":True},
+    {"Id":"11033","Name":"Signalman Luo Tianyi","Gift":"Furniture","LevelPropId":"5016","Class":"Sorcerer","Premium":True},
+]
 
 
 def download_bundle(manifest, bundle_id: int) -> bytes:
@@ -123,16 +151,20 @@ def format_unlock(row: dict[str, str], item_names: dict[str, str], sources: dict
     return {"label": "Availability condition is stored in the client", "sources": []}
 
 
-def recommended(stats: dict[str, float]) -> list[str]:
-    if stats.get("ATK %") or stats.get("SPD %"):
-        return ["Duelist", "Sorcerer"]
-    if stats.get("DEF %"):
-        return ["Knight"]
-    if stats.get("HP %") and stats.get("Healing Boost"):
-        return ["Sage"]
+def recommendation(stats: dict[str, float]) -> tuple[list[str], str]:
+    if all(stats.get(key) for key in ("ATK %", "DEF %", "HP %", "SPD %")):
+        return [], "Balanced all-stat profile; useful to every class."
+    if stats.get("Block Rate") or stats.get("DEF %"):
+        return ["Knight"], "DEF, Block Rate, and damage resistance favor tank builds."
+    if stats.get("Healing Boost"):
+        return ["Sage"], "HP, healing, and critical resistance favor support builds."
+    if stats.get("ATK %") and stats.get("Accuracy"):
+        return ["Duelist", "Sorcerer"], "ATK, Accuracy, and DMG Boost favor damage builds."
+    if stats.get("SPD %") and stats.get("Crit Rate"):
+        return ["Duelist", "Sorcerer"], "SPD, Crit Rate, and DMG Boost favor damage builds."
     if stats.get("HP %"):
-        return ["Knight", "Sage"]
-    return []
+        return ["Knight", "Sage"], "HP, critical resistance, and damage resistance favor durable builds."
+    return [], "General-purpose bonus profile."
 
 
 def save_art(manifest, companion_rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
@@ -175,6 +207,30 @@ def save_art(manifest, companion_rows: list[dict[str, str]]) -> dict[str, dict[s
             target = ASSETS / f"{kind}_{npc_id}.webp"
             value.image.save(target, "WEBP", quality=92, method=6)
             result[npc_id][kind] = f"assets/{target.name}"
+    # Some licensed crossover portraits and newer TW companions are not stored
+    # as ordinary npc_icon sprites in this global package. Cache their official
+    # extracted icon as a static fallback so cards never render blank.
+    for row in companion_rows:
+        npc_id = row["Id"]
+        if result[npc_id].get("icon"):
+            continue
+        target = ASSETS / f"icon_{npc_id}.webp"
+        try:
+            # Pillow is already provided by UnityPy; decode through PIL directly.
+            from PIL import Image
+            request = urllib.request.Request(
+                FALLBACK_ART.format(id=npc_id),
+                headers={
+                    "User-Agent": "Mozilla/5.0",
+                    "Referer": "https://lootandwaifus.com/sword-x-staff-companion-database/",
+                },
+            )
+            with urllib.request.urlopen(request, timeout=30) as response:
+                source = Image.open(response).convert("RGBA")
+                source.save(target, "WEBP", quality=92, method=6)
+            result[npc_id]["icon"] = f"assets/{target.name}"
+        except Exception as exc:
+            print(f"warning: no fallback portrait for {npc_id}: {exc}")
     return result
 
 
@@ -230,28 +286,47 @@ def main() -> int:
             condition = parse_loose_dict(row.get("UnlockConditionParam", ""))
             profile_rows[npc_id].append({"id": profile_id, "level": condition.get("FriendshipLevel"), "text": text})
 
-    art = save_art(manifest, npc_rows)
+    art_rows = npc_rows + [{"Id": row["Id"]} for row in TW_SUPPLEMENTS]
+    art = save_art(manifest, art_rows)
     companions = []
     for row in npc_rows:
         npc_id = row["Id"]
-        name = localization.get(row["NameKey"], "").strip()
-        if not name or name.startswith("DNT"):
+        name = NAME_OVERRIDES.get(npc_id, localization.get(row["NameKey"], "").strip())
+        if not name or (name.startswith("DNT") and npc_id not in NAME_OVERRIDES):
             continue
         curve = curve_rows.get(row["LevelPropId"], {})
         if not curve:
             continue
         max_level = max(curve)
         final_stats = curve[max_level]
+        fits, reason = recommendation(final_stats)
         companions.append({
             "id": int(npc_id), "name": name, "premium": row.get("NpcRoleType") == "Special",
             "catalog": "Crossover" if row.get("NpcCatalog") == "Linkage" else "World",
             "nativeClass": PROFESSIONS.get(row.get("TravelProfession", ""), row.get("TravelProfession", "")),
-            "recommended": recommended(final_stats), "gift": GIFTS.get(row.get("PreferenceGiftType", ""), row.get("PreferenceGiftType", "")),
+            "recommended": fits, "recommendationReason": reason,
+            "gift": GIFTS.get(row.get("PreferenceGiftType", ""), row.get("PreferenceGiftType", "")),
             "region": localization.get(f"Mainland_group_{row.get('MapGroupId', '')}", f"Map group {row.get('MapGroupId', '')}"),
+            "availability": "Global client (unreleased)" if npc_id in NAME_OVERRIDES else "Global client",
             "unlock": format_unlock(row, item_names, sources), "art": art.get(npc_id, {}),
             "maxLevel": max_level, "curve": [curve.get(level, {}) for level in range(1, max_level + 1)],
             "exp": [exp_rows[npc_id].get(level, 0) for level in range(1, max_level + 1)],
             "profiles": sorted(profile_rows[npc_id], key=lambda p: int(p["id"] or 0)),
+        })
+    for row in TW_SUPPLEMENTS:
+        npc_id = row["Id"]
+        curve = curve_rows[row["LevelPropId"]]
+        max_level = max(curve)
+        fits, reason = recommendation(curve[max_level])
+        companions.append({
+            "id": int(npc_id), "name": row["Name"], "premium": row["Premium"],
+            "catalog": "Crossover", "nativeClass": row["Class"],
+            "recommended": fits, "recommendationReason": reason, "gift": row["Gift"],
+            "region": "Otherworld", "availability": "TW / future",
+            "unlock": {"label": "Not yet available in the current global client", "sources": []},
+            "art": art.get(npc_id, {}), "maxLevel": max_level,
+            "curve": [curve.get(level, {}) for level in range(1, max_level + 1)],
+            "exp": [0] * max_level, "profiles": [],
         })
     companions.sort(key=lambda c: (not c["premium"], c["nativeClass"], c["name"]))
     published_ids = {str(c["id"]) for c in companions}
