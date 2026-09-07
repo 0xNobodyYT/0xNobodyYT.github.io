@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sword x Staff Wardrobe Viewer</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="https://unpkg.com/@esotericsoftware/spine-player@4.2.*/dist/spine-player.css">
+  <style>
+    :root{color-scheme:dark;--bg:#07111b;--panel:#111f2e;--panel2:#091723;--line:#284155;--cyan:#55dff0;--gold:#ffd33d;--text:#f7f8fb;--muted:#a9c8ec}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 12%,#173348 0,#07111b 44%);color:var(--text);font:17px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}button,input{font:inherit}.page{max-width:1900px;margin:auto;padding:28px 24px 48px}.topline{display:flex;align-items:center;justify-content:space-between;gap:18px}.eyebrow,.label{font-weight:900;letter-spacing:.11em;text-transform:uppercase}.eyebrow{color:var(--gold)}.coffee{border:1px solid #ffd66b;background:#ffc95b;color:#171006;border-radius:14px;padding:12px 17px;text-decoration:none;font-weight:900;white-space:nowrap}h1{font-size:clamp(2.7rem,5.5vw,5rem);line-height:1;margin:.18em 0}.intro{color:var(--muted);font-size:1.15rem;max-width:1080px}.panel{background:rgba(17,31,46,.95);border:1px solid var(--line);border-radius:24px;padding:20px;margin-top:20px}.setup{display:grid;grid-template-columns:320px 1fr;gap:24px}.label{color:#b8d5fa;font-size:.82rem;margin-bottom:9px}.segmented,.classes{display:flex;gap:10px;flex-wrap:wrap}.choice{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:15px;padding:12px 17px;font-weight:800;cursor:pointer}.choice:hover,.choice.active{border-color:var(--cyan);background:#173844;box-shadow:0 0 0 1px #55dff055}.class-choice{min-width:145px;text-align:left}.class-choice small{display:block;color:var(--muted);font-weight:600;margin-top:2px}.workspace{display:grid;grid-template-columns:minmax(500px,.95fr) minmax(620px,1.25fr) 330px;gap:20px;align-items:start}.catalog h2,.preview h2,.summary-panel h2{margin:0 0 4px;font-size:1.6rem}.muted{color:var(--muted)}details{background:var(--panel2);border:1px solid var(--line);border-radius:17px;margin-top:12px;overflow:hidden}summary{padding:14px 16px;cursor:pointer;font-weight:900;color:var(--cyan);list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:'+';float:right;color:var(--gold)}details[open] summary:after{content:'−'}.category{padding:0 14px 15px}.category-title{display:flex;align-items:center;justify-content:space-between;gap:10px}.count{color:#7ea9cc;font-size:.76rem;font-weight:800}.search{width:100%;border:1px solid #34738c;background:#061621;color:#fff;border-radius:12px;padding:11px 13px;margin-bottom:10px;outline:none}.search:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #55dff022}.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:320px;overflow:auto;padding-right:3px}.item{display:grid;grid-template-columns:48px 1fr;gap:9px;align-items:center;border:1px solid #28485e;background:#0c1a27;color:#fff;border-radius:13px;padding:8px;text-align:left;cursor:pointer;min-height:64px}.item:hover,.item.active{border-color:var(--gold);background:#2a2712}.item img{width:48px;height:48px;object-fit:contain;border-radius:8px;background:#ffffff0b}.item strong{font-size:.86rem}.item small{display:block;color:#8eb6d9;font-size:.7rem}.empty-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:8px;background:#ffffff0b;color:#7790a6;font-size:1.4rem}.stage{position:relative;min-height:840px;border:1px solid #3b6875;border-radius:22px;overflow:hidden;background:radial-gradient(circle at 50% 42%,#dffcff 0,#78c8cc 24%,#376d73 56%,#122f3a 100%)}.stage:after{content:'';position:absolute;z-index:7;inset:auto 0 0;height:20%;pointer-events:none;background:linear-gradient(transparent,#0d232dcc)}.spine-layer{position:absolute;inset:0;pointer-events:none}.spine-layer canvas{background:transparent!important}.back-rig{z-index:1}.body-rig{z-index:2}.primary-rig{z-index:3}.secondary-rig{z-index:4}.stage-caption{position:absolute;z-index:9;left:14px;right:14px;bottom:13px;text-align:center;padding:9px;border-radius:12px;background:#06131de8;color:#d6edff;font-size:.78rem}.class-badge{position:absolute;z-index:9;top:14px;left:14px;background:#07111bdc;border:1px solid var(--gold);border-radius:999px;padding:7px 13px;font-weight:900}.loading{position:absolute;z-index:10;inset:0;display:grid;place-items:center;background:#102834;color:#dffbff;font-weight:900;text-align:center;padding:20px}.loading.ready{display:none}.summary-list{display:grid;gap:8px;margin-top:14px}.summary-row{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:9px 11px}.summary-row span{display:block;color:#84b2dc;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em}.summary-row strong{font-size:.89rem}.reset{width:100%;margin-top:14px;border:1px solid var(--gold);background:#28240f;color:var(--gold);border-radius:13px;padding:11px;font-weight:900;cursor:pointer}.note{margin-top:13px;padding:11px;background:#07131d;border-radius:12px;color:#9fc3e8;font-size:.8rem}.no-results{grid-column:1/-1;color:#8eabc5;padding:12px;text-align:center}.acquisition{margin-top:18px;background:#091723;border:1px solid var(--line);border-radius:18px;padding:16px}.acquisition h3{margin:0 0 4px;font-size:1.15rem}.acquisition-list{display:grid;gap:8px;margin-top:12px}.acquisition-row{display:grid;grid-template-columns:130px minmax(160px,.8fr) minmax(220px,1.2fr);gap:12px;align-items:center;border:1px solid #203a4e;border-radius:11px;background:#0d1c2a;padding:9px 11px}.acquisition-row .part{color:var(--cyan);font-size:.75rem;font-weight:900;text-transform:uppercase}.acquisition-row .where{color:#b8d5fa;font-size:.82rem}.credit{text-align:center;color:#8eb2d5;margin-top:30px;font-size:.88rem}.credit a{color:var(--gold)}
+    .spine-layer{transform-origin:50% 50%}.back-rig{z-index:1;transform:translate(-16px,56px)}.body-rig{z-index:3}.primary-rig,.secondary-rig{z-index:4}.weapon-label{position:absolute;z-index:6;top:108px;padding:7px 12px;border:1px solid #55dff077;border-radius:999px;background:#06131dd9;color:#dffbff;font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.main-label{left:8%}.off-label{right:8%}
+    @media(max-width:1480px){.workspace{grid-template-columns:minmax(480px,1fr) minmax(560px,1.2fr)}.summary-panel{grid-column:1/-1}.summary-list{grid-template-columns:repeat(4,1fr)}}
+    @media(max-width:980px){.setup,.workspace{grid-template-columns:1fr}.summary-panel{grid-column:auto}.items{grid-template-columns:1fr 1fr}.summary-list{grid-template-columns:1fr 1fr}.stage{min-height:740px}.topline{align-items:flex-start}.acquisition-row{grid-template-columns:110px 1fr}.acquisition-row .where{grid-column:2}}
+    @media(max-width:620px){.items{grid-template-columns:1fr}.stage{min-height:620px}.acquisition-row{grid-template-columns:1fr}.acquisition-row .where{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="topline"><div class="eyebrow">Sword x Staff · Appearance Lab</div><a class="coffee" href="https://www.buymeacoffee.com/0xnobody" target="_blank" rel="noopener">☕ Buy Me a Coffee</a></div>
+    <h1>Wardrobe Viewer</h1>
+    <p class="intro">Browse the extracted outfit and accessory catalog on the animated Male or Female character rig. Class selection limits Main Hand and Off-Hand cosmetics to compatible weapon types.</p>
+
+    <section class="panel setup">
+      <div><div class="label">Gender</div><div class="segmented" id="genderChoices"></div></div>
+      <div><div class="label">Class</div><div class="classes" id="classChoices"></div></div>
+    </section>
+
+    <section class="workspace">
+      <div class="panel catalog"><h2>Appearance Items</h2><div class="muted" id="catalogSummary">Search and select an item in each category.</div><div id="catalog"></div></div>
+      <div class="panel preview">
+        <h2>Character Preview</h2><div class="muted" id="previewSubtitle"></div>
+        <div class="stage" id="stage">
+          <div class="class-badge" id="classBadge"></div>
+          <div id="backPlayer" class="spine-layer back-rig"></div>
+          <div id="bodyPlayer" class="spine-layer body-rig"></div>
+          <div id="primaryPlayer" class="spine-layer primary-rig"></div>
+          <div id="secondaryPlayer" class="spine-layer secondary-rig"></div>
+          <div class="weapon-label main-label">Main Hand</div><div class="weapon-label off-label">Off-Hand</div>
+          <div class="loading" id="loading">Loading selected game skins…</div>
+          <div class="stage-caption">Animated game Spine skeleton · fitted body, hair, accessories, backwear, and class weapons</div>
+        </div>
+        <section class="acquisition">
+          <h3>Selected Cosmetics &amp; Acquisition</h3>
+          <div class="muted">Where the game data says each selected look comes from.</div>
+          <div class="acquisition-list" id="acquisitionList"></div>
+        </section>
+      </div>
+      <aside class="panel summary-panel"><h2>Equipped Look</h2><div class="muted">Current appearance selections.</div><div class="summary-list" id="equippedSummary"></div><button class="reset" id="reset">Reset Look</button><div class="note">The viewer loads only the texture pages needed by the selected look, keeping the full extracted catalog usable without downloading every cosmetic at once.</div></aside>
+    </section>
+    <footer class="credit">Datamining direction credited to <a href="https://github.com/Mystonats">Mystonats</a>. © 2026 0xNobody.</footer>
+  </main>
+
+  <script src="https://unpkg.com/@esotericsoftware/spine-player@4.2.*/dist/iife/spine-player.js"></script>
+  <script src="../wardrobe-assets/catalog.js"></script>
+  <script>
+    const none={id:'none',name:'None',skin:null,pages:[],acquisition:'Not equipped'};
+    const classes={
+      Knight:{lineage:'Warrior · Rank 2',mainPrefix:'pWeapon_100_',offPrefix:'sWeapon_11_',mainAnimation:'100/100_loop',offAnimation:'100_11_loop_home'},
+      Duelist:{lineage:'Warrior · Rank 2',mainPrefix:'pWeapon_100_',offPrefix:'sWeapon_12_',mainAnimation:'100/100_loop',offAnimation:'100_12_loop_A'},
+      Sorcerer:{lineage:'Mage · Rank 2',mainPrefix:'pWeapon_200_',offPrefix:'sWeapon_22_',mainAnimation:'200/200_loop',offAnimation:'200_22_loop_home'},
+      Sage:{lineage:'Mage · Rank 2',mainPrefix:'pWeapon_200_',offPrefix:'sWeapon_21_',mainAnimation:'200/200_loop',offAnimation:'200_21_loop_home'}
+    };
+    Object.assign(classes.Knight,{mainDisplayX:-145,mainDisplayY:165,mainScale:.34,mainRotation:165,offDisplayX:145,offDisplayY:165,offScale:.4,offRotation:0});
+    Object.assign(classes.Duelist,{mainDisplayX:-145,mainDisplayY:165,mainScale:.34,mainRotation:165,offDisplayX:145,offDisplayY:165,offScale:.38,offRotation:0});
+    Object.assign(classes.Sorcerer,{mainDisplayX:-145,mainDisplayY:165,mainScale:.34,mainRotation:0,offDisplayX:145,offDisplayY:165,offScale:.4,offRotation:0});
+    Object.assign(classes.Sage,{mainDisplayX:-145,mainDisplayY:165,mainScale:.34,mainRotation:0,offDisplayX:145,offDisplayY:165,offScale:.4,offRotation:0});
+    const categories=[['outfit','Outfit','Body'],['backwear','Backwear','Body'],['mainHand','Main Hand','Weapon'],['offHand','Off-Hand','Weapon'],['hairstyle','Hairstyle','Head'],['headwear','Headwear','Head'],['facewear','Facewear','Head'],['makeup','Makeup','Head']];
+    const nullable=new Set(['backwear','headwear','facewear','makeup']);
+    const rigs={
+      male:{host:'bodyPlayer',skeleton:'../wardrobe-assets/spine/male/character_Male_1.skel',atlas:'../wardrobe-assets/spine/male/character_Male_1.atlas'},
+      female:{host:'bodyPlayer',skeleton:'../wardrobe-assets/spine/female/character_Female_1.skel',atlas:'../wardrobe-assets/spine/female/character_Female_1.atlas'},
+      back:{host:'backPlayer',skeleton:'../wardrobe-assets/spine/back/backDecoration.skel',atlas:'../wardrobe-assets/spine/back/backDecoration.atlas'},
+      primary:{host:'primaryPlayer',skeleton:'../wardrobe-assets/spine/primary/primaryWeapon.skel',atlas:'../wardrobe-assets/spine/primary/primaryWeapon.atlas'},
+      secondary:{host:'secondaryPlayer',skeleton:'../wardrobe-assets/spine/secondary/secondaryWeapon.skel',atlas:'../wardrobe-assets/spine/secondary/secondaryWeapon.atlas'}
+    };
+    const state={gender:'Male',className:'Knight',selected:{},search:{}};
+    const players={},tokens={},blobUrls={},atlasTexts={};
+    const basePlayer={backgroundColor:'#00000000',alpha:true,showControls:false,interactive:false,premultipliedAlpha:false};
+    const bodyViewport={x:-220,y:-70,width:440,height:650,padLeft:0,padRight:0,padTop:0,padBottom:0};
+    const accessoryViewport={x:-520,y:-520,width:1040,height:1180,padLeft:0,padRight:0,padTop:0,padBottom:0};
+
+    function entries(key){return WARDROBE_DATA.categories[key][state.gender]||[]}
+    function itemsFor(key){
+      let list=entries(key);
+      const cls=classes[state.className];
+      if(key==='mainHand')list=list.filter(item=>item.skin.startsWith(cls.mainPrefix));
+      if(key==='offHand')list=list.filter(item=>item.skin.startsWith(cls.offPrefix));
+      return nullable.has(key)?[none,...list]:list;
+    }
+    function selectedItem(key){const list=itemsFor(key);return list.find(item=>item.id===state.selected[key])||list[0]||none}
+    function preferred(list,names){for(const name of names){const item=list.find(entry=>entry.name===name);if(item)return item}return list[0]||none}
+    function initializeSelections(){
+      const weaponDefaults={
+        Knight:{mainHand:["Novice's Longsword"],offHand:["Novice's Round Shield"]},
+        Duelist:{mainHand:["Novice's Longsword"],offHand:["Trailblazer's Gauntlets"]},
+        Sorcerer:{mainHand:['Novice Staff'],offHand:["Explorer's Grimoire"]},
+        Sage:{mainHand:['Novice Staff'],offHand:["Seeker's Orb"]}
+      };
+      const defaults={outfit:['Pristine Formal Attire'],backwear:['None'],hairstyle:['Listen to the World'],headwear:['None'],facewear:['None'],makeup:['None'],...weaponDefaults[state.className]};
+      for(const [key] of categories){const list=itemsFor(key);if(!list.some(item=>item.id===state.selected[key]))state.selected[key]=(preferred(list,defaults[key]||[])).id}
+    }
+    function bodySkins(){
+      const suffix=state.gender==='Male'?'M':'F';
+      return ['default',selectedItem('outfit').skin,`faceShape_${suffix}_01`,'ethnicity_G_01',`eye_${suffix}_01`,`brow_${suffix}_01`,`mouth_${suffix}_01`,selectedItem('hairstyle').skin,selectedItem('headwear').skin,selectedItem('facewear').skin,selectedItem('makeup').skin].filter(Boolean);
+    }
+    function bodyPages(){
+      const base=['face.png','brow.png'];
+      for(const key of ['outfit','hairstyle','headwear','facewear','makeup'])base.push(...(selectedItem(key).pages||[]));
+      return [...new Set(base)];
+    }
+    function applySkin(player,names){const skin=new spine.Skin('wardrobe-look');for(const name of names){const found=player.skeleton.data.findSkin(name);if(found)skin.addSkin(found)}player.skeleton.setSkin(skin);player.skeleton.setSlotsToSetupPose()}
+    function forceSkinAttachments(player,name){const source=player.skeleton.data.findSkin(name);source?.attachments.forEach((entry,index)=>{if(entry){const attachment=Object.keys(entry)[0];player.skeleton.setAttachment(player.skeleton.slots[index].data.name,attachment)}})}
+    function disposePlayer(key){if(players[key]){try{players[key].dispose()}catch{}players[key]=null}if(blobUrls[key]){URL.revokeObjectURL(blobUrls[key]);blobUrls[key]=null}document.getElementById(rigs[key].host).replaceChildren()}
+    async function dynamicAtlas(group,pages){
+      const rig=rigs[group];
+      if(!atlasTexts[group])atlasTexts[group]=await fetch(rig.atlas).then(response=>{if(!response.ok)throw new Error(`Could not load ${rig.atlas}`);return response.text()});
+      const keep=new Set(pages);const base=new URL(rig.atlas,location.href);const transparent=new URL('_transparent.png',base).href;const atlasKey=`wardrobe-${group}.atlas`;const blob=URL.createObjectURL(new Blob([atlasTexts[group]],{type:'text/plain'}));
+      const rawDataURIs={[atlasKey]:blob};
+      for(const line of atlasTexts[group].split(/\r?\n/)){const clean=line.trim();if(line===clean&&clean.endsWith('.png'))rawDataURIs[clean]=keep.has(clean)?new URL(clean,base).href:transparent}
+      return {atlasKey,rawDataURIs,blob};
+    }
+    async function createRig(key,pages,onReady){
+      const token=tokens[key]=(tokens[key]||0)+1;const atlas=await dynamicAtlas(key,pages);if(token!==tokens[key]){URL.revokeObjectURL(atlas.blob);return}disposePlayer(key);blobUrls[key]=atlas.blob;const rig=rigs[key];
+      const isWeapon=key==='primary'||key==='secondary',isBody=key==='male'||key==='female';
+      players[key]=new spine.SpinePlayer(rig.host,{...basePlayer,skeleton:rig.skeleton,atlas:atlas.atlasKey,rawDataURIs:atlas.rawDataURIs,viewport:isWeapon||isBody?bodyViewport:accessoryViewport,updateWorldTransform:isWeapon?(player)=>bindWeaponRig(player,key):undefined,success(player){if(token!==tokens[key])return;players[key]=player;onReady(player)}});
+    }
+    function bindWeaponRig(player,key){
+      const cls=classes[state.className],main=key==='primary',root=player.skeleton.getRootBone();
+      if(root){root.x=main?cls.mainDisplayX:cls.offDisplayX;root.y=main?cls.mainDisplayY:cls.offDisplayY;root.rotation=main?cls.mainRotation:cls.offRotation;root.scaleX=main?cls.mainScale:cls.offScale;root.scaleY=root.scaleX}
+      player.skeleton.updateWorldTransform(2);
+    }
+    async function createBody(){loading.classList.remove('ready');const key=state.gender.toLowerCase();await createRig(key,bodyPages(),player=>{applySkin(player,bodySkins());player.setAnimation('home/idle_01',true);loading.classList.add('ready')})}
+    async function createBack(){const item=selectedItem('backwear');await createRig('back',item.pages||[],player=>{applySkin(player,item.skin?[item.skin]:['default']);player.setAnimation('loop_A',true);if(item.skin)forceSkinAttachments(player,item.skin);player.play()})}
+    async function createWeapon(which){
+      const key=which==='mainHand'?'primary':'secondary';const item=selectedItem(which);const cls=classes[state.className];
+      await createRig(key,item.pages||[],player=>{applySkin(player,[item.skin]);player.setAnimation(which==='mainHand'?cls.mainAnimation:cls.offAnimation,true);forceSkinAttachments(player,item.skin);const host=document.getElementById(rigs[key].host);host.style.transform='none';host.style.zIndex=which==='mainHand'?4:cls.offLayer})
+    }
+    function refreshPreview(key){if(['outfit','hairstyle','headwear','facewear','makeup'].includes(key))createBody();else if(key==='backwear')createBack();else if(key==='mainHand')createWeapon('mainHand');else if(key==='offHand')createWeapon('offHand')}
+
+    function renderSetup(){genderChoices.innerHTML=['Male','Female'].map(value=>`<button class="choice ${state.gender===value?'active':''}" data-gender="${value}">${value}</button>`).join('');classChoices.innerHTML=Object.entries(classes).map(([name,cls])=>`<button class="choice class-choice ${state.className===name?'active':''}" data-class="${name}">${name}<small>${cls.lineage}</small></button>`).join('')}
+    function renderCatalog(){const groups={Body:[],Weapon:[],Head:[]};for(const cat of categories)groups[cat[2]].push(cat);catalog.innerHTML=Object.entries(groups).map(([group,cats],index)=>`<details ${index===0?'open':''}><summary>${group}</summary>${cats.map(([key,label])=>`<div class="category"><div class="category-title"><div class="label">${label}</div><div class="count">${itemsFor(key).length} options</div></div><input class="search" type="search" data-search="${key}" value="${state.search[key]||''}" placeholder="Search ${label}"><div class="items" id="items-${key}"></div></div>`).join('')}</details>`).join('');for(const [key] of categories)renderItems(key);const total=categories.reduce((sum,[key])=>sum+itemsFor(key).length,0);catalogSummary.textContent=`${total.toLocaleString()} compatible choices for ${state.gender} ${state.className}.`}
+    function renderItems(key){const host=document.getElementById(`items-${key}`);if(!host)return;const query=(state.search[key]||'').trim().toLowerCase();const list=itemsFor(key).filter(item=>`${item.name} ${item.skin||''}`.toLowerCase().includes(query));host.innerHTML=list.length?list.map(item=>`<button class="item ${state.selected[key]===item.id?'active':''}" data-item="${key}" data-id="${item.id}">${item.icon?`<img src="../${item.icon}" alt="">`:`<span class="empty-icon">${item.id==='none'?'×':'✦'}</span>`}<span><strong>${item.name}</strong>${item.skin?`<small>${item.skin}</small>`:''}</span></button>`).join(''):'<div class="no-results">No Matching Items</div>'}
+    function renderPreviewText(){
+      const cls=classes[state.className];classBadge.textContent=`${state.gender} ${state.className}`;previewSubtitle.textContent=`${state.gender} · ${state.className} · ${cls.lineage}`;
+      equippedSummary.innerHTML=categories.map(([key,label])=>`<div class="summary-row"><span>${label}</span><strong>${selectedItem(key).name}</strong></div>`).join('');
+      acquisitionList.innerHTML=categories.map(([key,label])=>{const item=selectedItem(key);return `<div class="acquisition-row"><div class="part">${label}</div><strong>${item.name}</strong><div class="where">${item.acquisition||'Source not specified in client data'}</div></div>`}).join('');
+    }
+    function renderAll(){initializeSelections();renderSetup();renderCatalog();renderPreviewText()}
+    async function refreshAllRigs(){await Promise.all([createBody(),createBack(),createWeapon('mainHand'),createWeapon('offHand')])}
+
+    document.addEventListener('click',event=>{
+      const gender=event.target.closest('[data-gender]');if(gender){state.gender=gender.dataset.gender;state.selected={};renderAll();refreshAllRigs();return}
+      const classButton=event.target.closest('[data-class]');if(classButton){state.className=classButton.dataset.class;state.selected.mainHand='';state.selected.offHand='';renderAll();createWeapon('mainHand');createWeapon('offHand');return}
+      const item=event.target.closest('[data-item]');if(item){state.selected[item.dataset.item]=item.dataset.id;renderItems(item.dataset.item);renderPreviewText();refreshPreview(item.dataset.item)}
+    });
+    document.addEventListener('input',event=>{if(event.target.matches('[data-search]')){state.search[event.target.dataset.search]=event.target.value;renderItems(event.target.dataset.search)}});
+    reset.addEventListener('click',()=>{state.selected={};state.search={};renderAll();refreshAllRigs()});
+    renderAll();refreshAllRigs().catch(error=>{loading.textContent=`Could not load the selected look: ${error.message}`;console.error(error)});
+  </script>
+</body>
+</html>
