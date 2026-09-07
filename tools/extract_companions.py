@@ -20,6 +20,16 @@ RESEARCH = Path(r"C:\tmp\sxs-research\tools")
 DEPS = Path(r"C:\tmp\sxs-research\.deps")
 CDN = "https://zhangjcsomqdl.boltraygames.com/patch/20260828203788/Android/DefaultPackage"
 FALLBACK_ART = "https://lootandwaifus.com/companions/swordxstaff/npc_icon_{id}.png"
+CROSSOVER_REFERENCE_ART = {
+    # The current global client contains the Slime crossover skeletons but only
+    # 24 px placeholder texture sheets. Keep a local, recognizable portrait
+    # until the production art bundle is published, rather than showing an
+    # initial-only tile or depending on the broken public icon endpoint.
+    "11015": "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/1/11/Rimuru.png/revision/latest?cb=20260824034252",
+    "11016": "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/f/f4/Milim_Anime.png/revision/latest?cb=20220315222452",
+    "11017": "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/0/03/Shuna.png/revision/latest?cb=20260824032544",
+    "11018": "https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/b/bd/Benimaru_Anime.png/revision/latest?cb=20180922211643",
+}
 
 sys.path[:0] = [str(RESEARCH), str(DEPS)]
 import UnityPy  # noqa: E402
@@ -218,16 +228,38 @@ def save_art(manifest, companion_rows: list[dict[str, str]]) -> dict[str, dict[s
         try:
             # Pillow is already provided by UnityPy; decode through PIL directly.
             from PIL import Image
-            request = urllib.request.Request(
-                FALLBACK_ART.format(id=npc_id),
-                headers={
-                    "User-Agent": "Mozilla/5.0",
-                    "Referer": "https://lootandwaifus.com/sword-x-staff-companion-database/",
-                },
-            )
-            with urllib.request.urlopen(request, timeout=30) as response:
-                source = Image.open(response).convert("RGBA")
-                source.save(target, "WEBP", quality=92, method=6)
+            urls = [FALLBACK_ART.format(id=npc_id)]
+            if npc_id in CROSSOVER_REFERENCE_ART:
+                urls.append(CROSSOVER_REFERENCE_ART[npc_id])
+            last_error = None
+            source = None
+            for url in urls:
+                try:
+                    request = urllib.request.Request(
+                        url,
+                        headers={
+                            "User-Agent": "Mozilla/5.0",
+                            "Referer": "https://lootandwaifus.com/sword-x-staff-companion-database/",
+                        },
+                    )
+                    with urllib.request.urlopen(request, timeout=30) as response:
+                        source = Image.open(response).convert("RGBA")
+                    break
+                except Exception as exc:
+                    last_error = exc
+            if source is None:
+                raise last_error or RuntimeError("no portrait source")
+            # Cards use a square crop; transparent character renders retain
+            # their full height while landscape artwork is center-cropped.
+            if source.width > source.height:
+                edge = source.height
+                left = (source.width - edge) // 2
+                source = source.crop((left, 0, left + edge, edge))
+            source.thumbnail((360, 360))
+            canvas = Image.new("RGBA", (360, 360), (0, 0, 0, 0))
+            canvas.alpha_composite(source, ((360 - source.width) // 2, 360 - source.height))
+            source = canvas
+            source.save(target, "WEBP", quality=92, method=6)
             result[npc_id]["icon"] = f"assets/{target.name}"
         except Exception as exc:
             print(f"warning: no fallback portrait for {npc_id}: {exc}")
