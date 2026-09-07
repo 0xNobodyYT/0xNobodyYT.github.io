@@ -3,9 +3,11 @@
   const $ = id => document.getElementById(id);
   const esc = value => String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
   const duplicateNames = new Set(data.filter((c, i) => data.findIndex(x => x.name === c.name) !== i).map(c => c.name));
-  const state = {selected: data[0]?.id, level: 100};
+  const state = {selected: data[0]?.id, level: 100, selectedStats: new Set()};
   const coreNames = new Set(['ATK','DEF','HP','SPD']);
   const travelNames = new Set(['Travel Base Reward +','Travel Reward Bonus','Travel Extra Reward Chance']);
+  const statOrder = ['ATK','ATK %','DEF','DEF %','HP','HP %','SPD','SPD %','Crit Rate','Crit RES','Accuracy','Block Rate','Healing Boost','DMG Boost','DMG RES','Travel Reward Bonus','Travel Extra Reward Chance'];
+  const statNames = [...new Set(data.flatMap(c => Object.keys(c.curve[c.maxLevel - 1] || {})))].sort((a,b) => (statOrder.indexOf(a) < 0 ? 999 : statOrder.indexOf(a)) - (statOrder.indexOf(b) < 0 ? 999 : statOrder.indexOf(b)) || a.localeCompare(b));
   const format = (name, value) => {
     if (name.includes('%') || ['Crit Rate','Crit RES','Accuracy','Block Rate','Crit DMG','Healing Boost','DMG Boost','DMG RES','Travel Reward Bonus','Travel Extra Reward Chance'].includes(name)) return `${Number(value).toLocaleString(undefined,{maximumFractionDigits:2})}%`;
     return Number(value).toLocaleString(undefined,{maximumFractionDigits:0});
@@ -18,8 +20,22 @@
     const q = $('search').value.trim().toLowerCase();
     return data.filter(c => {
       const haystack = [c.name,c.nativeClass,c.catalog,c.gift,c.region,c.availability,...c.recommended].join(' ').toLowerCase();
-      return (!q || haystack.includes(q)) && (!$('recommendedFilter').value || c.recommended.includes($('recommendedFilter').value)) && (!$('nativeFilter').value || c.nativeClass === $('nativeFilter').value) && (!$('catalogFilter').value || c.catalog === $('catalogFilter').value) && (!$('availabilityFilter').value || c.availability === $('availabilityFilter').value) && (!$('rarityFilter').value || ($('rarityFilter').value === 'premium') === c.premium);
+      const finalStats = c.curve[c.maxLevel - 1] || {};
+      const hasSelectedStats = [...state.selectedStats].every(stat => Number(finalStats[stat]) > 0);
+      return (!q || haystack.includes(q)) && hasSelectedStats && (!$('recommendedFilter').value || c.recommended.includes($('recommendedFilter').value)) && (!$('catalogFilter').value || c.catalog === $('catalogFilter').value) && (!$('availabilityFilter').value || c.availability === $('availabilityFilter').value) && (!$('rarityFilter').value || ($('rarityFilter').value === 'premium') === c.premium);
     });
+  }
+
+  function renderStatFilter() {
+    $('statOptions').innerHTML = statNames.map(stat => `<label><input type="checkbox" value="${esc(stat)}" ${state.selectedStats.has(stat)?'checked':''}><span>${esc(stat)}</span></label>`).join('');
+    const selected = [...state.selectedStats];
+    $('statFilterSummary').textContent = selected.length ? `${selected.length} stat${selected.length === 1 ? '' : 's'} selected` : 'All stats';
+    $('statFilterSummary').title = selected.length ? selected.join(', ') : 'Show companions with any stat profile';
+    $('clearStats').disabled = !selected.length;
+    $('statOptions').querySelectorAll('input').forEach(input => input.addEventListener('change', () => {
+      input.checked ? state.selectedStats.add(input.value) : state.selectedStats.delete(input.value);
+      renderStatFilter(); renderGrid();
+    }));
   }
 
   function renderGrid() {
@@ -59,8 +75,10 @@
   }
 
   function setLevel(value) { state.level = Math.max(1, Math.min(getSelected().maxLevel, Number(value)||1)); renderDetail(); }
-  ['search','recommendedFilter','nativeFilter','rarityFilter','catalogFilter','availabilityFilter'].forEach(id => $(id).addEventListener(id==='search'?'input':'change', renderGrid));
+  ['search','recommendedFilter','rarityFilter','catalogFilter','availabilityFilter'].forEach(id => $(id).addEventListener(id==='search'?'input':'change', renderGrid));
+  $('clearStats').addEventListener('click', () => { state.selectedStats.clear(); renderStatFilter(); renderGrid(); });
+  document.addEventListener('click', event => { if (!$('statFilter').contains(event.target)) $('statFilter').removeAttribute('open'); });
   $('friendshipLevel').addEventListener('input', e => setLevel(e.target.value)); $('friendshipNumber').addEventListener('input', e => setLevel(e.target.value));
   $('totalCount').textContent = data.length; $('premiumCount').textContent = data.filter(c=>c.premium).length;
-  renderGrid(); renderDetail();
+  renderStatFilter(); renderGrid(); renderDetail();
 })();

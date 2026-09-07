@@ -28,7 +28,7 @@
   <section class="panel filters">
     <div class="field search-field"><label for="search">Find a companion</label><input id="search" type="search" placeholder="Name, class, gift, region…" autocomplete="off"></div>
     <div class="field"><label for="recommendedFilter">Best fit</label><select id="recommendedFilter"><option value="">All stat profiles</option><option>Knight</option><option>Duelist</option><option>Sorcerer</option><option>Sage</option></select></div>
-    <div class="field"><label for="nativeFilter">Native class</label><select id="nativeFilter"><option value="">All native classes</option><option>Knight</option><option>Duelist</option><option>Sorcerer</option><option>Sage</option></select></div>
+    <div class="field stat-filter-field"><label id="statFilterLabel">Stat selection</label><details class="multi-select" id="statFilter"><summary aria-labelledby="statFilterLabel" id="statFilterSummary">All stats</summary><div class="multi-select-menu"><div class="stat-options" id="statOptions"></div><button type="button" id="clearStats">Clear selection</button></div></details></div>
     <div class="field"><label for="rarityFilter">Companion type</label><select id="rarityFilter"><option value="">All types</option><option value="premium">Premium</option><option value="standard">Standard</option></select></div>
     <div class="field"><label for="catalogFilter">Origin</label><select id="catalogFilter"><option value="">All origins</option><option>World</option><option>Crossover</option></select></div>
     <div class="field"><label for="availabilityFilter">Availability</label><select id="availabilityFilter"><option value="">All availability</option><option value="Global client">Global localized</option><option value="Global client (unreleased)">Global unreleased</option><option value="TW / future">TW / future</option></select></div>
@@ -72,6 +72,6 @@
   <footer class="footer">Datamining direction credited to <a href="https://github.com/Mystonats">Mystonats</a>. © 2026 0xNobody.</footer>
 </main>
 <script src="data.js?v=20260907-2"></script>
-<script src="companions.js?v=20260907-2"></script>
+<script src="companions.js?v=20260907-3"></script>
 </body>
 </html>
