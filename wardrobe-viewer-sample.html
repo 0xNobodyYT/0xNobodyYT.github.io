@@ -110,7 +110,7 @@
       return [...new Set(base)];
     }
     function applySkin(player,names){const skin=new spine.Skin('wardrobe-look');for(const name of names){const found=player.skeleton.data.findSkin(name);if(found)skin.addSkin(found)}player.skeleton.setSkin(skin);player.skeleton.setSlotsToSetupPose()}
-    function keepHandSlots(player){for(const slot of player.skeleton.slots)if(!/shou[LR]_?3/i.test(slot.data.name))slot.setAttachment(null)}
+    function keepGripSlots(player){for(const slot of player.skeleton.slots)if(!/shou[LR]_?3.*S$/i.test(slot.data.name))slot.setAttachment(null)}
     function forceSkinAttachments(player,name){const source=player.skeleton.data.findSkin(name);source?.attachments.forEach((entry,index)=>{if(entry){const attachment=Object.keys(entry)[0];player.skeleton.setAttachment(player.skeleton.slots[index].data.name,attachment)}})}
     function disposePlayer(key){if(players[key]){try{players[key].dispose()}catch{}players[key]=null}if(blobUrls[key]){URL.revokeObjectURL(blobUrls[key]);blobUrls[key]=null}document.getElementById(rigs[key].host).replaceChildren()}
     async function dynamicAtlas(group,pages){
@@ -124,7 +124,7 @@
     async function createRig(key,pages,onReady){
       const token=tokens[key]=(tokens[key]||0)+1;const atlas=await dynamicAtlas(key,pages);if(token!==tokens[key]){URL.revokeObjectURL(atlas.blob);return}disposePlayer(key);blobUrls[key]=atlas.blob;const rig=rigs[key];
       const isWeapon=key==='primary'||key==='secondary',isBody=key==='male'||key==='female'||key==='hands';
-      players[key]=new spine.SpinePlayer(rig.host,{...basePlayer,skeleton:rig.skeleton,atlas:atlas.atlasKey,rawDataURIs:atlas.rawDataURIs,viewport:isWeapon||isBody?bodyViewport:accessoryViewport,updateWorldTransform:isWeapon?(player)=>bindWeaponRig(player,key):key==='hands'?(player)=>{keepHandSlots(player);player.skeleton.updateWorldTransform(2)}:undefined,success(player){if(token!==tokens[key])return;players[key]=player;onReady(player)}});
+      players[key]=new spine.SpinePlayer(rig.host,{...basePlayer,skeleton:rig.skeleton,atlas:atlas.atlasKey,rawDataURIs:atlas.rawDataURIs,viewport:isWeapon||isBody?bodyViewport:accessoryViewport,updateWorldTransform:isWeapon?(player)=>bindWeaponRig(player,key):key==='hands'?(player)=>{keepGripSlots(player);player.skeleton.updateWorldTransform(2)}:undefined,success(player){if(token!==tokens[key])return;players[key]=player;onReady(player)}});
     }
     function bindWeaponRig(player,key){
       const body=players[state.gender.toLowerCase()];const cls=classes[state.className];const main=key==='primary';
@@ -133,7 +133,7 @@
       player.skeleton.updateWorldTransform(2);
     }
     async function createBody(){loading.classList.remove('ready');const key=state.gender.toLowerCase();await createRig(key,bodyPages(),player=>{applySkin(player,bodySkins());player.setAnimation('home/idle_01',true);loading.classList.add('ready')})}
-    async function createHands(){const source=rigs[state.gender.toLowerCase()];rigs.hands={host:'handPlayer',skeleton:source.skeleton,atlas:source.atlas};await createRig('hands',bodyPages(),player=>{applySkin(player,bodySkins());keepHandSlots(player);player.setAnimation('home/idle_01',true)})}
+    async function createHands(){const source=rigs[state.gender.toLowerCase()];rigs.hands={host:'handPlayer',skeleton:source.skeleton,atlas:source.atlas};await createRig('hands',bodyPages(),player=>{applySkin(player,bodySkins());keepGripSlots(player);player.setAnimation('home/idle_01',true)})}
     async function createBack(){const item=selectedItem('backwear');await createRig('back',item.pages||[],player=>{applySkin(player,item.skin?[item.skin]:['default']);player.setAnimation('loop_A',true);if(item.skin)forceSkinAttachments(player,item.skin);player.play()})}
     async function createWeapon(which){
       const key=which==='mainHand'?'primary':'secondary';const item=selectedItem(which);const cls=classes[state.className];
