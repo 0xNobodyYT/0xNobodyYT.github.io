@@ -61,8 +61,8 @@
       Sorcerer:{lineage:'Mage · Rank 2',mainPrefix:'pWeapon_200_',offPrefix:'sWeapon_22_',mainAnimation:'200/200_loop',offAnimation:'200_22_loop_home'},
       Sage:{lineage:'Mage · Rank 2',mainPrefix:'pWeapon_200_',offPrefix:'sWeapon_21_',mainAnimation:'200/200_loop',offAnimation:'200_21_loop_home'}
     };
-    Object.assign(classes.Knight,{mainAnchor:'pWeapon_R1',mainScale:.25,mainRotation:180,offAnchor:'sWeapon_dunpai',offScale:.32,offRotation:0,offLayer:4});
-    Object.assign(classes.Duelist,{mainAnchor:'pWeapon_R1',mainScale:.25,mainRotation:180,offAnchor:'sWeapon_quantao',offScale:.25,offRotation:0,offLayer:4});
+    Object.assign(classes.Knight,{mainAnchor:'pWeapon_R1',mainScale:.25,mainRotation:180,mainOffsetX:5,offAnchor:'sWeapon_dunpai',offScale:.32,offRotation:0,offLayer:4});
+    Object.assign(classes.Duelist,{mainAnchor:'pWeapon_R1',mainScale:.25,mainRotation:180,mainOffsetX:5,offAnchor:'sWeapon_quantao',offScale:.25,offRotation:0,offLayer:4});
     Object.assign(classes.Sorcerer,{mainAnchor:'pWeapon_R1',mainScale:.28,mainRotation:0,mainFixedRotation:true,mainBoneRotation:90,offAnchor:'tou_1',offScale:.32,offRotation:0,offFixedRotation:true,offOffsetX:110,offOffsetY:0,offLayer:4});
     Object.assign(classes.Sage,{mainAnchor:'pWeapon_R1',mainScale:.28,mainRotation:0,mainFixedRotation:true,mainBoneRotation:90,offAnchor:'tou_1',offScale:.32,offRotation:0,offFixedRotation:true,offOffsetX:100,offOffsetY:-14,offLayer:4});
     const categories=[['outfit','Outfit','Body'],['backwear','Backwear','Body'],['mainHand','Main Hand','Weapon'],['offHand','Off-Hand','Weapon'],['hairstyle','Hairstyle','Head'],['headwear','Headwear','Head'],['facewear','Facewear','Head'],['makeup','Makeup','Head']];
@@ -110,7 +110,16 @@
       return [...new Set(base)];
     }
     function applySkin(player,names){const skin=new spine.Skin('wardrobe-look');for(const name of names){const found=player.skeleton.data.findSkin(name);if(found)skin.addSkin(found)}player.skeleton.setSkin(skin);player.skeleton.setSlotsToSetupPose()}
-    function keepGripSlots(player){for(const slot of player.skeleton.slots)if(!/shou[LR]_?3.*S$/i.test(slot.data.name))slot.setAttachment(null)}
+    function forceGripPose(player,foregroundOnly=false){
+      for(let index=0;index<player.skeleton.slots.length;index++){
+        const slot=player.skeleton.slots[index],match=slot.data.name.match(/shou([LR])_?3.*([SX])$/i);
+        if(!match){if(foregroundOnly)slot.setAttachment(null);continue}
+        const side=match[1].toUpperCase(),part=match[2].toUpperCase(),foregroundSides=/^(Knight|Duelist)$/.test(state.className)?'R':'LR';
+        if(foregroundOnly&&(part!=='S'||!foregroundSides.includes(side))){slot.setAttachment(null);continue}
+        const direction=side==='L'?'B':'D',attachment=player.skeleton.skin?.getAttachment(index,`hand_01F_shouL3_${direction}01${part}`);
+        if(attachment)slot.setAttachment(attachment)
+      }
+    }
     function forceSkinAttachments(player,name){const source=player.skeleton.data.findSkin(name);source?.attachments.forEach((entry,index)=>{if(entry){const attachment=Object.keys(entry)[0];player.skeleton.setAttachment(player.skeleton.slots[index].data.name,attachment)}})}
     function disposePlayer(key){if(players[key]){try{players[key].dispose()}catch{}players[key]=null}if(blobUrls[key]){URL.revokeObjectURL(blobUrls[key]);blobUrls[key]=null}document.getElementById(rigs[key].host).replaceChildren()}
     async function dynamicAtlas(group,pages){
@@ -124,7 +133,7 @@
     async function createRig(key,pages,onReady){
       const token=tokens[key]=(tokens[key]||0)+1;const atlas=await dynamicAtlas(key,pages);if(token!==tokens[key]){URL.revokeObjectURL(atlas.blob);return}disposePlayer(key);blobUrls[key]=atlas.blob;const rig=rigs[key];
       const isWeapon=key==='primary'||key==='secondary',isBody=key==='male'||key==='female'||key==='hands';
-      players[key]=new spine.SpinePlayer(rig.host,{...basePlayer,skeleton:rig.skeleton,atlas:atlas.atlasKey,rawDataURIs:atlas.rawDataURIs,viewport:isWeapon||isBody?bodyViewport:accessoryViewport,updateWorldTransform:isWeapon?(player)=>bindWeaponRig(player,key):key==='hands'?(player)=>{keepGripSlots(player);player.skeleton.updateWorldTransform(2)}:undefined,success(player){if(token!==tokens[key])return;players[key]=player;onReady(player)}});
+      players[key]=new spine.SpinePlayer(rig.host,{...basePlayer,skeleton:rig.skeleton,atlas:atlas.atlasKey,rawDataURIs:atlas.rawDataURIs,viewport:isWeapon||isBody?bodyViewport:accessoryViewport,updateWorldTransform:isWeapon?(player)=>bindWeaponRig(player,key):key==='hands'?(player)=>{forceGripPose(player,true);player.skeleton.updateWorldTransform(2)}:isBody?(player)=>{forceGripPose(player);player.skeleton.updateWorldTransform(2)}:undefined,success(player){if(token!==tokens[key])return;players[key]=player;onReady(player)}});
     }
     function bindWeaponRig(player,key){
       const body=players[state.gender.toLowerCase()];const cls=classes[state.className];const main=key==='primary';
@@ -133,7 +142,7 @@
       player.skeleton.updateWorldTransform(2);
     }
     async function createBody(){loading.classList.remove('ready');const key=state.gender.toLowerCase();await createRig(key,bodyPages(),player=>{applySkin(player,bodySkins());player.setAnimation('home/idle_01',true);loading.classList.add('ready')})}
-    async function createHands(){const source=rigs[state.gender.toLowerCase()];rigs.hands={host:'handPlayer',skeleton:source.skeleton,atlas:source.atlas};await createRig('hands',bodyPages(),player=>{applySkin(player,bodySkins());keepGripSlots(player);player.setAnimation('home/idle_01',true)})}
+    async function createHands(){const source=rigs[state.gender.toLowerCase()];rigs.hands={host:'handPlayer',skeleton:source.skeleton,atlas:source.atlas};await createRig('hands',bodyPages(),player=>{applySkin(player,bodySkins());forceGripPose(player,true);player.setAnimation('home/idle_01',true)})}
     async function createBack(){const item=selectedItem('backwear');await createRig('back',item.pages||[],player=>{applySkin(player,item.skin?[item.skin]:['default']);player.setAnimation('loop_A',true);if(item.skin)forceSkinAttachments(player,item.skin);player.play()})}
     async function createWeapon(which){
       const key=which==='mainHand'?'primary':'secondary';const item=selectedItem(which);const cls=classes[state.className];
