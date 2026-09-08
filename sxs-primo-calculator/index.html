@@ -576,11 +576,11 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <section class="card">
    <div class="cardhead"><h2>Server calendar setup</h2><span class="chip inputLegend">Saved on this device</span></div>
    <div class="cardbody">
-    <div class="notice">Choose a known server to fill its exact <b>Day 1 date</b> automatically, or choose <b>Custom server</b> to enter your own. Server days advance at the global daily reset: <b>13:00 UTC</b>.</div>
+    <div class="notice">Search the available server roster to fill its derived <b>Calendar Day 1</b> automatically, or choose Custom server and enter your own name. Calendar Day 1 follows the in-game progression clock and can be one date earlier than the public opening timestamp. Server days advance at <b>13:00 UTC</b>.</div>
     <div class="grid3" style="margin-top:11px">
      <div class="field"><label>Saved server profile</label><select id="calendarProfile"><option value="">Custom / unsaved server</option></select></div>
-     <div class="field"><label>Server name</label><select id="calendarServerSelect"><option value="custom">Custom server</option></select><input id="calendarServerName" placeholder="Enter custom server name" style="margin-top:6px"></div>
-     <div class="field"><label>Server Day 1 date</label><input id="calendarStartDate" type="date"></div>
+     <div class="field"><label>Search or enter server name</label><input id="calendarServerName" type="search" list="calendarServerOptions" autocomplete="off" placeholder="Search 624 available servers..."><datalist id="calendarServerOptions"></datalist><span class="subtle" id="calendarServerSource">Select a roster server or enter a custom name.</span></div>
+     <div class="field"><label>Calendar Day 1 date</label><input id="calendarStartDate" type="date"><span class="subtle" id="calendarDateSource">Auto-filled for dated roster servers.</span></div>
     </div>
     <div class="actions">
      <button class="btn primary" id="calendarSaveProfile" type="button">Save server</button>
@@ -1539,21 +1539,16 @@ if(saved){
 }else calculate();
 })();
 </script>
+<script src="../sxs-primo-calculator/server-data.js"></script>
 <script>
 (()=>{
 "use strict";
 const $c=id=>document.getElementById(id), DAY=86400000, RESET_UTC_HOUR=13;
 const PROFILE_KEY="sxsServerCalendarProfilesV1", SELECTED_KEY="sxsServerCalendarSelectedV1", SERVER_CHOICE_KEY="sxsServerCalendarKnownServerV1", VIEW_KEY="sxsCalculatorViewV1";
-// Exact Day 1 dates established from server-day timelines. The complete list is
-// supplied by the authenticated server response, so unverified dates stay out.
-const KNOWN_SERVERS=[
- {id:"first-dawn",name:"First Dawn",start:"2026-05-18"},
- {id:"alchemy-den",name:"Alchemy Den",start:"2026-06-05"},
- {id:"misty-isle",name:"Misty Isle",start:"2026-06-05"},
- {id:"otherworld-inn",name:"Otherworld Inn",start:"2026-06-05"},
- {id:"witch-tea",name:"Witch Tea",start:"2026-06-05"},
- {id:"unshakable",name:"Unshakable",start:"2026-07-18"}
-];
+// The public roster reports opening dates. The planner uses the one-day-earlier
+// progression anchor that matches known in-game event calendars on First Dawn,
+// Unshakable, and the Misty Isle / Witch Tea server group.
+const KNOWN_SERVERS=(window.SXS_SERVER_ROWS||[]).map(([name,start,opened,nexus,number])=>({id:`${nexus}-${number}`,name,start,opened,nexus,number}));
 let activeFilter="all", showFull=false;
 const seasons=[
  {number:1,start:1,name:"Witching Hours"},{number:2,start:47,name:"Crossed Paths"},
@@ -1677,21 +1672,26 @@ function populateProfiles(selected=""){
  const select=$c("calendarProfile"),items=profiles();select.innerHTML='<option value="">Custom / unsaved server</option>'+items.map(p=>`<option value="${esc(p.id)}">${esc(p.name)} · Day 1 ${esc(p.start)}</option>`).join("");
  select.value=items.some(p=>p.id===selected)?selected:""
 }
-function populateKnownServers(selected="custom"){
- const select=$c("calendarServerSelect");
- select.innerHTML=KNOWN_SERVERS.map(s=>`<option value="${esc(s.id)}">${esc(s.name)}</option>`).join("")+'<option value="custom">Custom server</option>';
- select.value=KNOWN_SERVERS.some(s=>s.id===selected)?selected:"custom"
+function populateKnownServers(){
+ const list=$c("calendarServerOptions");
+ list.innerHTML=KNOWN_SERVERS.map(s=>`<option value="${esc(s.name)}">${esc(s.start?`Calendar Day 1 ${s.start} · opened ${s.opened}`:"Date unavailable · calibrate manually")} · Nexus ${esc(s.nexus)} #${s.number}</option>`).join("")+`<option value="Custom server">Enter your own name and Calendar Day 1</option>`
+}
+function knownServer(value){
+ const key=String(value||"").trim().toLowerCase();return KNOWN_SERVERS.find(s=>s.name.toLowerCase()===key)
+}
+function showServerSource(known){
+ $c("calendarServerSource").textContent=known?`Nexus ${known.nexus} · Server #${known.number}${known.opened?` · Public opening ${known.opened}`:" · Opening date unavailable"}`:"Custom server";
+ $c("calendarDateSource").textContent=known?.start?`Progression anchor derived from the roster's ${known.opened} public opening date using the verified one-day calendar offset.`:known?"This roster entry has no usable date; calibrate it from the day shown in game.":"Enter or calibrate the Calendar Day 1 date."
 }
 function applyCalendarServer(name="",start="",remember=false){
- const known=KNOWN_SERVERS.find(s=>s.name.toLowerCase()===String(name).trim().toLowerCase()&&s.start===start),nameInput=$c("calendarServerName"),dateInput=$c("calendarStartDate");
- populateKnownServers(known?.id||"custom");
- if(known){nameInput.value=known.name;nameInput.hidden=true;dateInput.value=known.start;dateInput.readOnly=true;if(remember)localStorage.setItem(SERVER_CHOICE_KEY,known.id)}
- else{nameInput.value=name;nameInput.hidden=false;dateInput.value=start;dateInput.readOnly=false;if(remember)localStorage.removeItem(SERVER_CHOICE_KEY)}
+ const candidate=knownServer(name),known=candidate&&candidate.start===start?candidate:null,nameInput=$c("calendarServerName"),dateInput=$c("calendarStartDate");
+ nameInput.value=known?.name||name;nameInput.dataset.serverId=known?.id||"";dateInput.value=known?.start||start;dateInput.readOnly=!!known?.start;showServerSource(known);
+ if(remember){if(known)localStorage.setItem(SERVER_CHOICE_KEY,known.id);else localStorage.removeItem(SERVER_CHOICE_KEY)}
 }
-function chooseKnownServer(id,remember=true){
- const known=KNOWN_SERVERS.find(s=>s.id===id),nameInput=$c("calendarServerName"),dateInput=$c("calendarStartDate");
- if(known){nameInput.value=known.name;nameInput.hidden=true;dateInput.value=known.start;dateInput.readOnly=true;if(remember)localStorage.setItem(SERVER_CHOICE_KEY,known.id)}
- else{nameInput.hidden=false;dateInput.readOnly=false;if(remember){nameInput.value="";dateInput.value="";localStorage.removeItem(SERVER_CHOICE_KEY)}}
+function chooseKnownServer(value,remember=true){
+ const known=KNOWN_SERVERS.find(s=>s.id===value)||knownServer(value),nameInput=$c("calendarServerName"),dateInput=$c("calendarStartDate");
+ if(known){nameInput.value=known.name;nameInput.dataset.serverId=known.id;dateInput.value=known.start;dateInput.readOnly=!!known.start;showServerSource(known);if(remember)localStorage.setItem(SERVER_CHOICE_KEY,known.id)}
+ else{nameInput.dataset.serverId="";dateInput.readOnly=false;showServerSource(null);if(remember){nameInput.value="";dateInput.value="";localStorage.removeItem(SERVER_CHOICE_KEY)}}
 }
 function setView(view){
  const calendar=view==="calendar";$c("plannerView").hidden=calendar;$c("calendarView").hidden=!calendar;
@@ -1704,7 +1704,7 @@ function loadFromQuery(){const q=new URLSearchParams(location.search),start=q.ge
 function loadSelected(){
  const id=localStorage.getItem(SELECTED_KEY)||"",p=profiles().find(x=>x.id===id);populateProfiles(p?.id||"");
  if(p){applyCalendarServer(p.name,p.start);return true}
- const knownId=localStorage.getItem(SERVER_CHOICE_KEY)||"",known=KNOWN_SERVERS.find(s=>s.id===knownId);populateKnownServers(known?.id||"custom");if(known){chooseKnownServer(known.id,false);return true}return false
+ const knownId=localStorage.getItem(SERVER_CHOICE_KEY)||"",legacy={"first-dawn":"First Dawn","alchemy-den":"Alchemy Den","misty-isle":"Misty Isle","otherworld-inn":"Otherworld Inn","witch-tea":"Witch Tea","unshakable":"Unshakable"},known=KNOWN_SERVERS.find(s=>s.id===knownId)||knownServer(legacy[knownId]);if(known){chooseKnownServer(known.id,false);localStorage.setItem(SERVER_CHOICE_KEY,known.id);return true}return false
 }
 function saveProfile(){
  const name=$c("calendarServerName").value.trim(),start=$c("calendarStartDate").value;if(!name||!parseDate(start)){toastCalendar("Enter a server name and valid Day 1 date");return}
@@ -1768,10 +1768,10 @@ function renderTimeline(entries,start,todayDay,now){
  }).join("")
 }
 $c("calendarProfile").onchange=e=>{const p=profiles().find(x=>x.id===e.target.value);if(p){applyCalendarServer(p.name,p.start);localStorage.setItem(SELECTED_KEY,p.id)}else localStorage.removeItem(SELECTED_KEY);renderCalendar()};
-$c("calendarServerSelect").onchange=e=>{chooseKnownServer(e.target.value);localStorage.removeItem(SELECTED_KEY);$c("calendarProfile").value="";renderCalendar()};
-$c("calendarServerName").addEventListener("input",renderCalendar);$c("calendarStartDate").addEventListener("change",renderCalendar);
+$c("calendarServerName").addEventListener("input",e=>{const known=knownServer(e.target.value);if(known)chooseKnownServer(known.id);else if(e.target.dataset.serverId){e.target.dataset.serverId="";$c("calendarStartDate").value="";$c("calendarStartDate").readOnly=false;localStorage.removeItem(SERVER_CHOICE_KEY);showServerSource(null)}localStorage.removeItem(SELECTED_KEY);$c("calendarProfile").value="";renderCalendar()});
+$c("calendarServerName").addEventListener("change",e=>{const known=knownServer(e.target.value);if(known)chooseKnownServer(known.id);renderCalendar()});$c("calendarStartDate").addEventListener("change",renderCalendar);
 $c("calendarSaveProfile").onclick=saveProfile;$c("calendarDeleteProfile").onclick=deleteProfile;
-$c("calendarCalibrate").onclick=()=>{const day=Math.floor(Number($c("calendarKnownDay").value)),known=parseDate($c("calendarKnownDate").value);if(day<1||!known){toastCalendar("Enter a valid server day and date");return}const start=new Date(known.getTime()-(day-1)*DAY);populateKnownServers("custom");chooseKnownServer("custom");$c("calendarStartDate").value=isoDate(start);renderCalendar();toastCalendar(`Day 1 calculated: ${isoDate(start)}`)};
+$c("calendarCalibrate").onclick=()=>{const day=Math.floor(Number($c("calendarKnownDay").value)),known=parseDate($c("calendarKnownDate").value);if(day<1||!known){toastCalendar("Enter a valid server day and date");return}const start=new Date(known.getTime()-(day-1)*DAY),name=$c("calendarServerName").value;applyCalendarServer(name,start?isoDate(start):"");renderCalendar();toastCalendar(`Day 1 calculated: ${isoDate(start)}`)};
 $c("calendarShare").onclick=async()=>{const start=$c("calendarStartDate").value,name=$c("calendarServerName").value.trim();if(!parseDate(start)){toastCalendar("Set a valid Day 1 date first");return}const u=new URL("../sxs-server-calendar/",location.href);u.searchParams.set("server",name||"Shared server");u.searchParams.set("start",start);try{await navigator.clipboard.writeText(u.toString());toastCalendar("Calendar link copied")}catch{prompt("Copy this calendar link",u.toString())}};
 $c("calendarFilters").onclick=e=>{const b=e.target.closest("[data-filter]");if(!b)return;activeFilter=b.dataset.filter;document.querySelectorAll(".calendarFilter").forEach(x=>x.classList.toggle("active",x===b));renderCalendar()};
 $c("calendarShowPast").onclick=()=>{showFull=!showFull;$c("calendarShowPast").textContent=showFull?"Show upcoming only":"Show full timeline";renderCalendar()};
