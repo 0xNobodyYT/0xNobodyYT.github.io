@@ -12,7 +12,8 @@ html,body{margin:0;min-height:100%;background:#090c12;color:#f4f7fb;font:16px/1.
 <body>
 <div class="loading"><p><b>Loading Sword x Staff Server Calendar…</b><br>If it does not open, <a href="../sxs-primo-calculator/?view=calendar" style="color:#71d8e9">use the calendar fallback</a>.</p></div>
 <script>
-fetch("../sxs-primo-calculator/index.html").then(response=>{if(!response.ok)throw new Error("Calendar source unavailable");return response.text()}).then(html=>{document.open();document.write(html);document.close()}).catch(()=>document.querySelector(".loading b").textContent="The calendar could not be loaded.");
+const calendarSource=`../sxs-primo-calculator/index.html?v=${Date.now()}`;
+fetch(calendarSource,{cache:"no-store"}).then(response=>{if(!response.ok)throw new Error("Calendar source unavailable");return response.text()}).then(html=>{document.open();document.write(html);document.close()}).catch(()=>document.querySelector(".loading b").textContent="The calendar could not be loaded.");
 </script>
 </body>
 </html>
