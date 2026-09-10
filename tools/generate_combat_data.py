@@ -73,6 +73,32 @@ for row in rows("level_prop_battle.csv"):
             if number(row.get(key))
         }
 
+# Combat denominators are rank- and level-dependent. They are part of the
+# actual battle formula (mastery, affinity, crit value, resistance, etc.), not
+# optional display metadata.
+battle_extra = {}
+for row in rows("level_prop_battle_extra.csv"):
+    if row.get("class_id", "").isdigit() and row.get("level", "").isdigit():
+        battle_extra.setdefault(row["class_id"], {})[row["level"]] = {
+            key: number(value)
+            for key, value in row.items()
+            if key not in ("class_id", "level") and number(value)
+        }
+
+rank_extra_ids = {
+    "Norank": "2", "Blackiron": "2", "Bronze": "3", "Silver": "4",
+    "Gold": "5", "Saint": "6", "Legend": "7", "Angel": "8",
+}
+
+level_offsets = {
+    row["LevelOffset"]: number(row.get("DamageScale"))
+    for row in rows("fight_level_offset_damage.csv")
+}
+rank_offsets = {
+    row["Rank"]: number(row.get("DamageScale"))
+    for row in rows("fight_rank_offset_damage.csv")
+}
+
 professions = {}
 for row in rows("profession_base.csv"):
     if row.get("Profession") not in ("", "None"):
@@ -388,9 +414,12 @@ for row in skill_source_rows:
                 ranked[str(rank)] = item
         if ranked:
             summon_effects.append({"classId": number(summon_id), "effects": ranked})
+    description = re.sub(r"<[^>]+>", "", language.get(f"item_{row['ClassId']}_func_desc", ""))
+    element_match = re.search(r"\b(Wind|Water|Fire|Light|Dark)\s+DMG\b", description, re.I)
     skills[row["ClassId"]] = {
         "effects": effects,
         "cd": number(cd_entity.get("CD")) / 10000 if cd_entity else None,
+        "element": element_match.group(1).title() if element_match else "Physical",
         "groupId": entity.get("GroupLevelPropId") or "",
         "statusEffects": status_effects,
         "summons": summon_effects,
@@ -472,11 +501,65 @@ for row in rows("pet.csv"):
         "forms": pet_forms.get(row["ClassId"], {}),
     }
 
+# Damage-test boss presets. Stage 72001 uses monster 3602 and property group 12;
+# the difficulty table supplies the actual target level for each combat rank.
+monster_template = next(
+    (row for row in rows("monster_group.csv") if row.get("MonsterId") == "3602" and row.get("GroupNo") == "0"),
+    {},
+)
+monster_group_curves = {
+    row["SubRank"]: row["LevelPropID"]
+    for row in rows("role_prop_group.csv")
+    if row.get("ID") == "12" and row.get("SubRank") and row.get("LevelPropID")
+}
+monster_levels = {}
+for row in rows("level_prop_monster.csv"):
+    if row.get("class_id", "").isdigit() and row.get("level", "").isdigit():
+        monster_levels.setdefault(row["class_id"], {})[row["level"]] = row
+
+damage_test_targets = []
+for difficulty in rows("damage_test_difficulty_level.csv"):
+    rank = difficulty.get("Rank") or ""
+    try:
+        levels = [int(value) for value in ast.literal_eval(difficulty.get("Level") or "[]")]
+    except Exception:
+        levels = []
+    subrank = f"{rank}1" if rank not in ("Norank",) else "Norank"
+    curve_id = monster_group_curves.get(subrank)
+    for index, level in enumerate(levels, 1):
+        source = monster_levels.get(curve_id or "", {}).get(str(level), {})
+        if not source:
+            continue
+        target = {}
+        for key, value in source.items():
+            if key in ("class_id", "level") or not number(value):
+                continue
+            factor = number(monster_template.get(key)) or 10000
+            target[key] = round(number(value) * factor / 10000)
+        damage_test_targets.append({
+            "id": f"{rank}:{index}",
+            "rank": subrank,
+            "rankGroup": rank,
+            "tier": index,
+            "level": level,
+            "stats": target,
+        })
+
 payload = {
     "version": 1,
     "qualities": qualities,
     "baseStats": base_stats,
     "baseInnate": base_innate,
+    "battleExtra": battle_extra,
+    "rankExtraIds": rank_extra_ids,
+    "levelOffsets": level_offsets,
+    "rankOffsets": rank_offsets,
+    "battleSettings": {
+        "minCritPower": 1.3,
+        "minLevelOffset": -1000,
+        "maxLevelOffset": 1000,
+    },
+    "damageTestTargets": damage_test_targets,
     "professions": professions,
     "professionLevels": profession_levels,
     "gear": gear,
