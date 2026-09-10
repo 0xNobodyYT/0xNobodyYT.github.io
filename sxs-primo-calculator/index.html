@@ -63,6 +63,8 @@ textarea{min-height:95px;resize:vertical;font-family:ui-monospace,SFMono-Regular
 .btn{border:1px solid var(--line);background:#111925;color:var(--ink);padding:8px 10px;border-radius:9px;font-weight:850;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:5px}
 .btn.primary{border-color:transparent;background:linear-gradient(135deg,#d6df50,#a4b03a);color:#10140a}
 .btn.coffee{border-color:#ffda71;background:linear-gradient(135deg,#ffdf7c,#f2b94b);color:#241707}
+.btn.p2w{border-color:#ffc936;background:linear-gradient(135deg,#232323,#111);color:#ffd43f}
+.btn.p2w:hover{border-color:#ffe06a}
 
 .btn.ghost{color:var(--muted)}
 .actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
@@ -135,7 +137,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 @media(max-width:620px){
  .heroControls{flex-direction:column;align-items:stretch;width:100%}
  .legendStack{width:100%}
- .promoRow{width:100%;display:grid;grid-template-columns:1fr}
+ .promoRow{width:100%;display:grid;grid-template-columns:1fr 1fr}
  .promoBtn{width:100%;min-width:0}
 }
 .event-major{--event-color:#ffd34f;border-color:rgba(255,211,79,.72);box-shadow:0 0 0 1px rgba(255,211,79,.12),inset 0 0 42px rgba(255,211,79,.09)}
@@ -166,6 +168,9 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
    <span class="chip calcLegend">● Gray = calculated</span>
   </div>
   <div class="promoRow">
+   <a class="btn p2w promoBtn" href="https://www.lootbar.com/a/pcmw3X" target="_blank" rel="noopener noreferrer" aria-label="Open LootBar offer">
+    <span>38% Cheaper P2W</span>
+   </a>
    <a class="btn coffee promoBtn" href="https://buymeacoffee.com/0xnobody" target="_blank" rel="noopener noreferrer">
     <span>☕ Buy me a coffee</span>
    </a>
