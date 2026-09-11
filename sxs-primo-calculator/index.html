@@ -1562,11 +1562,15 @@ const PROFILE_KEY="sxsServerCalendarProfilesV1", SELECTED_KEY="sxsServerCalendar
 // previous derived date so saved profiles and shared links can migrate silently.
 const KNOWN_SERVERS=(window.SXS_SERVER_ROWS||[]).map(([name,oldStart,opened,nexus,number])=>({id:`${nexus}-${number}`,name,start:opened||oldStart,opened,oldStart,nexus,number}));
 let activeFilter="all", showFull=false;
+// Extracted progression offsets were authored against the former one-day-earlier
+// anchor. With the public opening date now serving as Calendar Day 1, every
+// post-launch server-relative offset moves back one day; Day 1 itself is unchanged.
+const publicServerDay=day=>day>1?day-1:day;
 const seasons=[
  {number:1,start:1,name:"Witching Hours"},{number:2,start:47,name:"Crossed Paths"},
  {number:3,start:114,name:"Season 3"},{number:4,start:215,name:"Season 4"},
  {number:5,start:316,name:"Season 5"},{number:6,start:417,name:"Season 6"}
-];
+].map(season=>({...season,start:publicServerDay(season.start)}));
 const milestones=[
  {day:1,type:"season",title:"Season 1 · Witching Hours",meta:"Server journey begins"},
  {day:1,type:"feature",title:"Verdantglade",meta:"First region"},
@@ -1687,7 +1691,7 @@ function weeklyEvents(maxDay=520){
  }
  return out
 }
-const relativeEvents=[...milestones,...weeklyEvents()].sort((a,b)=>a.day-b.day);
+const relativeEvents=[...milestones,...weeklyEvents()].map(event=>({...event,day:publicServerDay(event.day)})).sort((a,b)=>a.day-b.day);
 function populateProfiles(selected=""){
  const select=$c("calendarProfile"),items=profiles();select.innerHTML='<option value="">Custom / unsaved server</option>'+items.map(p=>`<option value="${esc(p.id)}">${esc(p.name)} · Day 1 ${esc(p.start)}</option>`).join("");
  select.value=items.some(p=>p.id===selected)?selected:""
@@ -1802,13 +1806,9 @@ function eventCardHtml(e){
 function renderTimeline(entries,start,todayDay,now){
  let filtered=entries.filter(e=>activeFilter==="all"||e.type===activeFilter);
  if(!showFull)filtered=filtered.filter(e=>e.serverDay>=todayDay-7&&e.serverDay<=todayDay+100);
- const currentServerDate=dayDate(start,todayDay),currentServerKey=zonedDateKey(currentServerDate),todayKey=zonedDateKey(now),groups=new Map();
+ const currentServerDate=dayDate(start,todayDay),currentServerKey=zonedDateKey(currentServerDate),todayKey=currentServerKey,groups=new Map();
  for(const e of filtered){const key=zonedDateKey(e.date);if(!groups.has(key))groups.set(key,{date:e.date,day:e.serverDay,events:[]});groups.get(key).events.push(e)}
- let calendarTodayDay=todayDay,calendarTodayDate=currentServerDate;
- while(zonedDateKey(calendarTodayDate)<todayKey){calendarTodayDay++;calendarTodayDate=dayDate(start,calendarTodayDay)}
- while(zonedDateKey(calendarTodayDate)>todayKey){calendarTodayDay--;calendarTodayDate=dayDate(start,calendarTodayDay)}
  if(!groups.has(currentServerKey))groups.set(currentServerKey,{date:currentServerDate,day:todayDay,events:[]});
- if(!groups.has(todayKey))groups.set(todayKey,{date:calendarTodayDate,day:calendarTodayDay,events:[]});
  const list=[...groups.values()].sort((a,b)=>a.date-b.date);$c("calendarRangeChip").textContent=showFull?"Full timeline":"7 days back · 100 ahead";
  if(!list.length){$c("calendarTimeline").innerHTML='<div class="calendarEmpty">No events match this filter and range.</div>';return}
  $c("calendarTimeline").innerHTML=list.map(group=>{
