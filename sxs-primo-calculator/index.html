@@ -585,7 +585,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <section class="card">
    <div class="cardhead"><h2>Server calendar setup</h2><span class="chip inputLegend">Saved on this device</span></div>
    <div class="cardbody">
-    <div class="notice">Search the available server roster to fill its derived <b>Calendar Day 1</b> automatically, or choose Custom server and enter your own name. Calendar Day 1 follows the in-game progression clock and can be one date earlier than the public opening timestamp. Server days advance at <b>13:00 UTC</b>.</div>
+    <div class="notice">Search the available server roster to fill <b>Calendar Day 1</b> automatically, or choose Custom server and enter your own name. For roster servers, Calendar Day 1 is the server's public opening date. Server days advance at <b>13:00 UTC</b>.</div>
     <div class="grid3" style="margin-top:11px">
      <div class="field"><label>Saved server profile</label><select id="calendarProfile"><option value="">Custom / unsaved server</option></select></div>
      <div class="field serverSearchField"><label for="calendarServerName">Search or enter server name</label><div class="serverSearchControl"><input id="calendarServerName" type="search" autocomplete="off" placeholder="Search servers..." role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="calendarServerResults"><div class="serverSearchResults" id="calendarServerResults" role="listbox" hidden></div></div><span class="subtle" id="calendarServerSource">Select a roster server or enter a custom name.</span></div>
@@ -1558,10 +1558,9 @@ if(saved){
 "use strict";
 const $c=id=>document.getElementById(id), DAY=86400000, RESET_UTC_HOUR=13;
 const PROFILE_KEY="sxsServerCalendarProfilesV1", SELECTED_KEY="sxsServerCalendarSelectedV1", SERVER_CHOICE_KEY="sxsServerCalendarKnownServerV1", TIMEZONE_KEY="sxsServerCalendarTimezoneV1", VIEW_KEY="sxsCalculatorViewV1";
-// The public roster reports opening dates. The planner uses the one-day-earlier
-// progression anchor that matches known in-game event calendars on First Dawn,
-// Unshakable, and the Misty Isle / Witch Tea server group.
-const KNOWN_SERVERS=(window.SXS_SERVER_ROWS||[]).map(([name,start,opened,nexus,number])=>({id:`${nexus}-${number}`,name,start,opened,nexus,number}));
+// The public opening date is Calendar Day 1. Older roster data also carries its
+// previous derived date so saved profiles and shared links can migrate silently.
+const KNOWN_SERVERS=(window.SXS_SERVER_ROWS||[]).map(([name,oldStart,opened,nexus,number])=>({id:`${nexus}-${number}`,name,start:opened||oldStart,opened,oldStart,nexus,number}));
 let activeFilter="all", showFull=false;
 const seasons=[
  {number:1,start:1,name:"Witching Hours"},{number:2,start:47,name:"Crossed Paths"},
@@ -1659,7 +1658,7 @@ function serverDayAt(start,date=new Date()){return Math.floor((date.getTime()-st
 function dateLabel(date){return new Intl.DateTimeFormat(undefined,{timeZone:calendarTimeZone(),weekday:"short",month:"short",day:"numeric",year:"numeric"}).format(date)}
 function compactDateLabel(date){return new Intl.DateTimeFormat(undefined,{timeZone:calendarTimeZone(),month:"short",day:"numeric",year:"numeric"}).format(date)}
 function relativeLabel(days){return days===0?"Today":days===1?"Tomorrow":days>1?`In ${days} days`:`${Math.abs(days)} days ago`}
-function profiles(){try{const v=JSON.parse(localStorage.getItem(PROFILE_KEY)||"[]");return Array.isArray(v)?v:[]}catch{return[]}}
+function profiles(){try{const v=JSON.parse(localStorage.getItem(PROFILE_KEY)||"[]");if(!Array.isArray(v))return[];let changed=false;for(const profile of v){const known=knownServer(profile.name);if(known&&profile.start===known.oldStart&&known.start!==known.oldStart){profile.start=known.start;changed=true}}if(changed)localStorage.setItem(PROFILE_KEY,JSON.stringify(v));return v}catch{return[]}}
 function setProfiles(v){localStorage.setItem(PROFILE_KEY,JSON.stringify(v))}
 function currentSeason(day){let found=seasons[0];for(const season of seasons)if(day>=season.start)found=season;return found}
 const FENNEC_REWARDS=["Star Pact ×6","Destiny Fruit ×18","Dawnium ×600","Fresh Essential Oil ×30","Magic Wool ×30","Farm Egg ×30"];
@@ -1706,7 +1705,7 @@ function closeServerSearch(){const box=$c("calendarServerResults"),input=$c("cal
 function renderServerSearch(query,open=true){
  const box=$c("calendarServerResults"),input=$c("calendarServerName"),q=normalizeServerSearch(query);
  serverSearchMatches=KNOWN_SERVERS.map(server=>({server,score:serverMatchScore(server,q)})).filter(x=>Number.isFinite(x.score)).sort((a,b)=>a.score-b.score||a.server.name.localeCompare(b.server.name)).slice(0,9).map(x=>x.server);serverSearchIndex=-1;
- box.innerHTML=serverSearchMatches.length?serverSearchMatches.map((server,index)=>`<button class="serverResult" id="server-result-${index}" type="button" role="option" data-server-id="${esc(server.id)}"><span class="serverResultName">${esc(server.name)}</span><span class="serverResultMeta">${esc(server.start?`Calendar Day 1 ${server.start} · public opening ${server.opened}`:"Date unavailable · manual calibration required")} · Nexus ${esc(server.nexus)} #${server.number}</span></button>`).join(""):`<div class="serverResultMeta" style="padding:9px">No matching roster server. Continue typing to use a custom server.</div>`;
+ box.innerHTML=serverSearchMatches.length?serverSearchMatches.map((server,index)=>`<button class="serverResult" id="server-result-${index}" type="button" role="option" data-server-id="${esc(server.id)}"><span class="serverResultName">${esc(server.name)}</span><span class="serverResultMeta">${esc(server.start?`Calendar Day 1 / public opening ${server.start}`:"Date unavailable · manual calibration required")} · Nexus ${esc(server.nexus)} #${server.number}</span></button>`).join(""):`<div class="serverResultMeta" style="padding:9px">No matching roster server. Continue typing to use a custom server.</div>`;
  box.hidden=!open;input.setAttribute("aria-expanded",open?"true":"false")
 }
 function populateKnownServers(){closeServerSearch()}
@@ -1721,10 +1720,10 @@ function knownServer(value){
 }
 function showServerSource(known){
  $c("calendarServerSource").textContent=known?`Nexus ${known.nexus} · Server #${known.number}${known.opened?` · Public opening ${known.opened}`:" · Opening date unavailable"}`:"Custom server";
- $c("calendarDateSource").textContent=known?.start?`Progression anchor derived from the roster's ${known.opened} public opening date using the verified one-day calendar offset.`:known?"This roster entry has no usable date; calibrate it from the day shown in game.":"Enter or calibrate the Calendar Day 1 date."
+ $c("calendarDateSource").textContent=known?.start?`Calendar Day 1 uses the roster's ${known.opened} public opening date.`:known?"This roster entry has no usable date; calibrate it from the day shown in game.":"Enter or calibrate the Calendar Day 1 date."
 }
 function applyCalendarServer(name="",start="",remember=false){
- const candidate=knownServer(name),known=candidate&&candidate.start===start?candidate:null,nameInput=$c("calendarServerName"),dateInput=$c("calendarStartDate");
+ const candidate=knownServer(name),known=candidate&&(candidate.start===start||candidate.oldStart===start)?candidate:null,nameInput=$c("calendarServerName"),dateInput=$c("calendarStartDate");
  nameInput.value=known?.name||name;nameInput.dataset.serverId=known?.id||"";dateInput.value=known?.start||start;dateInput.readOnly=!!known?.start;showServerSource(known);
  if(remember){if(known)localStorage.setItem(SERVER_CHOICE_KEY,known.id);else localStorage.removeItem(SERVER_CHOICE_KEY)}
 }
