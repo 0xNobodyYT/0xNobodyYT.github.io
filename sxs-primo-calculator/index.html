@@ -1560,7 +1560,8 @@ const $c=id=>document.getElementById(id), DAY=86400000, RESET_UTC_HOUR=13;
 const PROFILE_KEY="sxsServerCalendarProfilesV1", SELECTED_KEY="sxsServerCalendarSelectedV1", SERVER_CHOICE_KEY="sxsServerCalendarKnownServerV1", TIMEZONE_KEY="sxsServerCalendarTimezoneV1", VIEW_KEY="sxsCalculatorViewV1";
 // The public opening date is Calendar Day 1. Older roster data also carries its
 // previous derived date so saved profiles and shared links can migrate silently.
-const KNOWN_SERVERS=(window.SXS_SERVER_ROWS||[]).map(([name,oldStart,opened,nexus,number])=>({id:`${nexus}-${number}`,name,start:opened||oldStart,opened,oldStart,nexus,number}));
+const SERVER_ROSTER_ADDITIONS=[["Stirring Mallet","2026-09-08","2026-09-09","70040",1],["Divine Banner","2026-09-08","2026-09-09","70040",2],["Memory Crust","2026-09-08","2026-09-09","70040",3],["Hollowgaze","2026-09-08","2026-09-09","70040",4],["Stonecleaver","","","70040",5],["Ember Halo","","","70040",6],["Blade Saw","","","70040",7],["Gildleaf Vale","","","70040",8],["Star Mirage","","","70040",9],["Radiant Orb","","","70040",10],["Trail Of Dawn","","","70040",11],["Storm Leaf","","","70040",12],["Blinkstep","","","70040",13],["Oasis Pass","","","70040",14],["Searing Volcano","","","70040",15],["Ruin Gear","","","70040",16]];
+const KNOWN_SERVERS=[...(window.SXS_SERVER_ROWS||[]),...SERVER_ROSTER_ADDITIONS].map(([name,oldStart,opened,nexus,number])=>({id:`${nexus}-${number}`,name,start:opened||oldStart,opened,oldStart,nexus,number}));
 let activeFilter="all", showFull=false;
 // Extracted progression offsets were authored against the former one-day-earlier
 // anchor. With the public opening date now serving as Calendar Day 1, every
