@@ -1,0 +1,38 @@
+name: Update Sword x Staff server roster
+
+on:
+  schedule:
+    # Once daily. GitHub Actions cron uses UTC.
+    - cron: "17 03 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-sxs-server-roster
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Fetch and validate the server roster
+        run: python tools/update_server_roster.py
+
+      - name: Commit new or updated servers
+        shell: bash
+        run: |
+          if git diff --quiet -- sxs-primo-calculator/server-data.js; then
+            echo "The server roster is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sxs-primo-calculator/server-data.js
+          git commit -m "Update Sword x Staff server roster"
+          git push
