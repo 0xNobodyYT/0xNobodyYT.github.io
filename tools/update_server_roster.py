@@ -23,7 +23,7 @@ DEFAULT_OUTPUT = Path("sxs-primo-calculator/server-data.js")
 ASSIGNMENT_RE = re.compile(r"window\.SXS_SERVER_ROWS\s*=\s*(\[.*\])\s*;", re.DOTALL)
 HEADER = (
     "// Server names/opening dates sourced from the linked community roster.\n"
-    "// Columns: name, previous derived date (migration only), public opening / Calendar Day 1, Nexus, number.\n"
+    "// Columns: name, previous derived date (migration only), public opening / Calendar Day 1, Nexus, number, Season 1 joins, Season 2 joins, Season 3 joins, Season 4+ joins.\n"
 )
 
 
@@ -66,9 +66,23 @@ def display_name(value: str) -> str:
     return " ".join(value.strip().split()).title()
 
 
+def merge_names(value: str) -> list[str]:
+    """Return the sheet's comma-separated Nexus merge targets as clean names."""
+    return [display_name(name) for name in value.split(",") if name.strip()]
+
+
 def parse_source(text: str) -> list[list[object]]:
     reader = csv.DictReader(io.StringIO(text))
-    required = {"NEXUS", "SERVER #", "SERVER NAME", "START DATE"}
+    required = {
+        "NEXUS",
+        "SERVER #",
+        "SERVER NAME",
+        "START DATE",
+        "SEASON 1",
+        "SEASON 2",
+        "SEASON 3",
+        "SEASON 4 +",
+    }
     fields = {field.strip() for field in (reader.fieldnames or []) if field}
     missing = required - fields
     if missing:
@@ -101,7 +115,19 @@ def parse_source(text: str) -> list[list[object]]:
             if opened
             else ""
         )
-        rows.append([display_name(name_text), previous, opened, nexus, number])
+        rows.append(
+            [
+                display_name(name_text),
+                previous,
+                opened,
+                nexus,
+                number,
+                merge_names(raw.get("SEASON 1") or ""),
+                merge_names(raw.get("SEASON 2") or ""),
+                merge_names(raw.get("SEASON 3") or ""),
+                merge_names(raw.get("SEASON 4 +") or ""),
+            ]
+        )
 
     if len(rows) < 600:
         raise ValueError(f"Roster source returned only {len(rows)} valid rows; refusing to update")
@@ -124,9 +150,15 @@ def merge_rows(
             # the community sheet was published. Keep them authoritative, but fill
             # an opening date once a previously waitlisted server actually opens.
             source_previous, source_opened = incoming[1], incoming[2]
+            source_merges = incoming[5:9]
             incoming = list(old)
+            while len(incoming) < 9:
+                incoming.append([])
             if not old[2] and source_opened:
                 incoming[1], incoming[2] = source_previous, source_opened
+            # Merge assignments are maintained by the community roster and may
+            # change before a season reset, so refresh them on every daily run.
+            incoming[5:9] = source_merges
             if incoming != old:
                 updated += 1
         else:

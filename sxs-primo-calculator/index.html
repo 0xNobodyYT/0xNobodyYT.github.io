@@ -1560,7 +1560,10 @@ const $c=id=>document.getElementById(id), DAY=86400000, RESET_UTC_HOUR=13;
 const PROFILE_KEY="sxsServerCalendarProfilesV1", SELECTED_KEY="sxsServerCalendarSelectedV1", SERVER_CHOICE_KEY="sxsServerCalendarKnownServerV1", TIMEZONE_KEY="sxsServerCalendarTimezoneV1", VIEW_KEY="sxsCalculatorViewV1";
 // The public opening date is Calendar Day 1. Older roster data also carries its
 // previous derived date so saved profiles and shared links can migrate silently.
-const KNOWN_SERVERS=(window.SXS_SERVER_ROWS||[]).map(([name,oldStart,opened,nexus,number])=>({id:`${nexus}-${number}`,name,start:opened||oldStart,opened,oldStart,nexus,number}));
+const KNOWN_SERVERS=(window.SXS_SERVER_ROWS||[]).map(([name,oldStart,opened,nexus,number,season1=[],season2=[],season3=[],season4=[]])=>({
+ id:`${nexus}-${number}`,name,start:opened||oldStart,opened,oldStart,nexus,number,
+ seasonMerges:{1:season1,2:season2,3:season3,4:season4}
+}));
 let activeFilter="all", showFull=false;
 // Extracted progression offsets were authored against the former one-day-earlier
 // anchor. With the public opening date now serving as Calendar Day 1, every
@@ -1727,6 +1730,10 @@ function populateTimezones(){
 function knownServer(value){
  const key=String(value||"").trim().toLowerCase();return KNOWN_SERVERS.find(s=>s.name.toLowerCase()===key)
 }
+function selectedKnownServer(){
+ const input=$c("calendarServerName"),id=input?.dataset.serverId;
+ return KNOWN_SERVERS.find(server=>server.id===id)||knownServer(input?.value)
+}
 function showServerSource(known){
  $c("calendarServerSource").textContent=known?`Nexus ${known.nexus} · Server #${known.number}${known.opened?` · Public opening ${known.opened}`:" · Opening date unavailable"}`:"Custom server";
  $c("calendarDateSource").textContent=known?.start?`Calendar Day 1 uses the roster's ${known.opened} public opening date.`:known?"This roster entry has no usable date; calibrate it from the day shown in game.":"Enter or calibrate the Calendar Day 1 date."
@@ -1763,7 +1770,15 @@ function saveProfile(){
 function deleteProfile(){const id=$c("calendarProfile").value;if(!id){toastCalendar("No saved server selected");return}setProfiles(profiles().filter(p=>p.id!==id));localStorage.removeItem(SELECTED_KEY);populateProfiles();renderCalendar();toastCalendar("Saved server removed")}
 function toastCalendar(message){const t=$c("toast");t.textContent=message;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1800)}
 function buildEntries(start){
- const entries=relativeEvents.map(e=>({...e,date:dayDate(start,e.day),serverDay:e.day}));
+ const known=selectedKnownServer();
+ const entries=relativeEvents.map(e=>{
+  const entry={...e,date:dayDate(start,e.day),serverDay:e.day};
+  if(e.type==="season"&&known){
+   const seasonNumber=Number(e.title.match(/Season\s+(\d+)/i)?.[1]||0),mergeServers=known.seasonMerges[seasonNumber]||[];
+   if(mergeServers.length){entry.mergeServers=mergeServers;entry.nexus=known.nexus}
+  }
+  return entry
+ });
  for(const e of globalEvents){const date=parseDate(e.date),displayEnd=parseDate(e.end),day=serverDayAt(start,date);entries.push({...e,date,displayEnd,serverDay:day,durationHours:displayEnd?((displayEnd.getTime()-date.getTime())/3600000)+24:null})}
  const priority={season:0,global:1,dungeon:2,feature:3,weekly:4};
  return entries.sort((a,b)=>a.date-b.date||(priority[a.type]??9)-(priority[b.type]??9)||a.title.localeCompare(b.title))
@@ -1798,7 +1813,8 @@ function eventCardHtml(e){
  const meta=e.type==="dungeon"?`Dungeon release · ${difficulties.length} difficult${difficulties.length===1?"y":"ies"}`:(e.meta||"");
  const duration=end?` · through ${dateLabel(end)}`:"";
  let body="";
- if(difficulties.length)body=`<div class="eventBody"><div class="rewardLabel">Difficulty requirements</div><div class="difficultyGrid">${difficulties.map(d=>`<div class="difficultyRow"><span class="difficultyName">${esc(d.name)}</span><span class="difficultyPower">${esc(d.requirement)}</span></div>`).join("")}</div></div>`;
+ if(e.mergeServers?.length)body=`<div class="eventBody"><div class="rewardLabel">Servers joining your Nexus ${esc(e.nexus)}</div><div class="rewardStrip">${e.mergeServers.map(server=>`<span class="rewardChip"><b>${esc(server)}</b></span>`).join("")}</div><div class="eventMeta" style="margin-top:7px">These servers combine with ${esc($c("calendarServerName").value.trim())} at this season reset.</div></div>`;
+ else if(difficulties.length)body=`<div class="eventBody"><div class="rewardLabel">Difficulty requirements</div><div class="difficultyGrid">${difficulties.map(d=>`<div class="difficultyRow"><span class="difficultyName">${esc(d.name)}</span><span class="difficultyPower">${esc(d.requirement)}</span></div>`).join("")}</div></div>`;
  else if(e.rewards?.length)body=`<div class="eventBody"><div class="rewardLabel">${esc(e.rewardLabel||"Rewards")}</div><div class="rewardStrip">${e.rewards.map(rewardChipHtml).join("")}</div>${e.tasks?.length?`<div class="taskStrip">${e.tasks.map(task=>`<span class="taskChip">${esc(task)}</span>`).join("")}</div>`:""}${e.note?`<div class="eventMeta" style="margin-top:7px">${esc(e.note)}</div>`:""}</div>`;
  const art=CALENDAR_ASSETS[EVENT_ART[e.title]],mark=e.type==="season"?`S${e.title.match(/Season\s+(\d+)/i)?.[1]||""}`:(EVENT_ICONS[e.type]||"•"),tag=e.type==="season"?"Season":e.type;
  return `<div class="calendarEvent event-${e.type}${e.major?" event-major":""}${art?" hasArt":""}">${art?`<img class="eventArt" src="${art}" alt="">`:""}<div class="eventHeader"><span class="eventMark" aria-hidden="true">${mark}</span><div class="eventHeadText"><div class="eventTopline"><span class="eventTag">${esc(e.major?"Major milestone":tag)}</span><span class="eventTitle">${esc(e.title)}</span></div><div class="eventMeta">${esc(meta)}${esc(duration)}</div></div></div>${body}</div>`
