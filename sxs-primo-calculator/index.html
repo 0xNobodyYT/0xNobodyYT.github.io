@@ -260,17 +260,17 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
    <div class="seasonChooser">
     <div class="seasonTop"><span class="seasonBadge">Important</span><span class="seasonTitle">Choose your current season</span></div>
     <select id="seasonNumber" aria-label="Choose your current season">
-     <option value="1">Season 1 · Lv100 baseline</option>
-     <option value="2" selected>Season 2 · Lv130 baseline</option>
-     <option value="3">Season 3 · Lv160 baseline</option>
-     <option value="4">Season 4 · Lv190 baseline</option>
-     <option value="5">Season 5 · Lv220 baseline</option>
-     <option value="6">Season 6 · Lv250 baseline</option>
+     <option value="1">Season 1 · scoring begins Lv101</option>
+     <option value="2" selected>Season 2 · scoring begins Lv131</option>
+     <option value="3">Season 3 · scoring begins Lv161</option>
+     <option value="4">Season 4 · scoring begins Lv191</option>
+     <option value="5">Season 5 · scoring begins Lv221</option>
+     <option value="6">Season 6 · scoring begins Lv251</option>
     </select>
     <div class="seasonHelp">This changes scoring, Primostar conversion, upgrade costs, EXP tables and Realm yields.</div>
    </div>
    <div class="field">
-    <label>Season scoring baseline</label>
+    <label>Season scoring start</label>
     <input id="seasonFloorSummary" readonly>
    </div>
   </div>
@@ -741,9 +741,11 @@ function selectedRealmRank(XP){
  const mode=$("realmRankMode")?.value||"auto";
  const projected=XP&&XP.ok?XP.level:Math.floor(num("charLevel")||floor);
  // The season rank climb happens during the 30 catch-up levels before this
- // calculator's scoring baseline. Example: S2 is Champion I at Lv100,
- // Champion II at Lv110 and Champion III from Lv120 onward; S2 scoring begins
- // at Lv130. Therefore every valid in-scope season level uses rank III.
+ // calculator's zero-score baseline. Example: S2 is Champion I at Lv100,
+ // Champion II at Lv110 and Champion III from Lv120 onward. Gold's base-level
+ // limit is Lv130; Gold BlessLevel 1 is displayed as Lv131 and awards the first
+ // 100 Character progression points. Every valid in-scope S2 level therefore
+ // uses Champion III.
  const automatic=3;
  const tier=mode==="auto"?automatic:clamp(Math.floor(Number(mode)||1),1,3);
  const multiplier=REALM_RANK_MULTIPLIERS[season]?.[tier-1];
@@ -756,7 +758,7 @@ function applyAutomaticRealmYields(XP){
   const el=$(`yield_${k}`);if(el)el.textContent=yields?fmt(yields[k],1):"?";
  }
  const roman=["","I","II","III"][rank.tier];
- const source=rank.mode==="auto"?`Auto: the Lv.${rank.floor} scoring baseline is reached after rank III`:"Manual rank override";
+ const source=rank.mode==="auto"?`Auto: scoring begins at Lv${rank.floor+1}, after rank III is reached`:"Manual rank override";
  if(yields){
   $("realmYieldSummary").className="notice";
   const rolaNormalLow=Math.trunc(80*rank.multiplier+1e-9)*9;
@@ -794,8 +796,8 @@ function syncSeasonRules(){
  const fields={scorePerStar:rule.perStar,fixedStars:rule.fixed,charW:rule.charW,gearW:rule.gearW,skillW:rule.skillW,fantW:rule.fantW,relicW:rule.relicW};
  Object.entries(fields).forEach(([id,value])=>{$(id).value=value;$(id).readOnly=true});
  $("scorePerStar").title=`Season ${season}: ${rule.perStar} progression points = 1 Primostar`;
- $("seasonFloorSummary").value=`Season ${season}: ${rule.rank} · Lv${floor} · Relics +${relicFloor}`;
- $("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total. Seasonal scoring starts from <b>Lv${floor}</b> for Character, Gear, Skills and Fantomons, and <b>+${relicFloor}</b> for Relics. These are baselines, not caps. This season awards <b>${rule.fixed} fixed Primostars</b>, then <b>1 Primostar per ${rule.perStar} progression points</b>.`;
+ $("seasonFloorSummary").value=`Season ${season}: ${rule.rank} · first scored Lv${floor+1} (Lv${floor} baseline) · Relics +${relicFloor}`;
+ $("seasonRuleNote").innerHTML=`Season ${season} keeps your existing Primostar total. <b>Lv${floor}</b> is the zero-score baseline; the first scored Character, Gear, Skill and Fantomon level is <b>Lv${floor+1}</b>. Relic scoring begins above <b>+${relicFloor}</b>. These are baselines, not caps. This season awards <b>${rule.fixed} fixed Primostars</b>, then <b>1 Primostar per ${rule.perStar} progression points</b>.`;
  if(season===6)$("seasonRuleNote").innerHTML+=` <b>Season 6 scoring is exact, but its progression/material tables are not populated in the current client, so unknown costs are shown as ?.</b>`;
  if($("skillWeightChip"))$("skillWeightChip").textContent=`+${rule.skillW} score / seasonal level`;
  if($("fantWeightChip"))$("fantWeightChip").textContent=`+${rule.fantW} score / seasonal level`;
@@ -1440,7 +1442,7 @@ function calculate(){
  $("cumulativeStars").textContent=(totalDifference>=0?"+":"")+fmt(totalDifference);
  $("primostarsNeeded").value=fmt(goalInfo.needed);
  $("requiredScore").value=fmt(Math.ceil(goal*100)/100,2);
- $("ratingChip").textContent=`Season ${seasonInfo.season} · baseline Lv${seasonInfo.floor}`;
+ $("ratingChip").textContent=`Season ${seasonInfo.season} · scoring Lv${seasonInfo.floor+1}+`;
  if(goalInfo.target<=goalInfo.old){
   $("goalStatus").className="notice";
   $("goalStatus").innerHTML=`<b>Target already reached.</b> You currently have ${fmt(goalInfo.old)} Primostars, which is already at or above the ${fmt(goalInfo.target)} target.`;
