@@ -4,129 +4,75 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="0xNobody">
-<meta name="description" content="Tools and calculators made by 0xNobody.">
-<title>0xNobody Tools</title>
+<meta name="description" content="Data-backed Sword x Staff planners, build tools, calendars, archives and cosmetic previews by 0xNobody.">
+<meta name="theme-color" content="#080d14">
+<title>0xNobody Tools | Sword x Staff Planners & Databases</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7K3SQNSXS9"></script>
+<script src="analytics.js"></script>
 <style>
-:root{
- --bg:#090c12;--panel:#121822;--panel2:#171f2b;--ink:#f4f7fb;--muted:#9babbe;
- --line:#2a3647;--accent:#d9e052;--cyan:#71d8e9;--shadow:0 18px 48px rgba(0,0,0,.28)
-}
-*{box-sizing:border-box}
-body{
- margin:0;min-height:100vh;color:var(--ink);
- font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
- background:
-  radial-gradient(900px 520px at 95% -10%,rgba(217,224,82,.11),transparent 60%),
-  radial-gradient(780px 500px at -10% 10%,rgba(113,216,233,.075),transparent 60%),
-  var(--bg);
-}
-a{color:inherit}
-.wrap{max-width:1120px;margin:auto;padding:34px 20px 28px}
-.hero{padding:34px 0 28px}
-.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900;color:var(--accent)}
-h1{font-size:clamp(38px,7vw,68px);line-height:1;margin:8px 0 12px}
-.hero p{max-width:700px;color:var(--muted);font-size:17px;margin:0}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.btn{
- display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;
- border:1px solid var(--line);border-radius:11px;text-decoration:none;font-weight:900;background:var(--panel);
-}
-.btn.primary{background:var(--accent);color:#090c12;border-color:var(--accent)}
-.btn.coffee{border-color:#ffda71;background:linear-gradient(135deg,#ffdf7c,#f2b94b);color:#241707}
-.btn:hover{transform:translateY(-1px)}
-.sectionTitle{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:900;margin:20px 0 12px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-.card{
- border:1px solid var(--line);border-radius:17px;padding:23px;background:linear-gradient(180deg,var(--panel2),var(--panel));
- box-shadow:var(--shadow);text-decoration:none;display:block;transition:.15s ease;
-}
-.card:hover{border-color:var(--cyan);transform:translateY(-2px)}
-.tag{display:inline-flex;padding:6px 9px;border-radius:999px;border:1px solid var(--line);font-size:11px;font-weight:900;color:var(--cyan);margin-bottom:16px}
-.card h2{font-size:24px;line-height:1.15;margin:0 0 9px}
-.card p{margin:0;color:var(--muted)}
-.open{display:inline-block;margin-top:18px;font-weight:900;color:var(--accent)}
-.coming{opacity:.7}
-footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-footer a{color:#e4eb71}
-@media(max-width:720px){.grid{grid-template-columns:1fr}.wrap{padding-top:20px}.hero{padding-top:22px}}
+:root{--bg:#080d14;--panel:#111e2b;--panel2:#0a151f;--ink:#f7fbff;--muted:#a8c6e8;--line:#294458;--cyan:#63dbef;--acid:#dce94d;--gold:#ffd34e;--danger:#ff7185;--shadow:0 22px 60px #0006}
+*{box-sizing:border-box}html{scroll-behavior:smooth;color-scheme:dark}body{margin:0;min-height:100vh;background:radial-gradient(900px 550px at 90% -15%,#23495466,transparent 65%),radial-gradient(700px 450px at -10% 20%,#26332f66,transparent 65%),var(--bg);color:var(--ink);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit}button,input{font:inherit}.shell{width:min(1220px,calc(100% - 40px));margin:auto}.site-header{position:sticky;top:0;z-index:20;border-bottom:1px solid #294458cc;background:#080d14e8;backdrop-filter:blur(16px)}.nav{min-height:70px;display:flex;align-items:center;gap:26px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:1000;font-size:19px}.brand-mark{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--cyan);border-radius:10px;background:#142937;color:var(--cyan);font-size:13px}.nav-links{display:flex;gap:22px;margin-left:auto}.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:800}.nav-links a:hover{color:#fff}.nav-actions{display:flex;gap:8px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border:1px solid var(--line);border-radius:11px;background:#0c1722;color:#fff;text-decoration:none;font-weight:950;white-space:nowrap;transition:.16s ease}.button:hover{transform:translateY(-2px);border-color:var(--cyan)}.button.primary{background:var(--acid);border-color:var(--acid);color:#0a0e12}.button.coffee{background:linear-gradient(135deg,#ffe381,#efb542);border-color:#ffd153;color:#281900}.button.lootbar{background:linear-gradient(135deg,#252525,#101010);border-color:#ffd34e;color:#ffd34e}.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);gap:54px;align-items:center;padding:88px 0 70px}.eyebrow{display:block;color:var(--acid);font-size:12px;font-weight:1000;letter-spacing:.13em;text-transform:uppercase}.hero h1{max-width:780px;margin:13px 0 20px;font-size:clamp(48px,7vw,86px);line-height:.95;letter-spacing:-.045em}.hero h1 span{color:var(--cyan)}.hero-copy{max-width:720px;margin:0;color:var(--muted);font-size:clamp(17px,2vw,21px)}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.trust-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:28px;color:#c9d9e8;font-size:13px;font-weight:750}.trust-row span:before{content:"✓";margin-right:7px;color:var(--cyan);font-weight:1000}.hero-board{position:relative;min-height:440px;padding:18px;border:1px solid #386077;border-radius:24px;background:linear-gradient(145deg,#142838,#0a151f);box-shadow:var(--shadow);overflow:hidden}.hero-board:before{content:"";position:absolute;inset:-120px auto auto -90px;width:280px;height:280px;border-radius:50%;background:#63dbef1c;filter:blur(6px)}.board-top{position:relative;display:flex;justify-content:space-between;align-items:center;padding:5px 3px 18px;color:var(--muted);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.live-dot{display:inline-flex;align-items:center;gap:7px;color:#c9f6ff}.live-dot:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--acid);box-shadow:0 0 12px var(--acid)}.board-feature{position:relative;padding:22px;border:1px solid #4c788b;border-radius:18px;background:#0b1924}.board-feature .mini-label{color:var(--cyan);font-size:11px;font-weight:1000;text-transform:uppercase}.board-feature h2{margin:7px 0 6px;font-size:27px}.board-feature p{margin:0;color:var(--muted);font-size:14px}.progress{height:8px;margin:20px 0 9px;border-radius:99px;background:#223341;overflow:hidden}.progress span{display:block;width:72%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--cyan),var(--acid))}.progress-meta{display:flex;justify-content:space-between;color:#d8e7f5;font-size:12px;font-weight:850}.board-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.board-stat{min-height:105px;padding:16px;border:1px solid var(--line);border-radius:15px;background:#09141e}.board-stat small{display:block;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase}.board-stat strong{display:block;margin-top:6px;font-size:25px}.board-stat em{color:var(--cyan);font-size:12px;font-style:normal}.section{padding:72px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:28px}.section-head h2{margin:7px 0 0;font-size:clamp(32px,5vw,52px);line-height:1}.section-head p{max-width:520px;margin:0;color:var(--muted)}.tool-group{margin-top:30px}.group-title{display:flex;align-items:center;gap:10px;margin:0 0 13px;font-size:13px;color:#d6e7f6;text-transform:uppercase;letter-spacing:.11em}.group-title:after{content:"";height:1px;flex:1;background:var(--line)}.tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.tool-card{position:relative;min-height:245px;padding:23px;border:1px solid var(--line);border-radius:19px;background:linear-gradient(180deg,#142332,#0d1823);text-decoration:none;overflow:hidden;transition:.18s ease}.tool-card:hover{transform:translateY(-4px);border-color:var(--cyan);box-shadow:0 18px 40px #0005}.tool-card:after{content:"→";position:absolute;right:20px;bottom:18px;color:var(--acid);font-size:24px;font-weight:1000}.tool-icon{display:grid;place-items:center;width:48px;height:48px;border:1px solid #3b6175;border-radius:14px;background:#0a1823;color:var(--cyan);font-size:13px;font-weight:1000;letter-spacing:.04em}.tool-card h3{margin:19px 0 8px;font-size:24px;line-height:1.12}.tool-card p{margin:0 20px 0 0;color:var(--muted);font-size:14px}.tool-card.featured{border-color:#778326;background:linear-gradient(180deg,#202a29,#101c26)}.tool-card.featured .tool-icon{border-color:var(--acid);color:var(--acid)}.proof{border-block:1px solid var(--line);background:#0b141e}.proof-grid{display:grid;grid-template-columns:repeat(4,1fr)}.proof-item{padding:30px 24px;border-right:1px solid var(--line)}.proof-item:last-child{border:0}.proof-item strong{display:block;font-size:28px;color:#fff}.proof-item span{color:var(--muted);font-size:13px}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.feature{padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}.feature strong{display:block;margin-bottom:7px;font-size:19px}.feature p{margin:0;color:var(--muted);font-size:14px}.future{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}.future-copy,.roadmap{padding:32px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#142534,#0b151f)}.future h2{margin:8px 0 13px;font-size:clamp(31px,4vw,46px);line-height:1}.future p{color:var(--muted)}.roadmap{display:grid;gap:12px}.roadmap-item{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:14px;border:1px solid #294458;border-radius:13px;background:#091620}.roadmap-item b{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:#193846;color:var(--cyan)}.roadmap-item span{font-weight:850}.planned{padding:3px 7px;border:1px solid #5a652b;border-radius:99px;color:var(--acid);font-size:9px;text-transform:uppercase;letter-spacing:.07em}.support{margin:0 0 72px;padding:34px;border:1px solid #5f6c2a;border-radius:23px;background:radial-gradient(500px 180px at 15% 0,#dce94d1c,transparent),#111b24}.support-inner{display:flex;justify-content:space-between;align-items:center;gap:30px}.support h2{margin:4px 0 7px;font-size:31px}.support p{margin:0;color:var(--muted)}.support-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:9px}.footer{border-top:1px solid var(--line);padding:28px 0 36px;color:var(--muted);font-size:13px}.footer-row{display:flex;justify-content:space-between;gap:28px}.footer a{color:var(--gold)}.footer-links{display:flex;gap:17px;flex-wrap:wrap}.legal{max-width:760px;margin-top:15px;color:#718aa0;font-size:12px}
+@media(max-width:920px){.nav-links{display:none}.hero{grid-template-columns:1fr;padding-top:58px}.hero-board{min-height:0}.tool-grid,.feature-grid{grid-template-columns:1fr 1fr}.proof-grid{grid-template-columns:1fr 1fr}.proof-item:nth-child(2){border-right:0}.proof-item:nth-child(-n+2){border-bottom:1px solid var(--line)}.future{grid-template-columns:1fr}.support-inner{align-items:flex-start;flex-direction:column}.support-actions{justify-content:flex-start}}
+@media(max-width:620px){.shell{width:min(100% - 26px,1220px)}.nav{min-height:62px}.nav-actions .coffee{display:none}.hero{padding:46px 0 50px;gap:32px}.hero h1{font-size:49px}.hero-actions .button{width:100%}.hero-board{padding:13px}.board-feature{padding:18px}.section{padding:52px 0}.section-head{align-items:flex-start;flex-direction:column}.tool-grid,.feature-grid{grid-template-columns:1fr}.tool-card{min-height:215px}.proof-item{padding:23px 16px}.proof-item strong{font-size:23px}.future-copy,.roadmap,.support{padding:23px}.roadmap-item{grid-template-columns:auto 1fr}.planned{grid-column:2;justify-self:start}.support-actions .button{width:100%}.footer-row{flex-direction:column}.nav-actions .lootbar{padding:0 11px;font-size:12px}}
 </style>
 </head>
 <body>
-<main class="wrap">
- <section class="hero">
-  <div class="eyebrow">0xNobody · Tools & Calculators</div>
-  <h1>0xNobody Tools</h1>
-  <p>Useful calculators and community tools made by 0xNobody. Pick a tool below to get started.</p>
-  <div class="actions">
-   <a class="btn primary" href="sxs-primo-calculator/">Open Sword x Staff Calculator</a>
-   <a class="btn coffee" href="https://buymeacoffee.com/0xnobody" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a>
-   <a class="btn" href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">YouTube</a>
+<header class="site-header">
+ <nav class="nav shell" aria-label="Main navigation">
+  <a class="brand" href="./"><span class="brand-mark">0x</span><span>0xNobody Tools</span></a>
+  <div class="nav-links"><a href="#tools">Tools</a><a href="#why">Why this site</a><a href="#roadmap">What’s next</a></div>
+  <div class="nav-actions"><a class="button lootbar" href="https://www.lootbar.com/a/pcmw3X" target="_blank" rel="noopener noreferrer">8% LootBar coupon</a><a class="button coffee" href="https://buymeacoffee.com/0xnobody" target="_blank" rel="noopener noreferrer">☕ Coffee</a></div>
+ </nav>
+</header>
+<main>
+ <section class="hero shell">
+  <div>
+   <span class="eyebrow">Sword x Staff · Community toolkit</span>
+   <h1>Plan smarter.<br><span>Build better.</span></h1>
+   <p class="hero-copy">A growing suite of data-backed planners, comparison tools and searchable game archives—built to turn Sword x Staff’s hidden numbers into useful decisions.</p>
+   <div class="hero-actions"><a class="button primary" href="sxs-primo-calculator/">Open Season Planner</a><a class="button" href="#tools">Explore all 9 tools</a></div>
+   <div class="trust-row"><span>Client-backed configuration</span><span>Local browser saves</span><span>Shareable builds</span></div>
+  </div>
+  <div class="hero-board" aria-label="Featured planner preview">
+   <div class="board-top"><span>Featured tool</span><span class="live-dot">Season ready</span></div>
+   <div class="board-feature"><span class="mini-label">Season & Primostar Planner</span><h2>Turn progress into a plan</h2><p>Model levels, materials, Realm entries, reset boosts and Primostar targets across all six configured seasons.</p><div class="progress"><span></span></div><div class="progress-meta"><span>Current progress</span><span>Target</span></div></div>
+   <div class="board-grid"><div class="board-stat"><small>Scoring data</small><strong>6 seasons</strong><em>Client configuration</em></div><div class="board-stat"><small>Server calendar</small><strong>600+</strong><em>Searchable profiles</em></div><div class="board-stat"><small>Build system</small><strong>Skills + gear</strong><em>Save and share</em></div><div class="board-stat"><small>Archives</small><strong>4 databases</strong><em>Searchable details</em></div></div>
   </div>
  </section>
 
- <div class="sectionTitle">Available tools</div>
- <section class="grid">
-  <a class="card" href="sxs-primo-calculator/">
-   <span class="tag">Sword x Staff</span>
-   <h2>Season & Primostar Calculator</h2>
-   <p>Plan season score, EXP, Primostars, upgrade materials, Material Realms and end-of-season preparation.</p>
-   <span class="open">Open calculator →</span>
-  </a>
+ <section class="proof"><div class="proof-grid shell"><div class="proof-item"><strong>9</strong><span>purpose-built community tools</span></div><div class="proof-item"><strong>S1–S6</strong><span>season scoring configuration</span></div><div class="proof-item"><strong>Local-first</strong><span>your saved data stays in your browser</span></div><div class="proof-item"><strong>Unofficial</strong><span>independent fan-made project</span></div></div></section>
 
-  <a class="card" href="sxs-server-calendar/">
-   <span class="tag">Sword x Staff</span>
-   <h2>Server Calendar</h2>
-   <p>Follow your server day, season changes, dungeon releases, weekly events, task requirements and rewards.</p>
-   <span class="open">Open calendar →</span>
-  </a>
-  <a class="card" href="sxs-loadout-builder/">
-   <span class="tag">Sword x Staff</span>
-   <h2>Class Loadout Builder</h2>
-   <p>Build and save skill and charm loadouts from every class, including all inherited predecessor skills.</p>
-   <span class="open">Open builder →</span>
-  </a>
-  <a class="card" href="sxs-skills-conversion/">
-   <span class="tag">Sword x Staff</span>
-   <h2>Skills Conversion</h2>
-   <p>Choose two classes and see every grade- and type-compatible skill or charm result in the class-change RNG pool.</p>
-   <span class="open">Open conversion tool →</span>
-  </a>
-  <a class="card" href="sxs-skills-overview/">
-   <span class="tag">Sword x Staff</span>
-   <h2>Skills Overview</h2>
-   <p>Browse inherited class skills and compare the same Technique or Charm across grades, stars, levels, damage, and effects.</p>
-   <span class="open">Open skill overview →</span>
-  </a>
-  <a class="card" href="sxs-fantomons/">
-   <span class="tag">Sword x Staff</span>
-   <h2>Fantomons</h2>
-   <p>Explore every extracted Fantomon, including baby and adult forms, abilities, grades, scaling, and level stats.</p>
-   <span class="open">Open Fantomon archive →</span>
-  </a>
-  <a class="card" href="sxs-stellaris/">
-   <span class="tag">Sword x Staff</span>
-   <h2>Stellaris Rewards</h2>
-   <p>Browse all 75 cumulative milestones, complete reward bundles, outfits and approximate regional pricing.</p>
-   <span class="open">Open Stellaris rewards →</span>
-  </a>
-  <a class="card" href="sxs-wardrobe-viewer/">
-   <span class="tag">Sword x Staff</span>
-   <h2>Wardrobe Viewer</h2>
-   <p>Preview outfits, accessories, backwear, and class-compatible weapon appearances on animated character models.</p>
-   <span class="open">Open wardrobe viewer →</span>
-  </a>
-  <a class="card" href="sxs-companions/">
-   <span class="tag">Sword x Staff</span>
-   <h2>Companions</h2>
-   <p>Browse every companion, exact friendship stat curves, travel bonuses, preferred gifts, unlock routes, and profiles.</p>
-   <span class="open">Open companion archive →</span>
-  </a>
+ <section class="section shell" id="tools">
+  <div class="section-head"><div><span class="eyebrow">The complete toolkit</span><h2>Pick what you need</h2></div><p>Plan your account, compare upgrades, follow your server, or browse extracted game data without digging through disconnected spreadsheets.</p></div>
+  <div class="tool-group"><h3 class="group-title">Plan your progression</h3><div class="tool-grid">
+   <a class="tool-card featured" href="sxs-primo-calculator/"><span class="tool-icon">S1–6</span><h3>Season Planner</h3><p>Primostars, EXP, equipment, skills, Fantomons, Relics and Material Realm planning.</p></a>
+   <a class="tool-card" href="sxs-server-calendar/"><span class="tool-icon">DAY</span><h3>Server Calendar</h3><p>Server-relative seasons, dungeon releases, weekly events, milestone dates and rewards.</p></a>
+   <a class="tool-card" href="sxs-stellaris/"><span class="tool-icon">PTS</span><h3>Stellaris Rewards</h3><p>Every cumulative reward bundle with searchable rewards and approximate regional spend.</p></a>
+  </div></div>
+  <div class="tool-group"><h3 class="group-title">Build and compare</h3><div class="tool-grid">
+   <a class="tool-card" href="sxs-loadout-builder/"><span class="tool-icon">BUILD</span><h3>Loadout Builder</h3><p>Create skill and charm rotations, configure equipment and stats, then save or share builds.</p></a>
+   <a class="tool-card" href="sxs-skills-conversion/"><span class="tool-icon">RNG</span><h3>Skills Conversion</h3><p>See every eligible Technique and Charm result when changing from one class to another.</p></a>
+   <a class="tool-card" href="sxs-skills-overview/"><span class="tool-icon">VS</span><h3>Skills Overview</h3><p>Compare the same skill across grades, stars, levels and combat-rank fixed-value curves.</p></a>
+  </div></div>
+  <div class="tool-group"><h3 class="group-title">Explore the game</h3><div class="tool-grid">
+   <a class="tool-card" href="sxs-fantomons/"><span class="tool-icon">FAN</span><h3>Fantomons</h3><p>Baby and adult forms, grades, abilities, level scaling and extracted visual assets.</p></a>
+   <a class="tool-card" href="sxs-companions/"><span class="tool-icon">NPC</span><h3>Companions</h3><p>Friendship curves, bonus stats, gifts, availability, profiles and unlock routes.</p></a>
+   <a class="tool-card" href="sxs-wardrobe-viewer/"><span class="tool-icon">LOOK</span><h3>Wardrobe Viewer</h3><p>Preview outfits, accessories, backwear and class-compatible cosmetics on animated rigs.</p></a>
+  </div></div>
  </section>
 
- <footer>
-  © 2026 0xNobody · Made by <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">0xNobody</a>.
-  Unofficial fan-made tools. Game names and related assets belong to their respective owners.
- </footer>
+ <section class="section shell" id="why">
+  <div class="section-head"><div><span class="eyebrow">Built for real decisions</span><h2>Less guessing, less tab hopping</h2></div><p>The goal is not another wiki. It is a practical layer over the game’s systems, focused on questions players actually need answered.</p></div>
+  <div class="feature-grid"><article class="feature"><strong>Data with context</strong><p>Extracted configuration is paired with clear labels, assumptions and live-player checks where the client alone does not tell the whole story.</p></article><article class="feature"><strong>One connected suite</strong><p>Every tool follows the same interface and links directly to the rest, so planning, comparing and browsing feel like one site.</p></article><article class="feature"><strong>Your data stays yours</strong><p>Planner settings and saved loadouts use browser-local storage. Nothing requires an account today.</p></article></div>
+ </section>
+
+ <section class="section shell future" id="roadmap">
+  <div class="future-copy"><span class="eyebrow">The next chapter</span><h2>From tool collection to player platform</h2><p>The free toolkit will keep growing. A future account layer could add cross-device saves, ad-free use and community build discovery when the project moves to its own domain.</p><p>No account or subscription is required for the current tools.</p></div>
+  <div class="roadmap" aria-label="Planned features"><div class="roadmap-item"><b>1</b><span>Google and Discord sign-in</span><small class="planned">Planned</small></div><div class="roadmap-item"><b>2</b><span>Cloud-synced builds and profiles</span><small class="planned">Planned</small></div><div class="roadmap-item"><b>3</b><span>Community build browser</span><small class="planned">Planned</small></div><div class="roadmap-item"><b>4</b><span>Optional ad-free membership</span><small class="planned">Planned</small></div></div>
+ </section>
+
+ <section class="support shell"><div class="support-inner"><div><span class="eyebrow">Support the project</span><h2>Help keep the tools growing</h2><p>Use the coupon, buy me a coffee, or follow the channel for updates and guides.</p></div><div class="support-actions"><a class="button lootbar" href="https://www.lootbar.com/a/pcmw3X" target="_blank" rel="noopener noreferrer">Get 8% off at LootBar</a><a class="button coffee" href="https://buymeacoffee.com/0xnobody" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a><a class="button" href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">YouTube</a></div></div></section>
 </main>
+<footer class="footer"><div class="shell"><div class="footer-row"><strong>© 2026 0xNobody</strong><div class="footer-links"><a href="#tools">All tools</a><a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://github.com/Mystonats" target="_blank" rel="noopener noreferrer">Datamining credit</a></div></div><div class="legal">Unofficial fan-made tools. Game names and related assets belong to their respective owners. Datamining direction credited to Mystonats.</div></div></footer>
 </body>
 </html>
