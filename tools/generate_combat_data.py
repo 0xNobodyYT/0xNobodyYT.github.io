@@ -291,27 +291,54 @@ combat_ranks = [
     for sub_rank in skill_groups.get("1", {})
 ]
 
+# Collect the level-scaled fields used by status entities reachable from
+# player skills.  Some charms expose the entity directly in skill.csv rather
+# than through a prefab graph entry, so both sources have to be followed.
+status_fields_by_group = {}
+for source in skill_source_rows:
+    try:
+        view_entities = ast.literal_eval(source.get("ViewPropEntities") or "[]")
+    except Exception:
+        view_entities = []
+    try:
+        passive_entities = ast.literal_eval(source.get("PassiveStatusIdList") or "[]")
+    except Exception:
+        passive_entities = []
+    roots = {
+        int(entity_id)
+        for entity_id in [source.get("EcEntityId"), *view_entities, *passive_entities]
+        if str(entity_id).isdigit() and int(entity_id) > 0
+    }
+    for entity_id in linked_entities(source.get("ClassId", ""), roots):
+        status = status_props.get(str(entity_id))
+        if status and status.get("GroupLevelPropId"):
+            status_fields_by_group.setdefault(status["GroupLevelPropId"], set()).update(
+                key for key in status_value_fields if number(status.get(key))
+            )
+status_fields_by_curve = {}
+for group_id, fields in status_fields_by_group.items():
+    for curve_id in skill_groups.get(group_id, {}).values():
+        status_fields_by_curve.setdefault(curve_id, set()).update(fields)
+
 skill_fixed_curves = {}
+base_skill_fixed_curve_fields = {
+    "SkillFixedAttack1", "SkillFixedAttack2", "SkillFixedAttack3", "SkillFixedAttack4",
+    "SkillFixedCure", "SkillFixedShield",
+}
 for row in rows("level_prop_skill_fixed_prop.csv"):
     if row.get("class_id") in used_fixed_curve_ids and row.get("level", "").isdigit():
+        curve_fields = base_skill_fixed_curve_fields | status_fields_by_curve.get(row["class_id"], set())
         skill_fixed_curves.setdefault(row["class_id"], {})[row["level"]] = {
             key: number(row.get(key))
-            for key in ("SkillFixedAttack1", "SkillFixedAttack2", "SkillFixedAttack3", "SkillFixedAttack4", "SkillFixedCure", "SkillFixedShield")
+            for key in curve_fields
             if number(row.get(key))
         }
 
-passive_fields_by_group = {}
+passive_fields_by_group = {group_id: set(fields) for group_id, fields in status_fields_by_group.items()}
 for source in passive_source_rows:
     passive_fields_by_group.setdefault(source.get("PassiveGroupLevelPropId"), set()).update(
         loose_dict(source.get("PassivePropFactors", ""))
     )
-for skill_id, roots in entity_graph.get("skills", {}).items():
-    for entity_id in linked_entities(skill_id, set(roots)):
-        status = status_props.get(str(entity_id))
-        if status and status.get("GroupLevelPropId"):
-            passive_fields_by_group.setdefault(status["GroupLevelPropId"], set()).update(
-                key for key in status_value_fields if number(status.get(key))
-            )
 used_passive_group_ids.update(passive_fields_by_group)
 used_passive_curve_ids = {
     curve_id for group_id in used_passive_group_ids
