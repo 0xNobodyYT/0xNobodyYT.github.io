@@ -319,6 +319,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
  <div class="cardhead"><h2>3. Gear · 5 slots · Ore</h2><button class="btn primary" id="fillGearBtn">Fill minimum gear for goal</button></div>
  <div class="cardbody">
   <div class="notice">Gear score uses the <b>total seasonal levels across all five slots</b>. The selected season's exact baseline and weight are applied automatically.</div>
+  <p class="simple-note" id="gearCapNote">Projected Gear cap will follow your completed Character level.</p>
   <div class="batch">
    <div class="field"><label>Set all current gear</label><input id="gearAllCur" type="number" value="" placeholder="Current"></div><button class="btn" id="gearApplyCur">Apply current</button>
    <div class="field"><label>Set all planned gear</label><input id="gearAllTar" type="number" value="" placeholder="Planned"></div><button class="btn" id="gearApplyTar">Apply planned</button>
@@ -334,6 +335,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 <section class="card">
  <div class="cardhead"><h2>4. Skills · 8 slots · Essence</h2><span class="chip" id="skillWeightChip">—</span></div>
  <div class="cardbody">
+  <p class="simple-note" id="skillCapNote">Projected Skill cap will follow your completed Character level.</p>
   <div class="batch">
    <div class="field"><label>Set all current skills</label><input id="skillAllCur" type="number" value="" placeholder="Current"></div><button class="btn" id="skillApplyCur">Apply current</button>
    <div class="field"><label>Set all planned skills</label><input id="skillAllTar" type="number" value="" placeholder="Planned"></div><button class="btn" id="skillApplyTar">Apply planned</button>
@@ -348,6 +350,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 <section class="card">
  <div class="cardhead"><h2>5. Fantomons · 4 deployed</h2><span class="chip" id="fantWeightChip">—</span></div>
  <div class="cardbody">
+  <p class="simple-note" id="fantCapNote">Projected Fantomon cap will follow your completed Character level.</p>
   <div class="batch">
    <div class="field"><label>Set all current Fantomons</label><input id="fantAllCur" type="number" value="" placeholder="Current"></div><button class="btn" id="fantApplyCur">Apply current</button>
    <div class="field"><label>Set all planned Fantomons</label><input id="fantAllTar" type="number" value="" placeholder="Planned"></div><button class="btn" id="fantApplyTar">Apply planned</button>
@@ -370,7 +373,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <div class="unitgrid" id="relicGrid">
    <div class="hd">Relic</div><div class="hd">Current +</div><div></div><div class="hd">Planned +</div>
   </div>
-  <p class="simple-note">Relic cap rule: Lv.100 → +11, Lv.110 → +12, Lv.120 → +13, Lv.130 → +14, and so on. Sand cost is calculated automatically.</p>
+  <p class="simple-note">Relic limits use the extracted Global client table. In Season 2, completed Lv180 unlocks the final <b>+28</b> cap. Sand cost is calculated automatically.</p>
  </div>
 </section>
 
@@ -1037,25 +1040,53 @@ function currentCharSeasonLevels(){
  const decimalLevel=lv+frac;
  return Math.max(0,decimalLevel-floor);
 }
-function relicCapForCharacterLevel(level){
- level=Math.floor(Number(level)||0);
- if(level<100)return 10;
- return Math.max(10,Math.floor(level/10)+1);
-}
-function enforceRelicCap(XP){
- const charLevel=XP&&XP.ok?Math.floor(XP.level):Math.floor(num("charLevel"));
- const cap=relicCapForCharacterLevel(charLevel);
- const nextUnlockLevel=cap*10;
- $("relicAllTar").max=cap;
- if(num("relicAllTar")>cap)$("relicAllTar").value=cap;
- for(let i=0;i<20;i++){
-  const el=$(`relicTar${i}`);
-  el.max=cap;
-  if(Number(el.value)>cap)el.value=cap;
+const S2_PROGRESSION_CAPS=[
+ {level:130,skill:130,gear:130,fant:130,relic:13},
+ {level:131,skill:160,gear:150,fant:160,relic:16},
+ {level:140,skill:170,gear:170,fant:170,relic:17},
+ {level:150,skill:180,gear:190,fant:180,relic:18},
+ {level:160,skill:190,gear:210,fant:190,relic:19},
+ {level:170,skill:200,gear:230,fant:200,relic:20},
+ {level:180,skill:280,gear:430,fant:280,relic:28}
+];
+function progressionCapsForCharacterLevel(level){
+ const charLevel=Math.floor(Number(level)||0),season=currentSeasonNumber();
+ if(season===2){
+  let row=S2_PROGRESSION_CAPS[0];
+  for(const candidate of S2_PROGRESSION_CAPS)if(charLevel>=candidate.level)row=candidate;
+  const next=S2_PROGRESSION_CAPS.find(candidate=>candidate.level>charLevel)||null;
+  return {charLevel,skill:row.skill,gear:row.gear,fant:row.fant,relic:row.relic,next};
  }
- $("relicCapChip").textContent=`Projected cap +${cap}`;
- $("relicCapNote").innerHTML=`Completed character level <b>Lv.${charLevel}</b> allows relics up to <b>+${cap}</b>. Fractional EXP counts toward season score, but the next relic cap <b>+${cap+1}</b> unlocks only at completed <b>Lv.${nextUnlockLevel}</b>.`;
- return {charLevel,cap,nextUnlockLevel};
+ const relic=charLevel<100?10:Math.max(10,Math.floor(charLevel/10)+1);
+ return {charLevel,skill:null,gear:null,fant:null,relic,next:null};
+}
+function relicCapForCharacterLevel(level){return progressionCapsForCharacterLevel(level).relic}
+function applyTargetCap(prefix,count,cap){
+ const all=$(prefix+"AllTar");
+ if(cap===null||cap===undefined){if(all)all.removeAttribute("max");return}
+ if(all){all.max=cap;if(num(prefix+"AllTar")>cap)all.value=cap}
+ for(let i=0;i<count;i++){
+  const el=$(`${prefix}Tar${i}`);if(!el)continue;
+  el.max=cap;if(Number(el.value)>cap)el.value=cap;
+ }
+}
+function enforceProgressionCaps(XP){
+ const charLevel=XP&&XP.ok?Math.floor(XP.level):Math.floor(num("charLevel"));
+ const caps=progressionCapsForCharacterLevel(charLevel),isS2=currentSeasonNumber()===2;
+ applyTargetCap("gear",5,caps.gear);applyTargetCap("skill",8,caps.skill);applyTargetCap("fant",4,caps.fant);applyTargetCap("relic",20,caps.relic);
+ $("relicCapChip").textContent=`Projected cap +${caps.relic}`;
+ for(const id of ["gearCapNote","skillCapNote","fantCapNote"])$(id).hidden=!isS2;
+ if(isS2){
+  const nextText=caps.next?` Next unlock at completed <b>Lv${caps.next.level}</b>.`:` These are the final Season 2 caps and remain fixed above Lv180.`;
+  $("gearCapNote").innerHTML=`Extracted Global cap at completed <b>Lv${charLevel}</b>: Gear <b>Lv${caps.gear}</b>.${nextText}`;
+  $("skillCapNote").innerHTML=`Extracted Global cap at completed <b>Lv${charLevel}</b>: Skills <b>Lv${caps.skill}</b>.${nextText}`;
+  $("fantCapNote").innerHTML=`Extracted Global cap at completed <b>Lv${charLevel}</b>: Fantomons <b>Lv${caps.fant}</b>.${nextText}`;
+  $("relicCapNote").innerHTML=`Extracted Global cap at completed <b>Lv${charLevel}</b>: Relics <b>+${caps.relic}</b>.${nextText}`;
+ }else{
+  const nextUnlockLevel=caps.relic*10;
+  $("relicCapNote").innerHTML=`Completed character level <b>Lv${charLevel}</b> allows relics up to <b>+${caps.relic}</b>. Fractional EXP counts toward season score; the next relic level normally unlocks at completed <b>Lv${nextUnlockLevel}</b>.`;
+ }
+ return caps;
 }
 function plannedSums(XP){
  const floor=num("floor"),rf=num("relicFloor");
@@ -1134,25 +1165,27 @@ function computeGearRequirement(XP){
  const requiredSL=Math.max(0,Math.ceil(gearPtsNeeded/w-1e-10));
  return {sums,goal,nonGear,gearPtsNeeded,requiredSL}
 }
-function balancedGearTargets(requiredSL){
+function balancedGearTargets(requiredSL,maxLevel=null){
  const floor=num("floor");
  const vals=[];for(let i=0;i<5;i++)vals.push(Math.floor(num(`gearCur${i}`)));
  let currentSL=vals.reduce((a,v)=>a+seasonLevels(v,floor),0);
- const targetSL=Math.max(requiredSL,currentSL);
- let add=targetSL-currentSL,guard=0;
+ const requestedSL=Math.max(requiredSL,currentSL);
+ let add=requestedSL-currentSL,guard=0;
  while(add>0&&guard<100000){
   // Cheapest next scoring level: lowest current planned gear level.
-  let best=0;
-  for(let i=1;i<vals.length;i++)if(vals[i]<vals[best])best=i;
+  let best=-1;
+  for(let i=0;i<vals.length;i++)if((maxLevel===null||vals[i]<maxLevel)&&(best<0||vals[i]<vals[best]))best=i;
+  if(best<0)break;
   vals[best]++;add--;guard++
  }
- return {vals,targetSL,currentSL}
+ const targetSL=vals.reduce((a,v)=>a+seasonLevels(v,floor),0);
+ return {vals,targetSL,currentSL,limited:add>0,shortfall:add,requestedSL}
 }
 function fillGear(){
- const T=timeCalc(),XP=xpCalc(T.xpHoursApplied),req=computeGearRequirement(XP),b=balancedGearTargets(req.requiredSL);
+ const T=timeCalc(),XP=xpCalc(T.xpHoursApplied),req=computeGearRequirement(XP),caps=progressionCapsForCharacterLevel(XP.ok?XP.level:num("charLevel")),b=balancedGearTargets(req.requiredSL,caps.gear);
  b.vals.forEach((v,i)=>$(`gearTar${i}`).value=v);
  calculate();
- toast(`Gear set to ${fmt(b.targetSL)} total seasonal levels`)
+ toast(b.limited?`Gear stopped at the Lv${caps.gear} Season 2 cap`:`Gear set to ${fmt(b.targetSL)} total seasonal levels`)
 }
 function parseRefreshSystem(){
  const raw=String($("refreshSystem").value||"").trim();
@@ -1405,7 +1438,7 @@ function calculate(){
   $("saveXpAdvice").innerHTML=`Start saving natural Bed EXP at <b>${T.saveStart?dateFmt(T.saveStart):"—"}</b>. Do not claim the natural Bed reserve and turn off Quick Claim. You can still use <b>${fmt(T.reserveBoostHours,2)} boost hours</b> from <b>${T.reserveResetCount} reset${T.reserveResetCount===1?"":"s"}</b> during the 36h window; those boosts count toward current-season EXP.`;
  }
 
- const relicCapInfo=enforceRelicCap(XP);
+ const progressionCaps=enforceProgressionCaps(XP);
  const curLv=Math.floor(num("charLevel")),xpEstimateNow=seasonXpEstimate(curLv);
  const plannerNeedNow=num("charNeed")>0?num("charNeed"):xpEstimateNow.need;
  $("formulaCurrentNeed").value=plannerNeedNow?Math.round(plannerNeedNow):"";
@@ -1463,8 +1496,8 @@ function calculate(){
   $(`sum${k}SL`).textContent=fmt(sl,3);$(`sum${k}W`).textContent=fmt(w,2);$(`sum${k}Pts`).textContent=fmt(pts,2);$(`sum${k}Share`).textContent=projected>0?`${fmt(pts/projected*100,1)}%`:"0%"
  });
 
- const balanced=balancedGearTargets(req.requiredSL);
- $("gearFillExplanation").innerHTML=`Goal ${fmt(goal,2)} − non-gear ${fmt(req.nonGear,2)} = <b>${fmt(req.gearPtsNeeded,2)} gear points</b>. At ${fmt(num("gearW"))} points per total seasonal gear level, the minimum is <b>${fmt(req.requiredSL)} total seasonal gear levels</b>. Balanced minimum from your current gear: <b>${balanced.vals.join(" / ")}</b>.`;
+ const balanced=balancedGearTargets(req.requiredSL,progressionCaps.gear);
+ $("gearFillExplanation").innerHTML=`Goal ${fmt(goal,2)} − non-gear ${fmt(req.nonGear,2)} = <b>${fmt(req.gearPtsNeeded,2)} gear points</b>. At ${fmt(num("gearW"))} points per total seasonal gear level, the minimum is <b>${fmt(req.requiredSL)} total seasonal gear levels</b>. Balanced minimum from your current gear: <b>${balanced.vals.join(" / ")}</b>.${balanced.limited?` <b>The requested score exceeds the current Lv${progressionCaps.gear} Gear cap.</b>`:""}`;
 
  $("oreRequired").textContent=C.unknownGearCost?`${fmt(C.ore)} known + ?`:fmt(C.ore);
  $("rolaRequired").textContent=C.unknownGearCost?`${fmt(C.rola)} known + ?`:fmt(C.rola);
@@ -1539,12 +1572,12 @@ function bind(){
   }
  });
  $("fillGearBtn").onclick=fillGear;
- $("gearApplyCur").onclick=()=>applyAll("gear",5,"Cur",num("gearAllCur"));$("gearApplyTar").onclick=()=>applyAll("gear",5,"Tar",num("gearAllTar"));
- $("skillApplyCur").onclick=()=>applyAll("skill",8,"Cur",num("skillAllCur"));$("skillApplyTar").onclick=()=>applyAll("skill",8,"Tar",num("skillAllTar"));
- $("fantApplyCur").onclick=()=>applyAll("fant",4,"Cur",num("fantAllCur"));$("fantApplyTar").onclick=()=>applyAll("fant",4,"Tar",num("fantAllTar"));
+ $("gearApplyCur").onclick=()=>applyAll("gear",5,"Cur",num("gearAllCur"));$("gearApplyTar").onclick=()=>{const T=timeCalc(),XP=xpCalc(T.xpHoursApplied),cap=progressionCapsForCharacterLevel(XP.ok?XP.level:num("charLevel")).gear,wanted=num("gearAllTar"),value=cap===null?wanted:Math.min(wanted,cap);$("gearAllTar").value=value;applyAll("gear",5,"Tar",value);if(cap!==null&&wanted>cap)toast(`Gear capped at Lv${cap}`)};
+ $("skillApplyCur").onclick=()=>applyAll("skill",8,"Cur",num("skillAllCur"));$("skillApplyTar").onclick=()=>{const T=timeCalc(),XP=xpCalc(T.xpHoursApplied),cap=progressionCapsForCharacterLevel(XP.ok?XP.level:num("charLevel")).skill,wanted=num("skillAllTar"),value=cap===null?wanted:Math.min(wanted,cap);$("skillAllTar").value=value;applyAll("skill",8,"Tar",value);if(cap!==null&&wanted>cap)toast(`Skills capped at Lv${cap}`)};
+ $("fantApplyCur").onclick=()=>applyAll("fant",4,"Cur",num("fantAllCur"));$("fantApplyTar").onclick=()=>{const T=timeCalc(),XP=xpCalc(T.xpHoursApplied),cap=progressionCapsForCharacterLevel(XP.ok?XP.level:num("charLevel")).fant,wanted=num("fantAllTar"),value=cap===null?wanted:Math.min(wanted,cap);$("fantAllTar").value=value;applyAll("fant",4,"Tar",value);if(cap!==null&&wanted>cap)toast(`Fantomons capped at Lv${cap}`)};
  $("relicApplyCur").onclick=()=>applyAll("relic",20,"Cur",num("relicAllCur"));
  $("relicApplyTar").onclick=()=>{
-  const T=timeCalc(),XP=xpCalc(T.xpHoursApplied),cap=relicCapForCharacterLevel(XP.ok?XP.level:num("charLevel"));
+  const T=timeCalc(),XP=xpCalc(T.xpHoursApplied),cap=progressionCapsForCharacterLevel(XP.ok?XP.level:num("charLevel")).relic;
   const wanted=num("relicAllTar"),value=Math.min(wanted,cap);
   $("relicAllTar").value=value;
   applyAll("relic",20,"Tar",value);
