@@ -405,7 +405,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
   <div class="tablewrap" style="margin-top:11px">
    <table id="coreTable">
     <thead><tr>
-     <th>Material</th><th>Have right now</th><th>Cart / h</th><th>Shop / real day</th><th>Other / real day</th><th>Auto Realm yield / entry</th><th>Extra manual spend</th><th>Auto upgrade spend</th><th>Projected at target</th><th>Shortfall</th><th>Realms needed</th><th>Passive-only ready</th>
+     <th>Material</th><th>Have right now</th><th>Cart / h</th><th>Shop / real day</th><th>Other / real day</th><th>Long-run Realm avg / entry</th><th>Extra manual spend</th><th>Auto upgrade spend</th><th>Projected at target</th><th>Shortfall</th><th>Realms needed</th><th>Passive-only ready</th>
     </tr></thead>
     <tbody id="coreBody"></tbody>
    </table>
@@ -699,44 +699,51 @@ const core={
  sand:{label:"White Sand equivalent",stock:0,cart:0,shop:0,other:0,realm:0,manual:0}
 };
 // level_number.csv column 6 (the material Realm subrank multiplier), indexed
-// by the three subranks available during each season. S6 II/III are blank in
-// the current client and therefore remain intentionally unknown.
+// by the actual Common.SubRank enum value. The enum begins with None and
+// Norank, so Silver1 (Expert I) is row 8 rather than row 7. Keeping these as
+// explicit season blocks avoids accidentally shifting a season forward.
 const REALM_RANK_MULTIPLIERS={
- 1:[7.7,10,10.8],2:[11.8,19,19.5],3:[20,40,42.5],
- 4:[45,70,75],5:[80,130,140],6:[150,null,null]
+ 1:[5.75,6.65,7.7],2:[10,10.8,11.8],3:[19,19.5,20],
+ 4:[40,42.5,45],5:[70,75,80],6:[130,140,150]
 };
-const REALM_INTERNAL_RANKS={1:"Gold",2:"Saint",3:"Legend",4:"Angel",5:"Godtouched 1",6:"Godtouched 2"};
+const REALM_INTERNAL_RANKS={1:"Silver",2:"Gold",3:"Saint",4:"Legend",5:"Angel",6:"Godtouched 1"};
 const REALM_DISPLAY_RANKS={1:"Expert",2:"Champion",3:"Season 3 rank",4:"Season 4 rank",5:"Season 5 rank",6:"Season 6 rank"};
 const REALM_DAMAGE_PROBABILITIES=[[9,.2],[10,.4],[11,.2],[14,1/15],[15,1/15],[16,1/15]];
 const realmHitMemo=new Map();
-function expectedRealmHits(durability){
+function expectedRealmCycle(durability){
  if(realmHitMemo.has(durability))return realmHitMemo.get(durability);
- const e=Array(durability+1).fill(0);
- for(let left=1;left<=durability;left++)e[left]=1+REALM_DAMAGE_PROBABILITIES.reduce((sum,[damage,p])=>sum+p*e[Math.max(0,left-damage)],0);
- realmHitMemo.set(durability,e[durability]);
- return e[durability]
+ const hits=Array(durability+1).fill(0),damage=Array(durability+1).fill(0);
+ for(let left=1;left<=durability;left++){
+  hits[left]=1+REALM_DAMAGE_PROBABILITIES.reduce((sum,[hit,p])=>sum+p*hits[Math.max(0,left-hit)],0);
+  // The server rewards the rolled hit, including the part that passes the
+  // object's remaining durability on the breaking hit.
+  damage[left]=REALM_DAMAGE_PROBABILITIES.reduce((sum,[hit,p])=>sum+p*(hit+damage[Math.max(0,left-hit)]),0);
+ }
+ const result={hits:hits[durability],damage:damage[durability]};
+ realmHitMemo.set(durability,result);
+ return result
 }
 function realmAverageYields(multiplier){
  if(!Number.isFinite(multiplier))return null;
  const scaled=base=>Math.trunc(base*multiplier+1e-9);
- const h90=expectedRealmHits(90),h150=expectedRealmHits(150),h180=expectedRealmHits(180);
+ const c90=expectedRealmCycle(90),c150=expectedRealmCycle(150),c180=expectedRealmCycle(180);
  // One long-run cycle includes one paid object and the expected free boxes
  // generated between paid objects. Blue Sand is converted to 5 White each.
- const ore=((80/95)*(scaled(8)*90+scaled(120))+(15/95)*(scaled(8)*90)+(5/95)*scaled(320))/h90;
- const rola=((90/95)*(scaled(80)*90+scaled(1200))+(5/95)*(scaled(80)*90)+(5/95)*scaled(3200))/h90;
- const essenceReward=(800/970)*(scaled(10)*90+scaled(150))+(150/970)*(scaled(15)*180+scaled(225))+(20/970)*(scaled(10)*150)+(30/970)*scaled(400);
- const essenceHits=(800/970)*h90+(150/970)*h180+(20/970)*h150;
- const sand=((80/95)*(scaled(7)*90+scaled(105))+(15/95)*5*(scaled(2)*90+scaled(30))+(5/95)*scaled(280))/h90;
+ const ore=((80/95)*(scaled(8)*c90.damage+scaled(120))+(15/95)*(scaled(8)*c90.damage)+(5/95)*scaled(320))/c90.hits;
+ const rola=((90/95)*(scaled(80)*c90.damage+scaled(1200))+(5/95)*(scaled(80)*c90.damage)+(5/95)*scaled(3200))/c90.hits;
+ const essenceReward=(800/970)*(scaled(10)*c90.damage+scaled(150))+(150/970)*(scaled(15)*c180.damage+scaled(225))+(20/970)*(scaled(10)*c150.damage)+(30/970)*scaled(400);
+ const essenceHits=(800/970)*c90.hits+(150/970)*c180.hits+(20/970)*c150.hits;
+ const sand=((80/95)*(scaled(7)*c90.damage+scaled(105))+(15/95)*5*(scaled(2)*c90.damage+scaled(30))+(5/95)*scaled(280))/c90.hits;
  return {ore,rola,essence:essenceReward/essenceHits,sand}
 }
 function selectedRealmRank(XP){
  const season=currentSeasonNumber(),floor=SEASON_RULES[season].floor;
  const mode=$("realmRankMode")?.value||"auto";
  const projected=XP&&XP.ok?XP.level:Math.floor(num("charLevel")||floor);
- // The I/II/III climb happens before the season's scoring baseline. By the
- // time a valid calculator level is reached (S1 Lv100, S2 Lv130, etc.), rank
- // III has already been reached and remains capped there for the season.
- const automatic=3;
+ // S1 reaches Expert III at its Lv100 scoring baseline. From S2 onward the
+ // reset progression begins at rank I on the season baseline, rank II at +10,
+ // and rank III at +20; rank III then remains capped.
+ const automatic=season===1?3:projected>=floor+20?3:projected>=floor+10?2:1;
  const tier=mode==="auto"?automatic:clamp(Math.floor(Number(mode)||1),1,3);
  const multiplier=REALM_RANK_MULTIPLIERS[season]?.[tier-1];
  return {season,tier,multiplier,projected,floor,automatic,mode,internal:REALM_INTERNAL_RANKS[season],display:REALM_DISPLAY_RANKS[season]}
@@ -748,10 +755,12 @@ function applyAutomaticRealmYields(XP){
   const el=$(`yield_${k}`);if(el)el.textContent=yields?fmt(yields[k],1):"?";
  }
  const roman=["","I","II","III"][rank.tier];
- const source=rank.mode==="auto"?`Auto: this season's scoring starts at Lv.${rank.floor}, after rank III is reached`:"Manual rank override";
+ const source=rank.mode==="auto"?`Auto from projected Lv.${Math.floor(rank.projected)}`:"Manual rank override";
  if(yields){
   $("realmYieldSummary").className="notice";
-  $("realmYieldSummary").innerHTML=`<b>${rank.display} ${roman}</b> (client ${rank.internal}${rank.tier}; multiplier ${fmt(rank.multiplier,1)}). ${source}. Rank III remains capped as levels continue above the scoring baseline, including Lv.180 and later progression. Yields are long-run averages from the extracted object weights, durability, crit/damage rules, break rewards and free boxes. Sand is shown as White Sand equivalent.`;
+  const rolaNormalLow=Math.trunc(80*rank.multiplier+1e-9)*9;
+  const rolaNormalHigh=Math.trunc(80*rank.multiplier+1e-9)*11;
+  $("realmYieldSummary").innerHTML=`<b>${rank.display} ${roman}</b> (client ${rank.internal}${rank.tier}; multiplier ${fmt(rank.multiplier,2)}). ${source}. Rank III remains capped as levels continue above the scoring baseline. Values are long-run averages from extracted object weights, rolled damage, crits, break rewards and free boxes; a regular Rola hit at this rank can show ${fmt(rolaNormalLow)}–${fmt(rolaNormalHigh)} before break/chest rewards. Sand is shown as White Sand equivalent.`;
  }else{
   $("realmYieldSummary").className="notice warn";
   $("realmYieldSummary").innerHTML=`<b>${rank.display} ${roman} Realm yield is unknown.</b> The current client has no material multiplier for this S6 subrank, so the planner will not guess.`;
