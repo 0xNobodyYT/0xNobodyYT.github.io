@@ -656,7 +656,7 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 </section>
 <div class="footer">
  <div>Fan-made multi-season planner. Cyan fields are yours to edit; gray fields are calculated. Primostars are cumulative across seasons. The selected season defines a scoring baseline, not a ceiling (S1 Lv100/+10, S2 Lv130/+14, S3 Lv160/+17, then +30/+3); progress above that baseline continues to score. Relic planned levels are automatically limited by projected character level. Realm yields are calculated from the extracted client rules for the selected season rank, including object weights, damage, crits and break rewards. Realm refreshes are counted only at actual reset events, with 5 entries per refresh; the guaranteed 5 daily-quest entries of every type are calculated separately.</div>
- <div style="margin-top:8px">Datamining direction credited to <a href="https://github.com/Mystonats" target="_blank" rel="noopener noreferrer">Mystonats</a>.</div>
+ <div id="dataminingCredit" style="margin-top:8px" hidden>Datamining direction credited to <a href="https://github.com/Mystonats" target="_blank" rel="noopener noreferrer">Mystonats</a>.</div>
  <div style="margin-top:8px;font-weight:800;color:#cbd5df">© 2026 <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">0xNobody</a> · Made by 0xNobody · <a href="https://www.youtube.com/@0xNobody" target="_blank" rel="noopener noreferrer">YouTube</a></div>
 </div>
 </div>
@@ -1798,7 +1798,7 @@ function chooseKnownServer(value,remember=true){
  else{nameInput.dataset.serverId="";dateInput.readOnly=false;showServerSource(null);if(remember){nameInput.value="";dateInput.value="";localStorage.removeItem(SERVER_CHOICE_KEY)}}
 }
 function setView(view){
- const calendar=view==="calendar";$c("plannerView").hidden=calendar;$c("calendarView").hidden=!calendar;
+ const calendar=view==="calendar";$c("plannerView").hidden=calendar;$c("calendarView").hidden=!calendar;$c("dataminingCredit").hidden=!calendar;
  $c("plannerTab").classList.toggle("active",!calendar);$c("calendarTab").classList.toggle("active",calendar);
  if(calendar){$c("plannerTab").removeAttribute("aria-current");$c("calendarTab").setAttribute("aria-current","page")}else{$c("calendarTab").removeAttribute("aria-current");$c("plannerTab").setAttribute("aria-current","page")}localStorage.setItem(VIEW_KEY,view);
  if(calendar){document.title="Sword x Staff Server Calendar | 0xNobody";document.querySelector(".siteBrand").textContent="Sword x Staff Server Calendar";document.querySelector(".eyebrow").textContent="Sword x Staff · server schedule";document.querySelector(".hero h1").textContent="Sword x Staff Server Calendar";document.querySelector(".hero p").textContent="Track your server day, season changes, dungeon releases, weekly events and their rewards."}
