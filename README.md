@@ -35,6 +35,7 @@ sxs-wardrobe-viewer/          Animated wardrobe viewer
 sxs-companions/               Companion archive
 sxs-world-map/                Interactive regional map and rewards
 sxs-community-tier-list/      Editorial and community class rankings
+cloudflare/tier-votes/        Shared voting Worker and D1 migration
 wardrobe-assets/              Wardrobe viewer runtime assets
 tools/                        Data extraction and generation utilities
 COPYRIGHT.md                  Copyright and attribution notice
@@ -44,6 +45,7 @@ COPYRIGHT.md                  Copyright and attribution notice
 
 - The public tools are static HTML, CSS, and JavaScript hosted through GitHub Pages.
 - User settings and saved builds are stored locally in the browser unless a share URL is created.
+- Community Tier List ballots are aggregated through a Cloudflare Worker and D1; browser voter identifiers are salted and hashed before storage.
 - Cyan fields are editable inputs; gray fields are calculated outputs.
 - Calculations and databases may change as additional game data is confirmed.
 - These tools are community resources and are not affiliated with or endorsed by the game's developer or publisher.
@@ -51,8 +53,6 @@ COPYRIGHT.md                  Copyright and attribution notice
 ## Data and attribution
 
 Game data and artwork used for identification and reference remain the property of their respective owners. See [COPYRIGHT.md](COPYRIGHT.md) for the full notice.
-
-Datamining direction credited to [Mystonats](https://github.com/Mystonats).
 
 ## Support
 

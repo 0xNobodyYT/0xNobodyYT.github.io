@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sxs-tier-votes-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-16",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "ALLOWED_ORIGIN": "https://0xnobodyyt.github.io"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "sxs-tier-votes",
+      "database_id": "2de5d8b0-39c5-40f3-b1cf-a3ed961f1fe8",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

@@ -46,6 +46,7 @@
     .ballot-row select{height:44px;border:1px solid #31829a;border-radius:9px;background:#071723;color:#fff;padding:0 10px}
     .dialog-actions{display:flex;justify-content:flex-end;gap:9px;padding:14px 22px 20px}
     .dialog-actions .cancel{border-color:var(--line);background:#0b1722}
+    .dialog-status{min-height:20px;margin:0;padding:0 22px;color:#ff9da7;font-size:12px;font-weight:850}
     .vote-status{min-height:22px;color:#77efac;font-weight:900}
     .tba-board{min-height:365px;display:grid;place-items:center;text-align:center;border:1px dashed #456174;border-radius:14px;background:#091722;color:var(--muted)}
     .tba-board strong{display:block;color:var(--gold);font-size:34px}.tba-board span{display:block;margin-top:5px}
@@ -92,13 +93,14 @@
   <form id="voteForm" method="dialog">
     <div class="vote-dialog-head"><span class="label">One ballot per browser and tier</span><h2 id="voteDialogTitle">Vote on T1</h2><p>Give every class an S, A, B, or C grade.</p></div>
     <div class="ballot" id="ballot"></div>
+    <p class="dialog-status" id="dialogStatus" aria-live="polite"></p>
     <div class="dialog-actions"><button class="cancel" id="cancelVote" type="button">Cancel</button><button type="submit">Submit vote</button></div>
   </form>
 </dialog>
 
 <script>
   const grades=['S','A','B','C'];
-  const scoreFor={S:4,A:3,B:2,C:1};
+  const apiBase='https://sxs-tier-votes-api.athanasioujohn.workers.dev';
   const classes={
     T1:[['Warrior',350,'A'],['Mage',351,'A']],
     T2:[['Knight',352,'A'],['Duelist',353,'A'],['Sorcerer',354,'A'],['Sage',355,'A']],
@@ -108,9 +110,15 @@
     T6:[['Justicar',368,'TBA'],['Marauder',369,'TBA'],['Arcanarch',370,'TBA'],['Hierarch',371,'TBA']],
     T7:[['Vindicator',372,'TBA'],['Doomreaver',373,'TBA'],['Thaumaturge',374,'TBA'],['Demiurge',375,'TBA']]
   };
-  const storageKey='sxs-community-tier-votes-preview-v2';
-  let savedVotes={};
-  try{savedVotes=JSON.parse(localStorage.getItem(storageKey)||'{}')}catch(_){savedVotes={}}
+  const voterKey='sxs-community-tier-voter-id-v1';
+  const submittedKey='sxs-community-tier-submitted-v1';
+  let submittedTiers={};
+  try{submittedTiers=JSON.parse(localStorage.getItem(submittedKey)||'{}')}catch(_){submittedTiers={}}
+  let voterId=localStorage.getItem(voterKey);
+  if(!voterId){voterId=crypto.randomUUID?.()||`${Date.now()}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`;localStorage.setItem(voterKey,voterId)}
+  const communityResults={};
+  const loadingResults=new Set();
+  const resultErrors={};
   let activeTier='T1';
 
   const tierSwitcher=document.getElementById('tierSwitcher');
@@ -120,22 +128,25 @@
   const voteDialog=document.getElementById('voteDialog');
   const voteForm=document.getElementById('voteForm');
   const ballot=document.getElementById('ballot');
+  const submitVote=voteForm.querySelector('[type="submit"]');
 
   function icon(badge){return `../sxs-loadout-builder/assets/classes/${badge}.webp`}
+  function resultFor(name){return communityResults[activeTier]?.classes?.find(entry=>entry.name===name)}
   function classCard(item,community=false){
     const [name,badge]=item;
-    const vote=savedVotes[activeTier]?.[name];
-    const communityMeta=vote?`${scoreFor[vote].toFixed(2)} / 4 · 1 vote`:'';
+    const result=resultFor(name);
+    const communityMeta=result?`${Number(result.average).toFixed(2)} / 4 · ${result.voteCount} ${result.voteCount===1?'vote':'votes'}`:'';
     return `<div class="tier-class${community?' community-card':''}"><img src="${icon(badge)}" alt="${name} class icon"><div><strong>${name}</strong>${community?`<small>${communityMeta}</small>`:`<small>${activeTier} class</small>`}</div></div>`;
   }
   function boardHtml(mode){
     if(mode==='editorial'&&classes[activeTier].every(item=>item[2]==='TBA'))return `<div class="tba-board"><div><strong>TBA</strong><span>${activeTier} rankings will be added after more hands-on testing.</span></div></div>`;
     const groups=Object.fromEntries(grades.map(grade=>[grade,[]]));
     classes[activeTier].forEach(item=>{
-      const grade=mode==='editorial'?item[2]:savedVotes[activeTier]?.[item[0]];
+      const grade=mode==='editorial'?item[2]:resultFor(item[0])?.grade;
       if(!grade)return;
       groups[grade].push(item);
     });
+    if(mode==='community')grades.forEach(grade=>groups[grade].sort((a,b)=>(resultFor(b[0])?.average||0)-(resultFor(a[0])?.average||0)));
     return grades.map(grade=>`<div class="grade-row grade-${grade}"><div class="grade-letter">${grade}</div><div class="grade-classes">${groups[grade].length?groups[grade].map(item=>classCard(item,mode==='community')).join(''):'<span class="grade-empty">No classes</span>'}</div></div>`).join('');
   }
   function render(){
@@ -144,32 +155,54 @@
     document.getElementById('editorialTitle').textContent=`${activeTier} Tier List`;
     document.getElementById('communityTitle').textContent=`Community ${activeTier}`;
     editorialBoard.innerHTML=boardHtml('editorial');
-    communityBoard.innerHTML=boardHtml('community');
-    const voted=Boolean(savedVotes[activeTier]);
-    document.getElementById('voterTotal').hidden=!voted;
-    document.getElementById('voterCount').textContent=voted?'1':'0';
+    const voted=Boolean(submittedTiers[activeTier]);
+    const results=communityResults[activeTier];
+    if(voted&&loadingResults.has(activeTier))communityBoard.innerHTML='<div class="tba-board"><div><strong>Loading</strong><span>Retrieving the shared community results…</span></div></div>';
+    else if(voted&&resultErrors[activeTier])communityBoard.innerHTML='<div class="tba-board"><div><strong>Unavailable</strong><span>The shared results could not be loaded. Please try again shortly.</span></div></div>';
+    else communityBoard.innerHTML=boardHtml('community');
+    document.getElementById('voterTotal').hidden=!(voted&&results);
+    document.getElementById('voterCount').textContent=results?.ballotCount||0;
     openVote.textContent=voted?`Vote submitted for ${activeTier}`:`Vote on ${activeTier}`;
     openVote.disabled=voted;
-    document.getElementById('voteHelp').textContent=voted?'Your ballot is recorded on this device.':'Grade every class once for this tier.';
-    document.getElementById('voteStatus').textContent='';
+    document.getElementById('voteHelp').textContent=voted?'Your ballot is included in the shared results.':'Grade every class once for this tier.';
+    if(voted&&!results&&!loadingResults.has(activeTier)&&!resultErrors[activeTier])loadResults(activeTier);
+  }
+  async function loadResults(tier){
+    loadingResults.add(tier);delete resultErrors[tier];render();
+    try{
+      const response=await fetch(`${apiBase}/api/results?tier=${encodeURIComponent(tier)}`,{cache:'no-store'});
+      if(!response.ok)throw new Error('Results unavailable');
+      communityResults[tier]=await response.json();
+    }catch(error){resultErrors[tier]=error.message||'Results unavailable'}
+    finally{loadingResults.delete(tier);render()}
   }
   Object.keys(classes).forEach(tier=>{
     const button=document.createElement('button');button.type='button';button.dataset.tier=tier;button.textContent=tier;
-    button.addEventListener('click',()=>{activeTier=tier;render()});tierSwitcher.appendChild(button);
+    button.addEventListener('click',()=>{activeTier=tier;document.getElementById('voteStatus').textContent='';render()});tierSwitcher.appendChild(button);
   });
   openVote.addEventListener('click',()=>{
-    if(savedVotes[activeTier])return;
+    if(submittedTiers[activeTier])return;
     document.getElementById('voteDialogTitle').textContent=`Vote on ${activeTier}`;
     ballot.innerHTML=classes[activeTier].map(([name,badge])=>`<label class="ballot-row"><img src="${icon(badge)}" alt=""><strong>${name}</strong><select name="${name}" aria-label="Grade ${name}">${grades.map(grade=>`<option value="${grade}"${grade==='A'?' selected':''}>${grade} grade</option>`).join('')}</select></label>`).join('');
+    document.getElementById('dialogStatus').textContent='';
     voteDialog.showModal();
   });
   document.getElementById('cancelVote').addEventListener('click',()=>voteDialog.close());
-  voteForm.addEventListener('submit',event=>{
+  voteForm.addEventListener('submit',async event=>{
     event.preventDefault();
-    if(savedVotes[activeTier]){voteDialog.close();return}
+    if(submittedTiers[activeTier]){voteDialog.close();return}
     const formData=new FormData(voteForm);const vote={};classes[activeTier].forEach(([name])=>vote[name]=formData.get(name));
-    savedVotes[activeTier]=vote;localStorage.setItem(storageKey,JSON.stringify(savedVotes));voteDialog.close();render();
-    document.getElementById('voteStatus').textContent=`Your ${activeTier} ballot was added to the preview.`;
+    submitVote.disabled=true;submitVote.textContent='Submitting…';document.getElementById('dialogStatus').textContent='';
+    try{
+      const response=await fetch(`${apiBase}/api/votes`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier:activeTier,voterId,votes:vote})});
+      const data=await response.json().catch(()=>({}));
+      if(!response.ok&&data.code!=='ALREADY_VOTED')throw new Error(data.error||'The vote could not be submitted.');
+      submittedTiers[activeTier]=true;localStorage.setItem(submittedKey,JSON.stringify(submittedTiers));
+      if(data.results)communityResults[activeTier]=data.results;
+      voteDialog.close();render();
+      document.getElementById('voteStatus').textContent=data.code==='ALREADY_VOTED'?`This browser already voted on ${activeTier}; shared results loaded.`:`Your ${activeTier} ballot was added to the shared results.`;
+    }catch(error){document.getElementById('dialogStatus').textContent=error.message||'The vote could not be submitted.'}
+    finally{submitVote.disabled=false;submitVote.textContent='Submit vote'}
   });
   render();
 </script>
