@@ -135,7 +135,8 @@
   function classCard(item,community=false){
     const [name,badge]=item;
     const result=resultFor(name);
-    const communityMeta=result?`${Number(result.average).toFixed(2)} / 4 · ${result.voteCount} ${result.voteCount===1?'vote':'votes'}`:'';
+    const showVoteCounts=Boolean(submittedTiers[activeTier]);
+    const communityMeta=result?`${Number(result.average).toFixed(2)} / 4${showVoteCounts?` · ${result.voteCount} ${result.voteCount===1?'vote':'votes'}`:''}`:'';
     return `<div class="tier-class${community?' community-card':''}"><img src="${icon(badge)}" alt="${name} class icon"><div><strong>${name}</strong>${community?`<small>${communityMeta}</small>`:`<small>${activeTier} class</small>`}</div></div>`;
   }
   function boardHtml(mode){
@@ -157,15 +158,15 @@
     editorialBoard.innerHTML=boardHtml('editorial');
     const voted=Boolean(submittedTiers[activeTier]);
     const results=communityResults[activeTier];
-    if(voted&&loadingResults.has(activeTier))communityBoard.innerHTML='<div class="tba-board"><div><strong>Loading</strong><span>Retrieving the shared community results…</span></div></div>';
-    else if(voted&&resultErrors[activeTier])communityBoard.innerHTML='<div class="tba-board"><div><strong>Unavailable</strong><span>The shared results could not be loaded. Please try again shortly.</span></div></div>';
+    if(loadingResults.has(activeTier))communityBoard.innerHTML='<div class="tba-board"><div><strong>Loading</strong><span>Retrieving the shared community results…</span></div></div>';
+    else if(resultErrors[activeTier])communityBoard.innerHTML='<div class="tba-board"><div><strong>Unavailable</strong><span>The shared results could not be loaded. Please try again shortly.</span></div></div>';
     else communityBoard.innerHTML=boardHtml('community');
     document.getElementById('voterTotal').hidden=!(voted&&results);
     document.getElementById('voterCount').textContent=results?.ballotCount||0;
     openVote.textContent=voted?`Vote submitted for ${activeTier}`:`Vote on ${activeTier}`;
     openVote.disabled=voted;
     document.getElementById('voteHelp').textContent=voted?'Your ballot is included in the shared results.':'Grade every class once for this tier.';
-    if(voted&&!results&&!loadingResults.has(activeTier)&&!resultErrors[activeTier])loadResults(activeTier);
+    if(!results&&!loadingResults.has(activeTier)&&!resultErrors[activeTier])loadResults(activeTier);
   }
   async function loadResults(tier){
     loadingResults.add(tier);delete resultErrors[tier];render();
