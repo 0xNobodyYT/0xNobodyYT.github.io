@@ -18,6 +18,7 @@ An unofficial collection of Sword x Staff calculators, planners, databases, and 
 | Wardrobe Viewer | Previews outfits, accessories, backwear, and class-compatible weapon appearances on animated character models. | [Open wardrobe viewer](https://0xnobodyyt.github.io/sxs-wardrobe-viewer/) |
 | Companions | Catalogs companions, friendship stat curves, filters, travel bonuses, preferred gifts, unlock routes, and biographies. | [Open companion archive](https://0xnobodyyt.github.io/sxs-companions/) |
 | Interactive World Map | Maps every released region, area label, Lucky Wheel reward pool, and client-defined area-unlock item location. | [Open world map](https://0xnobodyyt.github.io/sxs-world-map/) |
+| Community Tier List | Compares 0xNobody's T1–T7 class rankings with one community ballot per browser for each tier. | [Open tier list](https://0xnobodyyt.github.io/sxs-community-tier-list/) |
 
 ## Project structure
 
@@ -33,6 +34,7 @@ sxs-stellaris/                Stellaris reward ladder
 sxs-wardrobe-viewer/          Animated wardrobe viewer
 sxs-companions/               Companion archive
 sxs-world-map/                Interactive regional map and rewards
+sxs-community-tier-list/      Editorial and community class rankings
 wardrobe-assets/              Wardrobe viewer runtime assets
 tools/                        Data extraction and generation utilities
 COPYRIGHT.md                  Copyright and attribution notice

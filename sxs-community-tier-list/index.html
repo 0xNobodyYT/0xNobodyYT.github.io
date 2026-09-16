@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7K3SQNSXS9"></script>
+  <script src="../analytics.js"></script>
+  <title>Community Tier List · Sword x Staff</title>
+  <meta name="description" content="Compare the 0xNobody class ranking with community votes for every Sword x Staff class tier.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../sxs-explorer.css?v=20260916-2">
+  <style>
+    .tabs{grid-template-columns:repeat(11,1fr)}
+    .tier-switcher{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+    .tier-switcher button{min-height:50px;border:1px solid var(--line);border-radius:12px;background:#091722;color:var(--muted);font-weight:1000;cursor:pointer}
+    .tier-switcher button.active{border-color:var(--cyan);background:#173846;color:#fff;box-shadow:inset 0 -3px var(--cyan)}
+    .list-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+    .list-panel{min-width:0;height:100%}
+    .list-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:14px}
+    .list-heading h2{margin:3px 0 0;font-size:28px}
+    .list-heading p{margin:4px 0 0;color:var(--muted)}
+    .voter-total{flex:0 0 auto;text-align:right;color:var(--gold);font-weight:1000}
+    .voter-total small{display:block;color:var(--muted);font-size:11px;font-weight:800}
+    .tier-board{display:grid;gap:7px}
+    .grade-row{display:grid;grid-template-columns:54px minmax(0,1fr);min-height:86px;border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#091722}
+    .grade-letter{display:grid;place-items:center;font-size:27px;font-weight:1000;color:#071018}
+    .grade-S .grade-letter{background:#ff6b75}.grade-A .grade-letter{background:#ffad57}.grade-B .grade-letter{background:#ffe16b}.grade-C .grade-letter{background:#75dcaa}
+    .grade-classes{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:9px}
+    .grade-empty{color:#607c92;font-size:13px;font-weight:800}
+    .tier-class{display:grid;grid-template-columns:48px minmax(0,1fr);align-items:center;gap:9px;min-width:154px;padding:7px 9px;border:1px solid #315064;border-radius:11px;background:#102231}
+    .tier-class img{width:48px;height:48px;object-fit:contain}
+    .tier-class strong{display:block;line-height:1.15}
+    .tier-class small{display:block;margin-top:3px;color:var(--muted);font-size:10px}
+    .community-card small{color:#8edff0}
+    .vote-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+    .vote-actions p{margin:0;color:var(--muted);font-size:12px}
+    .vote-button,.dialog-actions button{min-height:46px;padding:0 17px;border:1px solid var(--cyan);border-radius:11px;background:#155269;color:#fff;font-weight:1000;cursor:pointer}
+    .vote-button:disabled{border-color:#355164;background:#172531;color:#7d9ab1;cursor:not-allowed}
+    .preview-note{margin:18px 0 0;padding:12px 14px;border:1px solid #5c5527;border-radius:12px;background:#242719;color:#f2eaa2;font-size:13px}
+    dialog{width:min(620px,calc(100% - 28px));border:1px solid #3e7189;border-radius:18px;background:#111f2d;color:var(--ink);padding:0;box-shadow:0 24px 80px #000b}
+    dialog::backdrop{background:#02070dcc;backdrop-filter:blur(4px)}
+    .vote-dialog-head{padding:20px 22px 14px;border-bottom:1px solid var(--line)}
+    .vote-dialog-head h2{margin:4px 0}.vote-dialog-head p{margin:0;color:var(--muted)}
+    .ballot{display:grid;gap:9px;padding:18px 22px}
+    .ballot-row{display:grid;grid-template-columns:52px 1fr 130px;align-items:center;gap:11px;padding:8px;border:1px solid var(--line);border-radius:12px;background:#091722}
+    .ballot-row img{width:52px;height:52px;object-fit:contain}.ballot-row strong{font-size:16px}
+    .ballot-row select{height:44px;border:1px solid #31829a;border-radius:9px;background:#071723;color:#fff;padding:0 10px}
+    .dialog-actions{display:flex;justify-content:flex-end;gap:9px;padding:14px 22px 20px}
+    .dialog-actions .cancel{border-color:var(--line);background:#0b1722}
+    .vote-status{min-height:22px;color:#77efac;font-weight:900}
+    .tba-board{min-height:365px;display:grid;place-items:center;text-align:center;border:1px dashed #456174;border-radius:14px;background:#091722;color:var(--muted)}
+    .tba-board strong{display:block;color:var(--gold);font-size:34px}.tba-board span{display:block;margin-top:5px}
+    @media(max-width:1200px){.tabs{grid-template-columns:repeat(4,1fr)}}
+    @media(max-width:980px){.list-columns{grid-template-columns:1fr}.tier-switcher{grid-template-columns:repeat(4,1fr)}}
+    @media(max-width:700px){.tabs{grid-template-columns:1fr 1fr}.tier-switcher{grid-template-columns:repeat(3,1fr)}.grade-row{grid-template-columns:45px minmax(0,1fr)}.tier-class{min-width:100%;}.vote-actions{align-items:stretch;flex-direction:column}.vote-button{width:100%}}
+    @media(max-width:480px){.ballot-row{grid-template-columns:44px 1fr}.ballot-row img{width:44px;height:44px}.ballot-row select{grid-column:1/-1;width:100%}}
+  </style>
+</head>
+<body data-tool="community-tier-list">
+<main class="wrap">
+  <a class="home" href="../">← 0xNobody Tools</a>
+  <header class="tool-header">
+    <div><span class="eyebrow">Sword x Staff · Class Rankings</span><h1>Community Tier List</h1><p>Compare our overall class ranking with the community vote at every advancement tier.</p></div>
+    <div class="promo-actions"><span class="p2w-wrap"><span class="coupon-callout" aria-hidden="true">CLICK FOR AN 8% COUPON <span class="coupon-arrow">↓</span></span><a class="p2w" href="https://www.lootbar.com/a/pcmw3X" target="_blank" rel="noopener">38% Cheaper P2W</a></span><a class="coffee" href="https://buymeacoffee.com/0xnobody" target="_blank" rel="noopener">☕ Buy me a coffee</a></div>
+  </header>
+  <nav class="tabs" aria-label="Sword x Staff tools">
+    <a href="../sxs-primo-calculator/">Season Planner<small>Primostars & materials</small></a><a href="../sxs-server-calendar/">Server Calendar<small>Days & events</small></a><a href="../sxs-loadout-builder/">Loadout Builder<small>Skills & gear</small></a><a href="../sxs-skills-conversion/">Skills Conversion<small>Class-change pools</small></a><a href="../sxs-skills-overview/">Skills Overview<small>Compare upgrades</small></a><a href="../sxs-fantomons/">Fantomons<small>Forms & abilities</small></a><a href="../sxs-stellaris/">Stellaris<small>Rewards & pricing</small></a><a href="../sxs-wardrobe-viewer/">Wardrobe Viewer<small>Cosmetics & appearances</small></a><a href="../sxs-companions/">Companions<small>Stats & friendship</small></a><a href="../sxs-world-map/">World Map<small>Regions & rewards</small></a><a class="active" href="./" aria-current="page">Tier List<small>Class rankings</small></a>
+  </nav>
+
+  <section class="panel">
+    <div class="section-head"><div><span class="label">Advancement tier</span><h2>Choose a class tier</h2></div><span class="count" id="tierClassCount"></span></div>
+    <div class="tier-switcher" id="tierSwitcher" aria-label="Class tier"></div>
+  </section>
+
+  <div class="list-columns">
+    <section class="panel list-panel">
+      <div class="list-heading"><div><span class="label">0xNobody ranking</span><h2 id="editorialTitle">T1 Tier List</h2><p>Overall class strength across PvE and PvP.</p></div></div>
+      <div class="tier-board" id="editorialBoard"></div>
+    </section>
+
+    <section class="panel list-panel">
+      <div class="list-heading"><div><span class="label">Player vote</span><h2 id="communityTitle">Community T1</h2><p>Classes move as their average grade changes.</p></div><div class="voter-total" id="voterTotal" hidden><span id="voterCount">0</span><small>people voted</small></div></div>
+      <div class="tier-board" id="communityBoard" aria-live="polite"></div>
+      <div class="vote-actions"><p id="voteHelp">Grade every class once for this tier.</p><button class="vote-button" id="openVote" type="button">Vote on T1</button></div>
+      <div class="vote-status" id="voteStatus" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <div class="preview-note"><strong>Offline preview:</strong> every Community tier starts empty and is populated only after a ballot is submitted. Votes are stored only in this browser until the shared online vote service is connected.</div>
+  <footer class="footer">Datamining direction credited to <a href="https://github.com/Mystonats">Mystonats</a>. © 2026 0xNobody.</footer>
+</main>
+
+<dialog id="voteDialog" aria-labelledby="voteDialogTitle">
+  <form id="voteForm" method="dialog">
+    <div class="vote-dialog-head"><span class="label">One ballot per browser and tier</span><h2 id="voteDialogTitle">Vote on T1</h2><p>Give every class an S, A, B, or C grade.</p></div>
+    <div class="ballot" id="ballot"></div>
+    <div class="dialog-actions"><button class="cancel" id="cancelVote" type="button">Cancel</button><button type="submit">Submit vote</button></div>
+  </form>
+</dialog>
+
+<script>
+  const grades=['S','A','B','C'];
+  const scoreFor={S:4,A:3,B:2,C:1};
+  const classes={
+    T1:[['Warrior',350,'A'],['Mage',351,'A']],
+    T2:[['Knight',352,'A'],['Duelist',353,'A'],['Sorcerer',354,'A'],['Sage',355,'A']],
+    T3:[['Paladin',356,'B'],['Berserker',357,'A'],['Archmage',358,'A'],['Arcanist',359,'S']],
+    T4:[['Guardian',360,'A'],['Conqueror',361,'S'],['Destroyer',362,'A'],['Dominator',363,'B']],
+    T5:[['Templar',364,'A'],['Ravager',365,'C'],['Magister',366,'S'],['Prophet',367,'A']],
+    T6:[['Justicar',368,'TBA'],['Marauder',369,'TBA'],['Arcanarch',370,'TBA'],['Hierarch',371,'TBA']],
+    T7:[['Vindicator',372,'TBA'],['Doomreaver',373,'TBA'],['Thaumaturge',374,'TBA'],['Demiurge',375,'TBA']]
+  };
+  const storageKey='sxs-community-tier-votes-preview-v2';
+  let savedVotes={};
+  try{savedVotes=JSON.parse(localStorage.getItem(storageKey)||'{}')}catch(_){savedVotes={}}
+  let activeTier='T1';
+
+  const tierSwitcher=document.getElementById('tierSwitcher');
+  const editorialBoard=document.getElementById('editorialBoard');
+  const communityBoard=document.getElementById('communityBoard');
+  const openVote=document.getElementById('openVote');
+  const voteDialog=document.getElementById('voteDialog');
+  const voteForm=document.getElementById('voteForm');
+  const ballot=document.getElementById('ballot');
+
+  function icon(badge){return `../sxs-loadout-builder/assets/classes/${badge}.webp`}
+  function classCard(item,community=false){
+    const [name,badge]=item;
+    const vote=savedVotes[activeTier]?.[name];
+    const communityMeta=vote?`${scoreFor[vote].toFixed(2)} / 4 · 1 vote`:'';
+    return `<div class="tier-class${community?' community-card':''}"><img src="${icon(badge)}" alt="${name} class icon"><div><strong>${name}</strong>${community?`<small>${communityMeta}</small>`:`<small>${activeTier} class</small>`}</div></div>`;
+  }
+  function boardHtml(mode){
+    if(mode==='editorial'&&classes[activeTier].every(item=>item[2]==='TBA'))return `<div class="tba-board"><div><strong>TBA</strong><span>${activeTier} rankings will be added after more hands-on testing.</span></div></div>`;
+    const groups=Object.fromEntries(grades.map(grade=>[grade,[]]));
+    classes[activeTier].forEach(item=>{
+      const grade=mode==='editorial'?item[2]:savedVotes[activeTier]?.[item[0]];
+      if(!grade)return;
+      groups[grade].push(item);
+    });
+    return grades.map(grade=>`<div class="grade-row grade-${grade}"><div class="grade-letter">${grade}</div><div class="grade-classes">${groups[grade].length?groups[grade].map(item=>classCard(item,mode==='community')).join(''):'<span class="grade-empty">No classes</span>'}</div></div>`).join('');
+  }
+  function render(){
+    [...tierSwitcher.children].forEach(button=>{const active=button.dataset.tier===activeTier;button.classList.toggle('active',active);button.setAttribute('aria-pressed',active)});
+    document.getElementById('tierClassCount').textContent=`${classes[activeTier].length} ${activeTier} classes`;
+    document.getElementById('editorialTitle').textContent=`${activeTier} Tier List`;
+    document.getElementById('communityTitle').textContent=`Community ${activeTier}`;
+    editorialBoard.innerHTML=boardHtml('editorial');
+    communityBoard.innerHTML=boardHtml('community');
+    const voted=Boolean(savedVotes[activeTier]);
+    document.getElementById('voterTotal').hidden=!voted;
+    document.getElementById('voterCount').textContent=voted?'1':'0';
+    openVote.textContent=voted?`Vote submitted for ${activeTier}`:`Vote on ${activeTier}`;
+    openVote.disabled=voted;
+    document.getElementById('voteHelp').textContent=voted?'Your ballot is recorded on this device.':'Grade every class once for this tier.';
+    document.getElementById('voteStatus').textContent='';
+  }
+  Object.keys(classes).forEach(tier=>{
+    const button=document.createElement('button');button.type='button';button.dataset.tier=tier;button.textContent=tier;
+    button.addEventListener('click',()=>{activeTier=tier;render()});tierSwitcher.appendChild(button);
+  });
+  openVote.addEventListener('click',()=>{
+    if(savedVotes[activeTier])return;
+    document.getElementById('voteDialogTitle').textContent=`Vote on ${activeTier}`;
+    ballot.innerHTML=classes[activeTier].map(([name,badge])=>`<label class="ballot-row"><img src="${icon(badge)}" alt=""><strong>${name}</strong><select name="${name}" aria-label="Grade ${name}">${grades.map(grade=>`<option value="${grade}"${grade==='A'?' selected':''}>${grade} grade</option>`).join('')}</select></label>`).join('');
+    voteDialog.showModal();
+  });
+  document.getElementById('cancelVote').addEventListener('click',()=>voteDialog.close());
+  voteForm.addEventListener('submit',event=>{
+    event.preventDefault();
+    if(savedVotes[activeTier]){voteDialog.close();return}
+    const formData=new FormData(voteForm);const vote={};classes[activeTier].forEach(([name])=>vote[name]=formData.get(name));
+    savedVotes[activeTier]=vote;localStorage.setItem(storageKey,JSON.stringify(savedVotes));voteDialog.close();render();
+    document.getElementById('voteStatus').textContent=`Your ${activeTier} ballot was added to the preview.`;
+  });
+  render();
+</script>
+</body>
+</html>
