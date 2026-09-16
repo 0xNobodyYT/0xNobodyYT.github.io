@@ -60,7 +60,7 @@
         </div>
         <section class="acquisition">
           <h3>Selected Cosmetics &amp; Acquisition</h3>
-          <div class="muted">Where the game data says each selected look comes from.</div>
+          <div class="muted">Confirmed unlocks are labeled explicitly. A region asset association does not mean the cosmetic is awarded automatically by story progress.</div>
           <div class="acquisition-list" id="acquisitionList"></div>
         </section>
       </div>
@@ -73,6 +73,26 @@
   <script src="../wardrobe-assets/catalog.js"></script>
   <script>
     const none={id:'none',name:'None',skin:null,pages:[],acquisition:'Not equipped'};
+    const inferredRegionReward=/^(Forest Kingdom|world region \d+) progression reward \(exploration, dungeon, monster, or NPC gear\)$/i;
+    const temporaryRegionItems=new Set(['32504','32508','32516','32520','32524']);
+    Object.entries(WARDROBE_DATA.categories).forEach(([category,genderGroups])=>{
+      Object.values(genderGroups).forEach(items=>items.forEach(item=>{
+        if(item.acquisition==='Class / profession progression'){
+          item.acquisition='Class progression unlock (confirmed)';
+          return;
+        }
+        const match=(item.acquisition||'').match(inferredRegionReward);
+        if(!match)return;
+        const region=match[1];
+        if(temporaryRegionItems.has(String(item.itemId))){
+          item.acquisition=`Temporary wardrobe item (7 days). Client asset group: ${region}; exact acquisition source is unconfirmed.`;
+        }else if(category==='mainHand'||category==='offHand'){
+          item.acquisition=`${region}-associated equipment appearance. Exact acquisition source is unconfirmed; this is not an automatic progression unlock.`;
+        }else{
+          item.acquisition=`${region}-associated appearance. Exact acquisition source is unconfirmed; this is not an automatic progression unlock.`;
+        }
+      }));
+    });
     const classes={
       Knight:{lineage:'Warrior · Rank 2',mainPrefix:'pWeapon_100_',offPrefix:'sWeapon_11_',mainAnimation:'100/100_loop',offAnimation:'100_11_loop_home'},
       Duelist:{lineage:'Warrior · Rank 2',mainPrefix:'pWeapon_100_',offPrefix:'sWeapon_12_',mainAnimation:'100/100_loop',offAnimation:'100_12_loop_A'},

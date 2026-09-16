@@ -250,6 +250,7 @@ def skin_thumbnail(group: str, pages: list[str], skin: str) -> str | None:
 def write_catalog(page_maps: dict[str, set[str]], skin_pages: dict[str, dict[str, list[str]]]) -> None:
     appearances = csv_rows("append_appearance", "ClassId")
     skins = csv_rows("spine_skin", "Id")
+    timed_items = csv_rows("item_time_limit", "ClassId")
     with (CONFIG / "text.g.csv").open(encoding="utf-8-sig", newline="") as handle:
         localized = {row["key"]: row["text"] for row in csv.DictReader(handle)}
 
@@ -308,9 +309,27 @@ def write_catalog(page_maps: dict[str, set[str]], skin_pages: dict[str, dict[str
             elif bundle.startswith("Map_"):
                 map_number = bundle.removeprefix("Map_")
                 region = {"11": "Forest Kingdom"}.get(map_number, f"world region {map_number}")
-                acquisition = f"{region} progression reward (exploration, dungeon, monster, or NPC gear)"
+                timed = timed_items.get(appearance_id)
+                duration = timed.get("Duration", "") if timed else ""
+                if duration.isdigit() and int(duration) > 0:
+                    days = int(duration) / 24
+                    days_label = str(int(days)) if days.is_integer() else f"{days:g}"
+                    acquisition = (
+                        f"Temporary wardrobe item ({days_label} days). "
+                        f"Client asset group: {region}; exact acquisition source is unconfirmed."
+                    )
+                elif category in {"mainHand", "offHand"}:
+                    acquisition = (
+                        f"{region}-associated equipment appearance. "
+                        "Exact acquisition source is unconfirmed; this is not an automatic progression unlock."
+                    )
+                else:
+                    acquisition = (
+                        f"{region}-associated appearance. "
+                        "Exact acquisition source is unconfirmed; this is not an automatic progression unlock."
+                    )
             elif bundle == "Profession":
-                acquisition = "Class / profession progression"
+                acquisition = "Class progression unlock (confirmed)"
             elif row.get("SkinUseType") == "Free":
                 acquisition = "Base customization or gameplay unlock"
             elif bundle.startswith("Pay"):
