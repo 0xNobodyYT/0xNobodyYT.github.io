@@ -149,6 +149,14 @@ def rows(blob: bytes) -> list[dict[str, str]]:
     return [row for row in csv.DictReader(io.StringIO(text)) if row and not str(next(iter(row.values()), "")).startswith("#")]
 
 
+def clean_profile_text(value: str) -> str:
+    """Normalize escaped client line breaks and harmless localization whitespace."""
+    text = (value or "").replace("\\r\\n", "\n").replace("\\n", "\n").replace("\\t", "\t")
+    text = text.replace("\r\n", "\n").replace("\r", "\n").replace("\u00a0", " ")
+    text = "\n".join(line.rstrip() for line in text.split("\n"))
+    return re.sub(r"\n{3,}", "\n\n", text).strip()
+
+
 def parse_loose_dict(value: str) -> dict:
     if not value:
         return {}
@@ -329,7 +337,8 @@ def main() -> int:
         profile_id = row.get("ProfileId", "")
         text = localization.get(f"npc_profile_Content_{npc_id}_{profile_id}", "")
         if not text:
-            text = row.get("ContentText", "").replace("\\n", "\n")
+            text = row.get("ContentText", "")
+        text = clean_profile_text(text)
         if text:
             condition = parse_loose_dict(row.get("UnlockConditionParam", ""))
             profile_rows[npc_id].append({"id": profile_id, "level": condition.get("FriendshipLevel"), "text": text})
