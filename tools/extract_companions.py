@@ -5,6 +5,7 @@ import csv
 import io
 import json
 import re
+import subprocess
 import sys
 import urllib.request
 from collections import defaultdict
@@ -14,11 +15,13 @@ from pathlib import Path, PurePosixPath
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "sxs-companions"
 ASSETS = OUT / "assets"
-CACHE = Path(r"C:\tmp\sxs-yoo-cache\companion-bundles")
-MANIFEST = Path(r"C:\tmp\sxs-yoo-cache\PackageManifest_DefaultPackage_88_156110.bytes")
+CACHE = Path(r"C:\tmp\sxs-latest-116\bundles")
+MANIFEST = Path(r"C:\tmp\sxs-latest-116\PackageManifest_DefaultPackage_116_156298.bytes")
 RESEARCH = Path(r"C:\tmp\sxs-research\tools")
 DEPS = Path(r"C:\tmp\sxs-research\.deps")
 CDN = "https://zhangjcsomqdl.boltraygames.com/patch/20260828203788/Android/DefaultPackage"
+ADB = Path(r"C:\Program Files\BlueStacks_nxt\HD-Adb.exe")
+ADB_DEVICE = "emulator-5554"
 FALLBACK_ART = "https://lootandwaifus.com/companions/swordxstaff/npc_icon_{id}.png"
 CROSSOVER_REFERENCE_ART = {
     # The current global client contains the Slime crossover skeletons but only
@@ -89,9 +92,22 @@ def download_bundle(manifest, bundle_id: int) -> bytes:
     CACHE.mkdir(parents=True, exist_ok=True)
     cached = CACHE / f"{bundle_id}-{bundle.file_hash}.bundle"
     if not cached.exists():
-        print(f"downloading bundle {bundle_id} ({bundle.file_size:,} bytes)")
-        with urllib.request.urlopen(f"{CDN}/{bundle.file_hash}.bundle", timeout=90) as response:
-            cached.write_bytes(response.read())
+        cache_path = (
+            "/sdcard/Android/data/com.zjcs.android.us/files/yoo/DefaultPackage/CacheFiles/"
+            f"{bundle.file_hash[:2]}/{bundle.file_hash}/__data"
+        )
+        CACHE.mkdir(parents=True, exist_ok=True)
+        pulled = False
+        if ADB.exists():
+            result = subprocess.run(
+                [str(ADB), "-s", ADB_DEVICE, "pull", cache_path, str(cached)],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False,
+            )
+            pulled = result.returncode == 0 and cached.exists()
+        if not pulled:
+            print(f"downloading bundle {bundle_id} ({bundle.file_size:,} bytes)")
+            with urllib.request.urlopen(f"{CDN}/{bundle.file_hash}.bundle", timeout=90) as response:
+                cached.write_bytes(response.read())
     raw = cached.read_bytes()
     if len(raw) != bundle.file_size:
         raise RuntimeError(f"bundle {bundle_id}: expected {bundle.file_size}, got {len(raw)}")

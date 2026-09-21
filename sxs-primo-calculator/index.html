@@ -38,10 +38,11 @@ h1{font-size:clamp(29px,4vw,48px);line-height:1.03;margin:5px 0 8px}
 .promoBtn{width:178px;height:44px;min-width:178px;padding:0 14px;white-space:nowrap}
 .p2wWrap{position:relative;display:inline-flex;padding-top:27px}.couponCallout{position:absolute;top:0;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:5px;padding:3px 8px;border:1px solid #ff7185;border-radius:999px;background:#7d1f31;color:#fff;font-size:9px;line-height:1.2;font-weight:950;letter-spacing:.045em;white-space:nowrap;box-shadow:0 4px 13px #0008;pointer-events:none}.couponCallout:after{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #ff7185}.couponArrow{display:inline-block;color:#ffe36f;font-size:13px;animation:couponBlink 1s ease-in-out infinite}@keyframes couponBlink{0%,100%{opacity:1;transform:translateY(-1px)}50%{opacity:.25;transform:translateY(2px)}}@media(prefers-reduced-motion:reduce){.couponArrow{animation:none}}
 .couponArrow{position:relative;width:9px;height:12px;font-size:0}.couponArrow:before{content:"";position:absolute;left:4px;top:0;width:2px;height:6px;border-radius:2px;background:#ffe36f}.couponArrow:after{content:"";position:absolute;left:0;top:5px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #ffe36f}
-.viewTabs{display:flex;justify-content:center;gap:7px;margin:-4px 0 16px;padding:5px;border:1px solid var(--line);border-radius:13px;background:rgba(13,19,28,.86)}
-.viewTab{display:block;flex:0 1 230px;border:1px solid transparent;background:transparent;color:var(--muted);border-radius:9px;padding:10px 14px;font-weight:950;text-align:center;text-decoration:none}
-.viewTab.active{border-color:rgba(113,216,233,.5);background:linear-gradient(135deg,rgba(113,216,233,.17),rgba(217,224,82,.08));color:#f2fdff;box-shadow:0 5px 16px rgba(0,0,0,.2)}
-.viewTab small{display:block;font-size:9px;font-weight:750;letter-spacing:.04em;margin-top:1px;color:inherit;opacity:.8}
+.viewTabs{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));margin:-4px 0 16px;border:1px solid var(--line);border-radius:13px;background:rgba(13,19,28,.86);overflow:hidden}
+.viewTab{min-height:70px;display:grid;place-content:center;border:0;border-right:1px solid var(--line);background:transparent;color:var(--ink);padding:12px 8px;font-weight:950;text-align:center;text-decoration:none;line-height:1.25}
+.viewTab:last-child{border-right:0}
+.viewTab.active{background:#193744;color:#fff;box-shadow:inset 0 -4px var(--cyan)}
+.viewTab small{display:block;font-size:9px;font-weight:750;letter-spacing:.04em;margin-top:2px;color:#a8c6e8}
 
 .chip{border:1px solid var(--line);background:rgba(18,24,34,.92);border-radius:999px;padding:7px 10px;font-size:11px;font-weight:850;color:#c8d2de;white-space:nowrap}
 .layout{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(420px,.84fr);gap:15px;align-items:start}
@@ -150,7 +151,8 @@ details{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}summar
 .event-major .eventHeadText{padding-right:116px}
 @media(max-width:700px){.wrap{padding:11px}.field label{height:auto;min-height:0;margin-top:3px}.grid2,.grid3,.grid4,.metrics,.realmhero,.calendarMetrics{grid-template-columns:1fr}.batch{grid-template-columns:minmax(0,1fr) 112px}.batch .btn{width:112px}.unitgrid{grid-template-columns:64px 1fr 20px 1fr}.ratinggrid{grid-template-columns:repeat(4,1fr)}.viewTabs{position:sticky;top:5px;z-index:20;background:rgba(9,12,18,.96)}.difficultyGrid{flex-wrap:wrap}.difficultyRow{flex-basis:calc(50% - 4px)}.eventHeader{padding-left:11px}.eventMark{flex-basis:34px;width:34px;height:34px}.eventTag{justify-self:start}.eventArt{width:42%;opacity:.52}.calendarEvent.hasArt .eventHeader,.calendarEvent.hasArt .eventBody{padding-right:38%}.event-season:after,.event-major:after{display:none}.event-season .eventHeadText,.event-major .eventHeadText{padding-right:0}}
 @media(max-width:700px){.difficultyGrid{flex-direction:column}.difficultyRow{flex-basis:auto}}
-@media(max-width:700px){.viewTabs{justify-content:flex-start;overflow-x:auto}.viewTab{flex:0 0 170px;padding:10px 8px}}
+@media(max-width:1100px){.viewTabs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:700px){.viewTabs{grid-template-columns:repeat(2,minmax(0,1fr));overflow:hidden}.viewTab{padding:10px 7px}}
 @media(max-width:700px){.calendarClockRow{grid-template-columns:1fr}}
 </style>
 </head>
