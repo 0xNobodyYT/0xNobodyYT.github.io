@@ -1697,7 +1697,7 @@ const globalEvents=[
  {date:"2026-09-07",end:"2026-09-23",type:"global",title:"Skill Up or Shut Up",meta:"Global collaboration event · Journey Across the Otherworld with Cabbage Dog",rewardLabel:"Event phase",rewards:["Cabbage Dog collaboration rewards"]},
  {date:"2026-09-07",end:"2026-09-23",type:"global",title:"Spicy Chicken",meta:"Global outfit pack · Cabbage Dog Series II",rewardLabel:"Featured",rewards:["Spicy Chicken outfit"]},
  {date:"2026-09-14",end:"2026-09-23",type:"global",title:"Toy Outfit Set",meta:"Datamined global event phase · starts at reset",rewardLabel:"Also opens",rewards:["Purify Lemon Whale"]},
- {date:"2026-09-24",end:"2026-10-07",type:"global",title:"Mechanical Heart",meta:"Datamined global outfit phase · starts at reset",rewardLabel:"Also in the set",rewards:["Rusty Blade weapon"]},
+ {date:"2026-11-15",end:"2026-11-28",type:"global",tag:"Outfit Pack",title:"Mechanical Heart",meta:"Fixed Global outfit pack · starts at reset",rewardLabel:"Also in the set",rewards:["Rusty Blade weapon"]},
  {date:"2026-09-25",type:"global",major:true,title:"Thunderous Crusade",meta:"Limited-time event · opens on this date"},
  {date:"2026-10-10",type:"global",major:true,title:"Wonder Flavors",meta:"Limited-time event · opens on this date"},
  {date:"2026-10-10",type:"global",title:"Stellar Plume",meta:"New Visage Gacha · opens on this date"},
@@ -1868,7 +1868,7 @@ function eventCardHtml(e){
  if(e.mergeServers?.length)body=`<div class="eventBody"><div class="rewardLabel">Servers joining your Nexus ${esc(e.nexus)}</div><div class="rewardStrip">${e.mergeServers.map(server=>`<span class="rewardChip"><b>${esc(server)}</b></span>`).join("")}</div><div class="eventMeta" style="margin-top:7px">These servers combine with ${esc($c("calendarServerName").value.trim())} at this season reset.</div></div>`;
  else if(difficulties.length)body=`<div class="eventBody"><div class="rewardLabel">Difficulty requirements</div><div class="difficultyGrid">${difficulties.map(d=>`<div class="difficultyRow"><span class="difficultyName">${esc(d.name)}</span><span class="difficultyPower">${esc(d.requirement)}</span></div>`).join("")}</div></div>`;
  else if(e.rewards?.length)body=`<div class="eventBody"><div class="rewardLabel">${esc(e.rewardLabel||"Rewards")}</div><div class="rewardStrip">${e.rewards.map(rewardChipHtml).join("")}</div>${e.tasks?.length?`<div class="taskStrip">${e.tasks.map(task=>`<span class="taskChip">${esc(task)}</span>`).join("")}</div>`:""}${e.note?`<div class="eventMeta" style="margin-top:7px">${esc(e.note)}</div>`:""}</div>`;
- const art=CALENDAR_ASSETS[EVENT_ART[e.title]],mark=e.type==="season"?`S${e.title.match(/Season\s+(\d+)/i)?.[1]||""}`:(EVENT_ICONS[e.type]||"•"),tag=e.type==="season"?"Season":e.type;
+ const art=CALENDAR_ASSETS[EVENT_ART[e.title]],mark=e.type==="season"?`S${e.title.match(/Season\s+(\d+)/i)?.[1]||""}`:(EVENT_ICONS[e.type]||"•"),tag=e.tag||(e.type==="season"?"Season":e.type);
  return `<div class="calendarEvent event-${e.type}${e.major?" event-major":""}${art?" hasArt":""}">${art?`<img class="eventArt" src="${art}" alt="">`:""}<div class="eventHeader"><span class="eventMark" aria-hidden="true">${mark}</span><div class="eventHeadText"><div class="eventTopline"><span class="eventTag">${esc(e.major?"Major milestone":tag)}</span><span class="eventTitle">${esc(e.title)}</span></div><div class="eventMeta">${esc(meta)}${esc(duration)}</div></div></div>${body}</div>`
 }
 function renderTimeline(entries,start,todayDay,now){
