@@ -50,6 +50,17 @@ COPYRIGHT.md                  Copyright and attribution notice
 - Calculations and databases may change as additional game data is confirmed.
 - These tools are community resources and are not affiliated with or endorsed by the game's developer or publisher.
 
+## Latest client audit
+
+The complete toolset was checked against the live Global client on 1 November 2026:
+
+- APK version: `156259`
+- YooAsset package: `134_156699`
+- Resource snapshot: `202610291942134`
+- Compared with the previous live package: `131_156640`
+
+The current update contains no new or changed gameplay, schedule, roster, map, cosmetic, reward, skill, class, progression, or economy tables. Its only changed configuration asset is the web-questionnaire table; the remaining changes are localization and runtime code. No calculator or database values required replacement. See [`tools/LATEST_CLIENT_AUDIT.md`](tools/LATEST_CLIENT_AUDIT.md) for the per-tool audit.
+
 ## Data and attribution
 
 Game data and artwork used for identification and reference remain the property of their respective owners. See [COPYRIGHT.md](COPYRIGHT.md) for the full notice.
