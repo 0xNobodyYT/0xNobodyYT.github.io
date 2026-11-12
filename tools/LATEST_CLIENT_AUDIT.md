@@ -1,6 +1,6 @@
 # Latest Sword x Staff client audit
 
-Audit date: 2026-11-01
+Audit date: 2026-11-12
 
 ## Client checked
 
@@ -8,43 +8,50 @@ Audit date: 2026-11-01
 | --- | --- |
 | Android package | `com.zjcs.android.us` |
 | APK version code | `156259` |
-| Current YooAsset package | `134_156699` |
-| Current resource snapshot | `202610291942134` |
-| Previous YooAsset package | `131_156640` |
-| Previous resource snapshot | `202610231055131` |
+| Current YooAsset package | `137_156823` |
+| Current resource snapshot | `202611111409137` |
+| Previous YooAsset package | `134_156699` |
+| Previous resource snapshot | `202610291942134` |
 
-The manifests and changed bundles were read from the running Global client in BlueStacks. The previous live bundles were downloaded from the resource snapshot recorded by the client so that the comparison uses two adjacent production releases.
+The manifests and cached bundles were read from the running Global client in BlueStacks. Package 137 was compared directly with the adjacent package 134 manifests and data assets.
 
 ## Adjacent-release diff
 
 | Package | Result |
 | --- | --- |
-| `DefaultPackage` | 20,686 bundles; no added, removed, or changed bundles |
-| `Config` | 50 bundles; only `config_assets_config.bundle` and `config_assets_config_luban.bundle` changed |
-| `ConfigRawFile` | Seven localized text bundles changed |
-| `HybridCLR` | Runtime assemblies and metadata changed |
+| `DefaultPackage` | 20,686 bundles in both releases; no additions or removals; 487 rebuilt or changed bundles |
+| `Config` | 50 bundles; only `config_assets_config_luban.bundle` changed |
+| `ConfigRawFile` | No changed bundles |
+| `HybridCLR` | Four runtime/metadata bundles changed |
 
-The two changed Config bundles were unpacked and compared asset by asset:
+The changed Config bundle was unpacked and all 343 Unity objects were compared. Only `general_activity_shop.g` differs, and its 13,859-byte payload has exactly one changed byte in the `Halloween26` shop record. The season, progression, class, skill, Fantomon, companion, map, wardrobe-acquisition, Stellaris, and calendar configuration assets are byte-identical to package 134.
 
-- `config_assets_config.bundle`: 128 assets; only `questionnaire_web` changed (1,694 to 1,846 bytes).
-- `config_assets_config_luban.bundle`: 24 assets; no contained data asset changed.
+The changed presentation bundles mainly contain `linkage08` appearance atlases, Slime-themed blind-box/emoji art, NPC presentation assets, the Pet item-icon atlas, and `map_10`. These are presentation updates backed by unchanged gameplay tables; they do not add a Season 8 ruleset.
 
-This means package 134 contains no new or modified gameplay tables. The localization changes accompany the questionnaire/runtime update and do not add tool data.
+## Season availability
+
+The live `astrological_season_config.g` table contains **seven rows**:
+
+- Seasons 1–6 are unchanged.
+- Season 7 is present as `Godtouched2`, with a Lv280 scoring baseline, 200 fixed Primostars, 3 progression points per Primostar, and scoring weights of Character 100, Gear 20, Relics 35, Skills 6, and Fantomons 12.
+- There is **no Season 8 row**. No Season 8 baseline, Primostar conversion, fixed award, scoring weights, EXP curve, upgrade curve, Realm yield, event schedule, class tier, skill pool, or other Season 8-specific gameplay configuration is available in the current Global client.
+
+Season 8 values must not be inferred from the rank enum or extrapolated from Season 7. `Godtouched3` exists as a generic rank enum/reference in some shared systems, but it is not an active Season 8 configuration.
 
 ## Tool impact
 
-| Tool | Data checked | Package 134 action |
-| --- | --- | --- |
-| Season Planner | Season rules, scoring, EXP, upgrade costs, Realm yields | No data change |
-| Server Calendar | Event schedules, server-relative milestones, rewards | No data change; provenance note updated |
-| Loadout Builder | Classes, skills, equipment, Fantomons, formulas | No data change |
-| Skills Conversion | Class-change pools and base grades | No data change |
-| Skills Overview | Techniques, Charms, ranks, curves, descriptions | No data change |
-| Fantomons | Roster, forms, skills, grades, stats | No data change |
-| Stellaris | Milestones, reward bundles, pricing scale | No data change |
-| Wardrobe Viewer | Cosmetics, models, Spine attachments, acquisition data | No asset or table change |
-| Companions | Roster, friendship curves, bonuses, profiles | No data change |
-| World Map | Regions, unlocks, loot, wheels | No asset or table change |
-| Community Tier List | Class roster | No class data change |
+| Tool | Package 137 action |
+| --- | --- |
+| Season Planner | No Season 8 data to add; existing S1–6 production values remain unchanged |
+| Server Calendar | No Season 8 schedule or server-relative milestones present |
+| Loadout Builder | No Season 8 class, skill, equipment, formula, or Fantomon table change |
+| Skills Conversion | No class-change pool change |
+| Skills Overview | No technique, Charm, rank, curve, or description change |
+| Fantomons | Pet icon atlas rebuilt, but roster/forms/skills/grades/stats are unchanged |
+| Stellaris | No milestone, reward-bundle, or pricing change |
+| Wardrobe Viewer | New presentation atlases exist, but the appearance/acquisition tables are unchanged |
+| Companions | Some NPC presentation bundles changed; roster, bonuses, friendship data, and profiles are unchanged |
+| World Map | `map_10` presentation bundle changed; region/unlock/loot/wheel configuration is unchanged |
+| Community Tier List | No class roster or tier change |
 
-No user-facing values were changed merely to create an update. Future client audits should compare the next live manifests against `134_156699` and regenerate only the tools whose source tables actually differ.
+No user-facing values were changed or guessed merely to label the tools as Season 8-ready. The next live manifests should be compared against `137_156823`; Season 8 support can be added once an eighth season row and its dependent progression tables actually ship.
