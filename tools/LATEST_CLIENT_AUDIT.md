@@ -1,57 +1,59 @@
 # Latest Sword x Staff client audit
 
-Audit date: 2026-11-12
+Audit date: 2026-11-24
 
 ## Client checked
 
 | Field | Value |
 | --- | --- |
 | Android package | `com.zjcs.android.us` |
-| APK version code | `156259` |
-| Current YooAsset package | `137_156823` |
-| Current resource snapshot | `202611111409137` |
-| Previous YooAsset package | `134_156699` |
-| Previous resource snapshot | `202610291942134` |
+| Installed APK version code | `156940` |
+| Current YooAsset package | `153_156959` |
+| Current resource snapshot | `202611202141153` |
+| Previous YooAsset package | `150_156940` |
+| Previous resource snapshot | `202611200130150` |
 
-The manifests and cached bundles were read from the running Global client in BlueStacks. Package 137 was compared directly with the adjacent package 134 manifests and data assets.
+The manifests and cached bundles were read from the running Global client in BlueStacks. Package 153 was compared directly with the adjacent package 150 manifests and extracted data assets.
 
 ## Adjacent-release diff
 
 | Package | Result |
 | --- | --- |
-| `DefaultPackage` | 20,686 bundles in both releases; no additions or removals; 487 rebuilt or changed bundles |
-| `Config` | 50 bundles; only `config_assets_config_luban.bundle` changed |
-| `ConfigRawFile` | No changed bundles |
-| `HybridCLR` | Four runtime/metadata bundles changed |
+| `DefaultPackage` | 21,059 to 21,068 bundles; nine Christmas localization bundles added, no removals, seven existing bundles changed |
+| `Config` | 42 bundles; only `config_assets_config_luban.bundle` changed |
+| `ConfigRawFile` | 16 bundles; seven language/localization files changed |
+| `HybridCLR` | 23 bundles; nine runtime/metadata files changed |
 
-The changed Config bundle was unpacked and all 343 Unity objects were compared. Only `general_activity_shop.g` differs, and its 13,859-byte payload has exactly one changed byte in the `Halloween26` shop record. The season, progression, class, skill, Fantomon, companion, map, wardrobe-acquisition, Stellaris, and calendar configuration assets are byte-identical to package 134.
+Both Config bundles were unpacked and all 452 TextAssets were compared. Only `mail_send_timer.g.bin` and `questionnaire.g.bin` changed. No season, progression, class, skill, Fantomon, companion, equipment, formula, or event gameplay table changed between packages 150 and 153.
 
-The changed presentation bundles mainly contain `linkage08` appearance atlases, Slime-themed blind-box/emoji art, NPC presentation assets, the Pet item-icon atlas, and `map_10`. These are presentation updates backed by unchanged gameplay tables; they do not add a Season 8 ruleset.
+The presentation changes include the Christmas activity prefab, Slime activity prefab, Chinese Odyssey UI assets, Season 4 Russian logo, and battle-royale fight panel. Nine localized Christmas appearance bundles were added.
 
-## Season availability
+## Calendar impact
 
-The live `astrological_season_config.g` table contains **seven rows**:
+The November 24 client update notice confirms:
 
-- Seasons 1–6 are unchanged.
-- Season 7 is present as `Godtouched2`, with a Lv280 scoring baseline, 200 fixed Primostars, 3 progression points per Primostar, and scoring weights of Character 100, Gear 20, Relics 35, Skills 6, and Fantomons 12.
-- There is **no Season 8 row**. No Season 8 baseline, Primostar conversion, fixed award, scoring weights, EXP curve, upgrade curve, Realm yield, event schedule, class tier, skill pool, or other Season 8-specific gameplay configuration is available in the current Global client.
+- **Sword x Staff × That Time I Got Reincarnated as a Slime** opens December 1.
+- **Chic Chores** returns December 7.
+- **Academy Fantasia** opens December 12.
+- **Starfrost Fete** opens December 18.
+- **Asuran Wraith** returns December 21.
 
-Season 8 values must not be inferred from the rank enum or extrapolated from Season 7. `Godtouched3` exists as a generic rank enum/reference in some shared systems, but it is not an active Season 8 configuration.
+The Slime collaboration and three Visage packs were already represented in the calendar. The Slime title was updated to the official English name and the missing Starfrost Fete date was added.
 
 ## Tool impact
 
-| Tool | Package 137 action |
+| Tool | Package 153 action |
 | --- | --- |
-| Season Planner | No Season 8 data to add; existing S1–6 production values remain unchanged |
-| Server Calendar | No Season 8 schedule or server-relative milestones present |
-| Loadout Builder | No Season 8 class, skill, equipment, formula, or Fantomon table change |
+| Season Planner | No progression, scoring, upgrade, EXP, or Realm-yield table change |
+| Server Calendar | Confirmed Slime event name/date and added Starfrost Fete on December 18 |
+| Loadout Builder | No class, skill, equipment, formula, or Fantomon gameplay change |
 | Skills Conversion | No class-change pool change |
-| Skills Overview | No technique, Charm, rank, curve, or description change |
-| Fantomons | Pet icon atlas rebuilt, but roster/forms/skills/grades/stats are unchanged |
+| Skills Overview | No numeric skill/Charm curve change |
+| Fantomons | No roster, form, skill, grade, or stat change |
 | Stellaris | No milestone, reward-bundle, or pricing change |
-| Wardrobe Viewer | New presentation atlases exist, but the appearance/acquisition tables are unchanged |
-| Companions | Some NPC presentation bundles changed; roster, bonuses, friendship data, and profiles are unchanged |
-| World Map | `map_10` presentation bundle changed; region/unlock/loot/wheel configuration is unchanged |
+| Wardrobe Viewer | Christmas appearance presentation assets added; gameplay/acquisition tables unchanged in this adjacent release |
+| Companions | No roster, bonus, friendship, or profile change |
+| World Map | No region, unlock, loot, or wheel configuration change |
 | Community Tier List | No class roster or tier change |
 
-No user-facing values were changed or guessed merely to label the tools as Season 8-ready. The next live manifests should be compared against `137_156823`; Season 8 support can be added once an eighth season row and its dependent progression tables actually ship.
+This audit records only data that is present in the current client; no future gameplay values were inferred from presentation assets.

@@ -25,6 +25,8 @@ HEADER = (
     "// Server names/opening dates sourced from the linked community roster.\n"
     "// Columns: name, previous derived date (migration only), public opening / Calendar Day 1, Nexus, number, Season 1 joins, Season 2 joins, Season 3 joins, Season 4+ joins.\n"
 )
+MIN_VALID_ROWS = 300
+MIN_VALID_NEXUSES = 25
 
 
 def read_existing(path: Path) -> list[list[object]]:
@@ -129,8 +131,14 @@ def parse_source(text: str) -> list[list[object]]:
             ]
         )
 
-    if len(rows) < 600:
-        raise ValueError(f"Roster source returned only {len(rows)} valid rows; refusing to update")
+    nexus_count = len({str(row[3]) for row in rows})
+    if len(rows) < MIN_VALID_ROWS or nexus_count < MIN_VALID_NEXUSES:
+        raise ValueError(
+            "Roster source looks incomplete: "
+            f"{len(rows)} valid rows across {nexus_count} Nexuses; "
+            f"expected at least {MIN_VALID_ROWS} rows across "
+            f"{MIN_VALID_NEXUSES} Nexuses"
+        )
     return rows
 
 
